@@ -20,7 +20,6 @@
 		C5941BDF1DBBFD940057A46A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5941BDE1DBBFD940057A46A /* Assets.xcassets */; };
 		C5941BE21DBBFD940057A46A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5941BE01DBBFD940057A46A /* LaunchScreen.storyboard */; };
 		C5941BEA1DBBFEA40057A46A /* IntroPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5941BE91DBBFEA40057A46A /* IntroPageViewController.swift */; };
-		C5941BF51DBC0F900057A46A /* Intro-Video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C5941BF41DBC0F900057A46A /* Intro-Video.mp4 */; };
 		C5991A3E1DD9738200A86F04 /* WaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5991A3D1DD9738200A86F04 /* WaterfallLayout.swift */; };
 		C5AEC3EE1DCE5CB200992AEB /* texture sources.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C5AEC3ED1DCE5CB200992AEB /* texture sources.rtf */; };
 		C5AEC3F11DCE778800992AEB /* GeneralAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AEC3F01DCE778800992AEB /* GeneralAboutViewController.swift */; };
@@ -36,6 +35,7 @@
 		C5C281C01DDB94B60036C7A0 /* MediaViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5C281BF1DDB94B60036C7A0 /* MediaViewCell.xib */; };
 		C5CD59C01DD91E4F00ACB8EA /* GlobeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CD59BF1DD91E4F00ACB8EA /* GlobeViewController.swift */; };
 		C5CD59C31DD91F8600ACB8EA /* background.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C5CD59C21DD91F8600ACB8EA /* background.mp4 */; };
+		C5D515B81DE106400024638D /* InfoModalVewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D515B71DE106400024638D /* InfoModalVewController.swift */; };
 		C5F8AA651DCA70330077F137 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F8AA641DCA70330077F137 /* AboutViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,7 +55,6 @@
 		C5941BE11DBBFD940057A46A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C5941BE31DBBFD940057A46A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5941BE91DBBFEA40057A46A /* IntroPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroPageViewController.swift; sourceTree = "<group>"; };
-		C5941BF41DBC0F900057A46A /* Intro-Video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Intro-Video.mp4"; sourceTree = "<group>"; };
 		C5991A3D1DD9738200A86F04 /* WaterfallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterfallLayout.swift; sourceTree = "<group>"; };
 		C5AEC3ED1DCE5CB200992AEB /* texture sources.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "texture sources.rtf"; sourceTree = "<group>"; };
 		C5AEC3F01DCE778800992AEB /* GeneralAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralAboutViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +70,7 @@
 		C5C281BF1DDB94B60036C7A0 /* MediaViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaViewCell.xib; sourceTree = "<group>"; };
 		C5CD59BF1DD91E4F00ACB8EA /* GlobeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobeViewController.swift; sourceTree = "<group>"; };
 		C5CD59C21DD91F8600ACB8EA /* background.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = background.mp4; sourceTree = "<group>"; };
+		C5D515B71DE106400024638D /* InfoModalVewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoModalVewController.swift; sourceTree = "<group>"; };
 		C5F8AA641DCA70330077F137 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,7 +119,6 @@
 				C52458361DC578BA009F3374 /* model */,
 				C5941BE31DBBFD940057A46A /* Info.plist */,
 				C5CD59C21DD91F8600ACB8EA /* background.mp4 */,
-				C5941BF41DBC0F900057A46A /* Intro-Video.mp4 */,
 				C55D35561DCFDC2000133292 /* untitled.dae */,
 				C55D355A1DCFEB6E00133292 /* phobos.obj */,
 				C5941BE01DBBFD940057A46A /* LaunchScreen.storyboard */,
@@ -130,6 +129,7 @@
 				C58DEB8E1DC6B50400E6C1F3 /* PlanetCell.swift */,
 				C5AEC3FC1DCE7D0400992AEB /* MoonCell.swift */,
 				C5941BE91DBBFEA40057A46A /* IntroPageViewController.swift */,
+				C5D515B71DE106400024638D /* InfoModalVewController.swift */,
 				C5C24C7E1DC685F50028FAF5 /* PlanetListViewController.swift */,
 				C515AE601DC8E135009A498C /* TestViewController.swift */,
 				C515AE621DC91126009A498C /* DetailViewController.swift */,
@@ -187,6 +187,7 @@
 				TargetAttributes = {
 					C5941BCF1DBBFD940057A46A = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = ST77J7SW46;
 						LastSwiftMigration = 0810;
 					};
 				};
@@ -216,7 +217,6 @@
 			files = (
 				C5941BE21DBBFD940057A46A /* LaunchScreen.storyboard in Resources */,
 				C5AEC3EE1DCE5CB200992AEB /* texture sources.rtf in Resources */,
-				C5941BF51DBC0F900057A46A /* Intro-Video.mp4 in Resources */,
 				C5941BDF1DBBFD940057A46A /* Assets.xcassets in Resources */,
 				C55D355B1DCFEB6E00133292 /* phobos.obj in Resources */,
 				C5CD59C31DD91F8600ACB8EA /* background.mp4 in Resources */,
@@ -237,6 +237,7 @@
 				C5941BEA1DBBFEA40057A46A /* IntroPageViewController.swift in Sources */,
 				C5AEC3F11DCE778800992AEB /* GeneralAboutViewController.swift in Sources */,
 				C5AEC3F91DCE77FA00992AEB /* MediaAboutViewController.swift in Sources */,
+				C5D515B81DE106400024638D /* InfoModalVewController.swift in Sources */,
 				C5AEC3FD1DCE7D0400992AEB /* MoonCell.swift in Sources */,
 				C5F8AA651DCA70330077F137 /* AboutViewController.swift in Sources */,
 				C5AEC3F51DCE77D500992AEB /* DetailsAboutViewController.swift in Sources */,
@@ -299,6 +300,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: brandonsesipod@gmail.com (37Y7RQX674)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -318,7 +320,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -347,6 +349,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: brandonsesipod@gmail.com (37Y7RQX674)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -360,7 +363,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -373,7 +376,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ST77J7SW46;
 				INFOPLIST_FILE = "Occupy Mars/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "bslaght.Occupy-Mars";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -385,7 +390,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ST77J7SW46;
 				INFOPLIST_FILE = "Occupy Mars/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "bslaght.Occupy-Mars";
 				PRODUCT_NAME = "$(TARGET_NAME)";

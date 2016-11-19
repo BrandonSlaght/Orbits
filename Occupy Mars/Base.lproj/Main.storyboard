@@ -314,7 +314,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tes-RW-oom">
                                 <rect key="frame" x="180" y="91" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -347,11 +347,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1J-Ti-1Z4">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1J-Ti-1Z4">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mYK-s6-dM8">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1249"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mYK-s6-dM8">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1249"/>
                                         <subviews>
                                             <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" sceneName="PlanetScene" autoenablesDefaultLighting="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xfy-D2-hHD" userLabel="Scene View">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
@@ -372,8 +372,8 @@
                                                     <action selector="indexChanged:" destination="iFP-Sf-DDu" eventType="valueChanged" id="bki-rF-Vu0"/>
                                                 </connections>
                                             </segmentedControl>
-                                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HkC-Hv-ytq">
-                                                <rect key="frame" x="20" y="439" width="560" height="800"/>
+                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HkC-Hv-ytq">
+                                                <rect key="frame" x="20" y="439" width="374" height="800"/>
                                             </containerView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lo2-WD-AdA">
                                                 <rect key="frame" x="316" y="370" width="78" height="30"/>
@@ -387,6 +387,7 @@
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="lo2-WD-AdA" secondAttribute="trailing" constant="20" id="0qx-Sa-Qbe"/>
                                             <constraint firstItem="xfy-D2-hHD" firstAttribute="top" secondItem="mYK-s6-dM8" secondAttribute="top" id="4Vt-iq-mAA"/>
+                                            <constraint firstAttribute="height" constant="1249" id="8YY-hn-w01"/>
                                             <constraint firstItem="8AT-4a-iW4" firstAttribute="top" secondItem="xfy-D2-hHD" secondAttribute="bottom" constant="10" id="HbI-sH-CKC"/>
                                             <constraint firstItem="8AT-4a-iW4" firstAttribute="leading" secondItem="mYK-s6-dM8" secondAttribute="leading" constant="20" id="HdA-1j-3an"/>
                                             <constraint firstItem="HkC-Hv-ytq" firstAttribute="leading" secondItem="mYK-s6-dM8" secondAttribute="leading" constant="20" id="LUp-8I-gWM"/>

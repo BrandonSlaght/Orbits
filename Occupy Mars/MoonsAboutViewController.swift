@@ -34,7 +34,7 @@ class MoonsAboutViewController: AboutTableViewController {
         let objects = planet.moons
         print (objects[indexPath.row].name)
         cell.name?.text = objects[indexPath.row].name
-        print (cell.name.text)
+        print (cell.name.text!)
         cell.sceneView.scene = objects[indexPath.row].getScene(Size.small)
         return cell
     }

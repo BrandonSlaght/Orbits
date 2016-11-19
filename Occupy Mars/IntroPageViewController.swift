@@ -20,6 +20,7 @@ func getViewControllers() -> [UIViewController] {
 class IntroPageViewController: UIPageViewController {
     
     var player: AVPlayer?
+    var time = kCMTimeZero
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,10 +44,32 @@ class IntroPageViewController: UIPageViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(IntroPageViewController.playerItemDidReachEnd), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player!.currentItem)
         player!.seek(to: kCMTimeZero)
         player!.play()
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(IntroPageViewController.applicationDidBecomeActive),
+            name: NSNotification.Name.UIApplicationDidBecomeActive,
+            object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(IntroPageViewController.applicationWillResignActive),
+            name: NSNotification.Name.UIApplicationWillResignActive,
+            object: nil)
+        
     }
     
     func playerItemDidReachEnd() {
         player!.seek(to: kCMTimeZero)
+    }
+    
+    func applicationDidBecomeActive() {
+        player!.seek(to: time, toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero)
+        player?.play()
+    }
+    
+    func applicationWillResignActive() {
+        player?.pause()
+        time = (player?.currentTime())!
     }
 }
 
