@@ -65,7 +65,9 @@ class DetailViewController: UIViewController {
         
         tabs.removeAllSegments()
         
-        tabs.insertSegment(withTitle: "Media", at: 0, animated: true)
+        if planet.images.count > 0 || planet.videos.count > 0 {
+            tabs.insertSegment(withTitle: "Media", at: 0, animated: true)
+        }
         
         if planet.rings.count > 0 {
             tabs.insertSegment(withTitle: "Rings", at: 0, animated: true)
