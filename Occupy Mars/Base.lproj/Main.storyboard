@@ -744,7 +744,7 @@
         <!--Details About View Controller-->
         <scene sceneID="V1D-aX-03b">
             <objects>
-                <viewController storyboardIdentifier="test1" id="pD2-14-LM2" customClass="DetailsAboutViewController" customModule="Occupy_Mars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailsView" id="pD2-14-LM2" customClass="DetailsAboutViewController" customModule="Occupy_Mars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="B8r-wJ-4fC"/>
                         <viewControllerLayoutGuide type="bottom" id="OfU-gx-2w2"/>
@@ -760,25 +760,25 @@
                                     <constraint firstAttribute="height" id="xBJ-95-Juq"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="detailCell" textLabel="CmL-wt-19R" detailTextLabel="3L6-rC-aoV" rowHeight="30" style="IBUITableViewCellStyleValue1" id="Kvk-Da-RVS">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="geologyCell" textLabel="CuP-zx-JQE" detailTextLabel="roT-R6-afP" rowHeight="30" style="IBUITableViewCellStyleSubtitle" id="Kvk-Da-RVS">
                                         <rect key="frame" x="0.0" y="28" width="414" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kvk-Da-RVS" id="REa-1g-adp">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="29.666666666666668"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CmL-wt-19R">
-                                                    <rect key="frame" x="15" y="5" width="33" height="20"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CuP-zx-JQE">
+                                                    <rect key="frame" x="15" y="-2" width="33" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3L6-rC-aoV">
-                                                    <rect key="frame" x="355" y="5" width="44" height="20"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="roT-R6-afP">
+                                                    <rect key="frame" x="15" y="18" width="44" height="15"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -789,18 +789,34 @@
                                 </prototypes>
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="30" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7hC-dd-FVY">
-                                <rect key="frame" x="0.0" y="34" width="414" height="128"/>
+                                <rect key="frame" x="0.0" y="40" width="414" height="0.0"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="NdU-Qa-2LV"/>
+                                    <constraint firstAttribute="height" id="NdU-Qa-2LV"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="detailCell" rowHeight="30" id="7le-PE-lZw">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orbitCell" textLabel="zd6-h8-uMr" detailTextLabel="0Zq-Wv-xZk" rowHeight="30" style="IBUITableViewCellStyleSubtitle" id="7le-PE-lZw">
                                         <rect key="frame" x="0.0" y="28" width="414" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7le-PE-lZw" id="xbJ-9U-NBJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="29.666666666666668"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zd6-h8-uMr">
+                                                    <rect key="frame" x="15" y="-2" width="33" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0Zq-Wv-xZk">
+                                                    <rect key="frame" x="15" y="18" width="44" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -815,7 +831,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="hgi-kM-j2A" firstAttribute="leading" secondItem="Hm6-sq-Yfm" secondAttribute="leading" id="2Xp-y5-1b4"/>
-                            <constraint firstItem="7hC-dd-FVY" firstAttribute="top" secondItem="hgi-kM-j2A" secondAttribute="bottom" id="3V7-Cx-tOB"/>
+                            <constraint firstItem="7hC-dd-FVY" firstAttribute="top" secondItem="hgi-kM-j2A" secondAttribute="bottom" constant="6" id="3V7-Cx-tOB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="OV6-X1-yqP" secondAttribute="trailing" id="60q-gm-gHP"/>
                             <constraint firstAttribute="trailing" secondItem="7hC-dd-FVY" secondAttribute="trailing" id="Ezf-DQ-huQ"/>
                             <constraint firstItem="hgi-kM-j2A" firstAttribute="top" secondItem="OV6-X1-yqP" secondAttribute="bottom" constant="5" id="Kn0-9j-bOD"/>
@@ -828,6 +844,7 @@
                     <connections>
                         <outlet property="geologyHeight" destination="xBJ-95-Juq" id="eGg-S6-d40"/>
                         <outlet property="geologyTable" destination="hgi-kM-j2A" id="8pp-vu-KLS"/>
+                        <outlet property="orbitHeight" destination="NdU-Qa-2LV" id="Bof-Dv-aud"/>
                         <outlet property="orbitTable" destination="7hC-dd-FVY" id="rp2-I5-TRQ"/>
                     </connections>
                 </viewController>

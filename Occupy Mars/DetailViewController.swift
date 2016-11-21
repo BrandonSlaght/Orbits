@@ -113,6 +113,11 @@ class DetailViewController: UIViewController {
             temp_vc = self.storyboard?.instantiateViewController(withIdentifier: "generalView") as! GeneralAboutViewController?
             temp_vc!.planet = planet
             vc = temp_vc!
+        case "Details":
+            var temp_vc: DetailsAboutViewController?
+            temp_vc = self.storyboard?.instantiateViewController(withIdentifier: "detailsView") as! DetailsAboutViewController?
+            temp_vc!.planet = planet
+            vc = temp_vc!
         case "Moons":
             var temp_vc: MoonsAboutViewController?
             temp_vc = self.storyboard?.instantiateViewController(withIdentifier: "moonsView") as! MoonsAboutViewController?

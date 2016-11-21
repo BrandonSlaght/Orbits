@@ -28,14 +28,14 @@ class Planet {
     
     //--------------------------------------------geology - notes: use equatorial radius and mean density and surface gravity / acceleration
     
-//    var mass: Int,
-//        volume: Int,
-//        equatorial: Double,
-//        density: Double,
-//        gravity: Double,
-//        escape_velocity: Double,
-//        irradiance: Double,
-//        geographic_height_variance: Int
+    var mass: Int?,
+        volume: Int?,
+        equatorial: Double?,
+        density: Double?,
+        gravity: Double?,
+        escape_velocity: Double?,
+        irradiance: Double?,
+        geographic_height_variance: Int?
     
     //--------------------------------------------orbit - notes: use tropical orbit, mean orbital velocity, and obliquidy from orbit for equator inclination
     
@@ -95,6 +95,24 @@ class Planet {
         self.description = description
         self.wiki = wiki
         self.nasa = nasa
+    }
+    
+    func geology(mass: Int?,
+                 volume: Int?,
+                 equatorial: Double?,
+                 density: Double?,
+                 gravity: Double?,
+                 escape_velocity: Double?,
+                 irradiance: Double?,
+                 geographic_height_variance: Int?) {
+        self.mass = mass
+        self.volume = volume
+        self.equatorial = equatorial
+        self.density = density
+        self.gravity = gravity
+        self.escape_velocity = escape_velocity
+        self.irradiance = irradiance
+        self.geographic_height_variance = geographic_height_variance
     }
     
     func orbitals(_ year_length: Double?,
@@ -208,6 +226,37 @@ class Planet {
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return newImage!
+    }
+    
+    func generateGeologyObjects() -> [(String, String)] {
+        var ret = [(String, String)]()
+        
+        if mass != nil{
+            ret.append(("Mass","kg"))
+        }
+        if volume != nil{
+            ret.append(("Volume", String(describing: volume)+"km^3"))
+        }
+        if equatorial != nil{
+            ret.append(("Radius", String(describing: equatorial)+"km"))
+        }
+        if density != nil{
+            ret.append(("Density", String(describing: density)))
+        }
+        if gravity != nil{
+            ret.append(("Gravity", String(describing: gravity)+"m/s^2"))
+        }
+        if escape_velocity != nil{
+            ret.append(("Escape Velocity", String(describing: escape_velocity)+"m/s"))
+        }
+        if irradiance != nil{
+            ret.append(("Irradiance", String(describing: irradiance)+"lumens"))
+        }
+        if geographic_height_variance != nil{
+            ret.append(("Geographic Height Variance", String(describing: geographic_height_variance)+"km"))
+        }
+        
+        return ret
     }
 }
 
