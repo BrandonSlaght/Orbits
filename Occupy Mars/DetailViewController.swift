@@ -20,22 +20,22 @@ class DetailViewController: UIViewController {
     @IBAction func indexChanged(_ sender: UISegmentedControl)
     {
         if let vc = getDetailViewController(sender.selectedSegmentIndex) {
-            var height = vc.view.bounds.height
-            print(height)
+            //var height = vc.view.bounds.height
+            //print(height)
             self.addChildViewController(vc)
             self.transition(from: self.currentViewController!, to: vc, duration: 0.5, options: UIViewAnimationOptions.transitionCrossDissolve, animations: {
                 self.currentViewController!.view.removeFromSuperview()
-                //vc.view.frame = self.content.bounds
+                vc.view.frame = self.content.bounds
                 self.content.addSubview(vc.view)
                 }, completion: { finished in
-                    vc.didMove(toParentViewController: self)
-                    vc.view.layoutSubviews()
-                    vc.view.layoutIfNeeded()
-                    height = vc.view.bounds.height
-                    self.contentHeight.constant = height
+                    //vc.didMove(toParentViewController: self)
+                    //vc.view.layoutSubviews()
+                    //vc.view.layoutIfNeeded()
+                    //height = vc.view.bounds.height
+                    //self.contentHeight.constant = height
                     self.currentViewController!.removeFromParentViewController()
                     self.currentViewController = vc
-                    print(height)
+                    //print(height)
                 }
             )        
         }
@@ -90,6 +90,7 @@ class DetailViewController: UIViewController {
         tabs.selectedSegmentIndex = 0
         
         if let vc = self.getDetailViewController(tabs.selectedSegmentIndex) {
+            vc.view.frame = self.content.bounds
             self.addChildViewController(vc)
             self.content.addSubview(vc.view)
             self.currentViewController = vc

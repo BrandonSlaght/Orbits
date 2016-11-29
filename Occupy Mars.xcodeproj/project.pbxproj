@@ -21,8 +21,6 @@
 		C5941BE21DBBFD940057A46A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5941BE01DBBFD940057A46A /* LaunchScreen.storyboard */; };
 		C5941BEA1DBBFEA40057A46A /* IntroPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5941BE91DBBFEA40057A46A /* IntroPageViewController.swift */; };
 		C5991A3E1DD9738200A86F04 /* WaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5991A3D1DD9738200A86F04 /* WaterfallLayout.swift */; };
-		C5A205021DED0E5F0029C66A /* persister.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A205001DED0E5F0029C66A /* persister.swift */; };
-		C5A205031DED0E5F0029C66A /* persisterpersister.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A205011DED0E5F0029C66A /* persisterpersister.swift */; };
 		C5A205051DED164C0029C66A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A205041DED164C0029C66A /* ViewController.swift */; };
 		C5AB79FA1DEC8D310097C295 /* DataViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5AB79F91DEC8D310097C295 /* DataViewCell.xib */; };
 		C5AB79FC1DEC8EA10097C295 /* DataViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AB79FB1DEC8EA10097C295 /* DataViewCellController.swift */; };
@@ -61,8 +59,6 @@
 		C5941BE31DBBFD940057A46A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5941BE91DBBFEA40057A46A /* IntroPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroPageViewController.swift; sourceTree = "<group>"; };
 		C5991A3D1DD9738200A86F04 /* WaterfallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterfallLayout.swift; sourceTree = "<group>"; };
-		C5A205001DED0E5F0029C66A /* persister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = persister.swift; path = ../../assignment9/assignment9/persister.swift; sourceTree = "<group>"; };
-		C5A205011DED0E5F0029C66A /* persisterpersister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = persisterpersister.swift; path = ../../assignment9/assignment9/persisterpersister.swift; sourceTree = "<group>"; };
 		C5A205041DED164C0029C66A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../../assignment9/assignment9/ViewController.swift; sourceTree = "<group>"; };
 		C5AB79F91DEC8D310097C295 /* DataViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataViewCell.xib; sourceTree = "<group>"; };
 		C5AB79FB1DEC8EA10097C295 /* DataViewCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataViewCellController.swift; sourceTree = "<group>"; };
@@ -128,8 +124,6 @@
 			children = (
 				C52458361DC578BA009F3374 /* model */,
 				C5941BE31DBBFD940057A46A /* Info.plist */,
-				C5A205001DED0E5F0029C66A /* persister.swift */,
-				C5A205011DED0E5F0029C66A /* persisterpersister.swift */,
 				C5A205041DED164C0029C66A /* ViewController.swift */,
 				C5CD59C21DD91F8600ACB8EA /* background.mp4 */,
 				C55D35561DCFDC2000133292 /* untitled.dae */,
@@ -141,12 +135,12 @@
 				C5941BDE1DBBFD940057A46A /* Assets.xcassets */,
 				C5941BD31DBBFD940057A46A /* AppDelegate.swift */,
 				C58DEB8E1DC6B50400E6C1F3 /* PlanetCell.swift */,
+				C515AE621DC91126009A498C /* DetailViewController.swift */,
 				C5AEC3FC1DCE7D0400992AEB /* MoonCell.swift */,
 				C5941BE91DBBFEA40057A46A /* IntroPageViewController.swift */,
 				C5D515B71DE106400024638D /* InfoModalVewController.swift */,
 				C5C24C7E1DC685F50028FAF5 /* PlanetListViewController.swift */,
 				C515AE601DC8E135009A498C /* TestViewController.swift */,
-				C515AE621DC91126009A498C /* DetailViewController.swift */,
 				C5F8AA641DCA70330077F137 /* AboutViewController.swift */,
 				C5AEC3FA1DCE7BDE00992AEB /* AboutTableViewController.swift */,
 				C5991A3D1DD9738200A86F04 /* WaterfallLayout.swift */,
@@ -255,7 +249,6 @@
 				C5AEC3F91DCE77FA00992AEB /* MediaAboutViewController.swift in Sources */,
 				C5D515B81DE106400024638D /* InfoModalVewController.swift in Sources */,
 				C5AEC3FD1DCE7D0400992AEB /* MoonCell.swift in Sources */,
-				C5A205031DED0E5F0029C66A /* persisterpersister.swift in Sources */,
 				C5F8AA651DCA70330077F137 /* AboutViewController.swift in Sources */,
 				C5A205051DED164C0029C66A /* ViewController.swift in Sources */,
 				C5AEC3F51DCE77D500992AEB /* DetailsAboutViewController.swift in Sources */,
@@ -270,7 +263,6 @@
 				C5AEC3F31DCE77C500992AEB /* MoonsAboutViewController.swift in Sources */,
 				C5CD59C01DD91E4F00ACB8EA /* GlobeViewController.swift in Sources */,
 				C5AB79FC1DEC8EA10097C295 /* DataViewCellController.swift in Sources */,
-				C5A205021DED0E5F0029C66A /* persister.swift in Sources */,
 				C5C281BB1DDB91420036C7A0 /* MediaHolder.swift in Sources */,
 				C5AEC3F71DCE77E600992AEB /* RingsAboutViewController.swift in Sources */,
 				C58DEB8F1DC6B50400E6C1F3 /* PlanetCell.swift in Sources */,
