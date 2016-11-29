@@ -17,46 +17,22 @@ class DetailsAboutViewController: AboutViewController, UITableViewDataSource, UI
     @IBOutlet weak var orbitHeight: NSLayoutConstraint!
     
     var geology = [(String, String)]()
-    
-//    struct PreviewDetail {
-//        let title: String
-//        let preferredHeight: Double
-//    }
-    
-//    let sampleData = [
-//        PreviewDetail(title: "Small", preferredHeight: 160.0),
-//        PreviewDetail(title: "Medium", preferredHeight: 320.0),
-//        PreviewDetail(title: "Large", preferredHeight: 0.0), // 0.0 to get the default height.
-//        PreviewDetail(title: "One", preferredHeight: 160.0),
-//        PreviewDetail(title: "Two", preferredHeight: 320.0),
-//        PreviewDetail(title: "Three", preferredHeight: 0.0), // 0.0 to get the default height.
-//        PreviewDetail(title: "More", preferredHeight: 0.0) // 0.0 to get the default height.
-//    ]
-//    
-//    let sampleData1 = [
-//        PreviewDetail(title: "One", preferredHeight: 160.0),
-//        PreviewDetail(title: "Two", preferredHeight: 320.0),
-//        PreviewDetail(title: "Three", preferredHeight: 0.0), // 0.0 to get the default height.
-//        PreviewDetail(title: "More", preferredHeight: 0.0) // 0.0 to get the default height.
-//    ]
-//    
+    var orbit = [(String, String)]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(planet.name)
         geology = planet.generateGeologyObjects()
-        // Do any additional setup after loading the view, typically from a nib.
-        let testCell = UITableViewCell(style: .subtitle, reuseIdentifier: "geologyCell")
-        
+        orbit = planet.generateOrbitalObjects()
+
         geologyTable.delegate = self
         geologyTable.dataSource = self
-        geologyTable.register(testCell, forCellReuseIdentifier: "geologyCell")
+        geologyTable.register(UINib(nibName: "DataViewCell", bundle: nil), forCellReuseIdentifier: "geologyCell")
         
         orbitTable.delegate = self
         orbitTable.dataSource = self
-        orbitTable.register(UITableViewCell.self, forCellReuseIdentifier: "orbitCell")
+        orbitTable.register(UINib(nibName: "DataViewCell", bundle: nil), forCellReuseIdentifier: "orbitCell")
         
     }
     
@@ -70,7 +46,7 @@ class DetailsAboutViewController: AboutViewController, UITableViewDataSource, UI
         geologyHeight.constant = geologyTable.contentSize.height
         
         orbitTable.layoutIfNeeded()
-        orbitHeight.constant = geologyTable.contentSize.height
+        orbitHeight.constant = orbitTable.contentSize.height
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -82,34 +58,47 @@ class DetailsAboutViewController: AboutViewController, UITableViewDataSource, UI
         if tableView == self.geologyTable {
             count = geology.count
         } else if tableView == self.orbitTable {
-            count = geology.count
+            count = orbit.count
         }
         return count!
     }
     
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        let subviews = cell.subviews
+//        print("here")
+//        print(tableView.numberOfRows(inSection: 0)-1)
+//        print(indexPath.row)
+//        if indexPath.row == (tableView.numberOfRows(inSection: 0) - 1) && subviews.count >= 3 {
+//            print ("here2")
+//            for subview in subviews {
+//                if subview != cell.contentView {
+//                    subview.removeFromSuperview()
+//                }
+//            }
+//        }
+//    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        var cell = UITableViewCell(style: .subtitle, reuseIdentifier: "geologyCell")
-//        if cell == nil {
-//            cell = UITableViewCell(style: <#T##UITableViewCellStyle#>, reuseIdentifier: <#T##String?#>)
-//        }
+        var cell: DataViewCellViewController
+
         if tableView == self.geologyTable {
-            cell = tableView.dequeueReusableCell(withIdentifier: "geologyCell", for: indexPath as IndexPath)
+            cell = tableView.dequeueReusableCell(withIdentifier: "geologyCell", for: indexPath as IndexPath) as! DataViewCellViewController
             let previewDetail = geology[indexPath.row]
-            cell.textLabel!.text = previewDetail.0
-            cell.detailTextLabel!.text = "sdfuygvlaiufr"
-        } else if tableView == self.orbitTable {
-            cell = tableView.dequeueReusableCell(withIdentifier: "orbitCell", for: indexPath as IndexPath)
-            print("here")
-            let previewDetail = geology[indexPath.row]
-            cell.textLabel!.text = previewDetail.0
+            cell.field!.text = previewDetail.0
+            cell.value!.text = previewDetail.1
+        } else {// if tableView == self.orbitTable {
+            cell = tableView.dequeueReusableCell(withIdentifier: "orbitCell", for: indexPath as IndexPath) as! DataViewCellViewController
+            let previewDetail = orbit[indexPath.row]
+            cell.field!.text = previewDetail.0
+            cell.value!.text = previewDetail.1
         }
         if indexPath.row % 2 == 0 {
             cell.backgroundColor = UIColor.clear
         } else {
             cell.backgroundColor = UIColor(colorLiteralRed: 1, green: 1, blue: 1, alpha: 0.1)
         }
-        cell.textLabel?.textColor = UIColor.white
+        cell.selectionStyle = .none
         return cell
     }
 }

@@ -232,28 +232,65 @@ class Planet {
         var ret = [(String, String)]()
         
         if mass != nil{
-            ret.append(("Mass","kg"))
+            ret.append(("Mass",String(describing: mass!)+" kg"))
         }
         if volume != nil{
-            ret.append(("Volume", String(describing: volume)+"km^3"))
-        }
-        if equatorial != nil{
-            ret.append(("Radius", String(describing: equatorial)+"km"))
+            ret.append(("Volume", String(describing: volume!)+" km³"))
         }
         if density != nil{
-            ret.append(("Density", String(describing: density)))
+            ret.append(("Density", String(describing: density!)))
+        }
+        if equatorial != nil{
+            ret.append(("Radius", String(describing: equatorial!)+" km"))
         }
         if gravity != nil{
-            ret.append(("Gravity", String(describing: gravity)+"m/s^2"))
+            ret.append(("Gravity", String(describing: gravity!)+" m/s²"))
         }
         if escape_velocity != nil{
-            ret.append(("Escape Velocity", String(describing: escape_velocity)+"m/s"))
+            ret.append(("Escape Velocity", String(describing: escape_velocity!)+" m/s"))
         }
         if irradiance != nil{
-            ret.append(("Irradiance", String(describing: irradiance)+"lumens"))
+            ret.append(("Irradiance", String(describing: irradiance!)+" lumens"))
         }
         if geographic_height_variance != nil{
-            ret.append(("Geographic Height Variance", String(describing: geographic_height_variance)+"km"))
+            ret.append(("Height Variance", String(describing: geographic_height_variance!)+" km"))
+        }
+        
+        return ret
+    }
+    
+    func generateOrbitalObjects() -> [(String, String)] {
+        var ret = [(String, String)]()
+        
+        if year_length != nil{
+            ret.append(("Year Length",String(describing: year_length!)+" days"))
+        }
+        if day_length != nil{
+            ret.append(("Day Length", String(describing: day_length!)+" hours"))
+        }
+        if velocity != nil{
+            ret.append(("Average Velocity", String(describing: velocity!)+" km/h"))
+        }
+        if perihelion != nil{
+            ret.append(("Perihilion", String(describing: perihelion!)+" km"))
+        }
+        if aphelion != nil{
+            ret.append(("Aphelion", String(describing: aphelion!)+" km"))
+        }
+        if inclination != nil{
+            ret.append(("Orbital Tilt", String(describing: inclination!)+" degrees"))
+        }
+        if eccentricity != nil{
+            ret.append(("Eccentricity", String(describing: eccentricity!)+" km"))
+        }
+        if equator_inclination != nil{
+            ret.append(("Equator Tilt", String(describing: equator_inclination!)+" degrees"))
+        }
+        if min_distance_from_earth != nil{
+            ret.append(("Nearest to Earth", String(describing: min_distance_from_earth!)+" km"))
+        }
+        if max_distance_from_earth != nil{
+            ret.append(("Farthest from Earth", String(describing: max_distance_from_earth!)+" km"))
         }
         
         return ret

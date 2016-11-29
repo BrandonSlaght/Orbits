@@ -23,6 +23,7 @@ class Objects {
         Mars.display("marsmap.jpg", model: nil, normalmap: "test_normal_map.jpg")
         Mars.about("Mars is a cold desert world. It is half the diameter of Earth and has the same amount of dry land. Like Earth, Mars has seasons, polar ice caps, volcanoes, canyons and weather, but its atmosphere is too thin for liquid water to exist for long on the surface. There are signs of ancient floods on Mars, but evidence for water now exists mainly in icy soil and thin clouds.", wiki: "https://en.m.wikipedia.org/wiki/Mars", nasa: "http://solarsystem.nasa.gov/planets/mars")
         Mars.geology(mass: 10, volume: 10, equatorial: 10, density: 10, gravity: 10, escape_velocity: 11, irradiance: 12903, geographic_height_variance: 123)
+        Mars.orbitals(400, perihelion: 100, aphelion: 120, velocity: 400, inclination: 3, eccentricity: 4, day_length: 26, equator_inclination: 2, min_distance_from_earth: 100, max_distance_from_earth: 600)
         Mars.images(["mars - olympus mons.jpg", "mars - landscape.jpg", "mars - pole.jpg", "mars - frosted dunes.jpg", "mars - valles marineris.png", "mars - curiosity selfie.jpg"])
         let Phobos = Moon(name: "Phobos", position: 1)
         Phobos.display("phobosmap.jpg", model: "phobos.obj", normalmap: "phobosnormals.jpg")

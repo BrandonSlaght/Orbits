@@ -21,6 +21,8 @@
 		C5941BE21DBBFD940057A46A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5941BE01DBBFD940057A46A /* LaunchScreen.storyboard */; };
 		C5941BEA1DBBFEA40057A46A /* IntroPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5941BE91DBBFEA40057A46A /* IntroPageViewController.swift */; };
 		C5991A3E1DD9738200A86F04 /* WaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5991A3D1DD9738200A86F04 /* WaterfallLayout.swift */; };
+		C5AB79FA1DEC8D310097C295 /* DataViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5AB79F91DEC8D310097C295 /* DataViewCell.xib */; };
+		C5AB79FC1DEC8EA10097C295 /* DataViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AB79FB1DEC8EA10097C295 /* DataViewCellController.swift */; };
 		C5AEC3EE1DCE5CB200992AEB /* texture sources.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C5AEC3ED1DCE5CB200992AEB /* texture sources.rtf */; };
 		C5AEC3F11DCE778800992AEB /* GeneralAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AEC3F01DCE778800992AEB /* GeneralAboutViewController.swift */; };
 		C5AEC3F31DCE77C500992AEB /* MoonsAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AEC3F21DCE77C500992AEB /* MoonsAboutViewController.swift */; };
@@ -56,6 +58,8 @@
 		C5941BE31DBBFD940057A46A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5941BE91DBBFEA40057A46A /* IntroPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroPageViewController.swift; sourceTree = "<group>"; };
 		C5991A3D1DD9738200A86F04 /* WaterfallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterfallLayout.swift; sourceTree = "<group>"; };
+		C5AB79F91DEC8D310097C295 /* DataViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataViewCell.xib; sourceTree = "<group>"; };
+		C5AB79FB1DEC8EA10097C295 /* DataViewCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataViewCellController.swift; sourceTree = "<group>"; };
 		C5AEC3ED1DCE5CB200992AEB /* texture sources.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "texture sources.rtf"; sourceTree = "<group>"; };
 		C5AEC3F01DCE778800992AEB /* GeneralAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralAboutViewController.swift; sourceTree = "<group>"; };
 		C5AEC3F21DCE77C500992AEB /* MoonsAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonsAboutViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 				C5941BE01DBBFD940057A46A /* LaunchScreen.storyboard */,
 				C5941BDB1DBBFD940057A46A /* Main.storyboard */,
 				C5C281BF1DDB94B60036C7A0 /* MediaViewCell.xib */,
+				C5AB79F91DEC8D310097C295 /* DataViewCell.xib */,
 				C5941BDE1DBBFD940057A46A /* Assets.xcassets */,
 				C5941BD31DBBFD940057A46A /* AppDelegate.swift */,
 				C58DEB8E1DC6B50400E6C1F3 /* PlanetCell.swift */,
@@ -151,6 +156,7 @@
 				C5AEC3F61DCE77E600992AEB /* RingsAboutViewController.swift */,
 				C5AEC3F81DCE77FA00992AEB /* MediaAboutViewController.swift */,
 				C5C281BA1DDB91420036C7A0 /* MediaHolder.swift */,
+				C5AB79FB1DEC8EA10097C295 /* DataViewCellController.swift */,
 			);
 			name = details;
 			sourceTree = "<group>";
@@ -219,6 +225,7 @@
 				C5AEC3EE1DCE5CB200992AEB /* texture sources.rtf in Resources */,
 				C5941BDF1DBBFD940057A46A /* Assets.xcassets in Resources */,
 				C55D355B1DCFEB6E00133292 /* phobos.obj in Resources */,
+				C5AB79FA1DEC8D310097C295 /* DataViewCell.xib in Resources */,
 				C5CD59C31DD91F8600ACB8EA /* background.mp4 in Resources */,
 				C5C281C01DDB94B60036C7A0 /* MediaViewCell.xib in Resources */,
 				C5941BDD1DBBFD940057A46A /* Main.storyboard in Resources */,
@@ -251,6 +258,7 @@
 				C515AE631DC91126009A498C /* DetailViewController.swift in Sources */,
 				C5AEC3F31DCE77C500992AEB /* MoonsAboutViewController.swift in Sources */,
 				C5CD59C01DD91E4F00ACB8EA /* GlobeViewController.swift in Sources */,
+				C5AB79FC1DEC8EA10097C295 /* DataViewCellController.swift in Sources */,
 				C5C281BB1DDB91420036C7A0 /* MediaHolder.swift in Sources */,
 				C5AEC3F71DCE77E600992AEB /* RingsAboutViewController.swift in Sources */,
 				C58DEB8F1DC6B50400E6C1F3 /* PlanetCell.swift in Sources */,

@@ -16,6 +16,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var content: UIView!
     @IBOutlet weak var tabs: UISegmentedControl!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var contentHeight: NSLayoutConstraint!
     @IBAction func indexChanged(_ sender: UISegmentedControl)
     {
         if let vc = getDetailViewController(sender.selectedSegmentIndex) {
@@ -28,6 +29,7 @@ class DetailViewController: UIViewController {
                     vc.didMove(toParentViewController: self)
                     self.currentViewController!.removeFromParentViewController()
                     self.currentViewController = vc
+                    self.contentHeight.constant = (self.currentViewController?.view.frame.height)!
                 }
             )        
         }
