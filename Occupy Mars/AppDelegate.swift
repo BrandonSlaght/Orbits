@@ -12,8 +12,9 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
+    var thingee: Thingee!
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         UIApplication.shared.statusBarStyle = .lightContent
@@ -28,6 +29,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.makeKeyAndVisible()
             //self.presentViewController(NewViewController, animated: true, completion: nil)
         }
+        
+        // Override point for customization after application launch.
+        thingee = ThingeePerister.getThingee()
+        let myViewController = window!.rootViewController as! RequirementsViewController
+        myViewController.thingee = thingee
         return true
     }
 
