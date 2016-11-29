@@ -440,7 +440,7 @@
                                             <constraint firstItem="8AT-4a-iW4" firstAttribute="leading" secondItem="mYK-s6-dM8" secondAttribute="leading" constant="20" id="HdA-1j-3an"/>
                                             <constraint firstItem="HkC-Hv-ytq" firstAttribute="leading" secondItem="mYK-s6-dM8" secondAttribute="leading" constant="20" id="LUp-8I-gWM"/>
                                             <constraint firstItem="HkC-Hv-ytq" firstAttribute="top" secondItem="8AT-4a-iW4" secondAttribute="bottom" constant="1" id="N4t-cg-IMP"/>
-                                            <constraint firstAttribute="bottom" secondItem="HkC-Hv-ytq" secondAttribute="bottom" constant="10" id="XCT-Ir-Lpj"/>
+                                            <constraint firstAttribute="bottom" secondItem="HkC-Hv-ytq" secondAttribute="bottom" priority="999" constant="10" id="XCT-Ir-Lpj"/>
                                             <constraint firstItem="xfy-D2-hHD" firstAttribute="leading" secondItem="mYK-s6-dM8" secondAttribute="leading" id="cFi-o4-M3u"/>
                                             <constraint firstAttribute="trailing" secondItem="HkC-Hv-ytq" secondAttribute="trailing" constant="20" id="dTM-bg-D2D"/>
                                             <constraint firstItem="xfy-D2-hHD" firstAttribute="bottom" secondItem="8AT-4a-iW4" secondAttribute="top" constant="-10" id="ek8-6v-eia"/>
