@@ -121,7 +121,7 @@
         <!--Visibility Times-->
         <scene sceneID="DKg-go-v4U">
             <objects>
-                <viewController id="ctq-4f-KAz" customClass="TestViewController" customModule="Occupy_Mars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ctq-4f-KAz" customClass="ViewController" customModule="Occupy_Mars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Muc-va-QWJ"/>
                         <viewControllerLayoutGuide type="bottom" id="5uW-Ts-ezJ"/>
@@ -130,34 +130,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HBv-jv-FWB">
-                                <rect key="frame" x="0.0" y="346" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HBv-jv-FWB">
+                                <rect key="frame" x="0.0" y="643" width="414" height="44"/>
                                 <items>
-                                    <barButtonItem title="Take Photo" id="7V7-aq-ihg"/>
-                                    <barButtonItem title="Pick Photo" id="xYd-H0-OyI"/>
-                                    <barButtonItem title="Aspect Fill" id="jOB-TY-NUR"/>
-                                    <barButtonItem title="Scale to Fill" id="eaX-Yw-Ros"/>
+                                    <barButtonItem title="Take Photo" id="7V7-aq-ihg">
+                                        <connections>
+                                            <action selector="takePhoto:" destination="ctq-4f-KAz" id="kqe-DD-dg3"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Pick Photo" id="xYd-H0-OyI">
+                                        <connections>
+                                            <action selector="pickPhoto:" destination="ctq-4f-KAz" id="4CI-BU-zd6"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Aspect Fill" id="jOB-TY-NUR">
+                                        <connections>
+                                            <action selector="aspectFill:" destination="ctq-4f-KAz" id="4sQ-As-gZ4"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Scale to Fill" id="eaX-Yw-Ros">
+                                        <connections>
+                                            <action selector="scaleToFill:" destination="ctq-4f-KAz" id="DFF-FA-hE7"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zcr-9j-eKe">
-                                <rect key="frame" x="0.0" y="22" width="414" height="692"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Caption" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="06g-OW-nwg">
-                                <rect key="frame" x="20" y="353" width="374" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Caption" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="06g-OW-nwg">
+                                <rect key="frame" x="20" y="64" width="374" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zcr-9j-eKe">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="06g-OW-nwg" firstAttribute="leading" secondItem="nfD-0d-2K7" secondAttribute="leadingMargin" id="3OG-Ho-Gmh"/>
+                            <constraint firstItem="5uW-Ts-ezJ" firstAttribute="top" secondItem="HBv-jv-FWB" secondAttribute="bottom" id="6hn-Lv-Mbq"/>
+                            <constraint firstItem="06g-OW-nwg" firstAttribute="top" secondItem="Muc-va-QWJ" secondAttribute="bottom" id="9Kf-Di-o65"/>
+                            <constraint firstItem="06g-OW-nwg" firstAttribute="trailing" secondItem="nfD-0d-2K7" secondAttribute="trailingMargin" id="Hzb-Ma-Z0f"/>
+                            <constraint firstItem="zcr-9j-eKe" firstAttribute="top" secondItem="nfD-0d-2K7" secondAttribute="top" id="IGZ-1b-x6w"/>
+                            <constraint firstItem="zcr-9j-eKe" firstAttribute="leading" secondItem="nfD-0d-2K7" secondAttribute="leading" id="VoY-Qv-Pwm"/>
+                            <constraint firstItem="HBv-jv-FWB" firstAttribute="leading" secondItem="nfD-0d-2K7" secondAttribute="leading" id="c0d-kR-pdC"/>
+                            <constraint firstAttribute="trailing" secondItem="zcr-9j-eKe" secondAttribute="trailing" id="daQ-Xz-iis"/>
+                            <constraint firstAttribute="bottom" secondItem="zcr-9j-eKe" secondAttribute="bottom" id="hyQ-3p-5LP"/>
+                            <constraint firstAttribute="trailing" secondItem="HBv-jv-FWB" secondAttribute="trailing" id="mZI-Zk-iMB"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Visibility Times" id="Jx1-Q9-hgl"/>
+                    <connections>
+                        <outlet property="caption" destination="06g-OW-nwg" id="SBt-0r-P6B"/>
+                        <outlet property="imageView" destination="zcr-9j-eKe" id="FDz-IU-ucF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gVZ-v2-e4H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3172" y="-339"/>
+            <point key="canvasLocation" x="3171" y="-339"/>
         </scene>
         <!--Planet Reference-->
         <scene sceneID="SGl-Wv-9W5">

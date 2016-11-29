@@ -28,12 +28,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = initialViewController
             self.window?.makeKeyAndVisible()
             //self.presentViewController(NewViewController, animated: true, completion: nil)
+            thingee = ThingeePerister.getThingee()
+            let myViewController = window!.rootViewController as! ViewController
+            myViewController.thingee = thingee
         }
         
         // Override point for customization after application launch.
-        thingee = ThingeePerister.getThingee()
-        let myViewController = window!.rootViewController as! RequirementsViewController
-        myViewController.thingee = thingee
+
         return true
     }
 
