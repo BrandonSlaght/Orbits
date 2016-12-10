@@ -69,7 +69,8 @@ class PlanetListViewController: UITableViewController {
         if indexPath.row == (objects[classification]?.count)! - 1 && subviews.count >= 3 {
             for subview in subviews {
                 if subview != cell.contentView {
-                    subview.removeFromSuperview()
+                    print("removing last table separator in section")
+                    //subview.removeFromSuperview()
                 }
             }
         }

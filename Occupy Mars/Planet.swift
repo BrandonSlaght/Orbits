@@ -167,7 +167,7 @@ class Planet {
             planet = tempScene!.rootNode.childNodes[0].geometry! //= SCNGeometry  //(sources: [SCNGeometrySource], elements: <#T##[SCNGeometryElement]#>)
         } else {
             planet = SCNSphere(radius: 1.0)
-            (planet as! SCNSphere).segmentCount = 40
+            (planet as! SCNSphere).segmentCount = 80
         }
         
         if let let_texture = texture {
@@ -182,6 +182,7 @@ class Planet {
             
             planet.materials = [material]
             let planetNode = SCNNode(geometry: planet)
+            planetNode.name = "planet"
             let rotationNode = SCNNode()
             rotationNode.addChildNode(planetNode)
             scene.rootNode.addChildNode(rotationNode)
@@ -191,17 +192,43 @@ class Planet {
             spin.toValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: Float(2 * M_PI)))
             
             if let let_day_length = day_length {
-                spin.duration = 30*(let_day_length/24)
+                spin.duration = 60*(let_day_length/24)
             } else {
-                spin.duration = 30
+                spin.duration = 60
             }
             
             
             spin.repeatCount = .infinity
             planetNode.addAnimation(spin, forKey: "spin around")
             
+            if size == Size.full {
+                print("FULL")
+                let camera = SCNCamera()
+                camera.usesOrthographicProjection = true
+                camera.orthographicScale = 1.5
+                camera.zNear = 0
+                camera.zFar = 80
+                let cameraNode = SCNNode()
+                cameraNode.name = "camera"
+                cameraNode.position = SCNVector3(x: 0, y: 0, z: 20)
+                cameraNode.camera = camera
+                let cameraOrbit = SCNNode()
+                cameraOrbit.name = "cameraOrbit"
+                cameraOrbit.addChildNode(cameraNode)
+                scene.rootNode.addChildNode(cameraOrbit)
+                
+                // rotate it (I've left out some animation code here to show just the rotation)
+                //cameraOrbit.eulerAngles.x -= Float(M_PI_4)
+                //cameraOrbit.eulerAngles.y -= Float(M_PI_4*3)
+            }
+            
             if let let_equator_inclination = equator_inclination {
-                rotationNode.rotation = (SCNVector4: SCNVector4(x: 0, y: 0, z: 1, w: Float(let_equator_inclination.degreesToRadians)))
+                //rotationNode.rotation = (SCNVector4: SCNVector4(x: 0, y: 0, z: 1, w: Float(let_equator_inclination.degreesToRadians)))
+                //let shrink_factor = 1 + Float(let_equator_inclination.degreesToRadians)
+                //print(shrink_factor)
+                //planetNode.scale = (SCNVector3: SCNVector3(x: 50, y: 50, z: 50))
+                //planetNode.scale = (SCNVector3: SCNVector3(x: shrink_factor, y: shrink_factor, z: shrink_factor))
+                //rotationNode.scale = (SCNVector3: SCNVector3(x: shrink_factor, y: shrink_factor, z: shrink_factor))
             }
             
         } else {

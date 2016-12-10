@@ -121,7 +121,7 @@
         <!--Visibility Times-->
         <scene sceneID="DKg-go-v4U">
             <objects>
-                <viewController id="ctq-4f-KAz" customClass="ViewController" customModule="Occupy_Mars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ctq-4f-KAz" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Muc-va-QWJ"/>
                         <viewControllerLayoutGuide type="bottom" id="5uW-Ts-ezJ"/>
@@ -136,26 +136,10 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HBv-jv-FWB">
                                 <rect key="frame" x="0.0" y="643" width="414" height="44"/>
                                 <items>
-                                    <barButtonItem title="Take Photo" id="7V7-aq-ihg">
-                                        <connections>
-                                            <action selector="takePhoto:" destination="ctq-4f-KAz" id="kqe-DD-dg3"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="Pick Photo" id="xYd-H0-OyI">
-                                        <connections>
-                                            <action selector="pickPhoto:" destination="ctq-4f-KAz" id="4CI-BU-zd6"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="Aspect Fill" id="jOB-TY-NUR">
-                                        <connections>
-                                            <action selector="aspectFill:" destination="ctq-4f-KAz" id="4sQ-As-gZ4"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="Scale to Fill" id="eaX-Yw-Ros">
-                                        <connections>
-                                            <action selector="scaleToFill:" destination="ctq-4f-KAz" id="DFF-FA-hE7"/>
-                                        </connections>
-                                    </barButtonItem>
+                                    <barButtonItem title="Take Photo" id="7V7-aq-ihg"/>
+                                    <barButtonItem title="Pick Photo" id="xYd-H0-OyI"/>
+                                    <barButtonItem title="Aspect Fill" id="jOB-TY-NUR"/>
+                                    <barButtonItem title="Scale to Fill" id="eaX-Yw-Ros"/>
                                 </items>
                             </toolbar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Caption" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="06g-OW-nwg">
@@ -179,10 +163,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Visibility Times" id="Jx1-Q9-hgl"/>
-                    <connections>
-                        <outlet property="caption" destination="06g-OW-nwg" id="SBt-0r-P6B"/>
-                        <outlet property="imageView" destination="zcr-9j-eKe" id="FDz-IU-ucF"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gVZ-v2-e4H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -305,31 +285,30 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="zac-l9-EOd">
-                                        <rect key="frame" x="104.66666666666667" y="85" width="105.00000000000001" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleAspectFit" distribution="equalSpacing" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="zac-l9-EOd">
+                                        <rect key="frame" x="109.66666666666666" y="85" width="95" height="60"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-github" translatesAutoresizingMaskIntoConstraints="NO" id="QwN-3Z-3Nh">
-                                                <rect key="frame" x="0.0" y="10" width="40" height="30"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-github" translatesAutoresizingMaskIntoConstraints="NO" id="QwN-3Z-3Nh">
+                                                <rect key="frame" x="0.0" y="10" width="40" height="40"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-web" translatesAutoresizingMaskIntoConstraints="NO" id="r4R-gU-Z8T">
-                                                <rect key="frame" x="55" y="10" width="50.000000000000028" height="30"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-web" translatesAutoresizingMaskIntoConstraints="NO" id="r4R-gU-Z8T">
+                                                <rect key="frame" x="55" y="10" width="40" height="40"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="Qem-e7-NXU"/>
+                                            <constraint firstAttribute="height" constant="60" id="Qem-e7-NXU"/>
                                         </constraints>
                                         <edgeInsets key="layoutMargins" top="10" left="0.0" bottom="10" right="0.0"/>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data Sources:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mS-i2-YUb">
-                                        <rect key="frame" x="0.0" y="135" width="314" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data Sources" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mS-i2-YUb">
+                                        <rect key="frame" x="0.0" y="145" width="314" height="20.333333333333314"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tes-RW-oom">
-                                        <rect key="frame" x="0.0" y="152" width="314" height="334"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tes-RW-oom">
+                                        <rect key="frame" x="0.0" y="165.33333333333329" width="314" height="320.66666666666674"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <string key="text">Planet reference data: NASA Planet texture maps: people Orbital calculations: math Images and other media: NASA, ESA, and Hubble</string>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -360,6 +339,7 @@
                     </view>
                     <connections>
                         <outlet property="gitImage" destination="QwN-3Z-3Nh" id="rPd-l0-2hR"/>
+                        <outlet property="textView" destination="tes-RW-oom" id="NwV-CH-vQA"/>
                         <outlet property="webImage" destination="r4R-gU-Z8T" id="oXo-Rf-YIS"/>
                     </connections>
                 </viewController>
@@ -480,7 +460,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" allowsCameraControl="YES" autoenablesDefaultLighting="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Od-lC-Eja">
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" autoenablesDefaultLighting="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Od-lC-Eja">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </sceneKitView>
@@ -715,6 +695,7 @@
                                         <constraint firstItem="86Q-qX-UnW" firstAttribute="top" secondItem="3qW-gS-9Kt" secondAttribute="topMargin" constant="10" id="O11-e2-yhK"/>
                                         <constraint firstItem="fyE-A0-6Xh" firstAttribute="leading" secondItem="3qW-gS-9Kt" secondAttribute="leadingMargin" id="Wj4-R9-Fiv"/>
                                         <constraint firstItem="86Q-qX-UnW" firstAttribute="trailing" secondItem="3qW-gS-9Kt" secondAttribute="trailingMargin" id="hWL-dn-YJL"/>
+                                        <constraint firstItem="fyE-A0-6Xh" firstAttribute="leading" secondItem="3qW-gS-9Kt" secondAttribute="leadingMargin" id="yt0-sj-tHV"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -895,7 +876,7 @@
         <image name="icon-telescope-filled-small" width="27" height="30"/>
         <image name="logo-github" width="40" height="40"/>
         <image name="logo-nasa" width="336" height="287"/>
-        <image name="logo-web" width="50" height="50"/>
+        <image name="logo-web" width="40" height="40"/>
         <image name="logo-wikipedia" width="341" height="341"/>
     </resources>
 </document>
