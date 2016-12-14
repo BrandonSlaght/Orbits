@@ -11,6 +11,7 @@ import Foundation
 enum Type : String {
     case Rock = "Rocky Planet"
     case Gas = "Gas Giant"
+    case Ice = "Ice Giant"
     case Star = "Star"
 }
 

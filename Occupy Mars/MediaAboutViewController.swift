@@ -14,6 +14,8 @@ class MediaAboutViewController: UIViewController, UICollectionViewDelegate, UICo
     
     var planet: Planet!
     
+    var images = [SKPhoto]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.dataSource = self
@@ -38,6 +40,11 @@ class MediaAboutViewController: UIViewController, UICollectionViewDelegate, UICo
         self.collectionView.alwaysBounceVertical = true
         // Add the waterfall layout to your collection view
         self.collectionView.collectionViewLayout = layout
+        for image in planet.images {
+            let item = SKPhoto.photoWithImage(UIImage(named: image.image)!)
+            item.caption = image.caption
+            images.append(item)
+        }
     }
     
     // Register CollectionView Nibs
@@ -57,7 +64,7 @@ class MediaAboutViewController: UIViewController, UICollectionViewDelegate, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // Create the cell and return the cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MediaHolder
-        cell.image.image = UIImage(named: planet.images[indexPath.row])
+        cell.image.image = UIImage(named: planet.images[indexPath.row].image)
         return cell
     }
     
@@ -65,42 +72,20 @@ class MediaAboutViewController: UIViewController, UICollectionViewDelegate, UICo
     //** Size for the cells in the Waterfall Layout */
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         // create a cell size from the image size, and return the size
-        let imageSize = UIImage(named: planet.images[indexPath.row])!.size
+        let imageSize = UIImage(named: planet.images[indexPath.row].image)!.size
         return imageSize
     }
     
-//    @IBAction func galeriTapped(sender: UIButton) {
-//        
-//        // Create browser (must be done each time photo browser is
-//        // displayed. Photo browser objects cannot be re-used)
-//        var browser = MWPhotoBrowser(delegate: self)
-//        
-//        // Set options
-//        browser.displayActionButton = true // Show action button to allow sharing, copying, etc (defaults to YES)
-//        browser.displayNavArrows = false // Whether to display left and right nav arrows on toolbar (defaults to NO)
-//        browser.displaySelectionButtons = false // Whether selection buttons are shown on each image (defaults to NO)
-//        browser.zoomPhotosToFill = true // Images that almost fill the screen will be initially zoomed to fill (defaults to YES)
-//        browser.alwaysShowControls = false // Allows to control whether the bars and controls are always visible or whether they fade away to show the photo full (defaults to NO)
-//        browser.enableGrid = true // Whether to allow the viewing of all the photo thumbnails on a grid (defaults to YES)
-//        browser.startOnGrid = false // Whether to start on the grid of thumbnails instead of the first photo (defaults to NO)
-//        
-//        // Optionally set the current visible photo before displaying
-//        //browser.setCurrentPhotoIndex(1)
-//        
-//        self.navigationController?.pushViewController(browser, animated: true)
-//        
-//    }
-//    
-//    func numberOfPhotosInPhotoBrowser(photoBrowser: MWPhotoBrowser!) -> UInt {
-//        return UInt(photos.count)
-//    }
-//    
-//    func photoBrowser(photoBrowser: MWPhotoBrowser!, photoAtIndex index: UInt) -> MWPhotoProtocol! {
-//        if Int(index) < self.photos.count {
-//            return photos.objectAtIndex(Int(index)) as MWPhoto
-//        }
-//        
-//        return nil
-//    }
-
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! MediaHolder
+        let originImage = cell.image.image! // some image for baseImage
+        
+        let browser = SKPhotoBrowser(originImage: originImage, photos: images, animatedFromView: cell)
+        //SKPhotoBrowserOptions.displayHorizontalScrollIndicator = true
+        //SKPhotoBrowserOptions.displayVerticalScrollIndicator = true
+        SKPhotoBrowserOptions.bounceAnimation = true
+        browser.initializePageIndex(indexPath.row)
+        //browser.navigationItem.title = "test"
+        present(browser, animated: true, completion: {})
+    }
 }

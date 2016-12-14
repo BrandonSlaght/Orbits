@@ -39,7 +39,7 @@ class InfoModalViewController: UIViewController {
 //        textView.isEditable = false
 //        textView.isSelectable = true
         
-        let string = "Planet reference data:\nNASA\n\nPlanet texture maps\nSteve Albers\nBjörn Jónsson\nJames Hastings-Trew\nAnd probably others\n\nOrbital calculations:\nPaul Schlyter\n\nImages and other media:\nNASA\nESA\n\n\n\nIf I forgot to list you as a source of media (I used a lot of it), let me know and I will credit you!"
+        let string = "Planet reference data:\nNASA\n\nPlanet texture maps\nSteve Albers\nBjörn Jónsson\nJames Hastings-Trew\nAnd probably others\n\nOrbital calculations:\nPaul Schlyter\n\nImages and other media:\nNASA\nESA\n\n\nIf I forgot to list you as a source of media (I used a lot of it), let me know and I will credit you!"
         let linkString = NSMutableAttributedString(string: string)
         linkString.addAttribute(NSLinkAttributeName, value: NSURL(string: "https://www.nasa.gov")!, range: NSMakeRange(23, 4))
         linkString.addAttribute(NSLinkAttributeName, value: NSURL(string: "http://www.stevealbers.net/albers/sos/sos.html")!, range: NSMakeRange(49, 12))

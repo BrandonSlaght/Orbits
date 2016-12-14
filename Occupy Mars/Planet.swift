@@ -52,8 +52,11 @@ class Planet {
     
     //--------------------------------------------atmosphere
     
-    //var surface_pressure, average_temperature, total_mass
-    //var composition [(gas: String, ppm: int)]
+    var surface_pressure: Double?,
+        average_temperature: Double?,
+        total_mass: Double?
+    var composition = [(gas: String,
+                        ppm: Double)]()
     
     //--------------------------------------------moons
     
@@ -66,15 +69,24 @@ class Planet {
                 thickness: Int,
                 density: Int)]()
     
+    //--------------------------------------------miscelanious
+    
+    var discovered: String?
+    
     //--------------------------------------------visual
     
     var texture: String?,
         model: String?,
-        normalmap: String?
+        normalmap: String?,
+        ringmap: String?,
+        ring_transparencymap: String?,
+        ring_inner_ratio: Double?,
+        ring_outer_ratio: Double?
     
     //--------------------------------------------media
     
-    var images = [String]()
+    var images = [(image: String,
+                   caption: String)]()
     var videos = [String]()
     
     //--------------------------------------------initializers
@@ -89,7 +101,7 @@ class Planet {
         self.classification = classification
     }
     
-    func about(_ description: String?,
+    func about(description: String?,
                      wiki: String?,
                      nasa: String?) {
         self.description = description
@@ -115,7 +127,7 @@ class Planet {
         self.geographic_height_variance = geographic_height_variance
     }
     
-    func orbitals(_ year_length: Double?,
+    func orbitals(year_length: Double?,
                   perihelion: Double?,
                   aphelion: Double?,
                   velocity: Double?,
@@ -137,27 +149,51 @@ class Planet {
         self.max_distance_from_earth = max_distance_from_earth
     }
     
-    func display(_ texture: String?,
+    func atmosphere(surface_pressure: Double?,
+                    average_temperature: Double?,
+                    total_mass: Double?) {
+        self.surface_pressure = surface_pressure
+        self.average_temperature = average_temperature
+        self.total_mass = total_mass
+    }
+    
+    func composition(composition: [(gas: String, ppm: Double)]) {
+        self.composition = composition
+    }
+    
+    func misc(discovered: String?) {
+        self.discovered = discovered
+    }
+    
+    func display(texture: String?,
                  model: String?,
-                 normalmap: String? ) {
+                 normalmap: String?,
+                 ringmap: String?,
+                 ring_transparencymap: String?,
+                 ring_inner_ratio: Double?,
+                 ring_outer_ratio: Double?) {
         self.texture = texture
         self.model = model
         self.normalmap = normalmap
+        self.ringmap = ringmap
+        self.ring_transparencymap = ring_transparencymap
+        self.ring_inner_ratio = ring_inner_ratio
+        self.ring_outer_ratio = ring_outer_ratio
     }
     
-    func images(_ images: [String]) {
+    func images(images: [(image: String, caption: String)]) {
         self.images = images
     }
     
     //--------------------------------------------helpers
     
-    func getScene(_ size: Size) -> SCNScene? {
+    func getScene(size: Size) -> SCNScene? {
         
         let scene = SCNScene()
         let ambientLightNode = SCNNode()
         ambientLightNode.light = SCNLight()
         ambientLightNode.light!.type = SCNLight.LightType.ambient
-        ambientLightNode.light!.color = UIColor(white: 0.33, alpha: 1.0)
+        ambientLightNode.light!.color = UIColor(white: 0.11, alpha: 1.0)
         scene.rootNode.addChildNode(ambientLightNode)
         
         var planet : SCNGeometry
@@ -183,6 +219,13 @@ class Planet {
             planet.materials = [material]
             let planetNode = SCNNode(geometry: planet)
             planetNode.name = "planet"
+            var box = planet.boundingBox
+            planet.boundingBox.min.x = box.min.x*0.8
+            planet.boundingBox.min.y = box.min.y*0.8
+            //planet.boundingBox.min.z = box.min.z*0.8
+            planet.boundingBox.max.x = box.max.x*0.8
+            planet.boundingBox.max.y = box.max.y*0.8
+            //planet.boundingBox.max.z = box.max.z*0.8
             let rotationNode = SCNNode()
             rotationNode.addChildNode(planetNode)
             scene.rootNode.addChildNode(rotationNode)
@@ -197,25 +240,60 @@ class Planet {
                 spin.duration = 60
             }
             
-            
             spin.repeatCount = .infinity
             planetNode.addAnimation(spin, forKey: "spin around")
             
+            if let let_ringsmap = ringmap {
+                let rings = SCNTorus(ringRadius: 2, pipeRadius: 0.5)
+                print("here")
+                
+                if let let_ring_inner_ratio = ring_inner_ratio, let let_ring_outer_ratio = ring_outer_ratio {
+                    print("hereeeeee")
+                    rings.pipeRadius = CGFloat(let_ring_outer_ratio - let_ring_inner_ratio - 1)
+                    rings.ringRadius = CGFloat((let_ring_outer_ratio + let_ring_inner_ratio) / 2) //CGFloat(let_ring_outer_ratio / )
+                }
+                
+                rings.ringSegmentCount = 176
+                
+                let material = SCNMaterial()
+                material.isDoubleSided = true
+                material.diffuse.contents = UIImage(named: let_ringsmap)!
+                material.diffuse.mipFilter = SCNFilterMode.linear
+                material.diffuse.wrapT = SCNWrapMode.repeat
+                material.transparencyMode = .rgbZero
+
+                if let let_ring_transparencymap = ring_transparencymap {
+                    material.transparent.contents = UIImage(named: let_ring_transparencymap)!
+                    material.transparent.mipFilter = SCNFilterMode.linear
+                    material.transparent.wrapT = SCNWrapMode.repeat
+                }
+                
+                rings.materials = [material]
+                
+                let ringNode = SCNNode(geometry: rings)
+                
+                ringNode.scale = (SCNVector3: SCNVector3(x: 1, y: 0.01, z: 1))
+                
+                planetNode.addChildNode(ringNode)
+                
+                rotationNode.rotation = (SCNVector4: SCNVector4(x: 1, y: 0, z: 0, w: 0.2))
+            }
+            
             if size == Size.full {
-                print("FULL")
-                let camera = SCNCamera()
-                camera.usesOrthographicProjection = true
-                camera.orthographicScale = 1.5
-                camera.zNear = 0
-                camera.zFar = 80
-                let cameraNode = SCNNode()
-                cameraNode.name = "camera"
-                cameraNode.position = SCNVector3(x: 0, y: 0, z: 20)
-                cameraNode.camera = camera
-                let cameraOrbit = SCNNode()
-                cameraOrbit.name = "cameraOrbit"
-                cameraOrbit.addChildNode(cameraNode)
-                scene.rootNode.addChildNode(cameraOrbit)
+//                print("FULL")
+//                let camera = SCNCamera()
+//                camera.usesOrthographicProjection = true
+//                camera.orthographicScale = 1.5
+//                camera.zNear = 0
+//                camera.zFar = 80
+//                let cameraNode = SCNNode()
+//                cameraNode.name = "camera"
+//                cameraNode.position = SCNVector3(x: 0, y: 0, z: 20)
+//                cameraNode.camera = camera
+//                let cameraOrbit = SCNNode()
+//                cameraOrbit.name = "cameraOrbit"
+//                cameraOrbit.addChildNode(cameraNode)
+//                scene.rootNode.addChildNode(cameraOrbit)
                 
                 // rotate it (I've left out some animation code here to show just the rotation)
                 //cameraOrbit.eulerAngles.x -= Float(M_PI_4)
@@ -223,13 +301,31 @@ class Planet {
             }
             
             if let let_equator_inclination = equator_inclination {
-                //rotationNode.rotation = (SCNVector4: SCNVector4(x: 0, y: 0, z: 1, w: Float(let_equator_inclination.degreesToRadians)))
-                //let shrink_factor = 1 + Float(let_equator_inclination.degreesToRadians)
+                
+                //                let spin1 = CABasicAnimation(keyPath: "otherrotation")
+                //                spin1.fromValue = NSValue(scnVector4: SCNVector4(x: 0, y: 0, z: 1, w: 0))
+                //                spin1.toValue = NSValue(scnVector4: SCNVector4(x: 0, y: 0, z: 1, w: Float(2 * M_PI)))
+                //                spin1.duration = 60
+                //                spin1.repeatCount = .infinity
+                //                planetNode.addAnimation(spin1, forKey: "spin around again")
+                
+                //rotationNode.eulerAngles = (SCNVector3: SCNVector3(x: 0, y: 0, z: Float(let_equator_inclination.degreesToRadians)))
+                rotationNode.rotation = (SCNVector4: SCNVector4(x: 0, y: 0, z: 1, w: Float(let_equator_inclination.degreesToRadians)))
+                rotationNode.boundingBox = box
+                //let shrink_factor = let_equator_inclination.degreesToRadians
+                //print("scale before: \(view.pointOfView?.camera?.orthographicScale)")
+                //view.pointOfView?.camera?.orthographicScale -= shrink_factor
+                //print("scale after: \(view.pointOfView?.camera?.orthographicScale)")
                 //print(shrink_factor)
                 //planetNode.scale = (SCNVector3: SCNVector3(x: 50, y: 50, z: 50))
                 //planetNode.scale = (SCNVector3: SCNVector3(x: shrink_factor, y: shrink_factor, z: shrink_factor))
-                //rotationNode.scale = (SCNVector3: SCNVector3(x: shrink_factor, y: shrink_factor, z: shrink_factor))
+                //rotationNode.scale = (SCNVector3: SCNVector3(x: 20, y: 20, z: 20))//shrink_factor, y: shrink_factor, z: shrink_factor))
+                //planetNode.position = (SCNVector3: SCNVector3(x: 0, y: 0, z: 20))
+                
+                //(planet as! SCNSphere).radius = 2.0
             }
+            
+            print(rotationNode.pivot)
             
         } else {
             return nil
@@ -322,6 +418,29 @@ class Planet {
         
         return ret
     }
+    
+    func generateMiscObjects() -> [(String, String)] {
+        var ret = [(String, String)]()
+        
+        ret.append(("Moons",String(describing: moons.count)))
+        
+        if rings.count > 0 {
+            ret.append(("Ring System", "Yes"))
+        } else {
+            ret.append(("Ring System", "No"))
+        }
+        
+        ret.append(("Type", type.rawValue))
+        
+        ret.append(("Position from sun", String(describing: position)))
+        
+        if discovered != nil{
+            ret.append(("Year of discovery", discovered!))
+        }
+        
+        return ret
+    }
+
 }
 
 

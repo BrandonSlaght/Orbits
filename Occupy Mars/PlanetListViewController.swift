@@ -51,7 +51,7 @@ class PlanetListViewController: UITableViewController {
         let planet = objects[classification]![indexPath.row]
         cell.name?.text = planet.name
         cell.classification?.text = planet.type.rawValue
-        cell.sceneView.scene = planet.getScene(Size.small)
+        cell.sceneView.scene = planet.getScene(size: Size.small)
         return cell
     }
     
@@ -63,18 +63,18 @@ class PlanetListViewController: UITableViewController {
         return Class.count
     }
     
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let subviews = cell.subviews
-        let classification = Class.allValues[indexPath.section]
-        if indexPath.row == (objects[classification]?.count)! - 1 && subviews.count >= 3 {
-            for subview in subviews {
-                if subview != cell.contentView {
-                    print("removing last table separator in section")
-                    //subview.removeFromSuperview()
-                }
-            }
-        }
-    }
+//    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        let subviews = cell.subviews
+//        let classification = Class.allValues[indexPath.section]
+//        if indexPath.row == (objects[classification]?.count)! - 1 && subviews.count >= 3 {
+//            for subview in subviews {
+//                if subview != cell.contentView {
+//                    print("removing last table separator in section")
+//                    //subview.removeFromSuperview()
+//                }
+//            }
+//        }
+//    }
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
