@@ -28,14 +28,14 @@ class Planet {
     
     //--------------------------------------------geology - notes: use equatorial radius and mean density and surface gravity / acceleration
     
-    var mass: Int?,
-        volume: Int?,
+    var mass: Double?,
+        volume: Double?,
         equatorial: Double?,
         density: Double?,
         gravity: Double?,
         escape_velocity: Double?,
         irradiance: Double?,
-        geographic_height_variance: Int?
+        geographic_height_variance: Double?
     
     //--------------------------------------------orbit - notes: use tropical orbit, mean orbital velocity, and obliquidy from orbit for equator inclination
     
@@ -50,7 +50,7 @@ class Planet {
         min_distance_from_earth: Double?,
         max_distance_from_earth: Double?
     
-    //--------------------------------------------atmosphere
+    //--------------------------------------------atmosphere - notes: use metric tones for total mass
     
     var surface_pressure: Double?,
         average_temperature: Double?,
@@ -109,14 +109,14 @@ class Planet {
         self.nasa = nasa
     }
     
-    func geology(mass: Int?,
-                 volume: Int?,
+    func geology(mass: Double?,
+                 volume: Double?,
                  equatorial: Double?,
                  density: Double?,
                  gravity: Double?,
                  escape_velocity: Double?,
                  irradiance: Double?,
-                 geographic_height_variance: Int?) {
+                 geographic_height_variance: Double?) {
         self.mass = mass
         self.volume = volume
         self.equatorial = equatorial
@@ -219,12 +219,12 @@ class Planet {
             planet.materials = [material]
             let planetNode = SCNNode(geometry: planet)
             planetNode.name = "planet"
-            var box = planet.boundingBox
-            planet.boundingBox.min.x = box.min.x*0.8
-            planet.boundingBox.min.y = box.min.y*0.8
+            //var box = planet.boundingBox
+            //planet.boundingBox.min.x = box.min.x*0.8
+            //planet.boundingBox.min.y = box.min.y*0.8
             //planet.boundingBox.min.z = box.min.z*0.8
-            planet.boundingBox.max.x = box.max.x*0.8
-            planet.boundingBox.max.y = box.max.y*0.8
+            //planet.boundingBox.max.x = box.max.x*0.8
+            //planet.boundingBox.max.y = box.max.y*0.8
             //planet.boundingBox.max.z = box.max.z*0.8
             let rotationNode = SCNNode()
             rotationNode.addChildNode(planetNode)
@@ -310,8 +310,14 @@ class Planet {
                 //                planetNode.addAnimation(spin1, forKey: "spin around again")
                 
                 //rotationNode.eulerAngles = (SCNVector3: SCNVector3(x: 0, y: 0, z: Float(let_equator_inclination.degreesToRadians)))
-                rotationNode.rotation = (SCNVector4: SCNVector4(x: 0, y: 0, z: 1, w: Float(let_equator_inclination.degreesToRadians)))
-                rotationNode.boundingBox = box
+                
+                if ringmap != nil {
+                    rotationNode.rotation = (SCNVector4: SCNVector4(x: 1, y: 0, z: 0, w: 0.2))
+                    rotationNode.rotation.z = (SCNVector4: SCNVector4(x: 0, y: 0, z: 1, w: Float(let_equator_inclination.degreesToRadians))).SCNVector4.z
+                } else {
+                    rotationNode.rotation = (SCNVector4: SCNVector4(x: 0, y: 0, z: 1, w: Float(let_equator_inclination.degreesToRadians)))
+                    //rotationNode.boundingBox = box
+                }
                 //let shrink_factor = let_equator_inclination.degreesToRadians
                 //print("scale before: \(view.pointOfView?.camera?.orthographicScale)")
                 //view.pointOfView?.camera?.orthographicScale -= shrink_factor

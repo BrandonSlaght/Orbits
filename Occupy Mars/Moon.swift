@@ -26,14 +26,14 @@ class Moon {
     
     //--------------------------------------------geology - notes: use equatorial radius and mean density and surface gravity / acceleration
     
-    var mass: Int?,
-    volume: Int?,
+    var mass: Double?,
+    volume: Double?,
     equatorial: Double?,
     density: Double?,
     gravity: Double?,
     escape_velocity: Double?,
     irradiance: Double?,
-    geographic_height_variance: Int?
+    geographic_height_variance: Double?
     
     //--------------------------------------------orbit - notes: use tropical orbit, mean orbital velocity, and obliquidy from orbit for equator inclination
     
@@ -86,14 +86,14 @@ class Moon {
         self.nasa = nasa
     }
     
-    func geology(mass: Int?,
-                 volume: Int?,
+    func geology(mass: Double?,
+                 volume: Double?,
                  equatorial: Double?,
                  density: Double?,
                  gravity: Double?,
                  escape_velocity: Double?,
                  irradiance: Double?,
-                 geographic_height_variance: Int?) {
+                 geographic_height_variance: Double?) {
         self.mass = mass
         self.volume = volume
         self.equatorial = equatorial
@@ -153,7 +153,7 @@ class Moon {
     //--------------------------------------------helpers
     
     func getScene(size: Size) -> SCNScene? {
-        
+
         let scene = SCNScene()
         let ambientLightNode = SCNNode()
         ambientLightNode.light = SCNLight()
@@ -163,11 +163,14 @@ class Moon {
         
         var planet : SCNGeometry
         
+        planet = SCNSphere(radius: 1.0)
+        
         if let let_model = model {
             let tempScene = SCNScene(named: let_model)
-            planet = tempScene!.rootNode.childNodes[0].geometry! //= SCNGeometry  //(sources: [SCNGeometrySource], elements: <#T##[SCNGeometryElement]#>)
+            print(tempScene ?? "")
+            scene.rootNode.addChildNode((tempScene?.rootNode.childNodes[0])!)
+            //planet = tempScene!.rootNode.childNodes[0].geometry! //= SCNGeometry  //(sources: [SCNGeometrySource], elements: <#T##[SCNGeometryElement]#>)
         } else {
-            planet = SCNSphere(radius: 1.0)
             (planet as! SCNSphere).segmentCount = 80
         }
         
@@ -184,12 +187,12 @@ class Moon {
             planet.materials = [material]
             let planetNode = SCNNode(geometry: planet)
             planetNode.name = "planet"
-            var box = planet.boundingBox
-            planet.boundingBox.min.x = box.min.x*0.8
-            planet.boundingBox.min.y = box.min.y*0.8
+            //var box = planet.boundingBox
+            //planet.boundingBox.min.x = box.min.x*0.8
+            //planet.boundingBox.min.y = box.min.y*0.8
             //planet.boundingBox.min.z = box.min.z*0.8
-            planet.boundingBox.max.x = box.max.x*0.8
-            planet.boundingBox.max.y = box.max.y*0.8
+            //planet.boundingBox.max.x = box.max.x*0.8
+            //planet.boundingBox.max.y = box.max.y*0.8
             //planet.boundingBox.max.z = box.max.z*0.8
             let rotationNode = SCNNode()
             rotationNode.addChildNode(planetNode)
@@ -240,7 +243,7 @@ class Moon {
                 
                 //rotationNode.eulerAngles = (SCNVector3: SCNVector3(x: 0, y: 0, z: Float(let_equator_inclination.degreesToRadians)))
                 rotationNode.rotation = (SCNVector4: SCNVector4(x: 0, y: 0, z: 1, w: Float(let_equator_inclination.degreesToRadians)))
-                rotationNode.boundingBox = box
+                //rotationNode.boundingBox = box
                 //let shrink_factor = let_equator_inclination.degreesToRadians
                 //print("scale before: \(view.pointOfView?.camera?.orthographicScale)")
                 //view.pointOfView?.camera?.orthographicScale -= shrink_factor
@@ -256,8 +259,6 @@ class Moon {
             
             print(rotationNode.pivot)
             
-        } else {
-            return nil
         }
         
         return scene

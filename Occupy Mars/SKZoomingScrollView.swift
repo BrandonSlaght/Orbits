@@ -241,7 +241,7 @@ open class SKZoomingScrollView: UIScrollView {
         }
         
         // delay control
-        photoBrowser?.hideControlsAfterDelay()
+        //photoBrowser?.hideControlsAfterDelay()
     }
 }
 

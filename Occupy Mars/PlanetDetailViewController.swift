@@ -20,7 +20,7 @@ class PlanetDetailViewController: UIViewController {
     @IBAction func indexChanged(_ sender: UISegmentedControl)
     {
         if let vc = getDetailViewController(sender.selectedSegmentIndex) {
-            var height = vc.view.frame.height
+            let height = vc.view.frame.height
             print("vc height \(height)")
             self.addChildViewController(vc)
             self.transition(from: self.currentViewController!, to: vc, duration: 0.5, options: UIViewAnimationOptions.transitionCrossDissolve, animations: {
@@ -129,8 +129,8 @@ class PlanetDetailViewController: UIViewController {
             temp_vc!.planet = planet
             vc = temp_vc!
         case "Moons":
-            var temp_vc: MoonsAboutViewController?
-            temp_vc = self.storyboard?.instantiateViewController(withIdentifier: "moonsView") as! MoonsAboutViewController?
+            var temp_vc: MoonAboutViewController?
+            temp_vc = self.storyboard?.instantiateViewController(withIdentifier: "moonsView") as! MoonAboutViewController?
             temp_vc!.planet = planet
             vc = temp_vc!
         case "Media":

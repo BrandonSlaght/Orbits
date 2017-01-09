@@ -280,7 +280,7 @@ public extension SKPhotoBrowser {
             let pageFrame = frameForPageAtIndex(index)
             pagingScrollView.animate(pageFrame)
         }
-        hideControlsAfterDelay()
+        //hideControlsAfterDelay()
     }
     
     func photoAtIndex(_ index: Int) -> SKPhotoProtocol {
@@ -599,7 +599,7 @@ private extension SKPhotoBrowser {
             completion: nil)
         
         if !permanent {
-            hideControlsAfterDelay()
+            //hideControlsAfterDelay()
         }
         setNeedsStatusBarAppearanceUpdate()
     }
@@ -650,7 +650,7 @@ extension SKPhotoBrowser: UIScrollViewDelegate {
     }
     
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        hideControlsAfterDelay()
+        //hideControlsAfterDelay()
         
         let currentIndex = pagingScrollView.contentOffset.x / pagingScrollView.frame.size.width
         delegate?.didScrollToIndex?(Int(currentIndex))

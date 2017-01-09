@@ -58,7 +58,7 @@ class GlobeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         globe.pointOfView?.position.z = 5
         camera = (globe.pointOfView?.clone())!
-        print(globe.pointOfView)
+        print(globe.pointOfView ?? "")
     }
     
     override func didReceiveMemoryWarning() {

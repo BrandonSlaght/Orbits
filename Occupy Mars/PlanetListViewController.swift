@@ -85,7 +85,7 @@ class PlanetListViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "planetSegue") {
-            let detail = segue.destination as! DetailViewController
+            let detail = segue.destination as! PlanetDetailViewController
             if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
                 let classification = Class.allValues[indexPath.section]
                 detail.planet = objects[classification]![indexPath.row]

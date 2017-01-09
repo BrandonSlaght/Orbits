@@ -30,6 +30,12 @@
 		C52458381DC578F1009F3374 /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52458371DC578F1009F3374 /* Planet.swift */; };
 		C524583A1DC5988D009F3374 /* Moon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52458391DC5988D009F3374 /* Moon.swift */; };
 		C524583C1DC59E0B009F3374 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = C524583B1DC59E0B009F3374 /* Types.swift */; };
+		C54A98F91E032ED3009A8695 /* sextant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54A98F81E032ED3009A8695 /* sextant.swift */; };
+		C54A98FB1E032F82009A8695 /* MoonGlobeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54A98FA1E032F82009A8695 /* MoonGlobeViewController.swift */; };
+		C54A98FF1E032FE2009A8695 /* MoonsMediaAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54A98FE1E032FE2009A8695 /* MoonsMediaAboutViewController.swift */; };
+		C54A99011E033001009A8695 /* MoonGeneralAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54A99001E033001009A8695 /* MoonGeneralAboutViewController.swift */; };
+		C54A99031E033013009A8695 /* MoonDetailsAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54A99021E033013009A8695 /* MoonDetailsAboutViewController.swift */; };
+		C54A99051E0333C8009A8695 /* MoonsAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54A99041E0333C8009A8695 /* MoonsAboutViewController.swift */; };
 		C58DEB8F1DC6B50400E6C1F3 /* PlanetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58DEB8E1DC6B50400E6C1F3 /* PlanetCell.swift */; };
 		C5941BD41DBBFD940057A46A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5941BD31DBBFD940057A46A /* AppDelegate.swift */; };
 		C5941BDD1DBBFD940057A46A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5941BDB1DBBFD940057A46A /* Main.storyboard */; };
@@ -42,7 +48,7 @@
 		C5AB79FC1DEC8EA10097C295 /* DataViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AB79FB1DEC8EA10097C295 /* DataViewCellController.swift */; };
 		C5AEC3EE1DCE5CB200992AEB /* texture sources.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C5AEC3ED1DCE5CB200992AEB /* texture sources.rtf */; };
 		C5AEC3F11DCE778800992AEB /* GeneralAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AEC3F01DCE778800992AEB /* GeneralAboutViewController.swift */; };
-		C5AEC3F31DCE77C500992AEB /* MoonsAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AEC3F21DCE77C500992AEB /* MoonsAboutViewController.swift */; };
+		C5AEC3F31DCE77C500992AEB /* MoonAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AEC3F21DCE77C500992AEB /* MoonAboutViewController.swift */; };
 		C5AEC3F51DCE77D500992AEB /* DetailsAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AEC3F41DCE77D500992AEB /* DetailsAboutViewController.swift */; };
 		C5AEC3F71DCE77E600992AEB /* RingsAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AEC3F61DCE77E600992AEB /* RingsAboutViewController.swift */; };
 		C5AEC3F91DCE77FA00992AEB /* MediaAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AEC3F81DCE77FA00992AEB /* MediaAboutViewController.swift */; };
@@ -55,6 +61,8 @@
 		C5CD59C01DD91E4F00ACB8EA /* GlobeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CD59BF1DD91E4F00ACB8EA /* GlobeViewController.swift */; };
 		C5CD59C31DD91F8600ACB8EA /* background.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C5CD59C21DD91F8600ACB8EA /* background.mp4 */; };
 		C5D515B81DE106400024638D /* InfoModalVewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D515B71DE106400024638D /* InfoModalVewController.swift */; };
+		C5F3717A1E02366900DC373B /* demios.dae in Resources */ = {isa = PBXBuildFile; fileRef = C5F371791E02366900DC373B /* demios.dae */; };
+		C5F3717C1E0236B300DC373B /* phobos.dae in Resources */ = {isa = PBXBuildFile; fileRef = C5F3717B1E0236B300DC373B /* phobos.dae */; };
 		C5F8AA651DCA70330077F137 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F8AA641DCA70330077F137 /* AboutViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +90,12 @@
 		C52458371DC578F1009F3374 /* Planet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
 		C52458391DC5988D009F3374 /* Moon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moon.swift; sourceTree = "<group>"; };
 		C524583B1DC59E0B009F3374 /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		C54A98F81E032ED3009A8695 /* sextant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sextant.swift; sourceTree = "<group>"; };
+		C54A98FA1E032F82009A8695 /* MoonGlobeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonGlobeViewController.swift; sourceTree = "<group>"; };
+		C54A98FE1E032FE2009A8695 /* MoonsMediaAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonsMediaAboutViewController.swift; sourceTree = "<group>"; };
+		C54A99001E033001009A8695 /* MoonGeneralAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonGeneralAboutViewController.swift; sourceTree = "<group>"; };
+		C54A99021E033013009A8695 /* MoonDetailsAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonDetailsAboutViewController.swift; sourceTree = "<group>"; };
+		C54A99041E0333C8009A8695 /* MoonsAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonsAboutViewController.swift; sourceTree = "<group>"; };
 		C58DEB8E1DC6B50400E6C1F3 /* PlanetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetCell.swift; sourceTree = "<group>"; };
 		C5941BD01DBBFD940057A46A /* Occupy Mars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Occupy Mars.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5941BD31DBBFD940057A46A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,7 +110,7 @@
 		C5AB79FB1DEC8EA10097C295 /* DataViewCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataViewCellController.swift; sourceTree = "<group>"; };
 		C5AEC3ED1DCE5CB200992AEB /* texture sources.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "texture sources.rtf"; sourceTree = "<group>"; };
 		C5AEC3F01DCE778800992AEB /* GeneralAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralAboutViewController.swift; sourceTree = "<group>"; };
-		C5AEC3F21DCE77C500992AEB /* MoonsAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonsAboutViewController.swift; sourceTree = "<group>"; };
+		C5AEC3F21DCE77C500992AEB /* MoonAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonAboutViewController.swift; sourceTree = "<group>"; };
 		C5AEC3F41DCE77D500992AEB /* DetailsAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsAboutViewController.swift; sourceTree = "<group>"; };
 		C5AEC3F61DCE77E600992AEB /* RingsAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingsAboutViewController.swift; sourceTree = "<group>"; };
 		C5AEC3F81DCE77FA00992AEB /* MediaAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaAboutViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +123,8 @@
 		C5CD59BF1DD91E4F00ACB8EA /* GlobeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobeViewController.swift; sourceTree = "<group>"; };
 		C5CD59C21DD91F8600ACB8EA /* background.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = background.mp4; sourceTree = "<group>"; };
 		C5D515B71DE106400024638D /* InfoModalVewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoModalVewController.swift; sourceTree = "<group>"; };
+		C5F371791E02366900DC373B /* demios.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = demios.dae; path = Assets.xcassets/mars/demios/demios.dataset/demios.dae; sourceTree = "<group>"; };
+		C5F3717B1E0236B300DC373B /* phobos.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = phobos.dae; path = Assets.xcassets/mars/phobos/phobos.dataset/phobos.dae; sourceTree = "<group>"; };
 		C5F8AA641DCA70330077F137 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,6 +151,33 @@
 			name = model;
 			sourceTree = "<group>";
 		};
+		C54A98FC1E032F8A009A8695 /* planets */ = {
+			isa = PBXGroup;
+			children = (
+				C5AEC3F21DCE77C500992AEB /* MoonAboutViewController.swift */,
+				C5AEC3F81DCE77FA00992AEB /* MediaAboutViewController.swift */,
+				C5AEC3FA1DCE7BDE00992AEB /* AboutTableViewController.swift */,
+				C5F8AA641DCA70330077F137 /* AboutViewController.swift */,
+				C5CD59BF1DD91E4F00ACB8EA /* GlobeViewController.swift */,
+				C5AEC3F61DCE77E600992AEB /* RingsAboutViewController.swift */,
+				C5AEC3F01DCE778800992AEB /* GeneralAboutViewController.swift */,
+				C5AEC3F41DCE77D500992AEB /* DetailsAboutViewController.swift */,
+			);
+			name = planets;
+			sourceTree = "<group>";
+		};
+		C54A98FD1E032F9E009A8695 /* moons */ = {
+			isa = PBXGroup;
+			children = (
+				C54A98FA1E032F82009A8695 /* MoonGlobeViewController.swift */,
+				C54A98FE1E032FE2009A8695 /* MoonsMediaAboutViewController.swift */,
+				C54A99001E033001009A8695 /* MoonGeneralAboutViewController.swift */,
+				C54A99021E033013009A8695 /* MoonDetailsAboutViewController.swift */,
+				C54A99041E0333C8009A8695 /* MoonsAboutViewController.swift */,
+			);
+			name = moons;
+			sourceTree = "<group>";
+		};
 		C5941BC71DBBFD940057A46A = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +200,8 @@
 				C52458361DC578BA009F3374 /* model */,
 				C5941BE31DBBFD940057A46A /* Info.plist */,
 				C5CD59C21DD91F8600ACB8EA /* background.mp4 */,
+				C5F371791E02366900DC373B /* demios.dae */,
+				C5F3717B1E0236B300DC373B /* phobos.dae */,
 				C5941BE01DBBFD940057A46A /* LaunchScreen.storyboard */,
 				C5941BDB1DBBFD940057A46A /* Main.storyboard */,
 				C5C281BF1DDB94B60036C7A0 /* MediaViewCell.xib */,
@@ -171,6 +216,7 @@
 				C515AE601DC8E135009A498C /* TestViewController.swift */,
 				C515AE621DC91126009A498C /* PlanetDetailViewController.swift */,
 				C597D2D31E01E287006B6D6C /* MoonDetailViewController.swift */,
+				C54A98F81E032ED3009A8695 /* sextant.swift */,
 				C5AEC3EF1DCE775100992AEB /* details */,
 				C5CF53D81DFC7EC0008A6489 /* photo browser */,
 			);
@@ -180,14 +226,8 @@
 		C5AEC3EF1DCE775100992AEB /* details */ = {
 			isa = PBXGroup;
 			children = (
-				C5F8AA641DCA70330077F137 /* AboutViewController.swift */,
-				C5AEC3FA1DCE7BDE00992AEB /* AboutTableViewController.swift */,
-				C5CD59BF1DD91E4F00ACB8EA /* GlobeViewController.swift */,
-				C5AEC3F21DCE77C500992AEB /* MoonsAboutViewController.swift */,
-				C5AEC3F01DCE778800992AEB /* GeneralAboutViewController.swift */,
-				C5AEC3F41DCE77D500992AEB /* DetailsAboutViewController.swift */,
-				C5AEC3F61DCE77E600992AEB /* RingsAboutViewController.swift */,
-				C5AEC3F81DCE77FA00992AEB /* MediaAboutViewController.swift */,
+				C54A98FD1E032F9E009A8695 /* moons */,
+				C54A98FC1E032F8A009A8695 /* planets */,
 				C5C281BA1DDB91420036C7A0 /* MediaHolder.swift */,
 				C5AB79FB1DEC8EA10097C295 /* DataViewCellController.swift */,
 				C5991A3D1DD9738200A86F04 /* WaterfallLayout.swift */,
@@ -280,10 +320,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5F3717A1E02366900DC373B /* demios.dae in Resources */,
 				C5941BE21DBBFD940057A46A /* LaunchScreen.storyboard in Resources */,
 				C5AEC3EE1DCE5CB200992AEB /* texture sources.rtf in Resources */,
 				C5941BDF1DBBFD940057A46A /* Assets.xcassets in Resources */,
 				C5AB79FA1DEC8D310097C295 /* DataViewCell.xib in Resources */,
+				C5F3717C1E0236B300DC373B /* phobos.dae in Resources */,
 				C5CD59C31DD91F8600ACB8EA /* background.mp4 in Resources */,
 				C5C281C01DDB94B60036C7A0 /* MediaViewCell.xib in Resources */,
 				C5941BDD1DBBFD940057A46A /* Main.storyboard in Resources */,
@@ -306,10 +348,13 @@
 				C520FB491DFC928C004A0FE6 /* SKPhotoBrowserDelegate.swift in Sources */,
 				C597D2D41E01E287006B6D6C /* MoonDetailViewController.swift in Sources */,
 				C5941BEA1DBBFEA40057A46A /* IntroPageViewController.swift in Sources */,
+				C54A98FF1E032FE2009A8695 /* MoonsMediaAboutViewController.swift in Sources */,
 				C520FB4C1DFC928C004A0FE6 /* SKZoomingScrollView.swift in Sources */,
+				C54A98F91E032ED3009A8695 /* sextant.swift in Sources */,
 				C5AEC3F11DCE778800992AEB /* GeneralAboutViewController.swift in Sources */,
 				C520FB401DFC928C004A0FE6 /* SKDetectingImageView.swift in Sources */,
 				C520FB3E1DFC928C004A0FE6 /* SKCacheable.swift in Sources */,
+				C54A99031E033013009A8695 /* MoonDetailsAboutViewController.swift in Sources */,
 				C520FB441DFC928C004A0FE6 /* SKMesurement.swift in Sources */,
 				C520FB3F1DFC928C004A0FE6 /* SKCaptionView.swift in Sources */,
 				C520FB481DFC928C004A0FE6 /* SKPhotoBrowser.swift in Sources */,
@@ -320,8 +365,10 @@
 				C5AEC3F51DCE77D500992AEB /* DetailsAboutViewController.swift in Sources */,
 				C5941BD41DBBFD940057A46A /* AppDelegate.swift in Sources */,
 				C520FB4B1DFC928C004A0FE6 /* SKToolbar.swift in Sources */,
+				C54A98FB1E032F82009A8695 /* MoonGlobeViewController.swift in Sources */,
 				C5991A3E1DD9738200A86F04 /* WaterfallLayout.swift in Sources */,
 				C5C24C811DC68DA10028FAF5 /* Objects.swift in Sources */,
+				C54A99051E0333C8009A8695 /* MoonsAboutViewController.swift in Sources */,
 				C524583A1DC5988D009F3374 /* Moon.swift in Sources */,
 				C520FB421DFC928C004A0FE6 /* SKIndicatorView.swift in Sources */,
 				C520FB3B1DFC928C004A0FE6 /* SKAnimator.swift in Sources */,
@@ -331,9 +378,10 @@
 				C520FB461DFC928C004A0FE6 /* SKPhoto.swift in Sources */,
 				C5AEC3FB1DCE7BDE00992AEB /* AboutTableViewController.swift in Sources */,
 				C515AE631DC91126009A498C /* PlanetDetailViewController.swift in Sources */,
-				C5AEC3F31DCE77C500992AEB /* MoonsAboutViewController.swift in Sources */,
+				C5AEC3F31DCE77C500992AEB /* MoonAboutViewController.swift in Sources */,
 				C5CD59C01DD91E4F00ACB8EA /* GlobeViewController.swift in Sources */,
 				C520FB4A1DFC928C004A0FE6 /* SKPhotoBrowserOptions.swift in Sources */,
+				C54A99011E033001009A8695 /* MoonGeneralAboutViewController.swift in Sources */,
 				C5AB79FC1DEC8EA10097C295 /* DataViewCellController.swift in Sources */,
 				C5C281BB1DDB91420036C7A0 /* MediaHolder.swift in Sources */,
 				C5AEC3F71DCE77E600992AEB /* RingsAboutViewController.swift in Sources */,

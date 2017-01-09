@@ -3,7 +3,7 @@
 //  Occupy Mars
 //
 //  Created by Slaght, Brandon on 11/1/16.
-//  Copyright © 2016 Slaght, Brandon. All rights reserved.
+//  Copyright © 2016 Slaght, Brandon. All rights reserved.	
 //
 
 import UIKit
@@ -20,7 +20,7 @@ class MoonDetailViewController: UIViewController {
     @IBAction func indexChanged(_ sender: UISegmentedControl)
     {
         if let vc = getDetailViewController(sender.selectedSegmentIndex) {
-            var height = vc.view.frame.height
+            let height = vc.view.frame.height
             print("vc height \(height)")
             self.addChildViewController(vc)
             self.transition(from: self.currentViewController!, to: vc, duration: 0.5, options: UIViewAnimationOptions.transitionCrossDissolve, animations: {
@@ -111,18 +111,18 @@ class MoonDetailViewController: UIViewController {
         var vc: UIViewController!
         switch tabs.titleForSegment(at: index)! {
         case "About":
-            var temp_vc: GeneralAboutViewController?
-            temp_vc = self.storyboard?.instantiateViewController(withIdentifier: "generalView") as! GeneralAboutViewController?
+            var temp_vc: MoonGeneralAboutViewController?
+            temp_vc = self.storyboard?.instantiateViewController(withIdentifier: "moonGeneralView") as! MoonGeneralAboutViewController?
             temp_vc!.moon = moon
             vc = temp_vc!
         case "Details":
-            var temp_vc: DetailsAboutViewController?
-            temp_vc = self.storyboard?.instantiateViewController(withIdentifier: "detailsView") as! DetailsAboutViewController?
+            var temp_vc: MoonDetailsAboutViewController?
+            temp_vc = self.storyboard?.instantiateViewController(withIdentifier: "moonDetailsView") as! MoonDetailsAboutViewController?
             temp_vc!.moon = moon
             vc = temp_vc!
         case "Media":
-            var temp_vc: MediaAboutViewController?
-            temp_vc = self.storyboard?.instantiateViewController(withIdentifier: "mediaView") as! MediaAboutViewController?
+            var temp_vc: MoonMediaAboutViewController?
+            temp_vc = self.storyboard?.instantiateViewController(withIdentifier: "moonMediaView") as! MoonMediaAboutViewController?
             temp_vc!.moon = moon
             vc = temp_vc!
         default:
@@ -133,7 +133,7 @@ class MoonDetailViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "globeSegue") {
-            let globe = segue.destination as! GlobeViewController
+            let globe = segue.destination as! MoonGlobeViewController
             globe.moon = moon
         }
     }
