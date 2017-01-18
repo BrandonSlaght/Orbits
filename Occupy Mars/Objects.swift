@@ -50,7 +50,12 @@ class Objects {
         
         Venus.display(texture: "venusmap.jpg", model: nil, normalmap: "venusnormalmap.jpg", ringmap: nil, ring_transparencymap: nil, ring_inner_ratio: nil, ring_outer_ratio: nil)
         
-        Venus.images(images: ß)
+        Venus.images(images: [
+            ("venus - clouds.jpg", "Although similar in size to Earth, Venus is shrouded by a thick heavy armosphere, which drives surface temeratures past 800 degrees F."),
+            ("venus - mountain.jpg", "The Mangellan probe made detailed 3d mappings of Venus using radar to see throught the clouds.  This 3km tall volcano is called Gula Mons."),
+            ("venus - transit.jpg", "The transit of Venus happens around twice a century."),
+            ("venus - venera13.jpg", "Soviet spacecraft were the first to reach the surface of Venus.  Venera 13 returned color images of the surface."),
+            ("venus - venera14.jpg", "Probes sent to the surface only last a few hours due to the harsh conditions.  Here Venera 14 takes another picture of the surface.")])
         
         
         //----------------------------------------------------------------------------------------------
@@ -68,6 +73,15 @@ class Objects {
         
         Earth.display(texture: "earthmap.jpg", model: nil, normalmap: "earthnormalmap.jpg", ringmap: nil, ring_transparencymap: nil, ring_inner_ratio: nil, ring_outer_ratio: nil)
         
+        Earth.images(images: [
+            ("earth - reef.jpg", "Earth is the only planet in the universe known to harbor life."),
+            ("earth - palau.jpg", "Around 71% of Earth's surface is covered by water.  It is one of several bodies in the solar system with water, but Earth is the only body with permenant liquid surface water."),
+            ("earth - lights.jpg", "Seen here are the northern lights, which appear when charged particles from the sun strike the armosphere."),
+            ("earth - lava.jpg", "Earth, along with the moons Io, Triton, and Enceladus, are the only geolocically active bodies in the solar system.  The Earth's atmosphere is protected by the magnetosphere, which is created by the planet's spinning iron core."),
+            ("earth - glacier.jpg", "Glaciers and ice caps account for around 2% of all water on Earth (or around 70% of all fresh water).  Ice caps reflect sunlight back into space."),
+            ("earth - falls.jpg", "Less than three percent of all the water on Earth is fresh water.  Fortunately, water that evaporates from the seas leaves behind its salt."),
+            ("earth - canyon.jpg", "The dynamic weather conditions shape Earth moreso than other planets.  Seen here is the Grand Canyon, formed by erosion over millions of years.")])
+        
         //tofix
         let moon = Moon(name: "Moon", position: 1)
         
@@ -84,7 +98,9 @@ class Objects {
         moon.images(images: [("moon - rover.jpg",
                               "The Apollo 17 Lunar Rover being inspected by Astronaut Eugene A. Cernan."),
                              ("moon - flag.jpg","The Apollo 14 mission plants its flag on the moon."),
-                             ("moon - earthrise.jpg","Earthrise from Lunar orbit.")])
+                             ("moon - earthrise.jpg","Earthrise from Lunar orbit."),
+                             ("moon - eclipse.jpg", "Occasionally, the Moon will pass in front of the Sun from the Earth's perspective, causing a solar eclipse over parts of the world."),
+                             ("moon - phases.jpg", "The Moon enters different phases based on what direction we observe it from.  These phases form the lunar cycle, which lasts about 29.5 days.")])
         
         Earth.moons.append(moon)
         
