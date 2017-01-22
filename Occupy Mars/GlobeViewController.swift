@@ -11,24 +11,35 @@ import SceneKit
 
 class GlobeViewController: UIViewController {
     @IBOutlet weak var globe: SCNView!
+    @IBOutlet weak var reset: UIButton!
     @IBOutlet weak var rotate: UIButton!
     @IBAction func press(_ sender: UIButton) {
-        //sender.isSelected = !sender.isSelected
-        //if sender.isSelected {
-        //    stopMotion()
-        //} else {
-        //    startMotion()
         SCNTransaction.begin()
         SCNTransaction.animationDuration = 1
         SCNTransaction.animationTimingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionEaseInEaseOut)
         globe.pointOfView? = camera
         
         SCNTransaction.commit()
-        //}
     }
+    @IBAction func stopRotation(_ sender: Any) {
+        if rotating {
+            rotating = false
+            rotate.setImage(UIImage(named: "icon-rotation-off"), for: UIControlState.normal)
+            stopMotion()
+        } else {
+            rotating = true
+            rotate.setImage(UIImage(named: "icon-rotation-on"), for: UIControlState.normal)
+            startMotion()
+        }
+    }
+    
+    var rotating = true
     
     var planet: Planet!
     var camera: SCNNode!
+    
+    var barColor: UIColor!
+    var barImage: UIImage!
     
     //var lastWidthRatio: Float = 0
     //var lastHeightRatio: Float = 0
@@ -61,6 +72,22 @@ class GlobeViewController: UIViewController {
         print(globe.pointOfView ?? "")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        //navigationController?.setNavigationBarHidden(false, animated: true)
+        barColor = navigationController?.navigationBar.barTintColor
+        barImage = navigationController?.navigationBar.shadowImage
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.navigationBar.barTintColor = barColor
+        navigationController?.navigationBar.shadowImage = barImage
+        //navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = false
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -70,7 +97,9 @@ class GlobeViewController: UIViewController {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        startMotion()
+        if rotating {
+            startMotion()
+        }
     }
     
     func stopMotion() {

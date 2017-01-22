@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //let NewViewController: UIViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("MainTabView"))! as UIViewController
             self.window = UIWindow(frame: UIScreen.main.bounds)
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: "MainTabView")
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "MainListView")
             self.window?.rootViewController = initialViewController
             self.window?.makeKeyAndVisible()
             //self.presentViewController(NewViewController, animated: true, completion: nil)

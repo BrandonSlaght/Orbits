@@ -65,7 +65,7 @@ class Objects {
         
         Earth.geology(mass: 5.9723, volume: 108.321, equatorial: 6378.137, density: 55.14, gravity: 9.798, escape_velocity: 11.186, irradiance: 1361.0, geographic_height_variance: 20.4)
         
-        Earth.orbitals(year_length: 224.701, perihelion: 107.48, aphelion: 108.94, velocity: 35.02, inclination: 3.39, eccentricity: 0.0067, day_length: 24.0, equator_inclination: 23.44, min_distance_from_earth: 38.2, max_distance_from_earth: 261.0)
+        Earth.orbitals(year_length: 365.256, perihelion: 147.09, aphelion: 152.10, velocity: 29.78, inclination: 0, eccentricity: 0.0167, day_length: 24.0, equator_inclination: 23.44, min_distance_from_earth: nil, max_distance_from_earth: nil)
         
         Earth.atmosphere(surface_pressure: 1014, average_temperature: 288, total_mass: 5100000000000000)
         
@@ -87,20 +87,20 @@ class Objects {
         
         moon.about(description: "The Moon is Earth's only permanent natural satellite. It is the fifth-largest natural satellite in the Solar System, and the largest among planetary satellites relative to the size of the planet that it orbits (its primary). It is the second-densest satellite among those whose densities are known (after Jupiter's satellite Io).\n\nThe average distance of the Moon from the Earth is 384,400 km (238,900 mi), or 1.28 light-seconds.\n\nThe Moon is thought to have formed about 4.5 billion years ago, not long after Earth. There are several hypotheses for its origin; the most widely accepted explanation is that the Moon formed from the debris left over after a giant impact between Earth and a Mars-sized body called Theia.\n\nThe Moon is in synchronous rotation with Earth, always showing the same face, with its near side marked by dark volcanic maria that fill the spaces between the bright ancient crustal highlands and the prominent impact craters. It is the second-brightest regularly visible celestial object in Earth's sky, after the Sun, as measured by illuminance on Earth's surface. Its surface is actually dark, although compared to the night sky it appears very bright, with a reflectance just slightly higher than that of worn asphalt. Its prominence in the sky and its regular cycle of phases have made the Moon an important cultural influence since ancient times on language, calendars, art, mythology, and, it is often speculated, the menstrual cycles of the female of the human species.\n\nThe Moon's gravitational influence produces the ocean tides, body tides, and the slight lengthening of the day. The Moon's current orbital distance is about thirty times the diameter of Earth, with its apparent size in the sky almost the same as that of the Sun, resulting in the Moon covering the Sun nearly precisely in total solar eclipse. This matching of apparent visual size will not continue in the far future. The Moon's linear distance from Earth is currently increasing at a rate of 3.82 ± 0.07 centimetres (1.504 ± 0.028 in) per year, but this rate is not constant.", wiki: "https://en.wikipedia.org/wiki/Moon", nasa: "http://solarsystem.nasa.gov/planets/moon")
         
-        moon.geology(mass: 5.9723, volume: 108.321, equatorial: 6378.137, density: 55.14, gravity: 9.798, escape_velocity: 11.186, irradiance: 1361.0, geographic_height_variance: 20.4)
+        moon.geology(mass: 0.07346, volume: 2.1968, equatorial: 1738.1, density: 33.44, gravity: 1.62, escape_velocity: 2.38, irradiance: 1361.0, geographic_height_variance: 13)
         
-        moon.orbitals(year_length: 224.701, perihelion: 107.48, aphelion: 108.94, velocity: 35.02, inclination: 3.39, eccentricity: 0.0067, day_length: 24.0, equator_inclination: 23.44)
+        moon.orbitals(orbital_length: 29.53, perigee: 0.3633, apogee: 0.4055, velocity: 1.022, inclination: 5.145, eccentricity: 0.0549, day_length: 27.3217, equator_inclination: 6.68)
         
         moon.misc(discovered: nil)
         
         moon.display(texture: "moonmap.jpg", model: nil, normalmap: "moonnormalmap.jpg")
         
-        moon.images(images: [("moon - rover.jpg",
-                              "The Apollo 17 Lunar Rover being inspected by Astronaut Eugene A. Cernan."),
-                             ("moon - flag.jpg","The Apollo 14 mission plants its flag on the moon."),
-                             ("moon - earthrise.jpg","Earthrise from Lunar orbit."),
-                             ("moon - eclipse.jpg", "Occasionally, the Moon will pass in front of the Sun from the Earth's perspective, causing a solar eclipse over parts of the world."),
-                             ("moon - phases.jpg", "The Moon enters different phases based on what direction we observe it from.  These phases form the lunar cycle, which lasts about 29.5 days.")])
+        moon.images(images: [
+            ("moon - phases.jpg", "The Moon enters different phases based on what direction we observe it from.  These phases form the lunar cycle, which lasts about 29.5 days."),
+            ("moon - rover.jpg","The Apollo 17 Lunar Rover being inspected by Astronaut Eugene A. Cernan."),
+            ("moon - flag.jpg","The Apollo 14 mission plants its flag on the moon."),
+            ("moon - earthrise.jpg","Earthrise from Lunar orbit."),
+            ("moon - eclipse.jpg", "Occasionally, the Moon will pass in front of the Sun from the Earth's perspective, causing a solar eclipse over parts of the world.")])
         
         Earth.moons.append(moon)
         
@@ -108,7 +108,7 @@ class Objects {
         //----------------------------------------------------------------------------------------------
         let Mars = Planet(name: "Mars", type: Type.Rock, position: 4, classification: Class.Major)
         
-        Mars.about(description: "Mars is a cold desert world. It is half the diameter of Earth and has the same amount of dry land. Like Earth, Mars has seasons, polar ice caps, volcanoes, canyons and weather, but its atmosphere is too thin for liquid water to exist for long on the surface. There are signs of ancient floods on Mars, but evidence for water now exists mainly in icy soil and thin clouds.", wiki: "https://en.m.wikipedia.org/wiki/Mars", nasa: "http://solarsystem.nasa.gov/planets/mars")
+        Mars.about(description: "Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System, after Mercury. Named after the Roman god of war, it is often referred to as the \"Red Planet\" because the iron oxide prevalent on its surface gives it a reddish appearance. Mars is a terrestrial planet with a thin atmosphere, having surface features reminiscent both of the impact craters of the Moon and the valleys, deserts, and polar ice caps of Earth.\nThe rotational period and seasonal cycles of Mars are likewise similar to those of Earth, as is the tilt that produces the seasons. Mars is the site of Olympus Mons, the largest volcano and second-highest known mountain in the Solar System, and of Valles Marineris, one of the largest canyons in the Solar System. The smooth Borealis basin in the northern hemisphere covers 40% of the planet and may be a giant impact feature. Mars has two moons, Phobos and Deimos, which are small and irregularly shaped. These may be captured asteroids, similar to 5261 Eureka, a Mars trojan.\nThere are ongoing investigations assessing the past habitability potential of Mars, as well as the possibility of extant life. Future astrobiology missions are planned, including the Mars 2020 and ExoMars rovers. Liquid water cannot exist on the surface of Mars due to low atmospheric pressure, which is about  6⁄1000 that of the Earth's, except at the lowest elevations for short periods. The two polar ice caps appear to be made largely of water. The volume of water ice in the south polar ice cap, if melted, would be sufficient to cover the entire planetary surface to a depth of 11 meters (36 ft). On November 22, 2016, NASA reported finding a large amount of underground ice in the Utopia Planitia region of Mars. The volume of water detected has been estimated to be equivalent to the volume of water in Lake Superior.\nMars can easily be seen from Earth with the naked eye, as can its reddish coloring. Its apparent magnitude reaches −2.91, which is surpassed only by Jupiter, Venus, the Moon, and the Sun. Optical ground-based telescopes are typically limited to resolving features about 300 kilometers (190 mi) across when Earth and Mars are closest because of Earth's atmosphere.", wiki: "https://en.m.wikipedia.org/wiki/Mars", nasa: "http://solarsystem.nasa.gov/planets/mars")
         
         Mars.geology(mass: 0.64171, volume: 16.318, equatorial: 3396.2, density: 3933, gravity: 3.71, escape_velocity: 5.03, irradiance: 586.2, geographic_height_variance: 30)
         
@@ -120,23 +120,29 @@ class Objects {
         
         Mars.display(texture: "marsmap.jpg", model: nil, normalmap: "marsnormalmap.jpg", ringmap: nil, ring_transparencymap: nil, ring_inner_ratio: nil, ring_outer_ratio: nil)
         
-        Mars.images(images: [("mars - olympus mons.jpg",
-                              "Measuring two and a half times the height of Everest and almost the size of France, Olympus Mons is the largest volcano in the solar system."),
-                             ("mars - landscape.jpg","test1"),
-                             ("mars - pole.jpg",
-                              "The north pole of mars, with a large ice cap visible, composed mostly of CO2"),
-                             ("mars - frosted dunes.jpg", "Sand dunes form on Mars and form patterns when they warm enough to thaw the CO2 permafrost underneath."),
-                             ("mars - valles marineris.png", "The Valles Marines canyon measures almost four times the length and depth of the Grand Canyon, making it the largest valley in the solar system."),
-                             ("mars - curiosity selfie.jpg", "Curiosity is the most recent rover to land on Mars; it has been in service since 2012.")])
+        Mars.images(images: [
+            ("mars - olympus mons.jpg", "Measuring two and a half times the height of Everest and almost the size of France, Olympus Mons is the largest volcano in the solar system."),
+            ("mars - landscape.jpg","Images of the surface taken by the Pathfinder lander.  Pathfinder also delivered a small rover to the surface, named Sojourner."),
+            ("mars - pole.jpg", "The north pole of mars, with a large ice cap visible, composed mostly of CO2"),
+            ("mars - frosted dunes.jpg", "Sand dunes form on Mars and form patterns when they warm enough to thaw the CO2 permafrost underneath."),
+            ("mars - valles marineris.png", "The Valles Marines canyon measures almost four times the length and depth of the Grand Canyon, making it the largest valley in the solar system."),
+            ("mars - curiosity selfie.jpg", "Curiosity is the most recent rover to land on Mars; it has been in service since 2012.")])
         
         let Phobos = Moon(name: "Phobos", position: 1)
+        
+        Phobos.about(description: "Phobos (systematic designation: Mars I) is the innermost and larger of the two natural satellites of Mars, the other being Deimos. Both moons were discovered in 1877 by American astronomer Asaph Hall.\nPhobos is a small, irregularly shaped object with a mean radius of 11 km (7 mi), and is seven times larger than the outer moon, Deimos. Phobos is named after the Greek god, Phobos, a son of Ares (Mars) and Aphrodite (Venus) is the personification of Horror. The name \"Phobos\" is pronounced /ˈfoʊbəs/ foh-bəs or /ˈfoʊbɒs/ foh-bos, or like the Greek Φόβος.\nPhobos orbits 6,000 km (3,700 mi) from the Martian surface, closer to its primary body than any other known planetary moon. It is indeed so close that it orbits Mars much faster than Mars rotates, and completes an orbit in just 7 hours and 39 minutes. As a result, from the surface of Mars it appears to rise in the west, move across the sky in 4 hours and 15 minutes or less, and set in the east, twice each Martian day.\nPhobos is one of the least reflective bodies in the Solar System, with an albedo of just 0.071. Surface temperatures range from about −4 °C (25 °F) on the sunlit side to −112 °C (−170 °F) on the shadowed side. The defining surface feature is the large impact crater, Stickney, which takes up a substantial proportion of the moon's surface.\nImages and models indicate that Phobos may be a rubble pile held together by a thin crust, and that it is being torn apart by tidal interactions. Phobos gets closer to Mars by about 2 meters every one hundred years, and it is predicted that within 30 to 50 million years it will either collide with the planet, or break up into a planetary ring.", wiki: "https://en.wikipedia.org/wiki/Phobos_(moon)", nasa: "http://solarsystem.nasa.gov/planets/phobos")
+        
         Phobos.display(texture: nil, model: "phobos.dae", normalmap: nil)
+        
         Mars.moons.append(Phobos)
         
-        let Demios = Moon(name: "Demios", position: 1)
-        Demios.display(texture: nil, model: "demios.dae", normalmap: nil)
+        let Deimos = Moon(name: "Deimos", position: 2)
         
-        Mars.moons.append(Demios)
+        Deimos.about(description: "Deimos (systematic designation: Mars II) is the smaller and outer of the two natural satellites of the planet Mars, the other being Phobos. Deimos has a mean radius of 6.2 km (3.9 mi) and takes 30.3 hours to orbit Mars. The name Deimos is pronounced /ˈdaɪmɒs/ dy-mos, or sometimes /ˈdiːməs/ dee-məs or like the Greek Δεῖμος. In Greek mythology, Deimos was the twin brother of Phobos and personified terror.\nDeimos is 23,460 km (14,580 mi) from Mars, much further than Mars's other moon, Phobos.\nDeimos was discovered by Asaph Hall, Sr. at the United States Naval Observatory in Washington, D.C on 12 August 1877, at about 07:48 UTC (given in contemporary sources as \"11 August 14:40\" Washington mean time, using an astronomical convention of beginning a day at noon, so 12 hours must be added to get the actual local mean time). Hall also discovered Phobos on 18 August 1877, at about 09:14 GMT, after deliberately searching for Martian moons.", wiki: "https://en.wikipedia.org/wiki/Deimos_(moon)", nasa: "http://solarsystem.nasa.gov/planets/deimos")
+        
+        Deimos.display(texture: nil, model: "deimos.dae", normalmap: nil)
+        
+        Mars.moons.append(Deimos)
         
         
         //----------------------------------------------------------------------------------------------

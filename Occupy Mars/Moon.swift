@@ -35,11 +35,11 @@ class Moon {
     irradiance: Double?,
     geographic_height_variance: Double?
     
-    //--------------------------------------------orbit - notes: use tropical orbit, mean orbital velocity, and obliquidy from orbit for equator inclination
+    //--------------------------------------------orbit - notes: use tropical orbit, mean orbital velocity, obliquidy from orbit for equator inclination, and inclination from eliptic for inclination
     
-    var year_length: Double?,
-    perihelion: Double?,
-    aphelion: Double?,
+    var orbital_length: Double?,
+    perigee: Double?,
+    apogee: Double?,
     velocity: Double?,
     inclination: Double?,
     eccentricity: Double?,
@@ -104,17 +104,17 @@ class Moon {
         self.geographic_height_variance = geographic_height_variance
     }
     
-    func orbitals(year_length: Double?,
-                  perihelion: Double?,
-                  aphelion: Double?,
+    func orbitals(orbital_length: Double?,
+                  perigee: Double?,
+                  apogee: Double?,
                   velocity: Double?,
                   inclination: Double?,
                   eccentricity: Double?,
                   day_length: Double?,
                   equator_inclination: Double?) {
-        self.year_length = year_length
-        self.perihelion = perihelion
-        self.aphelion = aphelion
+        self.orbital_length = orbital_length
+        self.perigee = perigee
+        self.apogee = apogee
         self.velocity = velocity
         self.inclination = inclination
         self.eccentricity = eccentricity
@@ -315,8 +315,8 @@ class Moon {
     func generateOrbitalObjects() -> [(String, String)] {
         var ret = [(String, String)]()
         
-        if year_length != nil{
-            ret.append(("Year Length",String(describing: year_length!)+" days"))
+        if orbital_length != nil{
+            ret.append(("Year Length",String(describing: orbital_length!)+" days"))
         }
         if day_length != nil{
             ret.append(("Day Length", String(describing: day_length!)+" hours"))
@@ -324,11 +324,11 @@ class Moon {
         if velocity != nil{
             ret.append(("Average Velocity", String(describing: velocity!)+" km/h"))
         }
-        if perihelion != nil{
-            ret.append(("Perihilion", String(describing: perihelion!)+" km"))
+        if perigee != nil{
+            ret.append(("Perihilion", String(describing: perigee!)+" km"))
         }
-        if aphelion != nil{
-            ret.append(("Aphelion", String(describing: aphelion!)+" km"))
+        if apogee != nil{
+            ret.append(("Aphelion", String(describing: apogee!)+" km"))
         }
         if inclination != nil{
             ret.append(("Orbital Tilt", String(describing: inclination!)+" degrees"))
