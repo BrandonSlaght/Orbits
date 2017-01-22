@@ -62,8 +62,8 @@
 		C5CD59C01DD91E4F00ACB8EA /* GlobeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CD59BF1DD91E4F00ACB8EA /* GlobeViewController.swift */; };
 		C5CD59C31DD91F8600ACB8EA /* background.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C5CD59C21DD91F8600ACB8EA /* background.mp4 */; };
 		C5D515B81DE106400024638D /* InfoModalVewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D515B71DE106400024638D /* InfoModalVewController.swift */; };
+		C5DF39E81E35664500513FBA /* phobos.dae in Resources */ = {isa = PBXBuildFile; fileRef = C5DF39E71E35664500513FBA /* phobos.dae */; };
 		C5F3717A1E02366900DC373B /* deimos.dae in Resources */ = {isa = PBXBuildFile; fileRef = C5F371791E02366900DC373B /* deimos.dae */; };
-		C5F3717C1E0236B300DC373B /* phobos.dae in Resources */ = {isa = PBXBuildFile; fileRef = C5F3717B1E0236B300DC373B /* phobos.dae */; };
 		C5F8AA651DCA70330077F137 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F8AA641DCA70330077F137 /* AboutViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -125,8 +125,8 @@
 		C5CD59BF1DD91E4F00ACB8EA /* GlobeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobeViewController.swift; sourceTree = "<group>"; };
 		C5CD59C21DD91F8600ACB8EA /* background.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = background.mp4; sourceTree = "<group>"; };
 		C5D515B71DE106400024638D /* InfoModalVewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoModalVewController.swift; sourceTree = "<group>"; };
+		C5DF39E71E35664500513FBA /* phobos.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = phobos.dae; path = "../../Phobos & Deimos data/phobos.dae"; sourceTree = "<group>"; };
 		C5F371791E02366900DC373B /* deimos.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = deimos.dae; path = Assets.xcassets/mars/demios/demios.dataset/deimos.dae; sourceTree = "<group>"; };
-		C5F3717B1E0236B300DC373B /* phobos.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = phobos.dae; path = Assets.xcassets/mars/phobos/phobos.dataset/phobos.dae; sourceTree = "<group>"; };
 		C5F8AA641DCA70330077F137 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -204,7 +204,7 @@
 				C5941BE31DBBFD940057A46A /* Info.plist */,
 				C5CD59C21DD91F8600ACB8EA /* background.mp4 */,
 				C5F371791E02366900DC373B /* deimos.dae */,
-				C5F3717B1E0236B300DC373B /* phobos.dae */,
+				C5DF39E71E35664500513FBA /* phobos.dae */,
 				C5941BDB1DBBFD940057A46A /* Main.storyboard */,
 				C5C281BF1DDB94B60036C7A0 /* MediaViewCell.xib */,
 				C5AB79F91DEC8D310097C295 /* DataViewCell.xib */,
@@ -324,12 +324,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5F3717A1E02366900DC373B /* deimos.dae in Resources */,
+				C5DF39E81E35664500513FBA /* phobos.dae in Resources */,
 				84E3E38B1E240B7600872512 /* status.rtf in Resources */,
 				C5941BE21DBBFD940057A46A /* LaunchScreen.storyboard in Resources */,
 				C5AEC3EE1DCE5CB200992AEB /* texture sources.rtf in Resources */,
 				C5941BDF1DBBFD940057A46A /* Assets.xcassets in Resources */,
 				C5AB79FA1DEC8D310097C295 /* DataViewCell.xib in Resources */,
-				C5F3717C1E0236B300DC373B /* phobos.dae in Resources */,
 				C5CD59C31DD91F8600ACB8EA /* background.mp4 in Resources */,
 				C5C281C01DDB94B60036C7A0 /* MediaViewCell.xib in Resources */,
 				C5941BDD1DBBFD940057A46A /* Main.storyboard in Resources */,
