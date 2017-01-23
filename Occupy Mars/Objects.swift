@@ -132,15 +132,36 @@ class Objects {
         
         Phobos.about(description: "Phobos (systematic designation: Mars I) is the innermost and larger of the two natural satellites of Mars, the other being Deimos. Both moons were discovered in 1877 by American astronomer Asaph Hall.\nPhobos is a small, irregularly shaped object with a mean radius of 11 km (7 mi), and is seven times larger than the outer moon, Deimos. Phobos is named after the Greek god, Phobos, a son of Ares (Mars) and Aphrodite (Venus) is the personification of Horror. The name \"Phobos\" is pronounced /ˈfoʊbəs/ foh-bəs or /ˈfoʊbɒs/ foh-bos, or like the Greek Φόβος.\nPhobos orbits 6,000 km (3,700 mi) from the Martian surface, closer to its primary body than any other known planetary moon. It is indeed so close that it orbits Mars much faster than Mars rotates, and completes an orbit in just 7 hours and 39 minutes. As a result, from the surface of Mars it appears to rise in the west, move across the sky in 4 hours and 15 minutes or less, and set in the east, twice each Martian day.\nPhobos is one of the least reflective bodies in the Solar System, with an albedo of just 0.071. Surface temperatures range from about −4 °C (25 °F) on the sunlit side to −112 °C (−170 °F) on the shadowed side. The defining surface feature is the large impact crater, Stickney, which takes up a substantial proportion of the moon's surface.\nImages and models indicate that Phobos may be a rubble pile held together by a thin crust, and that it is being torn apart by tidal interactions. Phobos gets closer to Mars by about 2 meters every one hundred years, and it is predicted that within 30 to 50 million years it will either collide with the planet, or break up into a planetary ring.", wiki: "https://en.wikipedia.org/wiki/Phobos_(moon)", nasa: "http://solarsystem.nasa.gov/planets/phobos")
         
-        Phobos.geology(mass: <#T##Double?#>, volume: <#T##Double?#>, equatorial: <#T##Double?#>, density: <#T##Double?#>, gravity: <#T##Double?#>, escape_velocity: <#T##Double?#>, irradiance: <#T##Double?#>, geographic_height_variance: <#T##Double?#>)
+        Phobos.geology(mass: 0.0000000010659, volume: 0.00000057861, equatorial: 11.2667, density: 1876, gravity: 0.0057, escape_velocity: 0.001139, irradiance: 586.2, geographic_height_variance: nil)
+        
+        Phobos.orbitals(orbital_length: 0.31891023, perigee: 0.00923442, apogee: 0.00951758, velocity: 2.138, inclination: 1.093, eccentricity: 0.0151, day_length: 1.026, equator_inclination: 0.046)
+        
+        Phobos.misc(discovered: "August 18th, 1877")
         
         Phobos.display(texture: nil, model: "phobos.dae", normalmap: nil)
+        
+        Phobos.images(images: [
+            ("phobos - monolith.jpg", "An apparent monolith on Phobos.  Although around 90 meters tall, it is likely just a boulder that fell from a nearby cliff."),
+            ("phobos - color.jpg", "Similar to the planet it orbits, Phobos has a red hue."),
+            ("phobos - moon transit.gif", "Phobos passing in front of Mars' other moon, Demios in real time, as seen by the Curiosity rover."),
+            ("phobos - transit.jpg", "Phobos is not large enough to create a total eclipse when viewed from Mars.  At most, it creates a partial eclipse as photographed here by the Curiosity rover."),
+            ("phobos - stickeny.jpg", "Stickeny crater was formed long ago by a massive impact with the surface. Limtoc crater is the smaller crater inside Stickeny.")])
         
         Mars.moons.append(Phobos)
         
         let Deimos = Moon(name: "Deimos", position: 2)
         
         Deimos.about(description: "Deimos (systematic designation: Mars II) is the smaller and outer of the two natural satellites of the planet Mars, the other being Phobos. Deimos has a mean radius of 6.2 km (3.9 mi) and takes 30.3 hours to orbit Mars. The name Deimos is pronounced /ˈdaɪmɒs/ dy-mos, or sometimes /ˈdiːməs/ dee-məs or like the Greek Δεῖμος. In Greek mythology, Deimos was the twin brother of Phobos and personified terror.\nDeimos is 23,460 km (14,580 mi) from Mars, much further than Mars's other moon, Phobos.\nDeimos was discovered by Asaph Hall, Sr. at the United States Naval Observatory in Washington, D.C on 12 August 1877, at about 07:48 UTC (given in contemporary sources as \"11 August 14:40\" Washington mean time, using an astronomical convention of beginning a day at noon, so 12 hours must be added to get the actual local mean time). Hall also discovered Phobos on 18 August 1877, at about 09:14 GMT, after deliberately searching for Martian moons.", wiki: "https://en.wikipedia.org/wiki/Deimos_(moon)", nasa: "http://solarsystem.nasa.gov/planets/deimos")
+        
+        Deimos.geology(mass: 0.00000000014762, volume: 999.78, equatorial: 6.2, density: 1471, gravity: 0.003, escape_velocity: 0.0005556, irradiance: 586.2, geographic_height_variance: nil)
+        
+        Deimos.orbitals(orbital_length: 1.263, perigee: 0.0234555, apogee: 0.0234709, velocity: 1.3513, inclination: 0.93, eccentricity: 0.00033, day_length: 1.026, equator_inclination: 1.791)
+        
+        Deimos.misc(discovered: "August 12th, 1877")
+        
+        Deimos.images(images: [
+            ("deimos - surface.png", "Deimos's surface in detail from 30 km away, taken by the Viking 2 orbiter in a flyby."),
+            ("deimos - color.jpg", "The surface of Deimos is relatively smooth because when asteroids impact it, the ejected material escapes its orbit and thus doesn't impact the surface again.")])
         
         Deimos.display(texture: nil, model: "deimos.dae", normalmap: nil)
         
