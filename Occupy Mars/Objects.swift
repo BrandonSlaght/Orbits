@@ -77,10 +77,11 @@ class Objects {
             ("earth - reef.jpg", "Earth is the only planet in the universe known to harbor life."),
             ("earth - palau.jpg", "Around 71% of Earth's surface is covered by water.  It is one of several bodies in the solar system with water, but Earth is the only body with permenant liquid surface water."),
             ("earth - lights.jpg", "Seen here are the northern lights, which appear when charged particles from the sun strike the armosphere."),
-            ("earth - lava.jpg", "Earth, along with the moons Io, Triton, and Enceladus, are the only geolocically active bodies in the solar system.  The Earth's atmosphere is protected by the magnetosphere, which is created by the planet's spinning iron core."),
+            ("earth - lava.jpg", "Earth, along with the moons Io, Triton, and Enceladus, are the only geolocically active bodies in the solar system.  Earth's atmosphere is protected by a magnetosphere, created by the planet's spinning iron core."),
             ("earth - glacier.jpg", "Glaciers and ice caps account for around 2% of all water on Earth (or around 70% of all fresh water).  Ice caps reflect sunlight back into space."),
             ("earth - falls.jpg", "Less than three percent of all the water on Earth is fresh water.  Fortunately, water that evaporates from the seas leaves behind its salt."),
-            ("earth - canyon.jpg", "The dynamic weather conditions shape Earth moreso than other planets.  Seen here is the Grand Canyon, formed by erosion over millions of years.")])
+            ("earth - canyon.jpg", "The dynamic weather conditions shape Earth moreso than other planets.  Seen here is the Grand Canyon, formed by erosion over millions of years."),
+            ("earth - crater.jpg", "Although many small meteorites burn up in the atmosphere, occasionally a meteor will impact the ground.  The Meteor Crater in Arizona is a 560 foot deep crater formed some 50,000 years ago.")])
         
         //tofix
         let moon = Moon(name: "Moon", position: 1)
@@ -134,7 +135,7 @@ class Objects {
         
         Phobos.geology(mass: 0.0000000010659, volume: 0.00000057861, equatorial: 11.2667, density: 1876, gravity: 0.0057, escape_velocity: 0.001139, irradiance: 586.2, geographic_height_variance: nil)
         
-        Phobos.orbitals(orbital_length: 0.31891023, perigee: 0.00923442, apogee: 0.00951758, velocity: 2.138, inclination: 1.093, eccentricity: 0.0151, day_length: 1.026, equator_inclination: 0.046)
+        Phobos.orbitals(orbital_length: 0.31891023, perigee: 0.00923442, apogee: 0.00951758, velocity: 2.138, inclination: 1.093, eccentricity: 0.0151, day_length: 24.624, equator_inclination: 0.046)
         
         Phobos.misc(discovered: "August 18th, 1877")
         
@@ -143,7 +144,7 @@ class Objects {
         Phobos.images(images: [
             ("phobos - monolith.jpg", "An apparent monolith on Phobos.  Although around 90 meters tall, it is likely just a boulder that fell from a nearby cliff."),
             ("phobos - color.jpg", "Similar to the planet it orbits, Phobos has a red hue."),
-            ("phobos - moon transit.gif", "Phobos passing in front of Mars' other moon, Demios in real time, as seen by the Curiosity rover."),
+            //("phobos - moon transit.gif", "Phobos passing in front of Mars' other moon, Demios in real time, as seen by the Curiosity rover."),
             ("phobos - transit.jpg", "Phobos is not large enough to create a total eclipse when viewed from Mars.  At most, it creates a partial eclipse as photographed here by the Curiosity rover."),
             ("phobos - stickeny.jpg", "Stickeny crater was formed long ago by a massive impact with the surface. Limtoc crater is the smaller crater inside Stickeny.")])
         
@@ -155,7 +156,7 @@ class Objects {
         
         Deimos.geology(mass: 0.00000000014762, volume: 999.78, equatorial: 6.2, density: 1471, gravity: 0.003, escape_velocity: 0.0005556, irradiance: 586.2, geographic_height_variance: nil)
         
-        Deimos.orbitals(orbital_length: 1.263, perigee: 0.0234555, apogee: 0.0234709, velocity: 1.3513, inclination: 0.93, eccentricity: 0.00033, day_length: 1.026, equator_inclination: 1.791)
+        Deimos.orbitals(orbital_length: 1.263, perigee: 0.0234555, apogee: 0.0234709, velocity: 1.3513, inclination: 0.93, eccentricity: 0.00033, day_length: 24.624, equator_inclination: 1.791)
         
         Deimos.misc(discovered: "August 12th, 1877")
         
