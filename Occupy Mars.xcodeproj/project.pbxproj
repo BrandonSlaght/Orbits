@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8488D42E1E54EBCF009AD9D8 /* AreaUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D4211E54EBCF009AD9D8 /* AreaUnit.swift */; };
+		8488D42F1E54EBCF009AD9D8 /* AreaUnit+Imperial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D4221E54EBCF009AD9D8 /* AreaUnit+Imperial.swift */; };
+		8488D4301E54EBCF009AD9D8 /* EnergyUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D4231E54EBCF009AD9D8 /* EnergyUnit.swift */; };
+		8488D4311E54EBCF009AD9D8 /* LengthUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D4241E54EBCF009AD9D8 /* LengthUnit.swift */; };
+		8488D4321E54EBCF009AD9D8 /* LengthUnit+Imperial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D4251E54EBCF009AD9D8 /* LengthUnit+Imperial.swift */; };
+		8488D4331E54EBCF009AD9D8 /* MassUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D4261E54EBCF009AD9D8 /* MassUnit.swift */; };
+		8488D4341E54EBCF009AD9D8 /* MassUnit+Imperial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D4271E54EBCF009AD9D8 /* MassUnit+Imperial.swift */; };
+		8488D4351E54EBCF009AD9D8 /* Quantity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D4281E54EBCF009AD9D8 /* Quantity.swift */; };
+		8488D4361E54EBCF009AD9D8 /* TimeUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D4291E54EBCF009AD9D8 /* TimeUnit.swift */; };
+		8488D4371E54EBCF009AD9D8 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D42A1E54EBCF009AD9D8 /* Unit.swift */; };
+		8488D4381E54EBCF009AD9D8 /* VolumeUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D42B1E54EBCF009AD9D8 /* VolumeUnit.swift */; };
+		8488D4391E54EBCF009AD9D8 /* VolumeUnit+Imperial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D42C1E54EBCF009AD9D8 /* VolumeUnit+Imperial.swift */; };
+		8488D43A1E54EBCF009AD9D8 /* VolumeUnit+US.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D42D1E54EBCF009AD9D8 /* VolumeUnit+US.swift */; };
+		84BD30271E37B2BA00C990D6 /* phobos.dae in Resources */ = {isa = PBXBuildFile; fileRef = 84BD30261E37B2BA00C990D6 /* phobos.dae */; };
+		84E044491E37D9FE00A6AAB4 /* phobos - transit.gif in Resources */ = {isa = PBXBuildFile; fileRef = 84E044481E37D9FE00A6AAB4 /* phobos - transit.gif */; };
 		84E3E38B1E240B7600872512 /* status.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 84E3E38A1E240B7600872512 /* status.rtf */; };
 		C515AE611DC8E135009A498C /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C515AE601DC8E135009A498C /* TestViewController.swift */; };
 		C515AE631DC91126009A498C /* PlanetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C515AE621DC91126009A498C /* PlanetDetailViewController.swift */; };
@@ -62,12 +77,26 @@
 		C5CD59C01DD91E4F00ACB8EA /* GlobeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CD59BF1DD91E4F00ACB8EA /* GlobeViewController.swift */; };
 		C5CD59C31DD91F8600ACB8EA /* background.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C5CD59C21DD91F8600ACB8EA /* background.mp4 */; };
 		C5D515B81DE106400024638D /* InfoModalVewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D515B71DE106400024638D /* InfoModalVewController.swift */; };
-		C5DF39E81E35664500513FBA /* phobos.dae in Resources */ = {isa = PBXBuildFile; fileRef = C5DF39E71E35664500513FBA /* phobos.dae */; };
 		C5F3717A1E02366900DC373B /* deimos.dae in Resources */ = {isa = PBXBuildFile; fileRef = C5F371791E02366900DC373B /* deimos.dae */; };
 		C5F8AA651DCA70330077F137 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F8AA641DCA70330077F137 /* AboutViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8488D4211E54EBCF009AD9D8 /* AreaUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaUnit.swift; sourceTree = "<group>"; };
+		8488D4221E54EBCF009AD9D8 /* AreaUnit+Imperial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AreaUnit+Imperial.swift"; sourceTree = "<group>"; };
+		8488D4231E54EBCF009AD9D8 /* EnergyUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyUnit.swift; sourceTree = "<group>"; };
+		8488D4241E54EBCF009AD9D8 /* LengthUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LengthUnit.swift; sourceTree = "<group>"; };
+		8488D4251E54EBCF009AD9D8 /* LengthUnit+Imperial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LengthUnit+Imperial.swift"; sourceTree = "<group>"; };
+		8488D4261E54EBCF009AD9D8 /* MassUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MassUnit.swift; sourceTree = "<group>"; };
+		8488D4271E54EBCF009AD9D8 /* MassUnit+Imperial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MassUnit+Imperial.swift"; sourceTree = "<group>"; };
+		8488D4281E54EBCF009AD9D8 /* Quantity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quantity.swift; sourceTree = "<group>"; };
+		8488D4291E54EBCF009AD9D8 /* TimeUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeUnit.swift; sourceTree = "<group>"; };
+		8488D42A1E54EBCF009AD9D8 /* Unit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
+		8488D42B1E54EBCF009AD9D8 /* VolumeUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolumeUnit.swift; sourceTree = "<group>"; };
+		8488D42C1E54EBCF009AD9D8 /* VolumeUnit+Imperial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VolumeUnit+Imperial.swift"; sourceTree = "<group>"; };
+		8488D42D1E54EBCF009AD9D8 /* VolumeUnit+US.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VolumeUnit+US.swift"; sourceTree = "<group>"; };
+		84BD30261E37B2BA00C990D6 /* phobos.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = phobos.dae; path = Assets.xcassets/mars/phobos/phobos.dataset/phobos.dae; sourceTree = "<group>"; };
+		84E044481E37D9FE00A6AAB4 /* phobos - transit.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "phobos - transit.gif"; sourceTree = "<group>"; };
 		84E3E38A1E240B7600872512 /* status.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = status.rtf; sourceTree = "<group>"; };
 		C515AE601DC8E135009A498C /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		C515AE621DC91126009A498C /* PlanetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetDetailViewController.swift; sourceTree = "<group>"; };
@@ -125,7 +154,6 @@
 		C5CD59BF1DD91E4F00ACB8EA /* GlobeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobeViewController.swift; sourceTree = "<group>"; };
 		C5CD59C21DD91F8600ACB8EA /* background.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = background.mp4; sourceTree = "<group>"; };
 		C5D515B71DE106400024638D /* InfoModalVewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoModalVewController.swift; sourceTree = "<group>"; };
-		C5DF39E71E35664500513FBA /* phobos.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = phobos.dae; path = "../../Phobos & Deimos data/phobos.dae"; sourceTree = "<group>"; };
 		C5F371791E02366900DC373B /* deimos.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = deimos.dae; path = Assets.xcassets/mars/demios/demios.dataset/deimos.dae; sourceTree = "<group>"; };
 		C5F8AA641DCA70330077F137 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,6 +169,64 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8488D4201E54EBAB009AD9D8 /* units */ = {
+			isa = PBXGroup;
+			children = (
+				8488D4211E54EBCF009AD9D8 /* AreaUnit.swift */,
+				8488D4221E54EBCF009AD9D8 /* AreaUnit+Imperial.swift */,
+				8488D4231E54EBCF009AD9D8 /* EnergyUnit.swift */,
+				8488D4241E54EBCF009AD9D8 /* LengthUnit.swift */,
+				8488D4251E54EBCF009AD9D8 /* LengthUnit+Imperial.swift */,
+				8488D4261E54EBCF009AD9D8 /* MassUnit.swift */,
+				8488D4271E54EBCF009AD9D8 /* MassUnit+Imperial.swift */,
+				8488D4281E54EBCF009AD9D8 /* Quantity.swift */,
+				8488D4291E54EBCF009AD9D8 /* TimeUnit.swift */,
+				8488D42A1E54EBCF009AD9D8 /* Unit.swift */,
+				8488D42B1E54EBCF009AD9D8 /* VolumeUnit.swift */,
+				8488D42C1E54EBCF009AD9D8 /* VolumeUnit+Imperial.swift */,
+				8488D42D1E54EBCF009AD9D8 /* VolumeUnit+US.swift */,
+			);
+			name = units;
+			sourceTree = "<group>";
+		};
+		84E044421E37D4A500A6AAB4 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				C5AB79F91DEC8D310097C295 /* DataViewCell.xib */,
+				C5941BE01DBBFD940057A46A /* LaunchScreen.storyboard */,
+				C5941BDB1DBBFD940057A46A /* Main.storyboard */,
+				C5C281BF1DDB94B60036C7A0 /* MediaViewCell.xib */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		84E044431E37D55F00A6AAB4 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				84E044451E37D5DA00A6AAB4 /* gifs */,
+				C5CD59C21DD91F8600ACB8EA /* background.mp4 */,
+				84E044441E37D57600A6AAB4 /* models */,
+			);
+			name = resources;
+			sourceTree = "<group>";
+		};
+		84E044441E37D57600A6AAB4 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				C5F371791E02366900DC373B /* deimos.dae */,
+				84BD30261E37B2BA00C990D6 /* phobos.dae */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
+		84E044451E37D5DA00A6AAB4 /* gifs */ = {
+			isa = PBXGroup;
+			children = (
+				84E044481E37D9FE00A6AAB4 /* phobos - transit.gif */,
+			);
+			name = gifs;
+			sourceTree = "<group>";
+		};
 		C52458361DC578BA009F3374 /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,15 +287,10 @@
 			isa = PBXGroup;
 			children = (
 				C52458361DC578BA009F3374 /* model */,
+				84E044421E37D4A500A6AAB4 /* view */,
 				C5941BE31DBBFD940057A46A /* Info.plist */,
-				C5CD59C21DD91F8600ACB8EA /* background.mp4 */,
-				C5F371791E02366900DC373B /* deimos.dae */,
-				C5DF39E71E35664500513FBA /* phobos.dae */,
-				C5941BDB1DBBFD940057A46A /* Main.storyboard */,
-				C5C281BF1DDB94B60036C7A0 /* MediaViewCell.xib */,
-				C5AB79F91DEC8D310097C295 /* DataViewCell.xib */,
+				84E044431E37D55F00A6AAB4 /* resources */,
 				C5941BDE1DBBFD940057A46A /* Assets.xcassets */,
-				C5941BE01DBBFD940057A46A /* LaunchScreen.storyboard */,
 				C5941BD31DBBFD940057A46A /* AppDelegate.swift */,
 				C58DEB8E1DC6B50400E6C1F3 /* PlanetCell.swift */,
 				C5AEC3FC1DCE7D0400992AEB /* MoonCell.swift */,
@@ -221,6 +302,7 @@
 				C597D2D31E01E287006B6D6C /* MoonDetailViewController.swift */,
 				C54A98F81E032ED3009A8695 /* sextant.swift */,
 				C5AEC3EF1DCE775100992AEB /* details */,
+				8488D4201E54EBAB009AD9D8 /* units */,
 				C5CF53D81DFC7EC0008A6489 /* photo browser */,
 			);
 			path = "Occupy Mars";
@@ -297,6 +379,7 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = ST77J7SW46;
 						LastSwiftMigration = 0810;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -324,7 +407,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5F3717A1E02366900DC373B /* deimos.dae in Resources */,
-				C5DF39E81E35664500513FBA /* phobos.dae in Resources */,
+				84BD30271E37B2BA00C990D6 /* phobos.dae in Resources */,
 				84E3E38B1E240B7600872512 /* status.rtf in Resources */,
 				C5941BE21DBBFD940057A46A /* LaunchScreen.storyboard in Resources */,
 				C5AEC3EE1DCE5CB200992AEB /* texture sources.rtf in Resources */,
@@ -333,6 +416,7 @@
 				C5CD59C31DD91F8600ACB8EA /* background.mp4 in Resources */,
 				C5C281C01DDB94B60036C7A0 /* MediaViewCell.xib in Resources */,
 				C5941BDD1DBBFD940057A46A /* Main.storyboard in Resources */,
+				84E044491E37D9FE00A6AAB4 /* phobos - transit.gif in Resources */,
 				C520FB471DFC928C004A0FE6 /* SKPhotoBrowser.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,10 +430,14 @@
 			files = (
 				C520FB431DFC928C004A0FE6 /* SKLocalPhoto.swift in Sources */,
 				C520FB411DFC928C004A0FE6 /* SKDetectingView.swift in Sources */,
+				8488D4391E54EBCF009AD9D8 /* VolumeUnit+Imperial.swift in Sources */,
+				8488D4341E54EBCF009AD9D8 /* MassUnit+Imperial.swift in Sources */,
 				C515AE611DC8E135009A498C /* TestViewController.swift in Sources */,
 				C520FB451DFC928C004A0FE6 /* SKPagingScrollView.swift in Sources */,
 				C520FB3C1DFC928C004A0FE6 /* SKButtons.swift in Sources */,
+				8488D4371E54EBCF009AD9D8 /* Unit.swift in Sources */,
 				C520FB491DFC928C004A0FE6 /* SKPhotoBrowserDelegate.swift in Sources */,
+				8488D43A1E54EBCF009AD9D8 /* VolumeUnit+US.swift in Sources */,
 				C597D2D41E01E287006B6D6C /* MoonDetailViewController.swift in Sources */,
 				C5941BEA1DBBFEA40057A46A /* IntroPageViewController.swift in Sources */,
 				C54A98FF1E032FE2009A8695 /* MoonsMediaAboutViewController.swift in Sources */,
@@ -367,22 +455,30 @@
 				C5AEC3FD1DCE7D0400992AEB /* MoonCell.swift in Sources */,
 				C5F8AA651DCA70330077F137 /* AboutViewController.swift in Sources */,
 				C5AEC3F51DCE77D500992AEB /* DetailsAboutViewController.swift in Sources */,
+				8488D4301E54EBCF009AD9D8 /* EnergyUnit.swift in Sources */,
 				C5941BD41DBBFD940057A46A /* AppDelegate.swift in Sources */,
+				8488D42F1E54EBCF009AD9D8 /* AreaUnit+Imperial.swift in Sources */,
 				C520FB4B1DFC928C004A0FE6 /* SKToolbar.swift in Sources */,
+				8488D4351E54EBCF009AD9D8 /* Quantity.swift in Sources */,
 				C54A98FB1E032F82009A8695 /* MoonGlobeViewController.swift in Sources */,
 				C5991A3E1DD9738200A86F04 /* WaterfallLayout.swift in Sources */,
 				C5C24C811DC68DA10028FAF5 /* Objects.swift in Sources */,
+				8488D4311E54EBCF009AD9D8 /* LengthUnit.swift in Sources */,
 				C54A99051E0333C8009A8695 /* MoonsAboutViewController.swift in Sources */,
 				C524583A1DC5988D009F3374 /* Moon.swift in Sources */,
 				C520FB421DFC928C004A0FE6 /* SKIndicatorView.swift in Sources */,
 				C520FB3B1DFC928C004A0FE6 /* SKAnimator.swift in Sources */,
 				C524583C1DC59E0B009F3374 /* Types.swift in Sources */,
 				C5C24C7F1DC685F50028FAF5 /* PlanetListViewController.swift in Sources */,
+				8488D42E1E54EBCF009AD9D8 /* AreaUnit.swift in Sources */,
+				8488D4361E54EBCF009AD9D8 /* TimeUnit.swift in Sources */,
 				C520FB3D1DFC928C004A0FE6 /* SKCache.swift in Sources */,
 				C520FB461DFC928C004A0FE6 /* SKPhoto.swift in Sources */,
+				8488D4321E54EBCF009AD9D8 /* LengthUnit+Imperial.swift in Sources */,
 				C5AEC3FB1DCE7BDE00992AEB /* AboutTableViewController.swift in Sources */,
 				C515AE631DC91126009A498C /* PlanetDetailViewController.swift in Sources */,
 				C5AEC3F31DCE77C500992AEB /* MoonAboutViewController.swift in Sources */,
+				8488D4331E54EBCF009AD9D8 /* MassUnit.swift in Sources */,
 				C5CD59C01DD91E4F00ACB8EA /* GlobeViewController.swift in Sources */,
 				C520FB4A1DFC928C004A0FE6 /* SKPhotoBrowserOptions.swift in Sources */,
 				C54A99011E033001009A8695 /* MoonGeneralAboutViewController.swift in Sources */,
@@ -391,6 +487,7 @@
 				C5AEC3F71DCE77E600992AEB /* RingsAboutViewController.swift in Sources */,
 				C58DEB8F1DC6B50400E6C1F3 /* PlanetCell.swift in Sources */,
 				C52458381DC578F1009F3374 /* Planet.swift in Sources */,
+				8488D4381E54EBCF009AD9D8 /* VolumeUnit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,6 +610,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = ST77J7SW46;
 				INFOPLIST_FILE = "Occupy Mars/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -530,6 +628,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = ST77J7SW46;
 				INFOPLIST_FILE = "Occupy Mars/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;

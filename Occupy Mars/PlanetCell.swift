@@ -10,6 +10,7 @@ import UIKit
 import SceneKit
 
 class PlanetCell: UITableViewCell {
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet var name: UILabel!
     @IBOutlet var classification: UILabel!
     @IBOutlet weak var sceneView: SCNView!
@@ -24,5 +25,9 @@ class PlanetCell: UITableViewCell {
     
     override func layoutSubviews() {
         
+    }
+    
+    override func prepareForReuse() {
+        heightConstraint.constant = 183
     }
 }

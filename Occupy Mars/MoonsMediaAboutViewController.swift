@@ -11,6 +11,7 @@ import UIKit
 class MoonMediaAboutViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, CHTCollectionViewDelegateWaterfallLayout {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
     
     var moon: Moon!
     
@@ -22,6 +23,11 @@ class MoonMediaAboutViewController: UIViewController, UICollectionViewDelegate, 
         self.collectionView.delegate = self
         setupCollectionView()
         registerNibs()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        collectionView.layoutIfNeeded()
+        collectionViewHeight.constant = collectionView.contentSize.height
     }
     
     override func didReceiveMemoryWarning() {
@@ -41,7 +47,11 @@ class MoonMediaAboutViewController: UIViewController, UICollectionViewDelegate, 
         // Add the waterfall layout to your collection view
         self.collectionView.collectionViewLayout = layout
         for image in moon.images {
-            let item = SKPhoto.photoWithImage(UIImage(named: image.image)!)
+            //if image.image.hasSuffix(".jpg") || image.image.hasSuffix(".png") {
+                let item = SKPhoto.photoWithImage(UIImage(named: image.image)!)
+            //} else if image.image.hasSuffix(".gif") {
+                //let item = SKPhoto.photoWithImage(UIImage.	(named: image.image)!)
+            //}
             item.caption = image.caption
             images.append(item)
         }

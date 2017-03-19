@@ -11,39 +11,59 @@ import SceneKit
 import QuartzCore
 
 class MoonDetailViewController: UIViewController {
+    @IBOutlet weak var globeButton: UIButton!
     @IBOutlet weak var scene: SCNView!
     @IBOutlet weak var sceneHeight: NSLayoutConstraint!
     @IBOutlet weak var content: UIView!
     @IBOutlet weak var tabs: UISegmentedControl!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var contentHeight: NSLayoutConstraint!
+    //@IBOutlet weak var contentHeight: NSLayoutConstraint!
     @IBAction func indexChanged(_ sender: UISegmentedControl)
     {
         if let vc = getDetailViewController(sender.selectedSegmentIndex) {
-            let height = vc.view.frame.height
-            print("vc height \(height)")
-            self.addChildViewController(vc)
-            self.transition(from: self.currentViewController!, to: vc, duration: 0.5, options: UIViewAnimationOptions.transitionCrossDissolve, animations: {
-                self.currentViewController!.view.removeFromSuperview()
-                vc.view.frame = self.content.bounds
-                self.content.addSubview(vc.view)
-            }, completion: { finished in
-                //vc.didMove(toParentViewController: self)
-                //vc.view.layoutSubviews()
-                //vc.view.layoutIfNeeded()
-                //height = vc.view.bounds.height
-                //self.contentHeight.constant = height
-                print("self height \(self.contentHeight.constant)")
-                self.currentViewController!.removeFromParentViewController()
-                self.currentViewController = vc
-                //(height)
-            }
-            )
+            vc.view.translatesAutoresizingMaskIntoConstraints = false
+            self.cycleFromViewController(oldViewController: self.currentViewController!, toViewController: vc)
+            self.currentViewController = vc
         }
     }
     
     var moon: Moon!
     var currentViewController: UIViewController?
+    
+    func cycleFromViewController(oldViewController: UIViewController, toViewController newViewController: UIViewController) {
+        newViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        oldViewController.willMove(toParentViewController: nil)
+        self.addChildViewController(newViewController)
+        self.addSubview(subView: newViewController.view, toView:self.content!)
+        newViewController.view.alpha = 0
+        newViewController.view.setNeedsLayout()
+        newViewController.view.layoutIfNeeded()
+        newViewController.view.layoutSubviews()
+        content.reloadInputViews()
+        UIView.animate(withDuration: 0.5,
+                       animations: {
+                        newViewController.view.alpha = 1
+                        oldViewController.view.alpha = 0
+        },
+                       completion: { finished in
+                        oldViewController.view.removeFromSuperview()
+                        oldViewController.removeFromParentViewController()
+                        newViewController.didMove(toParentViewController: self)
+                        self.content.reloadInputViews()
+                        //self.contentHeight.constant = newViewController.view.bounds.height
+        })
+    }
+    
+    func addSubview(subView:UIView, toView parentView:UIView) {
+        parentView.addSubview(subView)
+        
+        var viewBindingsDict = [String: AnyObject]()
+        viewBindingsDict["subView"] = subView
+        parentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[subView]|",
+                                                                 options: [], metrics: nil, views: viewBindingsDict))
+        parentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[subView]|",
+                                                                 options: [], metrics: nil, views: viewBindingsDict))
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,20 +78,11 @@ class MoonDetailViewController: UIViewController {
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "milkyway.jpg")!)
         self.view.addSubview(blurView)
         
-        content.autoresizesSubviews = true
-        
-        //content.frame = view.bounds
-        content.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
-        //        content.autoresizingMask = UIView.resizin
-        
         scrollView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 4)
         scrollView.indicatorStyle = UIScrollViewIndicatorStyle.white
         
         self.navigationItem.title = moon.name
-        
-        //tabs.tintColor = UIVibrancyEffect(forBlurEffect: blurView.effect as! UIBlurEffect)
-        
+                
         tabs.removeAllSegments()
         
         if moon.images.count > 0 || moon.videos.count > 0 {
@@ -83,15 +94,16 @@ class MoonDetailViewController: UIViewController {
         tabs.selectedSegmentIndex = 0
         
         if let vc = self.getDetailViewController(tabs.selectedSegmentIndex) {
-            vc.view.frame = self.content.bounds
-            self.addChildViewController(vc)
-            self.content.addSubview(vc.view)
             self.currentViewController = vc
+            self.currentViewController!.view.translatesAutoresizingMaskIntoConstraints = false
+            self.addChildViewController(self.currentViewController!)
+            self.addSubview(subView: self.currentViewController!.view, toView: self.content)
         }
         
         if let let_scene = moon.getScene(size: Size.medium) {
             scene.scene = let_scene
         } else {
+            globeButton.isHidden = true
             sceneHeight.constant = 0
         }
     }

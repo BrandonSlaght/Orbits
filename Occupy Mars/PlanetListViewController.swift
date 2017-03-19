@@ -29,7 +29,8 @@ class PlanetListViewController: UITableViewController {
         tableView.separatorEffect = UIVibrancyEffect(blurEffect: blurView.effect as! UIBlurEffect)
         //tableView.rowHeight = UITableViewAutomaticDimension
         //tableView.estimatedRowHeight = 75
-        tableView.rowHeight = 200
+        tableView.estimatedRowHeight = 200
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -45,13 +46,30 @@ class PlanetListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PlanetCell", for: indexPath) as! PlanetCell
-        cell.backgroundColor = UIColor.clear
         let classification = Class.allValues[indexPath.section]
         let planet = objects[classification]![indexPath.row]
+        var cell = tableView.dequeueReusableCell(withIdentifier: "PlanetCell", for: indexPath) as! PlanetCell
+//        if (cell == nil) {
+//            cell = PlanetCell(style: .default, reuseIdentifier: "PlanetCell")
+//        }
+        cell.backgroundColor = UIColor.clear
         cell.name?.text = planet.name
         cell.classification?.text = planet.type.rawValue
-        cell.sceneView.scene = planet.getScene(size: Size.small)
+        //if let let_scene = planet.getScene(size: Size.small) {
+          //  cell.sceneView.scene = let_scene
+        //} else{
+        //    cell.heightConstraint.constant = 0
+        //}
+        if (cell.sceneView != nil) {
+            cell.sceneView.scene = planet.getScene(size: Size.small)
+        }
+        if (planet.getScene(size: Size.small) == nil) {
+            print(planet.name + "is nil modeled")
+//            if (cell.sceneView != nil) {
+//                cell.sceneView.removeFromSuperview()
+//            }
+            cell.heightConstraint.constant = 75
+        }
         return cell
     }
     
@@ -60,7 +78,8 @@ class PlanetListViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return Class.count
+        //return Class.count
+        return 2
     }
     
 //    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

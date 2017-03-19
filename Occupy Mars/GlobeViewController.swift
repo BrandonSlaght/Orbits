@@ -18,9 +18,10 @@ class GlobeViewController: UIViewController {
         SCNTransaction.animationDuration = 1
         SCNTransaction.animationTimingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionEaseInEaseOut)
         globe.pointOfView? = camera
-        
         SCNTransaction.commit()
+        globe.isPlaying = true
     }
+    
     @IBAction func stopRotation(_ sender: Any) {
         if rotating {
             rotating = false
@@ -50,6 +51,7 @@ class GlobeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let let_scene = planet.getScene(size: Size.full) {
+            globe.antialiasingMode = .multisampling4X
             globe.scene = let_scene
             globe.scene?.background.contents = UIImage(named: "sky.jpg")
             //globe.scene?.rootNode.childNodes.first.
@@ -60,7 +62,7 @@ class GlobeViewController: UIViewController {
             //ortho = globe.scene?.rootNode.childNode(withName: "camera", recursively: true)?.camera?.orthographicScale
             //lastOrtho = ortho
             
-            self.navigationItem.title = planet.name
+            //self.navigationItem.title = planet.name
         } else {
             self.navigationItem.title = "Error"
         }

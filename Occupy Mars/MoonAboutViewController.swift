@@ -8,34 +8,61 @@
 
 import UIKit
 
-class MoonAboutViewController: AboutTableViewController {
+class MoonAboutViewController: AboutViewController, UITableViewDataSource, UITableViewDelegate  {
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = view.bounds
-        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        //tableView.register(UINib(nibName: "DataViewCell", bundle: nil), forCellReuseIdentifier: "geologyCell")
+        
+        //tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.separatorEffect = UIVibrancyEffect(blurEffect: blurView.effect as! UIBlurEffect)
-        tableView.rowHeight = 200
+        tableView.estimatedRowHeight = 200
+        tableView.rowHeight = UITableViewAutomaticDimension
+    }
+    
+    override func viewDidLayoutSubviews() {
+        tableView.layoutIfNeeded()
+        tableViewHeight.constant = tableView.contentSize.height
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return planet.moons.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MoonCell", for: indexPath) as! MoonCell
         cell.backgroundColor = UIColor.clear
         let objects = planet.moons
-        print (objects[indexPath.row].name)
+        //print (objects[indexPath.row].name)
+        //cell.textLabel?.text = objects[indexPath.row].name
         cell.name?.text = objects[indexPath.row].name
-        print (cell.name.text!)
-        cell.sceneView.scene = objects[indexPath.row].getScene(size: Size.small)
+        //print (cell.name.text!)
+        
+        if (cell.sceneView != nil) {
+            cell.sceneView.scene = objects[indexPath.row].getScene(size: Size.small)
+        }
+        if (objects[indexPath.row].getScene(size: Size.small) == nil) {
+            print(objects[indexPath.row].name + "is nil modeled")
+            //            if (cell.sceneView != nil) {
+            //                cell.sceneView.removeFromSuperview()
+            //            }
+            cell.heightConstraint.constant = 75
+        }
+        
+        //cell.sceneView.scene = objects[indexPath.row].getScene(size: Size.small)
         return cell
     }
     

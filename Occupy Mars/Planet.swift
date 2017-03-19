@@ -255,12 +255,12 @@ class Planet {
             
             if let let_ringsmap = ringmap {
                 let rings = SCNTorus(ringRadius: 2, pipeRadius: 0.5)
-                print("here")
+                //print("here")
                 
                 if let let_ring_inner_ratio = ring_inner_ratio, let let_ring_outer_ratio = ring_outer_ratio {
-                    print("hereeeeee")
-                    rings.pipeRadius = CGFloat(let_ring_outer_ratio - let_ring_inner_ratio - 1)
-                    rings.ringRadius = CGFloat((let_ring_outer_ratio + let_ring_inner_ratio) / 2) //CGFloat(let_ring_outer_ratio / )
+                    //print("hereeeeee")
+                    rings.pipeRadius = CGFloat((let_ring_outer_ratio - let_ring_inner_ratio) / 2)
+                    rings.ringRadius = CGFloat(let_ring_outer_ratio - 0.5) //+ let_ring_inner_ratio) / 2) //CGFloat(let_ring_outer_ratio / )
                 }
                 
                 rings.ringSegmentCount = 176

@@ -259,6 +259,8 @@ class Moon {
             
             print(rotationNode.pivot)
             
+        } else {
+            return nil
         }
         
         return scene

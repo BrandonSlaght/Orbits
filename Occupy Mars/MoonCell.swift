@@ -12,6 +12,7 @@ import SceneKit
 class MoonCell: UITableViewCell {
     @IBOutlet var name: UILabel!
     @IBOutlet weak var sceneView: SCNView!
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
     //    func updateLabels() {
     //        let bodyFont = UIFont.preferredFontForTextStyle(style: UIFontTextStyle.body)

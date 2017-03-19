@@ -11,6 +11,7 @@ import UIKit
 class MediaAboutViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, CHTCollectionViewDelegateWaterfallLayout {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
     
     var planet: Planet!
     
@@ -22,6 +23,11 @@ class MediaAboutViewController: UIViewController, UICollectionViewDelegate, UICo
         self.collectionView.delegate = self
         setupCollectionView()
         registerNibs()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        collectionView.layoutIfNeeded()
+        collectionViewHeight.constant = collectionView.contentSize.height
     }
     
     override func didReceiveMemoryWarning() {

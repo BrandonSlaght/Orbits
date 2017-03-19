@@ -17,10 +17,11 @@ class MoonGlobeViewController: UIViewController {
         SCNTransaction.begin()
         SCNTransaction.animationDuration = 1
         SCNTransaction.animationTimingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionEaseInEaseOut)
-            globe.pointOfView? = camera
-        
-            SCNTransaction.commit()
-        }
+        globe.pointOfView? = camera
+        SCNTransaction.commit()
+        globe.isPlaying = true
+    }
+    
     @IBAction func stopRotation(_ sender: UIButton) {
         if rotating {
             rotating = false
@@ -50,6 +51,7 @@ class MoonGlobeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let let_scene = moon.getScene(size: Size.full) {
+            globe.antialiasingMode = .multisampling4X
             globe.scene = let_scene
             globe.scene?.background.contents = UIImage(named: "sky.jpg")
             //globe.scene?.rootNode.childNodes.first.
@@ -60,7 +62,7 @@ class MoonGlobeViewController: UIViewController {
             //ortho = globe.scene?.rootNode.childNode(withName: "camera", recursively: true)?.camera?.orthographicScale
             //lastOrtho = ortho
             
-            self.navigationItem.title = moon.name
+            //self.navigationItem.title = moon.name
         } else {
             self.navigationItem.title = "Error"
         }
