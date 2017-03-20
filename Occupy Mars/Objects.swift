@@ -30,7 +30,7 @@ class Objects {
                       wiki: "https://en.wikipedia.org/wiki/Mercury",
                       nasa: "http://solarsystem.nasa.gov/planets/mercury")
         
-        Mercury.geology(mass: 0.330110000000000000000000.kilogram(),
+        Mercury.geology(mass: 330110000000000000.gigagram(),
                         volume: 60830000000.kilometer(),
                         equatorial: 2439.7.kilometer(),
                         density: 5427.kilogram(),

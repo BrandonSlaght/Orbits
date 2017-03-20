@@ -367,32 +367,45 @@ class Planet {
         return newImage!
     }
     
+    func toScientificNotation(value: NSNumber) -> String {
+        if value.intValue < 10000000 {
+            return String(describing: value)
+        }
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = NumberFormatter.Style.scientific
+        numberFormatter.positiveFormat = "0.### x E+0"
+        numberFormatter.exponentSymbol = " x e^"
+        numberFormatter.minimumFractionDigits = 2
+        numberFormatter.maximumFractionDigits = 6
+        return numberFormatter.string(from: value)!
+    }
+    
     func generateGeologyObjects() -> [(String, String)] {
         var ret = [(String, String)]()
         
         if mass != nil{
-            ret.append(("Mass",String(describing: mass!.converted(MassUnit.kilogram).amount)+" kg"))
+            ret.append(("Mass", toScientificNotation(value: mass!.converted(MassUnit.kilogram).rounded(7).amount)+" kg"))
         }
         if volume != nil{
-            ret.append(("Volume", String(describing: volume!.converted(LengthUnit.kilometer).amount)+" km³"))
+            ret.append(("Volume", toScientificNotation(value: volume!.converted(LengthUnit.kilometer).rounded(7).amount)+" km³"))
         }
         if density != nil{
-            ret.append(("Density", String(describing: density!.converted(MassUnit.kilogram).amount)+" kg/m³"))
+            ret.append(("Density", toScientificNotation(value: density!.converted(MassUnit.kilogram).rounded(7).amount)+" kg/m³"))
         }
         if equatorial != nil{
-            ret.append(("Radius", String(describing: equatorial!.converted(LengthUnit.kilometer).amount)+" km"))
+            ret.append(("Radius", toScientificNotation(value: equatorial!.converted(LengthUnit.kilometer).rounded(7).amount)+" km"))
         }
         if gravity != nil{
-            ret.append(("Gravity", String(describing: gravity!.converted(LengthUnit.meter).amount)+" m/s²"))
+            ret.append(("Gravity", toScientificNotation(value: gravity!.converted(LengthUnit.meter).rounded(7).amount)+" m/s²"))
         }
         if escape_velocity != nil{
-            ret.append(("Escape Velocity", String(describing: escape_velocity!.converted(LengthUnit.kilometer))+" km/s"))
+            ret.append(("Escape Velocity", toScientificNotation(value: escape_velocity!.converted(LengthUnit.kilometer).rounded(7).amount)+" km/s"))
         }
         if irradiance != nil{
             ret.append(("Irradiance", String(describing: irradiance!)+" W/m²"))
         }
         if geographic_height_variance != nil{
-            ret.append(("Height Variance", String(describing: geographic_height_variance!.converted(LengthUnit.kilometer).amount)+" km"))
+            ret.append(("Height Variance", toScientificNotation(value: geographic_height_variance!.converted(LengthUnit.kilometer).rounded(7).amount)+" km"))
         }
         
         return ret
@@ -402,19 +415,19 @@ class Planet {
         var ret = [(String, String)]()
         
         if year_length != nil{
-            ret.append(("Year Length", String(describing: year_length!.converted(TimeUnit.day).amount)+" days"))
+            ret.append(("Year Length", toScientificNotation(value: year_length!.converted(TimeUnit.day).rounded(7).amount)+" days")) //for some reason, this library does not convert days properly
         }
         if day_length != nil{
-            ret.append(("Day Length", String(describing: day_length!.converted(TimeUnit.hour).amount)+" hours"))
+            ret.append(("Day Length", toScientificNotation(value: day_length!.converted(TimeUnit.hour).rounded(7).amount)+" hours"))
         }
         if velocity != nil{
-            ret.append(("Average Velocity", String(describing: velocity!.converted(LengthUnit.kilometer).amount)+" km/h"))
+            ret.append(("Average Velocity", toScientificNotation(value: velocity!.converted(LengthUnit.kilometer).rounded(7).amount)+" km/h"))
         }
         if perihelion != nil{
-            ret.append(("Perihilion", String(describing: perihelion!.converted(LengthUnit.kilometer).amount)+" km"))
+            ret.append(("Perihilion", toScientificNotation(value: perihelion!.converted(LengthUnit.kilometer).rounded(7).amount)+" km"))
         }
         if aphelion != nil{
-            ret.append(("Aphelion", String(describing: aphelion!.converted(LengthUnit.kilometer).amount)+" km"))
+            ret.append(("Aphelion", toScientificNotation(value: aphelion!.converted(LengthUnit.kilometer).rounded(7).amount)+" km"))
         }
         if inclination != nil{
             ret.append(("Orbital Tilt", String(describing: inclination!)+" degrees"))
@@ -426,10 +439,10 @@ class Planet {
             ret.append(("Equator Tilt", String(describing: equator_inclination!)+" degrees"))
         }
         if min_distance_from_earth != nil{
-            ret.append(("Nearest to Earth", String(describing: min_distance_from_earth!.converted(LengthUnit.kilometer).amount)+" km"))
+            ret.append(("Nearest to Earth", toScientificNotation(value: min_distance_from_earth!.converted(LengthUnit.kilometer).rounded(7).amount)+" km"))
         }
         if max_distance_from_earth != nil{
-            ret.append(("Farthest from Earth", String(describing: max_distance_from_earth!.converted(LengthUnit.kilometer).amount)+" km"))
+            ret.append(("Farthest from Earth", toScientificNotation(value: max_distance_from_earth!.converted(LengthUnit.kilometer).rounded(7).amount)+" km"))
         }
         
         return ret

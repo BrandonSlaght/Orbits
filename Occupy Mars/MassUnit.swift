@@ -26,6 +26,13 @@
 import Foundation
 
 public final class MassUnit: Unit {
+    
+    public static var gigagram: MassUnit {
+        return MassUnit(
+            name: "gigagram",
+            symbol: "Gg",
+            ratio: NSDecimalNumber(mantissa: 1, exponent: 6, isNegative: false))
+    }
 
     /**
      Returns megagram `[Mg]` mass unit.
@@ -96,6 +103,10 @@ public final class MassUnit: Unit {
 }
 
 extension ExpressibleByIntegerLiteral {
+    
+    public func gigagram() -> Quantity {
+        return Quantity(amount: self as! NSNumber, unit: MassUnit.gigagram)
+    }
 
     /**
      Returns instance converted as megagram quantity.
