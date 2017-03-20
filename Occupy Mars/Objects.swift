@@ -6,6 +6,16 @@
 //  Copyright © 2016 Slaght, Brandon. All rights reserved.
 //
 
+//.geology(mass: <#T##Quantity?#>,
+//         volume: <#T##Quantity?#>,
+//         equatorial: <#T##Quantity?#>,
+//         density: <#T##Quantity?#>,
+//         gravity: <#T##Quantity?#>,
+//         escape_velocity: <#T##Quantity?#>,
+//         irradiance: <#T##Double?#>,
+//         geographic_height_variance: <#T##Quantity?#>)
+
+
 import Foundation
 
 class Objects {
@@ -19,6 +29,27 @@ class Objects {
         Mercury.about(description: "Mercury is the smallest and innermost planet in the Solar System. Its orbital period (about 88 Earth days) is less than any other planet in the Solar System. Seen from Earth, it appears to move around its orbit in about 116 days. It has no known natural satellites. It is named after the Roman deity Mercury, the messenger to the gods.\n\nPartly because it has almost no atmosphere to retain heat, Mercury's surface temperature varies diurnally more than any other planet in the Solar System, ranging from 100 K (−173 °C; −280 °F) at night to 700 K (427 °C; 800 °F) during the day in some equatorial regions. The poles are constantly below 180 K (−93 °C; −136 °F). Mercury's axis has the smallest tilt of any of the Solar System's planets (about  1/30 degree), and its orbital eccentricity is the largest of all known planets in the Solar System. At aphelion, Mercury is about 1.5 times as far from the Sun as it is at perihelion. Mercury's surface is heavily cratered and similar in appearance to the Moon, indicating that it has been geologically inactive for billions of years.\n\nMercury is tidally or gravitationally locked with the Sun in a 3:2 resonance, and rotates in a way that is unique in the Solar System. As seen relative to the fixed stars, it rotates on its axis exactly three times for every two revolutions it makes around the Sun. As seen from the Sun, in a frame of reference that rotates with the orbital motion, it appears to rotate only once every two Mercurian years. An observer on Mercury would therefore see only one day every two years.\n\nBecause Mercury orbits the Sun within Earth's orbit (as does Venus), it can appear in Earth's sky in the morning or the evening, but not in the middle of the night. Also, like Venus and the Moon, it displays a complete range of phases as it moves around its orbit relative to Earth. Although Mercury can appear as a bright object when viewed from Earth, its proximity to the Sun makes it more difficult to see than Venus. Two spacecraft have visited Mercury: Mariner 10 flew by in 1974 and 1975; and MESSENGER, launched in 2004, orbited Mercury over 4,000 times in four years, before exhausting its fuel and crashing into the planet's surface on April 30, 2015.",
                       wiki: "https://en.wikipedia.org/wiki/Mercury",
                       nasa: "http://solarsystem.nasa.gov/planets/mercury")
+        
+        Mercury.geology(mass: 0.330110000000000000000000.kilogram(),
+                        volume: 60830000000.kilometer(),
+                        equatorial: 2439.7.kilometer(),
+                        density: 5427.kilogram(),
+                        gravity: 3.70.meter(),
+                        escape_velocity: 4.3.kilometer(),
+                        irradiance: 9082.7,
+                        geographic_height_variance: 7.kilometer())
+        
+        Mercury.orbitals(year_length: 87.969.day(),
+                         perihelion: 46000000.kilometer(),
+                         aphelion: 69820000.kilometer(),
+                         velocity: 47.36.kilometer(),
+                         inclination: 7.00,
+                         eccentricity: 0.2056,
+                         day_length: 4222.6.hour(),
+                         equator_inclination: 0.034,
+                         min_distance_from_earth: 77300000.kilometer(),
+                         max_distance_from_earth: 221900000.kilometer())
+        
         
 //        Mercury.geology(mass: 0.33011,
 //                        volume: 6.083,
@@ -284,11 +315,11 @@ class Objects {
 //                        day_length: 24.624,
 //                        equator_inclination: 0.046)
         
-        Phobos.misc(discovered: "August 18th, 1877")
+//        Phobos.misc(discovered: "August 18th, 1877")
         
-        Phobos.display(texture: nil,
-                       model: "phobos.dae",
-                       normalmap: nil)
+//        Phobos.display(texture: nil,
+//                       model: "phobos.dae",
+//                       normalmap: nil)
         
         Phobos.images(images: [
             ("phobos - monolith.jpg", "An apparent monolith on Phobos.  Although around 90 meters tall, it is likely just a boulder that fell from a nearby cliff."),
@@ -322,7 +353,7 @@ class Objects {
 //                        day_length: 24.624,
 //                        equator_inclination: 1.791)
         
-        Deimos.misc(discovered: "August 12th, 1877")
+//        Deimos.misc(discovered: "August 12th, 1877")
         
         Deimos.images(images: [
             ("deimos - surface.png", "Deimos's surface in detail from 30 km away, taken by the Viking 2 orbiter in a flyby."),
@@ -408,7 +439,7 @@ class Objects {
 //                       day_length: 0.294791666,
 //                       equator_inclination: 0)
         
-        Metis.misc(discovered: "1979")
+//        Metis.misc(discovered: "1979")
         
         Jupiter.moons.append(Metis)
         
@@ -437,7 +468,7 @@ class Objects {
 //                          day_length: 0.29826,
 //                          equator_inclination: 0)
         
-        Adrastea.misc(discovered: "1979")
+//        Adrastea.misc(discovered: "1979")
         
         Jupiter.moons.append(Adrastea)
         
@@ -466,7 +497,7 @@ class Objects {
 //                          day_length: 0.49817943,
 //                          equator_inclination: 0)
         
-        Amalthea.misc(discovered: "1892")
+//        Amalthea.misc(discovered: "1892")
         
         Jupiter.moons.append(Amalthea)
         
@@ -494,7 +525,7 @@ class Objects {
 //                       day_length: 0.674536,
 //                       equator_inclination: 0)
         
-        Thebe.misc(discovered: "1979")
+//        Thebe.misc(discovered: "1979")
         
         Jupiter.moons.append(Thebe);
         
@@ -527,7 +558,7 @@ class Objects {
                      nasa: "http://solarsystem.nasa.gov/planets/europa")
         
         Europa.images(images: [
-            ("eruopa - red.jpg", "On Europa's ice-covered surface, blue and white areas are relatively pure ice, whereas red areas indicate water ice mixed with hydrated salts, potentially magnesium sulfate or sulfuric acid"),
+            ("europa - red.jpg", "On Europa's ice-covered surface, blue and white areas are relatively pure ice, whereas red areas indicate water ice mixed with hydrated salts, potentially magnesium sulfate or sulfuric acid"),
             ("europa - ridge.jpg", "Ridges that form on Europa are likely the result of intense tidal forces or energy coming from the moon's interior."),
             ("europa - linea.jpg", "The Minos Linea region on Europa is a part of the surface carved up by sections where salts are mixed in the ice."),
             ("europa - impact.jpg", "This crater is around the size of Hawaii (140km across) and formed when a massive asteroid impacted the surface of the moon."),
@@ -1013,7 +1044,7 @@ class Objects {
         let Pasiphae = Moon(name: "Pasiphae",
                             position: 57)
         
-        Pasiphae.about(description: "Pasiphae is a retrograde irregular satellite of Jupiter. It was discovered in 1908 by Philibert Jacques Melotte[6][7] and later named after the mythological Pasiphaë, wife of Minos and mother of the Minotaur from Greek legend.\n\nIt was first spotted on a plate taken at the Royal Greenwich Observatory on the night of February 28, 1908. Inspection of previous plates found it as far back as January 27. It received the provisional designation 1908 CJ, as it was not clear whether it was an asteroid or a moon of Jupiter. The recognition of the latter case came by April 10.\n\nPasiphae did not receive its present name until 1975; before then, it was simply known as Jupiter VIII. It was sometimes called \"Poseidon\" between 1955 and 1975.",
+        Pasiphae.about(description: "Pasiphae is a retrograde irregular satellite of Jupiter. It was discovered in 1908 by Philibert Jacques Melotte and later named after the mythological Pasiphaë, wife of Minos and mother of the Minotaur from Greek legend.\n\nIt was first spotted on a plate taken at the Royal Greenwich Observatory on the night of February 28, 1908. Inspection of previous plates found it as far back as January 27. It received the provisional designation 1908 CJ, as it was not clear whether it was an asteroid or a moon of Jupiter. The recognition of the latter case came by April 10.\n\nPasiphae did not receive its present name until 1975; before then, it was simply known as Jupiter VIII. It was sometimes called \"Poseidon\" between 1955 and 1975.",
                        wiki: "https://en.wikipedia.org/wiki/Pasiphae_(moon)",
                        nasa: "http://solarsystem.nasa.gov/planets/pasiphae")
         
@@ -1127,16 +1158,16 @@ class Objects {
                        ring_inner_ratio: 1.239,
                        ring_outer_ratio: 2.270)
         
-        Saturn.orbitals(year_length: 686.981,
-                        perihelion: 206.62,
-                        aphelion: 249.23,
-                        velocity: 24.07,
-                        inclination: 1.850,
-                        eccentricity: 0.0935,
-                        day_length: 24.6597,
-                        equator_inclination: 27,
-                        min_distance_from_earth: 55.7,
-                        max_distance_from_earth: 401.3)
+//        Saturn.orbitals(year_length: 686.981,
+//                        perihelion: 206.62,
+//                        aphelion: 249.23,
+//                        velocity: 24.07,
+//                        inclination: 1.850,
+//                        eccentricity: 0.0935,
+//                        day_length: 24.6597,
+//                        equator_inclination: 27,
+//                        min_distance_from_earth: 55.7,
+//                        max_distance_from_earth: 401.3)
         
         let S1 = Moon(name: "S/2009 S 1",
                       position: 1)
@@ -1226,6 +1257,10 @@ class Objects {
                     wiki: "https://en.wikipedia.org/wiki/Mimas_(moon)",
                     nasa: "http://solarsystem.nasa.gov/planets/mimas")
         
+        Mimas.display(texture: "mimasmap.jpg",
+                      model: nil,
+                      normalmap: nil)
+        
         Saturn.moons.append(Mimas)
         
         let Methone = Moon(name: "Methone",
@@ -1262,6 +1297,10 @@ class Objects {
                         wiki: "https://en.wikipedia.org/wiki/Enceladus",
                         nasa: "http://solarsystem.nasa.gov/planets/enceladus")
         
+        Enceladus.display(texture: "enceladusmap.jpg",
+                          model: nil,
+                          normalmap: nil)
+        
         Saturn.moons.append(Enceladus)
         
         let Tethys = Moon(name: "Tethys",
@@ -1270,6 +1309,10 @@ class Objects {
         Tethys.about(description: "Tethys (or Saturn III) is a mid-sized moon of Saturn about 1,060 km (660 mi) across. It was discovered by G. D. Cassini in 1684 and is named after the titan Tethys of Greek mythology.\n\nTethys has a low density of 0.98 g/cm3, the lowest of all the major moons in the Solar System, indicating that it is made of water ice with just a small fraction of rock. This is confirmed by the spectroscopy of its surface, which identified water ice as the dominant surface material. A small amount of an unidentified dark material is present as well. The surface of Tethys is very bright, being the second-brightest of the moons of Saturn after Enceladus, and neutral in color.\n\nTethys is heavily cratered and cut by a number of large faults/graben. The largest impact crater, Odysseus, is about 400 km in diameter, whereas the largest graben, Ithaca Chasma, is about 100 km wide and more than 2000 km long. These two largest surface features may be related. A small part of the surface is covered by smooth plains that may be cryovolcanic in origin. Like all other regular moons of Saturn, Tethys formed from the Saturnian sub-nebula—a disk of gas and dust that surrounded Saturn soon after its formation.\n\nTethys has been approached by several space probes including Pioneer 11 (1979), Voyager 1 (1980), Voyager 2 (1981), and multiple times by Cassini since 2004.",
                      wiki: "https://en.wikipedia.org/wiki/Tethys_(moon)",
                      nasa: "http://solarsystem.nasa.gov/planets/tethys")
+        
+        Tethys.display(texture: "tethysmap.jpg",
+                       model: nil,
+                       normalmap: nil)
         
         Saturn.moons.append(Tethys)
         
@@ -1298,6 +1341,10 @@ class Objects {
                     wiki: "https://en.wikipedia.org/wiki/Dione_(moon)",
                     nasa: "http://solarsystem.nasa.gov/planets/dione")
         
+        Dione.display(texture: "dionemap.jpg",
+                      model: nil,
+                      normalmap: nil)
+        
         Saturn.moons.append(Dione)
         
         let Helene = Moon(name: "Helene",
@@ -1325,6 +1372,10 @@ class Objects {
                    wiki: "https://en.wikipedia.org/wiki/Rhea_(moon)",
                    nasa: "http://solarsystem.nasa.gov/planets/rhea")
         
+        Rhea.display(texture: "rheamap.jpg",
+                     model: nil,
+                     normalmap: nil)
+        
         Saturn.moons.append(Rhea)
         
         let Titan = Moon(name: "Titan",
@@ -1333,6 +1384,10 @@ class Objects {
         Titan.about(description: "Titan is the largest moon of Saturn. It is the only moon known to have a dense atmosphere, and the only object in space other than Earth where clear evidence of stable bodies of surface liquid has been found.\n\nTitan is the sixth ellipsoidal moon from Saturn. Frequently described as a planet-like moon, Titan is 50% larger than Earth's Moon, and it is 80% more massive. It is the second-largest moon in the Solar System, after Jupiter's moon Ganymede, and is larger than the smallest planet, Mercury, but only 40% as massive. Discovered in 1655 by the Dutch astronomer Christiaan Huygens, Titan was the first known moon of Saturn, and the sixth known planetary satellite. Titan orbits Saturn at 20 Saturn radii. From Titan's surface Saturn subtends an arc of 5.7 degrees and would appear 11.4 times larger in the sky than the Moon from Earth.\n\nTitan is primarily composed of water ice and rocky material. Much as with Venus before the Space Age, the dense opaque atmosphere prevented understanding of Titan's surface until new information from the Cassini–Huygens mission in 2004, including the discovery of liquid hydrocarbon lakes in Titan's polar regions. The geologically young surface is generally smooth, with few impact craters, although mountains and several possible cryovolcanoes have been found.\n\nThe atmosphere of Titan is largely nitrogen; minor components lead to the formation of methane and ethane clouds and nitrogen-rich organic smog. The climate—including wind and rain—creates surface features similar to those of Earth, such as dunes, rivers, lakes, seas (probably of liquid methane and ethane), and deltas, and is dominated by seasonal weather patterns as on Earth. With its liquids (both surface and subsurface) and robust nitrogen atmosphere, Titan's methane cycle is analogous to Earth's water cycle, at the much lower temperature of about 94 K (−179.2 °C).",
                     wiki: "https://en.wikipedia.org/wiki/Titan_(moon)",
                     nasa: "http://solarsystem.nasa.gov/planets/titan")
+        
+        Titan.display(texture: "titanmap.jpg",
+                      model: nil,
+                      normalmap: nil)
         
         Saturn.moons.append(Titan)
         
@@ -1351,6 +1406,10 @@ class Objects {
         Iapetus.about(description: "Iapetus, or occasionally Japetus, is the third-largest natural satellite of Saturn, eleventh-largest in the Solar System, and the largest body in the Solar System known not to be in hydrostatic equilibrium. Iapetus is best known for its dramatic \"two-tone\" coloration. Discoveries by the Cassini mission in 2007 revealed several other unusual features, such as a massive equatorial ridge running three-quarters of the way around the moon.\n\nIapetus was discovered by Giovanni Domenico Cassini, an Italian astronomer, in October 1671. He had discovered it on the western side of Saturn and tried viewing it on the eastern side some months later, but was unsuccessful. This was also the case the following year, when he was again able to observe it on the western side, but not the eastern side. Cassini finally observed Iapetus on the eastern side in 1705 with the help of an improved telescope, finding it two magnitudes dimmer on that side.\n\nCassini correctly surmised that Iapetus has a bright hemisphere and a dark hemisphere, and that it is tidally locked, always keeping the same face towards Saturn. This means that the bright hemisphere is visible from Earth when Iapetus is on the western side of Saturn, and that the dark hemisphere is visible when Iapetus is on the eastern side. The dark hemisphere was later named Cassini Regio in his honour.\n\nThe orbit of Iapetus is somewhat unusual. Although it is Saturn's third-largest moon, it orbits much farther from Saturn than the next closest major moon, Titan. It has also the most inclined orbital plane of the regular satellites; only the irregular outer satellites like Phoebe have more inclined orbits. The cause of this is unknown.\n\nBecause of this distant, inclined orbit, Iapetus is the only large moon from which the rings of Saturn would be clearly visible; from the other inner moons, the rings would be edge-on and difficult to see. From Iapetus, Saturn would appear to be 1°56' in diameter (four times the size of the Moon viewed from Earth).",
                       wiki: "https://en.wikipedia.org/wiki/Iapetus_(moon)",
                       nasa: "http://solarsystem.nasa.gov/planets/iapetus")
+        
+        Iapetus.display(texture: "iapetusmap.jpg",
+                        model: nil,
+                        normalmap: nil)
         
         Saturn.moons.append(Iapetus)
         
@@ -1378,6 +1437,10 @@ class Objects {
         Phoebe.about(description: "Phoebe is an irregular satellite of Saturn with a mean diameter of 213 km. It was discovered by William Henry Pickering on 17 March 1899 from photographic plates that had been taken starting on 16 August 1898 at the Boyden Observatory near Arequipa, Peru, by DeLisle Stewart. It was the first satellite to be discovered photographically.\n\nPhoebe was the first target encountered upon the arrival of the Cassini spacecraft in the Saturn system in 2004, and is thus unusually well-studied for an irregular satellite of its size. Cassini's trajectory to Saturn and time of arrival were specifically chosen to permit this flyby. After the encounter and its insertion into orbit, Cassini did not go much beyond the orbit of Iapetus.\n\nPhoebe is roughly spherical and has a differentiated interior. It was spherical and hot early in its history and was battered out of roundness by repeated impacts. It is thought to be a captured planetesimal from the Kuiper belt.",
                      wiki: "https://en.wikipedia.org/wiki/Phoebe_(moon)",
                      nasa: "http://solarsystem.nasa.gov/planets/phoebe")
+        
+        Phoebe.display(texture: "phoebemap.jpg",
+                       model: nil,
+                       normalmap: nil)
         
         Saturn.moons.append(Phoebe)
         
@@ -1456,7 +1519,7 @@ class Objects {
         let Tarqeq = Moon(name: "Tarqeq",
                           position: 36)
         
-        Tarqeq.about(description: "Tarqeq, also known as Saturn LII (provisional designation S/2007 S 1) is a natural satellite of Saturn. Its discovery was announced by Scott S. Sheppard, David C. Jewitt, Jan Kleyna, and Brian G. Marsden on 13 April 2007 from observations taken between 5 January 2006 and 22 March 2007. It is named after Tarqeq, the Inuit moon god, and is a member of the Inuit group of irregular satellites. It's about seven kilometres in diameter. The Cassini spacecraft observed Tarqeq over 1.5 days on 15–16 January 2014.\n\nThe Tarqiup (Tarqeqian) orbit lies at an inclination of 49.90° (to the ecliptic; 49.77° to Saturn's equator), with an eccentricity of 0.1081[1] and a semi-major axis of 17.9106 Gm. Tarqeq orbits in a prograde direction with a period of 894.86 days.",
+        Tarqeq.about(description: "Tarqeq, also known as Saturn LII (provisional designation S/2007 S 1) is a natural satellite of Saturn. Its discovery was announced by Scott S. Sheppard, David C. Jewitt, Jan Kleyna, and Brian G. Marsden on 13 April 2007 from observations taken between 5 January 2006 and 22 March 2007. It is named after Tarqeq, the Inuit moon god, and is a member of the Inuit group of irregular satellites. It's about seven kilometres in diameter. The Cassini spacecraft observed Tarqeq over 1.5 days on 15–16 January 2014.\n\nThe Tarqiup (Tarqeqian) orbit lies at an inclination of 49.90° (to the ecliptic; 49.77° to Saturn's equator), with an eccentricity of 0.1081 and a semi-major axis of 17.9106 Gm. Tarqeq orbits in a prograde direction with a period of 894.86 days.",
                      wiki: "https://en.wikipedia.org/wiki/Tarqeq",
                      nasa: "http://solarsystem.nasa.gov/planets/tarqeq")
         
@@ -1739,6 +1802,10 @@ class Objects {
                      wiki: "https://en.wikipedia.org/wiki/Bianca_(moon)",
                      nasa: "http://solarsystem.nasa.gov/planets/bianca")
         
+        Bianca.display(texture: "biancamap.jpg",
+                       model: nil,
+                       normalmap: nil)
+        
         Uranus.moons.append(Bianca)
         
         let Cressida = Moon(name: "Cressida",
@@ -1753,7 +1820,7 @@ class Objects {
         let Desdemona = Moon(name: "Desdemona",
                              position: 5)
         
-        Desdemona.about(description: "Desdemona is an inner satellite of Uranus. It was discovered from the images taken by Voyager 2 on 13 January 1986, and was given the temporary designation S/1986 U 6. Desdemona is named after the wife of Othello in William Shakespeare's play Othello. It is also designated Uranus X.\n\nDesdemona belongs to Portia Group of satellites, which also includes Bianca, Cressida, Juliet, Portia, Rosalind, Cupid, Belinda and Perdita. These satellites have similar orbits and photometric properties. Other than its orbit, radius of 32 km and geometric albedo of 0.08[5] virtually nothing is known about Desdemona.\n\nAt the Voyager 2 images Desdemona appears as an elongated object, the major axis pointing towards Uranus. The ratio of axes of Desdemona's prolate spheroid is 0.6 ± 0.3. Its surface is grey in color.\n\nDesdemona may collide with one of its neighboring moons Cressida or Juliet within the next 100 million years.",
+        Desdemona.about(description: "Desdemona is an inner satellite of Uranus. It was discovered from the images taken by Voyager 2 on 13 January 1986, and was given the temporary designation S/1986 U 6. Desdemona is named after the wife of Othello in William Shakespeare's play Othello. It is also designated Uranus X.\n\nDesdemona belongs to Portia Group of satellites, which also includes Bianca, Cressida, Juliet, Portia, Rosalind, Cupid, Belinda and Perdita. These satellites have similar orbits and photometric properties. Other than its orbit, radius of 32 km and geometric albedo of 0.08 virtually nothing is known about Desdemona.\n\nAt the Voyager 2 images Desdemona appears as an elongated object, the major axis pointing towards Uranus. The ratio of axes of Desdemona's prolate spheroid is 0.6 ± 0.3. Its surface is grey in color.\n\nDesdemona may collide with one of its neighboring moons Cressida or Juliet within the next 100 million years.",
                         wiki: "https://en.wikipedia.org/wiki/Desdemona_(moon)",
                         nasa: "http://solarsystem.nasa.gov/planets/desdemona")
         
@@ -1762,7 +1829,7 @@ class Objects {
         let Juliet = Moon(name: "Juliet",
                           position: 6)
         
-        Juliet.about(description: "Juliet is an inner satellite of Uranus. It was discovered from the images taken by Voyager 2 on 3 January 1986, and was given the temporary designation S/1986 U 2.[6] It is named after the heroine of William Shakespeare's play Romeo and Juliet. It is also designated Uranus XI.\n\nJuliet belongs to Portia Group of satellites, which also includes Bianca, Cressida, Desdemona, Portia, Rosalind, Cupid, Belinda and Perdita. These satellites have similar orbits and photometric properties. Unfortunately, other than its orbit, radius of 53 km and geometric albedo of 0.08 virtually nothing is known about Juliet.\n\nAt the Voyager 2 images Juliet appears as an elongated object, the major axis pointing towards Uranus. The ratio of axes of Juliet's prolate spheroid is 0.5 ± 0.3, which is rather an extreme value. Its surface is grey in color.\n\nJuliet may collide with Desdemona within the next 100 million years.",
+        Juliet.about(description: "Juliet is an inner satellite of Uranus. It was discovered from the images taken by Voyager 2 on 3 January 1986, and was given the temporary designation S/1986 U 2. It is named after the heroine of William Shakespeare's play Romeo and Juliet. It is also designated Uranus XI.\n\nJuliet belongs to Portia Group of satellites, which also includes Bianca, Cressida, Desdemona, Portia, Rosalind, Cupid, Belinda and Perdita. These satellites have similar orbits and photometric properties. Unfortunately, other than its orbit, radius of 53 km and geometric albedo of 0.08 virtually nothing is known about Juliet.\n\nAt the Voyager 2 images Juliet appears as an elongated object, the major axis pointing towards Uranus. The ratio of axes of Juliet's prolate spheroid is 0.5 ± 0.3, which is rather an extreme value. Its surface is grey in color.\n\nJuliet may collide with Desdemona within the next 100 million years.",
                      wiki: "https://en.wikipedia.org/wiki/Juliet_(moon)",
                      nasa: "http://solarsystem.nasa.gov/planets/juliet")
         
@@ -1838,6 +1905,10 @@ class Objects {
                       wiki: "https://en.wikipedia.org/wiki/Miranda_(moon)",
                       nasa: "http://solarsystem.nasa.gov/planets/miranda")
         
+        Miranda.display(texture: "mirandamap.jpg",
+                        model: nil,
+                        normalmap: nil)
+        
         Uranus.moons.append(Miranda)
         
         let Ariel = Moon(name: "Ariel",
@@ -1846,6 +1917,10 @@ class Objects {
         Ariel.about(description: "Ariel is the fourth-largest of the 27 known moons of Uranus. Ariel orbits and rotates in the equatorial plane of Uranus, which is almost perpendicular to the orbit of Uranus, and so has an extreme seasonal cycle.\n\nIt was discovered in October 1851 by William Lassell, and named for a character in two different pieces of literature. As of 2012, much of the detailed knowledge of Ariel derives from a single flyby of Uranus performed by the spacecraft Voyager 2 in 1986, which managed to image around 35% of the moon's surface. There are no active plans at present to return to study the moon in more detail, although various concepts such as a Uranus orbiter and probe are proposed from time to time.\n\nAfter Miranda, Ariel is the second-smallest of Uranus' five major rounded satellites, and the second-closest to its planet. Among the smallest of the Solar System's 19 known spherical moons (it ranks 14th among them in diameter), it is believed to be composed of roughly equal parts ice and rocky material. Its mass is approximately equal in magnitude to Earth's hydrosphere.\n\nLike all of Uranus' moons, Ariel probably formed from an accretion disc that surrounded the planet shortly after its formation, and, like other large moons, it is likely differentiated, with an inner core of rock surrounded by a mantle of ice. Ariel has a complex surface consisting of extensive cratered terrain cross-cut by a system of scarps, canyons, and ridges. The surface shows signs of more recent geological activity than other Uranian moons, most likely due to tidal heating.",
                     wiki: "https://en.wikipedia.org/wiki/Ariel_(moon)",
                     nasa: "http://solarsystem.nasa.gov/planets/ariel")
+        
+        Ariel.display(texture: "arielmap.jpg",
+                      model: nil,
+                      normalmap: nil)
         
         Uranus.moons.append(Ariel)
         
@@ -1856,6 +1931,10 @@ class Objects {
                       wiki: "https://en.wikipedia.org/wiki/Umbriel_(moon)",
                       nasa: "http://solarsystem.nasa.gov/planets/umbriel")
         
+        Umbriel.display(texture: "umbrielmap.jpg",
+                        model: nil,
+                        normalmap: nil)
+        
         Uranus.moons.append(Umbriel)
         
         let Titania = Moon(name: "Titalia",
@@ -1864,6 +1943,10 @@ class Objects {
         Titania.about(description: "Titania is the largest of the moons of Uranus and the eighth largest moon in the Solar System at a diameter of 1,578 kilometres (981 mi). Discovered by William Herschel in 1787, Titania is named after the queen of the fairies in Shakespeare's A Midsummer Night's Dream. Its orbit lies inside Uranus's magnetosphere.\n\nTitania consists of approximately equal amounts of ice and rock, and is probably differentiated into a rocky core and an icy mantle. A layer of liquid water may be present at the core–mantle boundary. The surface of Titania, which is relatively dark and slightly red in color, appears to have been shaped by both impacts and endogenic processes. It is covered with numerous impact craters reaching up to 326 kilometres (203 mi) in diameter, but is less heavily cratered than Oberon, outermost of the five large moons of Uranus. Titania probably underwent an early endogenic resurfacing event which obliterated its older, heavily cratered surface. Titania's surface is cut by a system of enormous canyons and scarps, the result of the expansion of its interior during the later stages of its evolution. Like all major moons of Uranus, Titania probably formed from an accretion disk which surrounded the planet just after its formation.\n\nInfrared spectroscopy conducted from 2001 to 2005 revealed the presence of water ice as well as frozen carbon dioxide on the surface of Titania, which in turn suggested that the moon may have a tenuous carbon dioxide atmosphere with a surface pressure of about 10 nanopascals (10−13 bar). Measurements during Titania's occultation of a star put an upper limit on the surface pressure of any possible atmosphere at 1–2 mPa (10–20 nbar).\n\nThe Uranian system has been studied up close only once, by the spacecraft Voyager 2 in January 1986. It took several images of Titania, which allowed mapping of about 40% of its surface.",
                       wiki: "https://en.wikipedia.org/wiki/Titania_(moon)",
                       nasa: "http://solarsystem.nasa.gov/planets/titania")
+        
+        Titania.display(texture: "titaniamap.jpg",
+                        model: nil,
+                        normalmap: nil)
         
         Uranus.moons.append(Titania)
         
@@ -1888,7 +1971,7 @@ class Objects {
         let Caliban = Moon(name: "Caliban",
                            position: 20)
         
-        Caliban.about(description: "Caliban is the second-largest retrograde irregular satellite of Uranus. It was discovered on 6 September 1997 by Brett J. Gladman, Philip D. Nicholson, Joseph A. Burns, and John J. Kavelaars using the 200-inch Hale telescope together with Sycorax and given the temporary designation S/1997 U 1.\n\nCaliban follows a distant orbit, more than 10 times further from Uranus than the furthest regular moon Oberon. Its orbit is retrograde, moderately inclined and slightly eccentric. The orbital parameters suggest that it may belong to the same dynamic cluster as Stephano and Francisco, suggesting common origin.\n\nThe diagram illustrates the orbital parameters of the retrograde irregular satellites of Uranus (in polar co-ordinates) with the eccentricity of the orbits represented by the segments extending from the pericentre to the apocentre.\n\nIts diameter is estimated at 72 km (assuming albedo of 0.04)[7][5] making it the second largest irregular satellite of Uranus, half the size of Sycorax, the biggest irregular satellite of Uranus.\n\nSomewhat inconsistent reports put Caliban in light-red category (B–V = 0.83 V–R = 0.52, B–V = 0.84 ± 0.03 V–R = 0.57 ± 0.03), redder than Himalia but still less red than most Kuiper belt objects. Caliban may be slightly redder than Sycorax. It also absorbs light at 0.7 μm, and one group of astronomers think this may be a result of liquid water that modified the surface.\n\nThe light curve suggests the rotation period of Caliban is about 2.7h.\n\nCaliban is hypothesized to be a captured object: it did not form in the accretionary disk that existed around Uranus just after its formation. The exact capture mechanism is not known, but capturing a moon requires the dissipation of energy. The possible capture processes include: gas drag in the protoplanetary disk, many body interactions and the capture during the fast growth of the Uranus' mass (so-called \"pull-down\").",
+        Caliban.about(description: "Caliban is the second-largest retrograde irregular satellite of Uranus. It was discovered on 6 September 1997 by Brett J. Gladman, Philip D. Nicholson, Joseph A. Burns, and John J. Kavelaars using the 200-inch Hale telescope together with Sycorax and given the temporary designation S/1997 U 1.\n\nCaliban follows a distant orbit, more than 10 times further from Uranus than the furthest regular moon Oberon. Its orbit is retrograde, moderately inclined and slightly eccentric. The orbital parameters suggest that it may belong to the same dynamic cluster as Stephano and Francisco, suggesting common origin.\n\nThe diagram illustrates the orbital parameters of the retrograde irregular satellites of Uranus (in polar co-ordinates) with the eccentricity of the orbits represented by the segments extending from the pericentre to the apocentre.\n\nIts diameter is estimated at 72 km (assuming albedo of 0.04) making it the second largest irregular satellite of Uranus, half the size of Sycorax, the biggest irregular satellite of Uranus.\n\nSomewhat inconsistent reports put Caliban in light-red category (B–V = 0.83 V–R = 0.52, B–V = 0.84 ± 0.03 V–R = 0.57 ± 0.03), redder than Himalia but still less red than most Kuiper belt objects. Caliban may be slightly redder than Sycorax. It also absorbs light at 0.7 μm, and one group of astronomers think this may be a result of liquid water that modified the surface.\n\nThe light curve suggests the rotation period of Caliban is about 2.7h.\n\nCaliban is hypothesized to be a captured object: it did not form in the accretionary disk that existed around Uranus just after its formation. The exact capture mechanism is not known, but capturing a moon requires the dissipation of energy. The possible capture processes include: gas drag in the protoplanetary disk, many body interactions and the capture during the fast growth of the Uranus' mass (so-called \"pull-down\").",
                       wiki: "https://en.wikipedia.org/wiki/Caliban_(moon)",
                       nasa: "http://solarsystem.nasa.gov/planets/caliban")
         
@@ -2044,6 +2127,9 @@ class Objects {
         Triton.about(description: "Triton is the largest natural satellite of the planet Neptune. It was discovered on October 10, 1846, by English astronomer William Lassell. It is the only large moon in the Solar System with a retrograde orbit, an orbit in the opposite direction to its planet's rotation. At 2,700 kilometres (1,700 mi) in diameter, it is the seventh-largest moon in the Solar System. Because of its retrograde orbit and composition similar to Pluto's, Triton is thought to have been a dwarf planet captured from the Kuiper belt. Triton has a surface of mostly frozen nitrogen, a mostly water-ice crust, an icy mantle and a substantial core of rock and metal. The core makes up two-thirds of its total mass. Triton has a mean density of 2.061 g/cm3 and is composed of approximately 15–35% water ice.\n\nTriton is one of the few moons in the Solar System known to be geologically active (the others being Jupiter's Io and Saturn's Enceladus). As a consequence, its surface is relatively young with sparse impact craters, and a complex geological history revealed in intricate cryovolcanic and tectonic terrains. Part of its surface has geysers erupting sublimated nitrogen gas, contributing to a tenuous nitrogen atmosphere less than 1/70,000 the pressure of Earth's atmosphere at sea level.",
                      wiki: "https://en.wikipedia.org/wiki/Triton_(moon)",
                      nasa: "http://solarsystem.nasa.gov/planets/triton")
+        Triton.display(texture: "tritonmap.jpg",
+                       model: nil,
+                       normalmap: nil)
         
         Neptune.moons.append(Triton)
         
@@ -2144,6 +2230,10 @@ class Objects {
                      wiki: "https://en.wikipedia.org/wiki/Charon_(moon)",
                      nasa: "http://solarsystem.nasa.gov/planets/charon")
         
+        Charon.display(texture: "charonmap.jpg",
+                       model: nil,
+                       normalmap: nil)
+        
         Pluto.moons.append(Charon)
         
         let Styx = Moon(name: "Styx",
@@ -2158,7 +2248,7 @@ class Objects {
         let Nix = Moon(name: "Nix",
                        position: 3)
         
-        Nix.about(description: "Nix is a natural satellite of Pluto. It was discovered along with Hydra (Pluto's outermost satellite) in June 2005. It was imaged along with Pluto and its other moons by the New Horizons spacecraft as it flew by the Pluto system in July 2015. Of the four small Plutonian moons the best pictures are of Nix, with resolutions as high as 330 meters per pixel.\n\nNix follows a circular orbit in the same plane as Charon. It is in a 3:2 orbital resonance with Hydra, and a 9:11 resonance with Styx (the ratios represent numbers of orbits completed per unit time; the period ratios are the inverses). As a result of this \"Laplace-like\" 3-body resonance, it has conjunctions with Styx and Hydra in a 2:3 ratio.\n\nAs with Hydra and perhaps the other small Plutonian moons, Nix tumbles chaotically; the moon's axial tilt and day length vary greatly over short timescales.[15][16] At the time of New Horizon's flyby, Nix was rotating with a period of 43.9 hours retrograde to Pluto's equator with an inclination of 132 degrees — in other words it is rotating \"backwards\" in relation to its orbit around Pluto. The rotation period has actually increased by 10% since Nix was discovered.\n\nNix has been measured to be 54 by 41 by 36 kilometers (33.6 mi × 25.5 mi × 22.4 mi) in diameter, indicating a very elongated shape, and a very high geometric albedo. In the discovery image, Nix is 6,300 times fainter than Pluto.[18] New Horizons determined that Nix is approximately 32 kilometers (20 mi) across.\n\nEarly research appeared to show that Nix was reddish like Pluto and unlike the other moons, but more-recent reports have been that it is grey like the remaining satellites. New Horizons spotted a large region with a distinctive red tint surrounding a large crater, which may explain these conflicting results. Detailed images of the moon have revealed at least 6 impact craters on it, the largest of which is about 15 km across.",
+        Nix.about(description: "Nix is a natural satellite of Pluto. It was discovered along with Hydra (Pluto's outermost satellite) in June 2005. It was imaged along with Pluto and its other moons by the New Horizons spacecraft as it flew by the Pluto system in July 2015. Of the four small Plutonian moons the best pictures are of Nix, with resolutions as high as 330 meters per pixel.\n\nNix follows a circular orbit in the same plane as Charon. It is in a 3:2 orbital resonance with Hydra, and a 9:11 resonance with Styx (the ratios represent numbers of orbits completed per unit time; the period ratios are the inverses). As a result of this \"Laplace-like\" 3-body resonance, it has conjunctions with Styx and Hydra in a 2:3 ratio.\n\nAs with Hydra and perhaps the other small Plutonian moons, Nix tumbles chaotically; the moon's axial tilt and day length vary greatly over short timescales. At the time of New Horizon's flyby, Nix was rotating with a period of 43.9 hours retrograde to Pluto's equator with an inclination of 132 degrees — in other words it is rotating \"backwards\" in relation to its orbit around Pluto. The rotation period has actually increased by 10% since Nix was discovered.\n\nNix has been measured to be 54 by 41 by 36 kilometers (33.6 mi × 25.5 mi × 22.4 mi) in diameter, indicating a very elongated shape, and a very high geometric albedo. In the discovery image, Nix is 6,300 times fainter than Pluto. New Horizons determined that Nix is approximately 32 kilometers (20 mi) across.\n\nEarly research appeared to show that Nix was reddish like Pluto and unlike the other moons, but more-recent reports have been that it is grey like the remaining satellites. New Horizons spotted a large region with a distinctive red tint surrounding a large crater, which may explain these conflicting results. Detailed images of the moon have revealed at least 6 impact craters on it, the largest of which is about 15 km across.",
                   wiki: "https://en.wikipedia.org/wiki/Nix_(moon)",
                   nasa: "http://solarsystem.nasa.gov/planets/nix")
         
@@ -2204,7 +2294,7 @@ class Objects {
         let Hiiaka = Moon(name: "Hi'iaka",
                           position: 2)
         
-        Hiiaka.about(description: "Hiʻiaka is the larger, outer moon of the dwarf planet Haumea.\n\nHiʻiaka was the first satellite discovered around Haumea. It is named after one of the daughters of Haumea, Hiʻiaka, the patron goddess of the Big Island of Hawaii, though at first it had gone by the nickname \"Rudolph\" by its discovery team. It orbits once every 49.12±0.03 d at a distance of 49880±198 km, with an eccentricity of 0.0513±0.0078 and an inclination of 126.356±0.064°. Mutual events expected in July 2009 should improve the knowledge of the orbits and masses of the components of the Haumean system.\n\nIts measured brightness is 5.9±0.5%, translating into a diameter of about 22% of its primary, or in the range of 320 km, assuming similar albedo.[23] To put this in perspective, this would make it larger than all but four of the asteroids, after 1 Ceres, 2 Pallas, 4 Vesta, and 10 Hygiea. In spite of its relatively large size, however, lightcurve studies suggest that Hi'iaka is not a gravitationally collapsed spheroid; they further suggest that Hi'iaka is not tidally locked and has a rotation period of about 9.8 hours.\n\nThe mass of Hiʻiaka is estimated to be (1.79±0.11)×1019 kg using precise relative astrometry from Hubble Telescope and Keck Telescope and applying 3-body, point-mass model to the Haumean system.\n\nThe near infrared spectrum of Hiʻiaka is dominated by water-ice absorption bands, which means that its surface is made mainly of water ice. The presence of the band centered at 1.65 µm indicates that the surface water ice is primarily in the crystalline form. Currently it is unclear why water ice on the surface has not turned into amorphous form as would be expected due to its constant irradiation by cosmic rays.",
+        Hiiaka.about(description: "Hiʻiaka is the larger, outer moon of the dwarf planet Haumea.\n\nHiʻiaka was the first satellite discovered around Haumea. It is named after one of the daughters of Haumea, Hiʻiaka, the patron goddess of the Big Island of Hawaii, though at first it had gone by the nickname \"Rudolph\" by its discovery team. It orbits once every 49.12±0.03 d at a distance of 49880±198 km, with an eccentricity of 0.0513±0.0078 and an inclination of 126.356±0.064°. Mutual events expected in July 2009 should improve the knowledge of the orbits and masses of the components of the Haumean system.\n\nIts measured brightness is 5.9±0.5%, translating into a diameter of about 22% of its primary, or in the range of 320 km, assuming similar albedo. To put this in perspective, this would make it larger than all but four of the asteroids, after 1 Ceres, 2 Pallas, 4 Vesta, and 10 Hygiea. In spite of its relatively large size, however, lightcurve studies suggest that Hi'iaka is not a gravitationally collapsed spheroid; they further suggest that Hi'iaka is not tidally locked and has a rotation period of about 9.8 hours.\n\nThe mass of Hiʻiaka is estimated to be (1.79±0.11)×1019 kg using precise relative astrometry from Hubble Telescope and Keck Telescope and applying 3-body, point-mass model to the Haumean system.\n\nThe near infrared spectrum of Hiʻiaka is dominated by water-ice absorption bands, which means that its surface is made mainly of water ice. The presence of the band centered at 1.65 µm indicates that the surface water ice is primarily in the crystalline form. Currently it is unclear why water ice on the surface has not turned into amorphous form as would be expected due to its constant irradiation by cosmic rays.",
                      wiki: "https://en.wikipedia.org/wiki/Moons_of_Haumea#Hi.CA.BBiaka",
                      nasa: "http://solarsystem.nasa.gov/planets/haumea/moons")
         
@@ -2242,7 +2332,7 @@ class Objects {
         let Dysnomia = Moon(name: "Dysnomia",
                             position: 1)
         
-        Dysnomia.about(description: "Dysnomia —officially (136199) Eris I Dysnomia—is the only known moon of the dwarf planet Eris (the most massive known dwarf planet in the Solar System). It was discovered in 2005 by Mike Brown and the laser guide star adaptive optics team at the W. M. Keck Observatory, and carried the provisional designation of S/2005 (2003 UB313) 1 until officially named Dysnomia (from the Ancient Greek word Δυσνομία meaning anarchy/lawlessness) after the daughter of the Greek goddess Eris.\n\nDysnomia was found 4.43 magnitudes fainter than Eris, and its diameter is estimated to be between 350 and 490 km, though Mike Brown claims that it is 500 times fainter and between 100 and 250 km in diameter. It is 60 times fainter than Eris in the K band and 480 times fainter in the V band, which means a very different, and quite redder, spectrum, indicating a significantly darker surface. Assuming its albedo is five times lower than Eris's, its diameter would be 685±50 km, meaning that Dysnomia is itself likely a rather large Trans-Neptunian object. Of the Solar System's dwarf planet and minor planet moons, only Charon is definitely larger than Dysnomia.\n\nAstronomers now know that the four brightest Kuiper belt objects (KBOs) have satellites. Among the fainter members of the belt only about 10% are known to have satellites. This is thought to imply that collisions between large KBOs have been frequent in the past. Impacts between bodies of the order of 1000 km across would throw off large amounts of material that would coalesce into a moon. A similar mechanism is thought to have led to the formation of the Moon when Earth was struck by a giant impactor early in the history of the Solar System.",
+        Dysnomia.about(description: "Dysnomia —officially (136199) Eris I Dysnomia— is the only known moon of the dwarf planet Eris (the most massive known dwarf planet in the Solar System). It was discovered in 2005 by Mike Brown and the laser guide star adaptive optics team at the W. M. Keck Observatory, and carried the provisional designation of S/2005 (2003 UB313) 1 until officially named Dysnomia (from the Ancient Greek word Δυσνομία meaning anarchy/lawlessness) after the daughter of the Greek goddess Eris.\n\nDysnomia was found 4.43 magnitudes fainter than Eris, and its diameter is estimated to be between 350 and 490 km, though Mike Brown claims that it is 500 times fainter and between 100 and 250 km in diameter. It is 60 times fainter than Eris in the K band and 480 times fainter in the V band, which means a very different, and quite redder, spectrum, indicating a significantly darker surface. Assuming its albedo is five times lower than Eris's, its diameter would be 685±50 km, meaning that Dysnomia is itself likely a rather large Trans-Neptunian object. Of the Solar System's dwarf planet and minor planet moons, only Charon is definitely larger than Dysnomia.\n\nAstronomers now know that the four brightest Kuiper belt objects (KBOs) have satellites. Among the fainter members of the belt only about 10% are known to have satellites. This is thought to imply that collisions between large KBOs have been frequent in the past. Impacts between bodies of the order of 1000 km across would throw off large amounts of material that would coalesce into a moon. A similar mechanism is thought to have led to the formation of the Moon when Earth was struck by a giant impactor early in the history of the Solar System.",
                        wiki: "https://en.wikipedia.org/wiki/Dysnomia_(moon)",
                        nasa: "http://solarsystem.nasa.gov/galleries/eris-and-dysnomia")
         

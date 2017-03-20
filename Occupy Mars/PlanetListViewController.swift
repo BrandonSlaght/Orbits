@@ -48,7 +48,7 @@ class PlanetListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let classification = Class.allValues[indexPath.section]
         let planet = objects[classification]![indexPath.row]
-        var cell = tableView.dequeueReusableCell(withIdentifier: "PlanetCell", for: indexPath) as! PlanetCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PlanetCell", for: indexPath) as! PlanetCell
 //        if (cell == nil) {
 //            cell = PlanetCell(style: .default, reuseIdentifier: "PlanetCell")
 //        }

@@ -28,33 +28,33 @@ class Planet {
     
     //--------------------------------------------geology - notes: use equatorial radius and mean density and surface gravity / acceleration
     
-    var mass: Double?,
-        volume: Double?,
-        equatorial: Double?,
-        density: Double?,
-        gravity: Double?,
-        escape_velocity: Double?,
+    var mass: Quantity?,
+        volume: Quantity?,
+        equatorial: Quantity?,
+        density: Quantity?,
+        gravity: Quantity?,
+        escape_velocity: Quantity?,
         irradiance: Double?,
-        geographic_height_variance: Double?
+        geographic_height_variance: Quantity?
     
     //--------------------------------------------orbit - notes: use tropical orbit, mean orbital velocity, and obliquidy from orbit for equator inclination
     
-    var year_length: Double?,
-        perihelion: Double?,
-        aphelion: Double?,
-        velocity: Double?,
+    var year_length: Quantity?,
+        perihelion: Quantity?,
+        aphelion: Quantity?,
+        velocity: Quantity?,
         inclination: Double?,
         eccentricity: Double?,
-        day_length: Double?,
+        day_length: Quantity?,
         equator_inclination: Double?,
-        min_distance_from_earth: Double?,
-        max_distance_from_earth: Double?
+        min_distance_from_earth: Quantity?,
+        max_distance_from_earth: Quantity?
     
     //--------------------------------------------atmosphere - notes: use metric tones for total mass
     
     var surface_pressure: Double?,
         average_temperature: Double?,
-        total_mass: Double?
+        total_mass: Quantity?
     var composition = [(gas: String,
                         ppm: Double)]()
     
@@ -65,9 +65,9 @@ class Planet {
     //--------------------------------------------rings
     
     var rings = [(name: String,
-                width: Int,
-                thickness: Int,
-                density: Int)]()
+                width: Quantity,
+                thickness: Quantity,
+                density: Double)]()
     
     //--------------------------------------------miscelanious
     
@@ -109,14 +109,14 @@ class Planet {
         self.nasa = nasa
     }
     
-    func geology(mass: Double?,
-                 volume: Double?,
-                 equatorial: Double?,
-                 density: Double?,
-                 gravity: Double?,
-                 escape_velocity: Double?,
+    func geology(mass: Quantity?,
+                 volume: Quantity?,
+                 equatorial: Quantity?,
+                 density: Quantity?,
+                 gravity: Quantity?,
+                 escape_velocity: Quantity?,
                  irradiance: Double?,
-                 geographic_height_variance: Double?) {
+                 geographic_height_variance: Quantity?) {
         self.mass = mass
         self.volume = volume
         self.equatorial = equatorial
@@ -127,16 +127,16 @@ class Planet {
         self.geographic_height_variance = geographic_height_variance
     }
     
-    func orbitals(year_length: Double?,
-                  perihelion: Double?,
-                  aphelion: Double?,
-                  velocity: Double?,
+    func orbitals(year_length: Quantity?,
+                  perihelion: Quantity?,
+                  aphelion: Quantity?,
+                  velocity: Quantity?,
                   inclination: Double?,
                   eccentricity: Double?,
-                  day_length: Double?,
+                  day_length: Quantity?,
                   equator_inclination: Double?,
-                  min_distance_from_earth: Double?,
-                  max_distance_from_earth: Double?) {
+                  min_distance_from_earth: Quantity?,
+                  max_distance_from_earth: Quantity?) {
         self.year_length = year_length
         self.perihelion = perihelion
         self.aphelion = aphelion
@@ -151,7 +151,7 @@ class Planet {
     
     func atmosphere(surface_pressure: Double?,
                     average_temperature: Double?,
-                    total_mass: Double?) {
+                    total_mass: Quantity?) {
         self.surface_pressure = surface_pressure
         self.average_temperature = average_temperature
         self.total_mass = total_mass
@@ -245,7 +245,7 @@ class Planet {
             spin.toValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: Float(2 * M_PI)))
             
             if let let_day_length = day_length {
-                spin.duration = 60*(let_day_length/24)
+                spin.duration = let_day_length.converted(TimeUnit.minute).amount.doubleValue
             } else {
                 spin.duration = 60
             }
@@ -371,28 +371,28 @@ class Planet {
         var ret = [(String, String)]()
         
         if mass != nil{
-            ret.append(("Mass",String(describing: mass!)+" kg"))
+            ret.append(("Mass",String(describing: mass?.converted(MassUnit.kilogram).amount)+" kg"))
         }
         if volume != nil{
-            ret.append(("Volume", String(describing: volume!)+" km³"))
+            ret.append(("Volume", String(describing: volume?.converted(LengthUnit.kilometer).amount)+" km³"))
         }
         if density != nil{
-            ret.append(("Density", String(describing: density!)))
+            ret.append(("Density", String(describing: density?.converted(MassUnit.kilogram).amount)+" kg/m³"))
         }
         if equatorial != nil{
-            ret.append(("Radius", String(describing: equatorial!)+" km"))
+            ret.append(("Radius", String(describing: equatorial?.converted(LengthUnit.kilometer).amount)+" km"))
         }
         if gravity != nil{
-            ret.append(("Gravity", String(describing: gravity!)+" m/s²"))
+            ret.append(("Gravity", String(describing: gravity?.converted(LengthUnit.meter).amount)+" m/s²"))
         }
         if escape_velocity != nil{
-            ret.append(("Escape Velocity", String(describing: escape_velocity!)+" m/s"))
+            ret.append(("Escape Velocity", String(describing: escape_velocity?.converted(LengthUnit.kilometer))+" km/s"))
         }
         if irradiance != nil{
-            ret.append(("Irradiance", String(describing: irradiance!)+" lumens"))
+            ret.append(("Irradiance", String(describing: irradiance!)+" W/m²"))
         }
         if geographic_height_variance != nil{
-            ret.append(("Height Variance", String(describing: geographic_height_variance!)+" km"))
+            ret.append(("Height Variance", String(describing: geographic_height_variance?.converted(LengthUnit.kilometer).amount)+" km"))
         }
         
         return ret
@@ -402,34 +402,34 @@ class Planet {
         var ret = [(String, String)]()
         
         if year_length != nil{
-            ret.append(("Year Length",String(describing: year_length!)+" days"))
+            ret.append(("Year Length", String(describing: year_length?.converted(TimeUnit.day).amount)+" days"))
         }
         if day_length != nil{
-            ret.append(("Day Length", String(describing: day_length!)+" hours"))
+            ret.append(("Day Length", String(describing: day_length?.converted(TimeUnit.hour).amount)+" hours"))
         }
         if velocity != nil{
-            ret.append(("Average Velocity", String(describing: velocity!)+" km/h"))
+            ret.append(("Average Velocity", String(describing: velocity?.converted(LengthUnit.kilometer).amount)+" km/h"))
         }
         if perihelion != nil{
-            ret.append(("Perihilion", String(describing: perihelion!)+" km"))
+            ret.append(("Perihilion", String(describing: perihelion?.converted(LengthUnit.kilometer).amount)+" km"))
         }
         if aphelion != nil{
-            ret.append(("Aphelion", String(describing: aphelion!)+" km"))
+            ret.append(("Aphelion", String(describing: aphelion?.converted(LengthUnit.kilometer).amount)+" km"))
         }
         if inclination != nil{
             ret.append(("Orbital Tilt", String(describing: inclination!)+" degrees"))
         }
         if eccentricity != nil{
-            ret.append(("Eccentricity", String(describing: eccentricity!)+" km"))
+            ret.append(("Eccentricity", String(describing: eccentricity!)))
         }
         if equator_inclination != nil{
             ret.append(("Equator Tilt", String(describing: equator_inclination!)+" degrees"))
         }
         if min_distance_from_earth != nil{
-            ret.append(("Nearest to Earth", String(describing: min_distance_from_earth!)+" km"))
+            ret.append(("Nearest to Earth", String(describing: min_distance_from_earth?.converted(LengthUnit.kilometer).amount)+" km"))
         }
         if max_distance_from_earth != nil{
-            ret.append(("Farthest from Earth", String(describing: max_distance_from_earth!)+" km"))
+            ret.append(("Farthest from Earth", String(describing: max_distance_from_earth?.converted(LengthUnit.kilometer).amount)+" km"))
         }
         
         return ret

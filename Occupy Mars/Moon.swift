@@ -12,6 +12,9 @@ import SceneKit
 // notes: use metric and kelvin
 
 class Moon {
+    //--------------------------------------------meta
+    
+    var hasDetails = false
     
     //--------------------------------------------general
     
@@ -102,6 +105,7 @@ class Moon {
         self.escape_velocity = escape_velocity
         self.irradiance = irradiance
         self.geographic_height_variance = geographic_height_variance
+        self.hasDetails = true
     }
     
     func orbitals(orbital_length: Double?,
@@ -120,6 +124,7 @@ class Moon {
         self.eccentricity = eccentricity
         self.day_length = day_length
         self.equator_inclination = equator_inclination
+        self.hasDetails = true
     }
     
     func atmosphere(surface_pressure: Double?,
@@ -128,14 +133,17 @@ class Moon {
         self.surface_pressure = surface_pressure
         self.average_temperature = average_temperature
         self.total_mass = total_mass
+        self.hasDetails = true
     }
     
     func composition(composition: [(gas: String, ppm: Double)]) {
         self.composition = composition
+        self.hasDetails = true
     }
     
     func misc(discovered: String?) {
         self.discovered = discovered
+        self.hasDetails = true
     }
     
     func display(texture: String?,

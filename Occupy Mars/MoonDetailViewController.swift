@@ -18,6 +18,7 @@ class MoonDetailViewController: UIViewController {
     @IBOutlet weak var tabs: UISegmentedControl!
     @IBOutlet weak var scrollView: UIScrollView!
     //@IBOutlet weak var contentHeight: NSLayoutConstraint!
+    @IBOutlet weak var tabsHeight: NSLayoutConstraint!
     @IBAction func indexChanged(_ sender: UISegmentedControl)
     {
         if let vc = getDetailViewController(sender.selectedSegmentIndex) {
@@ -89,7 +90,10 @@ class MoonDetailViewController: UIViewController {
             tabs.insertSegment(withTitle: "Media", at: 0, animated: true)
         }
         
-        tabs.insertSegment(withTitle: "Details", at: 0, animated: true)
+        if moon.hasDetails {
+            tabs.insertSegment(withTitle: "Details", at: 0, animated: true)
+        }
+        
         tabs.insertSegment(withTitle: "About", at: 0, animated: true)
         tabs.selectedSegmentIndex = 0
         
@@ -106,14 +110,13 @@ class MoonDetailViewController: UIViewController {
             globeButton.isHidden = true
             sceneHeight.constant = 0
         }
+        
+        if tabs.numberOfSegments < 2 {
+            tabsHeight.constant = 0
+            tabs.isUserInteractionEnabled = false
+            tabs.alpha = 0
+        }
     }
-    
-    //    override func awakeFromNib() {
-    //        super.awakeFromNib()
-    //
-    //        content.autoresizingMask.insert(.FlexibleHeight)
-    //        content.autoresizingMask.insert(.FlexibleWidth)
-    //    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

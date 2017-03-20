@@ -664,14 +664,6 @@
             </objects>
             <point key="canvasLocation" x="2479" y="322"/>
         </scene>
-        <!--Moon About View Controller-->
-        <scene sceneID="SUL-yX-Kda">
-            <objects>
-                <tableViewController id="lZt-RN-7Cn" customClass="MoonAboutViewController" customModule="Occupy_Mars" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="u3y-zh-BCr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4914" y="2066"/>
-        </scene>
         <!--Details About View Controller-->
         <scene sceneID="V1D-aX-03b">
             <objects>
@@ -897,6 +889,9 @@
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="of4-pF-NTa">
                                                 <rect key="frame" x="20" y="410" width="374" height="29"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="28" id="LzS-dH-UO6"/>
+                                                </constraints>
                                                 <segments>
                                                     <segment title="First"/>
                                                     <segment title="Second"/>
@@ -961,6 +956,7 @@
                         <outlet property="sceneHeight" destination="02x-MY-LEY" id="tVp-xz-9WV"/>
                         <outlet property="scrollView" destination="dhf-gP-GJt" id="P2f-kI-gk8"/>
                         <outlet property="tabs" destination="of4-pF-NTa" id="Per-fC-Jzk"/>
+                        <outlet property="tabsHeight" destination="LzS-dH-UO6" id="7hj-Or-FQp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Utk-As-7sr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1093,10 +1089,6 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="lZt-RN-7Cn" id="1M3-fD-IVH"/>
-                                    <outlet property="delegate" destination="lZt-RN-7Cn" id="3dP-kT-uns"/>
-                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
