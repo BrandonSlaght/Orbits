@@ -6,15 +6,29 @@
 //  Copyright © 2016 Slaght, Brandon. All rights reserved.
 //
 
-//.geology(mass: <#T##Quantity?#>,
-//         volume: <#T##Quantity?#>,
-//         equatorial: <#T##Quantity?#>,
-//         density: <#T##Quantity?#>,
-//         gravity: <#T##Quantity?#>,
-//         escape_velocity: <#T##Quantity?#>,
+//.geology(mass: <#T##Quantity?#>.gigagram(),
+//         volume: <#T##Quantity?#>.kilometer(),
+//         equatorial: <#T##Quantity?#>.kilometer(),
+//         density: <#T##Quantity?#>.kilogram(),
+//         gravity: <#T##Quantity?#>.meter(),
+//         escape_velocity: <#T##Quantity?#>.kilometer(),
 //         irradiance: <#T##Double?#>,
-//         geographic_height_variance: <#T##Quantity?#>)
-
+//         geographic_height_variance: <#T##Quantity?#>.kilometer())
+//
+//.orbitals(year_length: <#T##Quantity?#>.day(),
+//                 perihelion: <#T##Quantity?#>.kilometer(),
+//                 aphelion: <#T##Quantity?#>.kilometer(),
+//                 velocity: <#T##Quantity?#>.kilometer(),
+//                 inclination: <#T##Double?#>,
+//                 eccentricity: <#T##Double?#>,
+//                 day_length: <#T##Quantity?#>.hour(),
+//                 equator_inclination: <#T##Double?#>,
+//                 min_distance_from_earth: <#T##Quantity?#>.kilometer(),
+//                 max_distance_from_earth: <#T##Quantity?#>.kilometer())
+//
+//.atmosphere(surface_pressure: <#T##Double?#>,
+//                   average_temperature: <#T##Double?#>,
+//                   total_mass: <#T##Quantity?#>.kilogram())
 
 import Foundation
 
@@ -39,41 +53,20 @@ class Objects {
                         irradiance: 9082.7,
                         geographic_height_variance: 7.kilometer())
         
-        Mercury.orbitals(year_length: 87.969.day(),
+        Mercury.orbitals(year_length: 87.968.day(),
                          perihelion: 46000000.kilometer(),
                          aphelion: 69820000.kilometer(),
                          velocity: 47.36.kilometer(),
-                         inclination: 7.00,
+                         inclination: 7,
                          eccentricity: 0.2056,
                          day_length: 4222.6.hour(),
                          equator_inclination: 0.034,
                          min_distance_from_earth: 77300000.kilometer(),
                          max_distance_from_earth: 221900000.kilometer())
         
-        
-//        Mercury.geology(mass: 0.33011,
-//                        volume: 6.083,
-//                        equatorial: 2439.7,
-//                        density: 5427,
-//                        gravity: 3.70,
-//                        escape_velocity: 4.3,
-//                        irradiance: 9082.7,
-//                        geographic_height_variance: 7)
-//        
-//        Mercury.orbitals(year_length: 87.968,
-//                         perihelion: 46.00,
-//                         aphelion: 69.82,
-//                         velocity: 47.36,
-//                         inclination: 7,
-//                         eccentricity: 0.2056,
-//                         day_length: 4222.6,
-//                         equator_inclination: 0.034,
-//                         min_distance_from_earth: 77.3,
-//                         max_distance_from_earth: 221.9)
-//        
-//        Mercury.atmosphere(surface_pressure: 0.000000000000005,
-//                           average_temperature: 440,
-//                           total_mass: 10)
+        Mercury.atmosphere(surface_pressure: 0.000000000000005,
+                           average_temperature: 440,
+                           total_mass: 10000.kilogram())
         
         Mercury.misc(discovered: "265 B.C.E.")
         
@@ -103,29 +96,30 @@ class Objects {
                     wiki: "https://en.wikipedia.org/wiki/Venus",
                     nasa: "http://solarsystem.nasa.gov/planets/venus")
         
-//        Venus.geology(mass: 4.8675,
-//                      volume: 92.843,
-//                      equatorial: 6051.8,
-//                      density: 5243,
-//                      gravity: 8.87,
-//                      escape_velocity: 10.36,
-//                      irradiance: 2601.3,
-//                      geographic_height_variance: 13)
-//       
-//        Venus.orbitals(year_length: 224.695,
-//                       perihelion: 107.48,
-//                       aphelion: 108.94,
-//                       velocity: 35.02,
-//                       inclination: 3.39,
-//                       eccentricity: 0.0067,
-//                       day_length: 2802.0,
-//                       equator_inclination: 2.62,
-//                       min_distance_from_earth: 38.2,
-//                       max_distance_from_earth: 261.0)
-//        
-//        Venus.atmosphere(surface_pressure: 92000,
-//                         average_temperature: 737,
-//                         total_mass: 480000000000000000)
+        Venus.geology(mass: 4867500000000000000.gigagram(),
+                      volume: 928430000000.kilometer(),
+                      equatorial: 6051.8.kilometer(),
+                      density: 5243.kilogram(),
+                      gravity: 8.87.meter(),
+                      escape_velocity: 10.36.kilometer(),
+                      irradiance: 2601.3,
+                      geographic_height_variance: 13.kilometer())
+        
+        Venus.orbitals(year_length: 224.695.day(),
+                       perihelion: 107480000.kilometer(),
+                       aphelion: 108940000.kilometer(),
+                       velocity: 35.02.kilometer(),
+                       inclination: 3.39,
+                       eccentricity: 0.0067,
+                       day_length: 2802.hour(),
+                       equator_inclination: 2.64,
+                       min_distance_from_earth: 38200000.kilometer(),
+                       max_distance_from_earth: 261000000.kilometer())
+        
+        Venus.atmosphere(surface_pressure: 92,
+                         average_temperature: 737,
+                         total_mass: 480000000000000000.megagram())
+        
         
         Venus.misc(discovered: "Prehistoric Times")
         
@@ -155,29 +149,29 @@ class Objects {
                     wiki: "https://en.wikipedia.org/wiki/Earth",
                     nasa: "http://solarsystem.nasa.gov/planets/earth")
         
-//        Earth.geology(mass: 5.9723,
-//                      volume: 108.321,
-//                      equatorial: 6378.137,
-//                      density: 55.14,
-//                      gravity: 9.798,
-//                      escape_velocity: 11.186,
-//                      irradiance: 1361.0,
-//                      geographic_height_variance: 20.4)
-//        
-//        Earth.orbitals(year_length: 365.256,
-//                       perihelion: 147.09,
-//                       aphelion: 152.10,
-//                       velocity: 29.78,
-//                       inclination: 0,
-//                       eccentricity: 0.0167,
-//                       day_length: 24.0,
-//                       equator_inclination: 23.44,
-//                       min_distance_from_earth: nil,
-//                       max_distance_from_earth: nil)
-//        
-//        Earth.atmosphere(surface_pressure: 1014,
-//                         average_temperature: 288,
-//                         total_mass: 5100000000000000)
+        Earth.geology(mass: 5972300000000000000.gigagram(),
+                      volume: 1081370000000.kilometer(),
+                      equatorial: 6378.137.kilometer(),
+                      density: 5514.kilogram(),
+                      gravity: 9.798.meter(),
+                      escape_velocity: 11.186.kilometer(),
+                      irradiance: 1361,
+                      geographic_height_variance: 20.4.kilometer())
+        
+        Earth.orbitals(year_length: 365.242.day(),
+                       perihelion: 147090000.kilometer(),
+                       aphelion: 152100000.kilometer(),
+                       velocity: 29.78.kilometer(),
+                       inclination: 0,
+                       eccentricity: 0.0167,
+                       day_length: 24.hour(),
+                       equator_inclination: 23.44,
+                       min_distance_from_earth: nil,
+                       max_distance_from_earth: nil)
+        
+        Earth.atmosphere(surface_pressure: 1.014,
+                         average_temperature: 288,
+                         total_mass: 5100000000000.gigagram())
         
         Earth.misc(discovered: nil)
         
@@ -207,23 +201,23 @@ class Objects {
                    wiki: "https://en.wikipedia.org/wiki/Moon",
                    nasa: "http://solarsystem.nasa.gov/planets/moon")
         
-//        moon.geology(mass: 0.07346,
-//                     volume: 2.1968,
-//                     equatorial: 1738.1,
-//                     density: 33.44,
-//                     gravity: 1.62,
-//                     escape_velocity: 2.38,
-//                     irradiance: 1361.0,
-//                     geographic_height_variance: 13)
-//        
-//        moon.orbitals(orbital_length: 29.53,
-//                      perigee: 0.3633,
-//                      apogee: 0.4055,
-//                      velocity: 1.022,
-//                      inclination: 5.145,
-//                      eccentricity: 0.0549,
-//                      day_length: 27.3217,
-//                      equator_inclination: 6.68)
+        //        moon.geology(mass: 0.07346,
+        //                     volume: 2.1968,
+        //                     equatorial: 1738.1,
+        //                     density: 33.44,
+        //                     gravity: 1.62,
+        //                     escape_velocity: 2.38,
+        //                     irradiance: 1361.0,
+        //                     geographic_height_variance: 13)
+        //
+        //        moon.orbitals(orbital_length: 29.53,
+        //                      perigee: 0.3633,
+        //                      apogee: 0.4055,
+        //                      velocity: 1.022,
+        //                      inclination: 5.145,
+        //                      eccentricity: 0.0549,
+        //                      day_length: 27.3217,
+        //                      equator_inclination: 6.68)
         
         moon.misc(discovered: nil)
         
@@ -248,29 +242,29 @@ class Objects {
                    wiki: "https://en.m.wikipedia.org/wiki/Mars",
                    nasa: "http://solarsystem.nasa.gov/planets/mars")
         
-//        Mars.geology(mass: 0.64171,
-//                     volume: 16.318,
-//                     equatorial: 3396.2,
-//                     density: 3933,
-//                     gravity: 3.71,
-//                     escape_velocity: 5.03,
-//                     irradiance: 586.2,
-//                     geographic_height_variance: 30)
-//        
-//        Mars.orbitals(year_length: 686.981,
-//                      perihelion: 206.62,
-//                      aphelion: 249.23,
-//                      velocity: 24.07,
-//                      inclination: 1.850,
-//                      eccentricity: 0.0935,
-//                      day_length: 24.6597,
-//                      equator_inclination: 25.19,
-//                      min_distance_from_earth: 55.7,
-//                      max_distance_from_earth: 401.3)
-//        
-//        Mars.atmosphere(surface_pressure: 6.36,
-//                        average_temperature: 210,
-//                        total_mass: 25000000000000)
+        Mars.geology(mass: 641710000000000000.gigagram(),
+                     volume: 163180000000.kilometer(),
+                     equatorial: 3396.2.kilometer(),
+                     density: 3933.kilogram(),
+                     gravity: 3.71.meter(),
+                     escape_velocity: 5.03.kilometer(),
+                     irradiance: 586.2,
+                     geographic_height_variance: 30.kilometer())
+        
+        Mars.orbitals(year_length: 686.973.day(),
+                      perihelion: 206620000.kilometer(),
+                      aphelion: 249230000.kilometer(),
+                      velocity: 24.07.kilometer(),
+                      inclination: 1.850,
+                      eccentricity: 0.0935,
+                      day_length: 24.6597.hour(),
+                      equator_inclination: 25.19,
+                      min_distance_from_earth: 55700000.kilometer(),
+                      max_distance_from_earth: 401300000.kilometer())
+        
+        Mars.atmosphere(surface_pressure: 0.00636,
+                        average_temperature: 210,
+                        total_mass: 25000000000000000.kilogram())
         
         Mars.misc(discovered: "Ancient times")
         
@@ -297,29 +291,29 @@ class Objects {
                      wiki: "https://en.wikipedia.org/wiki/Phobos_(moon)",
                      nasa: "http://solarsystem.nasa.gov/planets/phobos")
         
-//        Phobos.geology(mass: 0.0000000010659,
-//                       volume: 0.00000057861,
-//                       equatorial: 11.2667,
-//                       density: 1876,
-//                       gravity: 0.0057,
-//                       escape_velocity: 0.001139,
-//                       irradiance: 586.2,
-//                       geographic_height_variance: nil)
-//        
-//        Phobos.orbitals(orbital_length: 0.31891023,
-//                        perigee: 0.00923442,
-//                        apogee: 0.00951758,
-//                        velocity: 2.138,
-//                        inclination: 1.093,
-//                        eccentricity: 0.0151,
-//                        day_length: 24.624,
-//                        equator_inclination: 0.046)
+        //        Phobos.geology(mass: 0.0000000010659,
+        //                       volume: 0.00000057861,
+        //                       equatorial: 11.2667,
+        //                       density: 1876,
+        //                       gravity: 0.0057,
+        //                       escape_velocity: 0.001139,
+        //                       irradiance: 586.2,
+        //                       geographic_height_variance: nil)
+        //
+        //        Phobos.orbitals(orbital_length: 0.31891023,
+        //                        perigee: 0.00923442,
+        //                        apogee: 0.00951758,
+        //                        velocity: 2.138,
+        //                        inclination: 1.093,
+        //                        eccentricity: 0.0151,
+        //                        day_length: 24.624,
+        //                        equator_inclination: 0.046)
         
-//        Phobos.misc(discovered: "August 18th, 1877")
+        //        Phobos.misc(discovered: "August 18th, 1877")
         
-//        Phobos.display(texture: nil,
-//                       model: "phobos.dae",
-//                       normalmap: nil)
+        //        Phobos.display(texture: nil,
+        //                       model: "phobos.dae",
+        //                       normalmap: nil)
         
         Phobos.images(images: [
             ("phobos - monolith.jpg", "An apparent monolith on Phobos.  Although around 90 meters tall, it is likely just a boulder that fell from a nearby cliff."),
@@ -335,25 +329,25 @@ class Objects {
         
         Deimos.about(description: "Deimos (systematic designation: Mars II) is the smaller and outer of the two natural satellites of the planet Mars, the other being Phobos. Deimos has a mean radius of 6.2 km (3.9 mi) and takes 30.3 hours to orbit Mars. The name Deimos is pronounced /ˈdaɪmɒs/ dy-mos, or sometimes /ˈdiːməs/ dee-məs or like the Greek Δεῖμος. In Greek mythology, Deimos was the twin brother of Phobos and personified terror.\n\nDeimos is 23,460 km (14,580 mi) from Mars, much further than Mars's other moon, Phobos.\n\nDeimos was discovered by Asaph Hall, Sr. at the United States Naval Observatory in Washington, D.C on 12 August 1877, at about 07:48 UTC (given in contemporary sources as \"11 August 14:40\" Washington mean time, using an astronomical convention of beginning a day at noon, so 12 hours must be added to get the actual local mean time). Hall also discovered Phobos on 18 August 1877, at about 09:14 GMT, after deliberately searching for Martian moons.", wiki: "https://en.wikipedia.org/wiki/Deimos_(moon)", nasa: "http://solarsystem.nasa.gov/planets/deimos")
         
-//        Deimos.geology(mass: 0.00000000014762,
-//                       volume: 999.78,
-//                       equatorial: 6.2,
-//                       density: 1471,
-//                       gravity: 0.003,
-//                       escape_velocity: 0.0005556,
-//                       irradiance: 586.2,
-//                       geographic_height_variance: nil)
-//        
-//        Deimos.orbitals(orbital_length: 1.263,
-//                        perigee: 0.0234555,
-//                        apogee: 0.0234709,
-//                        velocity: 1.3513,
-//                        inclination: 0.93,
-//                        eccentricity: 0.00033,
-//                        day_length: 24.624,
-//                        equator_inclination: 1.791)
+        //        Deimos.geology(mass: 0.00000000014762,
+        //                       volume: 999.78,
+        //                       equatorial: 6.2,
+        //                       density: 1471,
+        //                       gravity: 0.003,
+        //                       escape_velocity: 0.0005556,
+        //                       irradiance: 586.2,
+        //                       geographic_height_variance: nil)
+        //
+        //        Deimos.orbitals(orbital_length: 1.263,
+        //                        perigee: 0.0234555,
+        //                        apogee: 0.0234709,
+        //                        velocity: 1.3513,
+        //                        inclination: 0.93,
+        //                        eccentricity: 0.00033,
+        //                        day_length: 24.624,
+        //                        equator_inclination: 1.791)
         
-//        Deimos.misc(discovered: "August 12th, 1877")
+        //        Deimos.misc(discovered: "August 12th, 1877")
         
         Deimos.images(images: [
             ("deimos - surface.png", "Deimos's surface in detail from 30 km away, taken by the Viking 2 orbiter in a flyby."),
@@ -376,25 +370,29 @@ class Objects {
                       wiki: "https://en.wikipedia.org/wiki/Jupiter",
                       nasa: "http://solarsystem.nasa.gov/planets/jupiter")
         
-//        Jupiter.geology(mass: 1898.19,
-//                        volume: 143128,
-//                        equatorial: 71492,
-//                        density: 1326,
-//                        gravity: 24.79,
-//                        escape_velocity: 59.5,
-//                        irradiance: 50.26,
-//                        geographic_height_variance: nil)
-//        
-//        Jupiter.orbitals(year_length: 4330.595,
-//                         perihelion: 740.52,
-//                         aphelion: 816.62,
-//                         velocity: 13.06,
-//                         inclination: 1.304,
-//                         eccentricity: 0.0489,
-//                         day_length: 9.9259,
-//                         equator_inclination: 3.13,
-//                         min_distance_from_earth: 588.5,
-//                         max_distance_from_earth: 968.1)
+        Jupiter.geology(mass: 1898190000000000000.teragram(),
+                        volume: 1431280000000000.kilometer(),
+                        equatorial: 71492.kilometer(),
+                        density: 1326.kilogram(),
+                        gravity: 24.79.meter(),
+                        escape_velocity: 59.5.kilometer(),
+                        irradiance: 50.26,
+                        geographic_height_variance: nil)
+        
+        Jupiter.orbitals(year_length: 4330.595.day(),
+                         perihelion: 740520000.kilometer(),
+                         aphelion: 816620000.kilometer(),
+                         velocity: 13.06.kilometer(),
+                         inclination: 1.304,
+                         eccentricity: 0.0489,
+                         day_length: 9.9259.hour(),
+                         equator_inclination: 3.13,
+                         min_distance_from_earth: 588500000.kilometer(),
+                         max_distance_from_earth: 968100000.kilometer())
+        
+        Jupiter.atmosphere(surface_pressure: 1000,
+                           average_temperature: 165,
+                           total_mass: nil)
         
         Jupiter.misc(discovered: "Ancient Times")
         
@@ -410,9 +408,9 @@ class Objects {
                         model: nil,
                         normalmap: nil,
                         ringmap: nil/*"jupiterrings.png"*/,
-                        ring_transparencymap: nil,
-                        ring_inner_ratio: 1.72,
-                        ring_outer_ratio: 3.92)
+            ring_transparencymap: nil,
+            ring_inner_ratio: 1.72,
+            ring_outer_ratio: 3.92)
         
         let Metis = Moon(name: "Metis",
                          position: 1)
@@ -421,25 +419,25 @@ class Objects {
                     wiki: "https://en.wikipedia.org/wiki/Metis_(moon)",
                     nasa: "http://solarsystem.nasa.gov/planets/metis")
         
-//        Metis.geology(mass: 3.6,
-//                      volume: 42.7,
-//                      equatorial: 21.5,
-//                      density: 3,
-//                      gravity: 0.017,
-//                      escape_velocity: 98,
-//                      irradiance: 50.26,
-//                      geographic_height_variance: nil)
-//        
-//        Metis.orbitals(orbital_length: 0.2947916666,
-//                       perigee: 127974,
-//                       apogee: 128026,
-//                       velocity: 31.501,
-//                       inclination: 0.06,
-//                       eccentricity: 0.0002,
-//                       day_length: 0.294791666,
-//                       equator_inclination: 0)
+        //        Metis.geology(mass: 3.6,
+        //                      volume: 42.7,
+        //                      equatorial: 21.5,
+        //                      density: 3,
+        //                      gravity: 0.017,
+        //                      escape_velocity: 98,
+        //                      irradiance: 50.26,
+        //                      geographic_height_variance: nil)
+        //
+        //        Metis.orbitals(orbital_length: 0.2947916666,
+        //                       perigee: 127974,
+        //                       apogee: 128026,
+        //                       velocity: 31.501,
+        //                       inclination: 0.06,
+        //                       eccentricity: 0.0002,
+        //                       day_length: 0.294791666,
+        //                       equator_inclination: 0)
         
-//        Metis.misc(discovered: "1979")
+        //        Metis.misc(discovered: "1979")
         
         Jupiter.moons.append(Metis)
         
@@ -450,25 +448,25 @@ class Objects {
                        wiki: "https://en.wikipedia.org/wiki/Adrastea_(moon)",
                        nasa: "http://solarsystem.nasa.gov/planets/adrastea")
         
-//        Adrastea.geology(mass: 0.74933,
-//                         volume: 2310,
-//                         equatorial: 8.2,
-//                         density: 3,
-//                         gravity: 0.007,
-//                         escape_velocity: 11,
-//                         irradiance: 50.26,
-//                         geographic_height_variance: nil)
-//        
-//        Adrastea.orbitals(orbital_length: 0.29826,
-//                          perigee: 129000,
-//                          apogee: 129000,
-//                          velocity: 31.378,
-//                          inclination: 0.03,
-//                          eccentricity: 0.0015,
-//                          day_length: 0.29826,
-//                          equator_inclination: 0)
+        //        Adrastea.geology(mass: 0.74933,
+        //                         volume: 2310,
+        //                         equatorial: 8.2,
+        //                         density: 3,
+        //                         gravity: 0.007,
+        //                         escape_velocity: 11,
+        //                         irradiance: 50.26,
+        //                         geographic_height_variance: nil)
+        //
+        //        Adrastea.orbitals(orbital_length: 0.29826,
+        //                          perigee: 129000,
+        //                          apogee: 129000,
+        //                          velocity: 31.378,
+        //                          inclination: 0.03,
+        //                          eccentricity: 0.0015,
+        //                          day_length: 0.29826,
+        //                          equator_inclination: 0)
         
-//        Adrastea.misc(discovered: "1979")
+        //        Adrastea.misc(discovered: "1979")
         
         Jupiter.moons.append(Adrastea)
         
@@ -479,25 +477,25 @@ class Objects {
                        wiki: "https://en.wikipedia.org/wiki/Amalthea_(moon)",
                        nasa: "http://solarsystem.nasa.gov/planets/amalthea")
         
-//        Amalthea.geology(mass: 208,
-//                         volume: 2.43,
-//                         equatorial: 83.5,
-//                         density: 0.857,
-//                         gravity: 0.02,
-//                         escape_velocity: 58,
-//                         irradiance: 50.26,
-//                         geographic_height_variance: nil)
-//        
-//        Amalthea.orbitals(orbital_length: 0.49817943,
-//                          perigee: 181150,
-//                          apogee: 182840,
-//                          velocity: 26.57,
-//                          inclination: 0.374,
-//                          eccentricity: 0.00319,
-//                          day_length: 0.49817943,
-//                          equator_inclination: 0)
+        //        Amalthea.geology(mass: 208,
+        //                         volume: 2.43,
+        //                         equatorial: 83.5,
+        //                         density: 0.857,
+        //                         gravity: 0.02,
+        //                         escape_velocity: 58,
+        //                         irradiance: 50.26,
+        //                         geographic_height_variance: nil)
+        //
+        //        Amalthea.orbitals(orbital_length: 0.49817943,
+        //                          perigee: 181150,
+        //                          apogee: 182840,
+        //                          velocity: 26.57,
+        //                          inclination: 0.374,
+        //                          eccentricity: 0.00319,
+        //                          day_length: 0.49817943,
+        //                          equator_inclination: 0)
         
-//        Amalthea.misc(discovered: "1892")
+        //        Amalthea.misc(discovered: "1892")
         
         Jupiter.moons.append(Amalthea)
         
@@ -507,25 +505,25 @@ class Objects {
                     wiki: "https://en.wikipedia.org/wiki/Thebe_(moon)",
                     nasa: "http://solarsystem.nasa.gov/planets/thebe")
         
-//        Thebe.geology(mass: 0.014987,
-//                      volume: 501914,
-//                      equatorial: 49.3,
-//                      density: 3,
-//                      gravity: 0.013,
-//                      escape_velocity: 64,
-//                      irradiance: 50.26,
-//                      geographic_height_variance: nil)
-//        
-//        Thebe.orbitals(orbital_length: 0.674536,
-//                       perigee: 218000,
-//                       apogee: 226000,
-//                       velocity: 23.92,
-//                       inclination: 1.076,
-//                       eccentricity: 0.0175,
-//                       day_length: 0.674536,
-//                       equator_inclination: 0)
+        //        Thebe.geology(mass: 0.014987,
+        //                      volume: 501914,
+        //                      equatorial: 49.3,
+        //                      density: 3,
+        //                      gravity: 0.013,
+        //                      escape_velocity: 64,
+        //                      irradiance: 50.26,
+        //                      geographic_height_variance: nil)
+        //
+        //        Thebe.orbitals(orbital_length: 0.674536,
+        //                       perigee: 218000,
+        //                       apogee: 226000,
+        //                       velocity: 23.92,
+        //                       inclination: 1.076,
+        //                       eccentricity: 0.0175,
+        //                       day_length: 0.674536,
+        //                       equator_inclination: 0)
         
-//        Thebe.misc(discovered: "1979")
+        //        Thebe.misc(discovered: "1979")
         
         Jupiter.moons.append(Thebe);
         
@@ -966,7 +964,7 @@ class Objects {
         Callirrhoe.about(description: "Callirrhoe, also known as Jupiter XVII (17), is one of Jupiter's outermost named natural satellites. It is an irregular moon that orbits in a retrograde direction. Callirrhoe was imaged by Spacewatch at Kitt Peak National Observatory from October 6 through November 4, 1999, and originally designated as asteroid (1999 UX18). It was discovered to be in orbit around Jupiter by Tim Spahr on July 18, 2000, and then given the designation S/1999 J 1. It was the 17th confirmed moon of Jupiter.\n\nCallirrhoe has an apparent magnitude of 20.7, making it even fainter than dwarf planet Eris at magnitude 18.7. Jupiter is about 2.5 billion times brighter than Callirrhoe.\n\nCallirrhoe is about 8.6 kilometers in diameter, and orbits Jupiter at an average distance of 24.1 million kilometers in 758 days, at an inclination of 141° to the ecliptic (140° to Jupiter's equator) with an eccentricity of 0.28. This object was probably captured long ago from a heliocentric orbit and the Sun's gravitational influence makes this orbit highly erratic.\n\nIt was named in October 2002 after Callirrhoe, daughter of the river god Achelous, one of Zeus' (Jupiter's) many conquests.\n\nIt belongs to the Pasiphae group, irregular retrograde moons orbiting Jupiter at distances ranging between 22.8 and 24.1 million kilometers, and with inclinations ranging between 144.5° and 158.3°.\n\nAs a navigation exercise, the New Horizons spacecraft imaged it on January 10, 2007.",
                          wiki: "https://en.wikipedia.org/wiki/Callirrhoe_(moon)",
                          nasa: "http://solarsystem.nasa.gov/planets/callirrhoe")
-
+        
         Jupiter.moons.append(Callirrhoe)
         
         let Eurydome = Moon(name: "Eurydome",
@@ -1158,16 +1156,29 @@ class Objects {
                        ring_inner_ratio: 1.239,
                        ring_outer_ratio: 2.270)
         
-//        Saturn.orbitals(year_length: 686.981,
-//                        perihelion: 206.62,
-//                        aphelion: 249.23,
-//                        velocity: 24.07,
-//                        inclination: 1.850,
-//                        eccentricity: 0.0935,
-//                        day_length: 24.6597,
-//                        equator_inclination: 27,
-//                        min_distance_from_earth: 55.7,
-//                        max_distance_from_earth: 401.3)
+        Saturn.geology(mass: 568340000000000000.teragram(),
+                       volume: 827130000000000.kilometer(),
+                       equatorial: 60268.kilometer(),
+                       density: 687.kilogram(),
+                       gravity: 10.44.meter(),
+                       escape_velocity: 35.5.kilometer(),
+                       irradiance: 14.82,
+                       geographic_height_variance: nil)
+        
+        Saturn.orbitals(year_length: 10748.94.day(),
+                        perihelion: 1352550000.kilometer(),
+                        aphelion: 1514500000.kilometer(),
+                        velocity: 9.68.kilometer(),
+                        inclination: 2.485,
+                        eccentricity: 0.0565,
+                        day_length: 10.656.hour(),
+                        equator_inclination: 26.73,
+                        min_distance_from_earth: 1195500000.kilometer(),
+                        max_distance_from_earth: 1658500000.kilometer())
+        
+        Saturn.atmosphere(surface_pressure: 1000,
+                          average_temperature: 134,
+                          total_mass: nil)
         
         let S1 = Moon(name: "S/2009 S 1",
                       position: 1)
@@ -1355,7 +1366,7 @@ class Objects {
                      nasa: "http://solarsystem.nasa.gov/planets/helene")
         
         Saturn.moons.append(Helene)
-
+        
         let Polydeuces = Moon(name: "Polydeuces",
                               position: 18)
         
@@ -1700,8 +1711,8 @@ class Objects {
                            position: 56)
         
         S3_2006.about(description: "S/2006 S 3 is a natural satellite of Saturn. Its discovery was announced by Scott S. Sheppard, David C. Jewitt, Jan Kleyna, and Brian G. Marsden on June 26, 2006 from observations taken between January and April 2006.\n\nS/2006 S 3 is about 6 kilometres in diameter, and orbits Saturn at an average distance of 21,076.3 Mm in 1142.366 days, at an inclination of 150.8° to the ecliptic (128.8° to Saturn's equator), in a retrograde direction and with an eccentricity of 0.4710.",
-                 wiki: "https://en.wikipedia.org/wiki/S/2006_S_3",
-                 nasa: "http://solarsystem.nasa.gov/planets/s2006s03")
+                      wiki: "https://en.wikipedia.org/wiki/S/2006_S_3",
+                      nasa: "http://solarsystem.nasa.gov/planets/s2006s03")
         
         Saturn.moons.append(S3_2006)
         
@@ -1776,6 +1787,32 @@ class Objects {
                        ring_transparencymap: nil,
                        ring_inner_ratio: nil,
                        ring_outer_ratio: nil)
+        
+        Uranus.geology(mass: 86813000000000000.teragram(),
+                       volume: 68330000000000.kilometer(),
+                       equatorial: 25559.kilometer(),
+                       density: 1271.kilogram(),
+                       gravity: 8.87.meter(),
+                       escape_velocity: 21.1.kilometer(),
+                       irradiance: 3.69,
+                       geographic_height_variance: nil)
+        
+        Uranus.orbitals(year_length: 30588.74.day(),
+                        perihelion: 2741300000.kilometer(),
+                        aphelion: 3003620000.kilometer(),
+                        velocity: 6.8.kilometer(),
+                        inclination: 0.772,
+                        eccentricity: 0.0457,
+                        day_length: 17.24.hour(),
+                        equator_inclination: 82.23,
+                        min_distance_from_earth: 2581900000.kilometer(),
+                        max_distance_from_earth: 3157300000.kilometer())
+        
+        Uranus.atmosphere(surface_pressure: 1000,
+                          average_temperature: 76,
+                          total_mass: nil)
+        
+        Uranus.misc(discovered: "March 13th, 1781")
         
         let Cordelia = Moon(name: "Cordelia",
                             position: 1)
@@ -1987,11 +2024,11 @@ class Objects {
         Uranus.moons.append(Stephano)
         
         let Trinculo = Moon(name: "Triculo",
-                           position: 22)
+                            position: 22)
         
         Trinculo.about(description: "Trinculo is a retrograde irregular satellite of Uranus. It was discovered by a group of astronomers led by Holman, et al. on 13 August 2001, and given the temporary designation S/2001 U 1.\n\nConfirmed as Uranus XXI, it was named after the drunken jester Trinculo in William Shakespeare's play The Tempest.",
-                      wiki: "https://en.wikipedia.org/wiki/Trinculo_(moon)",
-                      nasa: "http://solarsystem.nasa.gov/planets/trinculo")
+                       wiki: "https://en.wikipedia.org/wiki/Trinculo_(moon)",
+                       nasa: "http://solarsystem.nasa.gov/planets/trinculo")
         
         Uranus.moons.append(Trinculo)
         
@@ -2039,7 +2076,7 @@ class Objects {
                         nasa: "http://solarsystem.nasa.gov/planets/ferdinand")
         
         Uranus.moons.append(Ferdinand)
-
+        
         
         //----------------------------------------------------------------------------------------------
         let Neptune = Planet(name: "Neptune",
@@ -2057,7 +2094,31 @@ class Objects {
                         ring_transparencymap: nil,
                         ring_inner_ratio: nil,
                         ring_outer_ratio: nil)
-
+        
+        Neptune.geology(mass: 10241300000000000.gigagram(),
+                        volume: 62540000000000.kilometer(),
+                        equatorial: 24764.kilometer(),
+                        density: 1638.kilogram(),
+                        gravity: 11.15.meter(),
+                        escape_velocity: 23.5.kilometer(),
+                        irradiance: 1.508,
+                        geographic_height_variance: nil)
+        
+        Neptune.orbitals(year_length: 59799.9.day(),
+                         perihelion: 4444450000.kilometer(),
+                         aphelion: 4545670000.kilometer(),
+                         velocity: 5.43.kilometer(),
+                         inclination: 1.769,
+                         eccentricity: 0.0113,
+                         day_length: 16.11.hour(),
+                         equator_inclination: 28.32,
+                         min_distance_from_earth: 4305900000.kilometer(),
+                         max_distance_from_earth: 4687300000.kilometer())
+        
+        Neptune.atmosphere(surface_pressure: 1000,
+                           average_temperature: 72,
+                           total_mass: nil)
+        
         let Naiad = Moon(name: "Naiad",
                          position: 1)
         
@@ -2193,6 +2254,10 @@ class Objects {
                            position: 1,
                            classification: Class.Dwarf)
         
+        Ceres.about(description: "Ceres is the largest object in the asteroid belt that lies between the orbits of Mars and Jupiter. Its diameter is approximately 945 kilometers (587 miles), making it the largest of the minor planets within the orbit of Neptune. The 33rd-largest known body in the Solar System, it is the only dwarf planet within the orbit of Neptune. Composed of rock and ice, Ceres is estimated to compose approximately one third of the mass of the entire asteroid belt. Ceres is the only object in the asteroid belt known to be rounded by its own gravity (though detailed analysis was required to exclude 4 Vesta). From Earth, the apparent magnitude of Ceres ranges from 6.7 to 9.3, and hence even at its brightest, it is too dim to be seen with the naked eye, except under extremely dark skies.\n\nCeres was the first asteroid discovered, by Giuseppe Piazzi at Palermo on 1 January 1801. It was originally considered a planet, but was reclassified as an asteroid in the 1850s after many other objects in similar orbits were discovered.\n\nCeres appears to be differentiated into a rocky core and icy mantle, and may have a remnant internal ocean of liquid water under the layer of ice. The surface is probably a mixture of water ice and various hydrated minerals such as carbonates and clay. In January 2014, emissions of water vapor were detected from several regions of Ceres. This was unexpected, because large bodies in the asteroid belt typically do not emit vapor, a hallmark of comets.\n\nThe robotic NASA spacecraft Dawn entered orbit around Ceres on 6 March 2015. Pictures with a resolution previously unattained were taken during imaging sessions starting in January 2015 as Dawn approached Ceres, showing a cratered surface. Two distinct bright spots (or high-albedo features) inside a crater (different from the bright spots observed in earlier Hubble images) were seen in a 19 February 2015 image, leading to speculation about a possible cryovolcanic origin or outgassing. On 3 March 2015, a NASA spokesperson said the spots are consistent with highly reflective materials containing ice or salts, but that cryovolcanism is unlikely, however on 2 September 2016, published alongside six other studies, NASA scientists released a paper in Science that claims that a massive ice volcano called Ahuna Mons is the strongest evidence yet for the existence of these mysterious ice volcanoes. On 11 May 2015, NASA released a higher-resolution image showing that, instead of one or two spots, there are actually several. On 9 December 2015, NASA scientists reported that the bright spots on Ceres may be related to a type of salt, particularly a form of brine containing magnesium sulfate hexahydrite (MgSO4·6H2O); the spots were also found to be associated with ammonia-rich clays. In June 2016, near-infrared spectra of these bright areas were found to be consistent with a large amount of sodium carbonate (Na2CO3), implying that recent geologic activity was probably involved in the creation of the bright spots.\n\nIn October 2015, NASA released a true color portrait of Ceres made by Dawn. In February 2017, organics were reported to have been detected on Ceres in Ernutet crater.",
+                    wiki: "https://en.wikipedia.org/wiki/Ceres_(dwarf_planet)",
+                    nasa: "http://solarsystem.nasa.gov/planets/ceres")
+        
         Ceres.display(texture: "ceresmap.png",
                       model: nil,
                       normalmap: "ceresnormalmap.png",
@@ -2201,9 +2266,25 @@ class Objects {
                       ring_inner_ratio: nil,
                       ring_outer_ratio: nil)
         
-        Ceres.about(description: "Ceres is the largest object in the asteroid belt that lies between the orbits of Mars and Jupiter. Its diameter is approximately 945 kilometers (587 miles), making it the largest of the minor planets within the orbit of Neptune. The 33rd-largest known body in the Solar System, it is the only dwarf planet within the orbit of Neptune. Composed of rock and ice, Ceres is estimated to compose approximately one third of the mass of the entire asteroid belt. Ceres is the only object in the asteroid belt known to be rounded by its own gravity (though detailed analysis was required to exclude 4 Vesta). From Earth, the apparent magnitude of Ceres ranges from 6.7 to 9.3, and hence even at its brightest, it is too dim to be seen with the naked eye, except under extremely dark skies.\n\nCeres was the first asteroid discovered, by Giuseppe Piazzi at Palermo on 1 January 1801. It was originally considered a planet, but was reclassified as an asteroid in the 1850s after many other objects in similar orbits were discovered.\n\nCeres appears to be differentiated into a rocky core and icy mantle, and may have a remnant internal ocean of liquid water under the layer of ice. The surface is probably a mixture of water ice and various hydrated minerals such as carbonates and clay. In January 2014, emissions of water vapor were detected from several regions of Ceres. This was unexpected, because large bodies in the asteroid belt typically do not emit vapor, a hallmark of comets.\n\nThe robotic NASA spacecraft Dawn entered orbit around Ceres on 6 March 2015. Pictures with a resolution previously unattained were taken during imaging sessions starting in January 2015 as Dawn approached Ceres, showing a cratered surface. Two distinct bright spots (or high-albedo features) inside a crater (different from the bright spots observed in earlier Hubble images) were seen in a 19 February 2015 image, leading to speculation about a possible cryovolcanic origin or outgassing. On 3 March 2015, a NASA spokesperson said the spots are consistent with highly reflective materials containing ice or salts, but that cryovolcanism is unlikely, however on 2 September 2016, published alongside six other studies, NASA scientists released a paper in Science that claims that a massive ice volcano called Ahuna Mons is the strongest evidence yet for the existence of these mysterious ice volcanoes. On 11 May 2015, NASA released a higher-resolution image showing that, instead of one or two spots, there are actually several. On 9 December 2015, NASA scientists reported that the bright spots on Ceres may be related to a type of salt, particularly a form of brine containing magnesium sulfate hexahydrite (MgSO4·6H2O); the spots were also found to be associated with ammonia-rich clays. In June 2016, near-infrared spectra of these bright areas were found to be consistent with a large amount of sodium carbonate (Na2CO3), implying that recent geologic activity was probably involved in the creation of the bright spots.\n\nIn October 2015, NASA released a true color portrait of Ceres made by Dawn. In February 2017, organics were reported to have been detected on Ceres in Ernutet crater.",
-                    wiki: "https://en.wikipedia.org/wiki/Ceres_(dwarf_planet)",
-                    nasa: "http://solarsystem.nasa.gov/planets/ceres")
+        Ceres.geology(mass: 947000000000000000.megagram(),
+                      volume: 452331448.kilometer(),
+                      equatorial: 2992.1.kilometer(),
+                      density: 2090.kilogram(),
+                      gravity: 0.28.meter(),
+                      escape_velocity: 0.5152778.kilometer(),
+                      irradiance: nil,
+                      geographic_height_variance: nil)
+        
+        Ceres.orbitals(year_length: 1681.63.day(),
+                       perihelion: 382620000.kilometer(),
+                       aphelion: 445410000.kilometer(),
+                       velocity: 17.905.kilometer(),
+                       inclination: 10.593,
+                       eccentricity: 0.079138251,
+                       day_length: 9.07417.hour(),
+                       equator_inclination: 9.20,
+                       min_distance_from_earth: nil,
+                       max_distance_from_earth: nil)
         
         //----------------------------------------------------------------------------------------------
         let Pluto = Planet(name: "Pluto",
@@ -2222,6 +2303,30 @@ class Objects {
                       ring_transparencymap: nil,
                       ring_inner_ratio: nil,
                       ring_outer_ratio: nil)
+        
+        Pluto.geology(mass: 130300000000000000.gigagram(),
+                 volume: 6970000000.kilometer(),
+                 equatorial: 1187.kilometer(),
+                 density: 1860.kilogram(),
+                 gravity: 0.62.meter(),
+                 escape_velocity: 1.21.kilometer(),
+                 irradiance: 0.873,
+                 geographic_height_variance: nil)
+        
+        Pluto.orbitals(year_length: 90560.day(),
+                         perihelion: 4436820000.kilometer(),
+                         aphelion: 7375930000.kilometer(),
+                         velocity: 4.67.kilometer(),
+                         inclination: 17.16,
+                         eccentricity: 0.2488,
+                         day_length: 153.282.hour(),
+                         equator_inclination: 57.47,
+                         min_distance_from_earth: 4284700000.kilometer(),
+                         max_distance_from_earth: 7528000000.kilometer())
+        
+        Pluto.atmosphere(surface_pressure: 0.0000001,
+                           average_temperature: 50,
+                           total_mass: nil)
         
         let Charon = Moon(name: "Charon",
                           position: 1)
@@ -2282,6 +2387,30 @@ class Objects {
                      wiki: "https://en.wikipedia.org/wiki/Haumea",
                      nasa: "http://solarsystem.nasa.gov/planets/haumea")
         
+        Haumea.geology(mass: 4006000000000000.gigagram(),
+                 volume: 150000000.kilometer(),
+                 equatorial: 690.kilometer(),
+                 density: 2600.kilogram(),
+                 gravity: 0.63.meter(),
+                 escape_velocity: 0.91.kilometer(),
+                 irradiance: nil,
+                 geographic_height_variance: nil)
+        
+        Haumea.orbitals(year_length: 103774.day(),
+                         perihelion: 5228745000.kilometer(),
+                         aphelion: 7701747000.kilometer(),
+                         velocity: (16191/60/60).kilometer(),
+                         inclination: 28.19,
+                         eccentricity: 0.198132061,
+                         day_length: 3.9154.hour(),
+                         equator_inclination: nil,
+                         min_distance_from_earth: nil,
+                         max_distance_from_earth: nil)
+        
+        Haumea.atmosphere(surface_pressure: nil,
+                           average_temperature: 50,
+                           total_mass: nil)
+        
         let Namaka = Moon(name: "Namaka",
                           position: 1)
         
@@ -2310,8 +2439,32 @@ class Objects {
                        wiki: "https://en.wikipedia.org/wiki/Makemake",
                        nasa: "http://solarsystem.nasa.gov/planets/makemake")
         
+        Makemake.geology(mass: 4400000000000000.gigagram(),
+                 volume: 1700000000.kilometer(),
+                 equatorial: 739.kilometer(),
+                 density: 1400.kilogram(),
+                 gravity: nil,
+                 escape_velocity: nil,
+                 irradiance: nil,
+                 geographic_height_variance: nil)
+        
+        Makemake.orbitals(year_length: 112897.day(),
+                         perihelion: 5772980000.kilometer(),
+                         aphelion: 7904750000.kilometer(),
+                         velocity: 4.419.kilometer(),
+                         inclination: 29.00685,
+                         eccentricity: 0.15586,
+                         day_length: 7.771.hour(),
+                         equator_inclination: nil,
+                         min_distance_from_earth: nil,
+                         max_distance_from_earth: nil)
+        
+        Makemake.atmosphere(surface_pressure: nil,
+                           average_temperature: 36,
+                           total_mass: nil)
+        
         let MK2 = Moon(name: "MK 2",
-                            position: 1)
+                       position: 1)
         
         MK2.about(description: "S/2015 (136472) 1, nicknamed MK 2 by the discovery team, is the only known moon of the dwarf planet Makemake. It is estimated to be 175 km (110 mi) km in diameter and has a semi-major axis at least 21,000 km (13,000 mi) from Makemake. Observations leading to its discovery occurred in April 2015, using the Hubble Space Telescope's Wide Field Camera 3 and its discovery was announced on 26 April 2016.\n\nOn 26 April 2016, astronomers using observations from the Hubble Space Telescope taken in April 2015 announced the discovery of a moon with a diameter of ~175 km (for an assumed albedo of 4%) orbiting Makemake at a distance of ≥ 21,000 km with a period of ≥ 12 days (the minimum values are those for a circular orbit; the actual orbital eccentricity is unknown). It was given the provisional name S/2015 (136472) 1.\n\nMost other large trans-Neptunian objects have at least one satellite: Eris has one, Haumea has two, Pluto has five, and 2007 OR10 has one satellite. 10% to 20% of all trans-Neptunian objects are expected to have one or more satellites. Because satellites offer a simple method to measure an object's mass, Makemake's satellite should lead to better estimates of its mass.",
                   wiki: "https://en.wikipedia.org/wiki/Makemake#Satellite",
@@ -2329,6 +2482,30 @@ class Objects {
                    wiki: "https://en.wikipedia.org/wiki/Eris_(dwarf_planet)",
                    nasa: "http://solarsystem.nasa.gov/planets/eris")
         
+        Eris.geology(mass: 16600000000000000.gigagram(),
+                 volume: 6590000000.kilometer(),
+                 equatorial: 1163.kilometer(),
+                 density: 2520.kilogram(),
+                 gravity: 0.82.meter(),
+                 escape_velocity: 1.38.kilometer(),
+                 irradiance: nil,
+                 geographic_height_variance: nil)
+        
+        Eris.orbitals(year_length: 203830.day(),
+                         perihelion: 5723000000.kilometer(),
+                         aphelion: 1460200000.kilometer(),
+                         velocity: 3.4338.kilometer(),
+                         inclination: 44.0445,
+                         eccentricity: 0.44068,
+                         day_length: 25.9.hour(),
+                         equator_inclination: nil,
+                         min_distance_from_earth: nil,
+                         max_distance_from_earth: nil)
+        
+        Eris.atmosphere(surface_pressure: nil,
+                           average_temperature: 30,
+                           total_mass: nil)
+        
         let Dysnomia = Moon(name: "Dysnomia",
                             position: 1)
         
@@ -2339,7 +2516,7 @@ class Objects {
         Eris.moons.append(Dysnomia)
         
         //----------------------------------------------------------------------------------------------
-
+        
         
         
         return [Class.Major: [Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune], Class.Dwarf: [Ceres, Pluto, Haumea, Makemake, Eris]]

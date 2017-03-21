@@ -211,7 +211,7 @@ class Moon {
             spin.toValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: Float(2 * M_PI)))
             
             if let let_day_length = day_length {
-                spin.duration = let_day_length.converted(TimeUnit.minute).amount.doubleValue
+                spin.duration = let_day_length.converted(TimeUnit.minute).amount.doubleValue/24
             } else {
                 spin.duration = 60
             }

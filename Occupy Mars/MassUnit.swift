@@ -27,6 +27,13 @@ import Foundation
 
 public final class MassUnit: Unit {
     
+    public static var teragram: MassUnit {  //fuck you, Jupiter
+        return MassUnit(
+            name: "teragram",
+            symbol: "Tg",
+            ratio: NSDecimalNumber(mantissa: 1, exponent: 9, isNegative: false))
+    }
+    
     public static var gigagram: MassUnit {
         return MassUnit(
             name: "gigagram",
@@ -103,6 +110,10 @@ public final class MassUnit: Unit {
 }
 
 extension ExpressibleByIntegerLiteral {
+    
+    public func teragram() -> Quantity {
+        return Quantity(amount: self as! NSNumber, unit: MassUnit.teragram)
+    }
     
     public func gigagram() -> Quantity {
         return Quantity(amount: self as! NSNumber, unit: MassUnit.gigagram)
