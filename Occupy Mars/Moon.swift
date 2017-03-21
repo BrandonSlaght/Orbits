@@ -29,31 +29,31 @@ class Moon {
     
     //--------------------------------------------geology - notes: use equatorial radius and mean density and surface gravity / acceleration
     
-    var mass: Double?,
-    volume: Double?,
-    equatorial: Double?,
-    density: Double?,
-    gravity: Double?,
-    escape_velocity: Double?,
+    var mass: Quantity?,
+    volume: Quantity?,
+    equatorial: Quantity?,
+    density: Quantity?,
+    gravity: Quantity?,
+    escape_velocity: Quantity?,
     irradiance: Double?,
-    geographic_height_variance: Double?
+    geographic_height_variance: Quantity?
     
     //--------------------------------------------orbit - notes: use tropical orbit, mean orbital velocity, obliquidy from orbit for equator inclination, and inclination from eliptic for inclination
     
-    var orbital_length: Double?,
-    perigee: Double?,
-    apogee: Double?,
-    velocity: Double?,
+    var orbital_length: Quantity?,
+    perigee: Quantity?,
+    apogee: Quantity?,
+    velocity: Quantity?,
     inclination: Double?,
     eccentricity: Double?,
-    day_length: Double?,
+    day_length: Quantity?,
     equator_inclination: Double?
     
     //--------------------------------------------atmosphere
     
     var surface_pressure: Double?,
     average_temperature: Double?,
-    total_mass: Double?
+    total_mass: Quantity?
     var composition = [(gas: String,
                         ppm: Double)]()
     
@@ -89,14 +89,14 @@ class Moon {
         self.nasa = nasa
     }
     
-    func geology(mass: Double?,
-                 volume: Double?,
-                 equatorial: Double?,
-                 density: Double?,
-                 gravity: Double?,
-                 escape_velocity: Double?,
+    func geology(mass: Quantity?,
+                 volume: Quantity?,
+                 equatorial: Quantity?,
+                 density: Quantity?,
+                 gravity: Quantity?,
+                 escape_velocity: Quantity?,
                  irradiance: Double?,
-                 geographic_height_variance: Double?) {
+                 geographic_height_variance: Quantity?) {
         self.mass = mass
         self.volume = volume
         self.equatorial = equatorial
@@ -108,13 +108,13 @@ class Moon {
         self.hasDetails = true
     }
     
-    func orbitals(orbital_length: Double?,
-                  perigee: Double?,
-                  apogee: Double?,
-                  velocity: Double?,
+    func orbitals(orbital_length: Quantity?,
+                  perigee: Quantity?,
+                  apogee: Quantity?,
+                  velocity: Quantity?,
                   inclination: Double?,
                   eccentricity: Double?,
-                  day_length: Double?,
+                  day_length: Quantity?,
                   equator_inclination: Double?) {
         self.orbital_length = orbital_length
         self.perigee = perigee
@@ -129,7 +129,7 @@ class Moon {
     
     func atmosphere(surface_pressure: Double?,
                     average_temperature: Double?,
-                    total_mass: Double?) {
+                    total_mass: Quantity?) {
         self.surface_pressure = surface_pressure
         self.average_temperature = average_temperature
         self.total_mass = total_mass
@@ -211,7 +211,7 @@ class Moon {
             spin.toValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: Float(2 * M_PI)))
             
             if let let_day_length = day_length {
-                spin.duration = 60*(let_day_length/24)
+                spin.duration = let_day_length.converted(TimeUnit.minute).amount.doubleValue
             } else {
                 spin.duration = 60
             }
