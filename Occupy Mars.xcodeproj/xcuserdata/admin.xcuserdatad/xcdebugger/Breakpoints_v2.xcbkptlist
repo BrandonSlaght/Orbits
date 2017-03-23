@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Occupy Mars/Objects.swift"
-            timestampString = "511816849.082"
+            timestampString = "511999697.136701"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1519"
-            endingLineNumber = "1519"
+            startingLineNumber = "1528"
+            endingLineNumber = "1528"
             landmarkName = "planets()"
             landmarkType = "7">
          </BreakpointContent>

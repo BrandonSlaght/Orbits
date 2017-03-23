@@ -1180,6 +1180,15 @@ class Objects {
                           average_temperature: 134,
                           total_mass: nil)
         
+        Saturn.images = [
+            ("saturn - backlit.jpg", "Saturn's rings are best visualized with sunlight from behind them."),
+            ("saturn - dot.jpg", "Cassini's recreation of the famous \"Pale Blue Dot\" image taken by Voyager.  All of human existence is contained on Earth, the small spec to the right of the middle of the image."),
+            ("saturn - hexagon.jpg", "The north pole of Saturn has a hexagonial storm caused by perturbations in the jet stream.  This is a false-color infrared image from Cassini"),
+            ("saturn - pole.jpg", "A close up of the eye of the storm at the north pole.  This part of the storm is around the diameter of Earth."),
+            ("saturn - quintet.jpg", "Five of Saturn's moons (from left to right: Janus, Pandora, Enceladus, Mimas, and Rhea) pose with its rings."),
+            ("saturn - storm.jpg", "The beginning of a massive storm that started in late 2010.  In less than a year, the storm had expanded to encircle the planet."),
+            ("saturn - waves.jpg", "Perturbations in Saturns rings caused by a young object forming in the Keeler gap in the rings.")]
+        
         let S1 = Moon(name: "S/2009 S 1",
                       position: 1)
         
