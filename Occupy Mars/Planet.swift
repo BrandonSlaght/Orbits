@@ -368,7 +368,7 @@ class Planet {
     }
     
     func toScientificNotation(value: NSNumber) -> String {
-        if value.intValue < 10000000 {
+        if value.floatValue < 10000000 {
             return String(describing: value)
         }
         let numberFormatter = NumberFormatter()
