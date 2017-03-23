@@ -2119,6 +2119,8 @@ class Objects {
                            average_temperature: 72,
                            total_mass: nil)
         
+        Neptune.misc(discovered: "September 23rd, 1846")
+        
         let Naiad = Moon(name: "Naiad",
                          position: 1)
         
@@ -2286,6 +2288,8 @@ class Objects {
                        min_distance_from_earth: nil,
                        max_distance_from_earth: nil)
         
+        Ceres.misc(discovered: "January 1st, 1801")
+        
         //----------------------------------------------------------------------------------------------
         let Pluto = Planet(name: "Pluto",
                            type: Type.Rock,
@@ -2327,6 +2331,8 @@ class Objects {
         Pluto.atmosphere(surface_pressure: 0.0000001,
                            average_temperature: 50,
                            total_mass: nil)
+        
+        Pluto.misc(discovered: "Febuary 18th, 1930")
         
         let Charon = Moon(name: "Charon",
                           position: 1)
@@ -2411,6 +2417,8 @@ class Objects {
                            average_temperature: 50,
                            total_mass: nil)
         
+        Haumea.misc(discovered: "December 28th, 2004")
+        
         let Namaka = Moon(name: "Namaka",
                           position: 1)
         
@@ -2463,6 +2471,8 @@ class Objects {
                            average_temperature: 36,
                            total_mass: nil)
         
+        Makemake.misc(discovered: "March 31st, 2005")
+        
         let MK2 = Moon(name: "MK 2",
                        position: 1)
         
@@ -2505,6 +2515,8 @@ class Objects {
         Eris.atmosphere(surface_pressure: nil,
                            average_temperature: 30,
                            total_mass: nil)
+        
+        Eris.misc(discovered: "January 5th, 2005")
         
         let Dysnomia = Moon(name: "Dysnomia",
                             position: 1)
