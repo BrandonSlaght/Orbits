@@ -1823,6 +1823,13 @@ class Objects {
         
         Uranus.misc(discovered: "March 13th, 1781")
         
+        Uranus.images = [
+            ("uranus - ball.jpg", "Uranus is mostly featureless.  However, winds in its atmosphere can reach up to 560 mph"),
+            ("uranus - crescent.jpg", "Voyager 2 is the only spacecraft to have visited Uranus.  On its way to Neptune, it turned around to snap a picture of this crescent."),
+            ("uranus - moons.jpg", "An ifrared image of Uranus, its ring system, and ten of its moons.  Taken by Hubble."),
+            ("uranus - rings.jpg", "A false color image of Uranus's known rings.  Uranus's ring system is faint and small compared to Saturn's."),
+            ("uranus - storm.jpg", "Infrared images of both sides of the planet, taken by the Keck Telescope to track a storm in the upper atmosphere.")]
+        
         let Cordelia = Moon(name: "Cordelia",
                             position: 1)
         
@@ -2129,6 +2136,13 @@ class Objects {
                            total_mass: nil)
         
         Neptune.misc(discovered: "September 23rd, 1846")
+        
+        Neptune.images = [
+            ("neptune - clouds.jpg", "This image, taken by Voyager 2, shows could differentiation, or layering.  The heights of upper clouds are arounds 30 miles."),
+            ("neptune - disk.jpg", "Voyager 2 is the only spacecraft to explore Neptune.  This image was taken when the probe was still 4.4 million miles away."),
+            ("neptune - rings.jpg", "Uranus has a very small and faint ring system."),
+            ("neptune - storms.jpg", "Neptune's prominent storms, (Great Dark Spot at the equator, Scooter, the white blob below the Great Dark Spot, and the Small Dark Spot by the south pole) all move at different velocities."),
+            ("neptune - triton.jpg", "Triton, ceen behind Neptune in this Voyager 2 shot, makes up 99.5% of the mass of Neptune's moons.")]
         
         let Naiad = Moon(name: "Naiad",
                          position: 1)
