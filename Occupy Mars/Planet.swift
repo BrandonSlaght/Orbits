@@ -89,6 +89,12 @@ class Planet {
                    caption: String)]()
     var videos = [String]()
     
+    //--------------------------------------------visuals
+    
+    var background: String?,
+        color1: UIColor?,
+        color2: UIColor?
+    
     //--------------------------------------------initializers
     
     init(name: String,
@@ -185,7 +191,37 @@ class Planet {
         self.images = images
     }
     
+    func colors(background: String?,
+                color1: String,
+                color2: String) {
+        self.background = background
+        self.color1 = hexStringToUIColor(hex: color1)
+        self.color2 = hexStringToUIColor(hex: color2)
+    }
+    
     //--------------------------------------------helpers
+    
+    func hexStringToUIColor (hex:String) -> UIColor {
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+        
+        if ((cString.characters.count) != 6) {
+            return UIColor.gray
+        }
+        
+        var rgbValue:UInt32 = 0
+        Scanner(string: cString).scanHexInt32(&rgbValue)
+        
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
     
     func getScene(size: Size) -> SCNScene? {
         
@@ -286,7 +322,7 @@ class Planet {
                 
                 planetNode.addChildNode(ringNode)
                 
-                rotationNode.rotation = (SCNVector4: SCNVector4(x: 1, y: 0, z: 0, w: 0.2))
+                //rotationNode.rotation = (SCNVector4: SCNVector4(x: 1, y: 0, z: 0, w: 0.2))
             }
             
             if size == Size.full {
@@ -322,8 +358,8 @@ class Planet {
                 //rotationNode.eulerAngles = (SCNVector3: SCNVector3(x: 0, y: 0, z: Float(let_equator_inclination.degreesToRadians)))
                 
                 if ringmap != nil {
-                    rotationNode.rotation = (SCNVector4: SCNVector4(x: 1, y: 0, z: 0, w: 0.2))
-                    rotationNode.rotation.z = (SCNVector4: SCNVector4(x: 0, y: 0, z: 1, w: Float(let_equator_inclination.degreesToRadians))).SCNVector4.z
+                    rotationNode.rotation = (SCNVector4: SCNVector4(x: 0.5, y: 0, z: 1, w: Float(let_equator_inclination.degreesToRadians)))
+                    //rotationNode.rotation.z = (SCNVector4: SCNVector4(x: 0, y: 0, z: 1, w: Float(let_equator_inclination.degreesToRadians))).SCNVector4.z
                 } else {
                     rotationNode.rotation = (SCNVector4: SCNVector4(x: 0, y: 0, z: 1, w: Float(let_equator_inclination.degreesToRadians)))
                     //rotationNode.boundingBox = box
@@ -374,75 +410,75 @@ class Planet {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = NumberFormatter.Style.scientific
         numberFormatter.positiveFormat = "0.### x E+0"
-        numberFormatter.exponentSymbol = " x e^"
+        numberFormatter.exponentSymbol = " x 10^"
         numberFormatter.minimumFractionDigits = 2
         numberFormatter.maximumFractionDigits = 6
         return numberFormatter.string(from: value)!
     }
     
-    func generateGeologyObjects() -> [(String, String)] {
-        var ret = [(String, String)]()
+    func generateGeologyObjects() -> [(String, String, String)] {
+        var ret = [(String, String, String)]()
         
         if mass != nil{
-            ret.append(("Mass", toScientificNotation(value: mass!.converted(MassUnit.kilogram).rounded(7).amount)+" kg"))
+            ret.append(("Mass", toScientificNotation(value: mass!.converted(MassUnit.kilogram).rounded(7).amount), " kg"))
         }
         if volume != nil{
-            ret.append(("Volume", toScientificNotation(value: volume!.converted(LengthUnit.kilometer).rounded(7).amount)+" km³"))
+            ret.append(("Volume", toScientificNotation(value: volume!.converted(LengthUnit.kilometer).rounded(7).amount), " km³"))
         }
         if density != nil{
-            ret.append(("Density", toScientificNotation(value: density!.converted(MassUnit.kilogram).rounded(7).amount)+" kg/m³"))
+            ret.append(("Density", toScientificNotation(value: density!.converted(MassUnit.kilogram).rounded(7).amount), " kg/m³"))
         }
         if equatorial != nil{
-            ret.append(("Radius", toScientificNotation(value: equatorial!.converted(LengthUnit.kilometer).rounded(7).amount)+" km"))
+            ret.append(("Radius", toScientificNotation(value: equatorial!.converted(LengthUnit.kilometer).rounded(7).amount), " km"))
         }
         if gravity != nil{
-            ret.append(("Gravity", toScientificNotation(value: gravity!.converted(LengthUnit.meter).rounded(7).amount)+" m/s²"))
+            ret.append(("Gravity", toScientificNotation(value: gravity!.converted(LengthUnit.meter).rounded(7).amount), " m/s²"))
         }
         if escape_velocity != nil{
-            ret.append(("Escape Velocity", toScientificNotation(value: escape_velocity!.converted(LengthUnit.kilometer).rounded(7).amount)+" km/s"))
+            ret.append(("Escape Velocity", toScientificNotation(value: escape_velocity!.converted(LengthUnit.kilometer).rounded(7).amount), " km/s"))
         }
         if irradiance != nil{
-            ret.append(("Irradiance", String(describing: irradiance!)+" W/m²"))
+            ret.append(("Irradiance", String(describing: irradiance!), " W/m²"))
         }
         if geographic_height_variance != nil{
-            ret.append(("Height Variance", toScientificNotation(value: geographic_height_variance!.converted(LengthUnit.kilometer).rounded(7).amount)+" km"))
+            ret.append(("Height Variance", toScientificNotation(value: geographic_height_variance!.converted(LengthUnit.kilometer).rounded(7).amount), " km"))
         }
         
         return ret
     }
     
-    func generateOrbitalObjects() -> [(String, String)] {
-        var ret = [(String, String)]()
+    func generateOrbitalObjects() -> [(String, String, String)] {
+        var ret = [(String, String, String)]()
         
         if year_length != nil{
-            ret.append(("Year Length", toScientificNotation(value: year_length!.converted(TimeUnit.day).rounded(7).amount)+" days")) //for some reason, this library does not convert days properly
+            ret.append(("Year Length", toScientificNotation(value: year_length!.converted(TimeUnit.day).rounded(7).amount), " days")) //for some reason, this library does not convert days properly
         }
         if day_length != nil{
-            ret.append(("Day Length", toScientificNotation(value: day_length!.converted(TimeUnit.hour).rounded(7).amount)+" hours"))
+            ret.append(("Day Length", toScientificNotation(value: day_length!.converted(TimeUnit.hour).rounded(7).amount), " hours"))
         }
         if velocity != nil{
-            ret.append(("Average Velocity", toScientificNotation(value: velocity!.converted(LengthUnit.kilometer).rounded(7).amount)+" km/h"))
+            ret.append(("Average Velocity", toScientificNotation(value: velocity!.converted(LengthUnit.kilometer).rounded(7).amount), " km/h"))
         }
         if perihelion != nil{
-            ret.append(("Perihilion", toScientificNotation(value: perihelion!.converted(LengthUnit.kilometer).rounded(7).amount)+" km"))
+            ret.append(("Perihilion", toScientificNotation(value: perihelion!.converted(LengthUnit.kilometer).rounded(7).amount), " km"))
         }
         if aphelion != nil{
-            ret.append(("Aphelion", toScientificNotation(value: aphelion!.converted(LengthUnit.kilometer).rounded(7).amount)+" km"))
+            ret.append(("Aphelion", toScientificNotation(value: aphelion!.converted(LengthUnit.kilometer).rounded(7).amount), " km"))
         }
         if inclination != nil{
-            ret.append(("Orbital Tilt", String(describing: inclination!)+" degrees"))
+            ret.append(("Orbital Tilt", String(describing: inclination!), " degrees"))
         }
         if eccentricity != nil{
-            ret.append(("Eccentricity", String(describing: eccentricity!)))
+            ret.append(("Eccentricity", String(describing: eccentricity!), ""))
         }
         if equator_inclination != nil{
-            ret.append(("Equator Tilt", String(describing: equator_inclination!)+" degrees"))
+            ret.append(("Equator Tilt", String(describing: equator_inclination!), " degrees"))
         }
         if min_distance_from_earth != nil{
-            ret.append(("Nearest to Earth", toScientificNotation(value: min_distance_from_earth!.converted(LengthUnit.kilometer).rounded(7).amount)+" km"))
+            ret.append(("Nearest to Earth", toScientificNotation(value: min_distance_from_earth!.converted(LengthUnit.kilometer).rounded(7).amount), " km"))
         }
         if max_distance_from_earth != nil{
-            ret.append(("Farthest from Earth", toScientificNotation(value: max_distance_from_earth!.converted(LengthUnit.kilometer).rounded(7).amount)+" km"))
+            ret.append(("Farthest from Earth", toScientificNotation(value: max_distance_from_earth!.converted(LengthUnit.kilometer).rounded(7).amount), " km"))
         }
         
         return ret

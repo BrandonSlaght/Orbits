@@ -31,6 +31,7 @@
 //                   total_mass: <#T##Quantity?#>.kilogram())
 
 import Foundation
+import UIKit
 
 class Objects {
     
@@ -85,6 +86,7 @@ class Objects {
             ("mercury - pole.jpg", "The north pole of Mercury.  The craters here never see sunlight and harbor frozen water."),
             ("mercury - transit.jpg", "Due to its orbital frequency and inclination, Mercury transists the sun far more often than Venus, an event which occurs every several years.")])
         
+        Mercury.colors(background: "mercurysurface.jpg", color1: "3C3C34" , color2: "CECECE")
         
         //----------------------------------------------------------------------------------------------
         let Venus = Planet(name: "Venus",
@@ -219,7 +221,7 @@ class Objects {
         //                      day_length: 27.3217,
         //                      equator_inclination: 6.68)
         
-        moon.misc(discovered: nil)
+        //moon.misc(discovered: nil)
         
         moon.display(texture: "moonmap.jpg",
                      model: nil,
@@ -1792,10 +1794,10 @@ class Objects {
         Uranus.display(texture: "uranusmap.jpg",
                        model: nil,
                        normalmap: nil,
-                       ringmap: nil,
-                       ring_transparencymap: nil,
-                       ring_inner_ratio: nil,
-                       ring_outer_ratio: nil)
+                       ringmap: "uranusrings.png",
+                       ring_transparencymap: "uranusringtransparency.png",
+                       ring_inner_ratio: 1.750,
+                       ring_outer_ratio: 2.006)
         
         Uranus.geology(mass: 86813000000000000.teragram(),
                        volume: 68330000000000.kilometer(),
@@ -1826,7 +1828,7 @@ class Objects {
         Uranus.images = [
             ("uranus - ball.jpg", "Uranus is mostly featureless.  However, winds in its atmosphere can reach up to 560 mph"),
             ("uranus - crescent.jpg", "Voyager 2 is the only spacecraft to have visited Uranus.  On its way to Neptune, it turned around to snap a picture of this crescent."),
-            ("uranus - moons.jpg", "An ifrared image of Uranus, its ring system, and ten of its moons.  Taken by Hubble."),
+            ("uranus - moons.jpg", "An infrared image of Uranus, its ring system, and ten of its moons.  Taken by Hubble."),
             ("uranus - rings.jpg", "A false color image of Uranus's known rings.  Uranus's ring system is faint and small compared to Saturn's."),
             ("uranus - storm.jpg", "Infrared images of both sides of the planet, taken by the Keck Telescope to track a storm in the upper atmosphere.")]
         
@@ -2138,11 +2140,11 @@ class Objects {
         Neptune.misc(discovered: "September 23rd, 1846")
         
         Neptune.images = [
-            ("neptune - clouds.jpg", "This image, taken by Voyager 2, shows could differentiation, or layering.  The heights of upper clouds are arounds 30 miles."),
+            ("neptune - clouds.jpg", "This image, taken by Voyager 2, shows cloud differentiation, or layering.  The upper clouds are arounds 30 miles above the rest of the \"surface\"."),
             ("neptune - disk.jpg", "Voyager 2 is the only spacecraft to explore Neptune.  This image was taken when the probe was still 4.4 million miles away."),
             ("neptune - rings.jpg", "Uranus has a very small and faint ring system."),
-            ("neptune - storms.jpg", "Neptune's prominent storms, (Great Dark Spot at the equator, Scooter, the white blob below the Great Dark Spot, and the Small Dark Spot by the south pole) all move at different velocities."),
-            ("neptune - triton.jpg", "Triton, ceen behind Neptune in this Voyager 2 shot, makes up 99.5% of the mass of Neptune's moons.")]
+            ("neptune - storms.jpg", "Neptune's prominent storms: the Great Dark Spot at the equator, Scooter, the white blob below the Great Dark Spot, and the Small Dark Spot by the south pole."),
+            ("neptune - triton.jpg", "Triton, seen behind Neptune in this Voyager 2 shot, makes up 99.5% of the mass of Neptune's moons.")]
         
         let Naiad = Moon(name: "Naiad",
                          position: 1)

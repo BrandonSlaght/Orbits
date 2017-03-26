@@ -17,7 +17,6 @@ class MoonDetailViewController: UIViewController {
     @IBOutlet weak var content: UIView!
     @IBOutlet weak var tabs: UISegmentedControl!
     @IBOutlet weak var scrollView: UIScrollView!
-    //@IBOutlet weak var contentHeight: NSLayoutConstraint!
     @IBOutlet weak var tabsHeight: NSLayoutConstraint!
     @IBAction func indexChanged(_ sender: UISegmentedControl)
     {
@@ -51,7 +50,6 @@ class MoonDetailViewController: UIViewController {
                         oldViewController.removeFromParentViewController()
                         newViewController.didMove(toParentViewController: self)
                         self.content.reloadInputViews()
-                        //self.contentHeight.constant = newViewController.view.bounds.height
         })
     }
     

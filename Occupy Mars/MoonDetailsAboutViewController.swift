@@ -18,8 +18,8 @@ class MoonDetailsAboutViewController: MoonsAboutViewController, UITableViewDataS
     @IBOutlet weak var orbitHeight: NSLayoutConstraint!
     @IBOutlet weak var miscHeight: NSLayoutConstraint!
     
-    var geology = [(String, String)]()
-    var orbit = [(String, String)]()
+    var geology = [(String, String, String)]()
+    var orbit = [(String, String, String)]()
     var misc = [(String, String)]()
 
     override func viewDidLoad() {
@@ -89,6 +89,22 @@ class MoonDetailsAboutViewController: MoonsAboutViewController, UITableViewDataS
 //        }
 //    }
     
+    func superscript(string: String, fontName: String, size: Int) -> NSAttributedString {
+        let font:UIFont? = UIFont(name: fontName, size: CGFloat(size))
+        let fontSuper:UIFont? = UIFont(name: fontName, size: CGFloat(size/2) + 2)
+        let copy = string.replacingOccurrences(of: "^", with: "")
+        let attString:NSMutableAttributedString = NSMutableAttributedString(string: copy, attributes: [NSFontAttributeName:font!])
+        
+        if let let_index = string.characters.index(of: Character("^")) {
+            let pos = copy.characters.distance(from: copy.startIndex, to: let_index)
+            let length = copy.characters.distance(from: let_index, to: copy.endIndex)
+            attString.setAttributes([NSFontAttributeName:fontSuper!,NSBaselineOffsetAttributeName:10], range: NSRange(location: pos, length: length))
+            return attString;
+        } else {
+            return NSAttributedString(string: string)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         var cell: DataViewCellViewController
@@ -97,12 +113,18 @@ class MoonDetailsAboutViewController: MoonsAboutViewController, UITableViewDataS
             cell = tableView.dequeueReusableCell(withIdentifier: "geologyCell", for: indexPath as IndexPath) as! DataViewCellViewController
             let previewDetail = geology[indexPath.row]
             cell.field!.text = previewDetail.0
-            cell.value!.text = previewDetail.1
+            let value = NSMutableAttributedString()
+            value.append(superscript(string: previewDetail.1, fontName: cell.value.font.fontName, size: Int(cell.value.font.pointSize)))
+            value.append(NSAttributedString(string: previewDetail.2))
+            cell.value!.attributedText = value
         } else if tableView == self.orbitTable {
             cell = tableView.dequeueReusableCell(withIdentifier: "orbitCell", for: indexPath as IndexPath) as! DataViewCellViewController
             let previewDetail = orbit[indexPath.row]
             cell.field!.text = previewDetail.0
-            cell.value!.text = previewDetail.1
+            let value = NSMutableAttributedString()
+            value.append(superscript(string: previewDetail.1, fontName: cell.value.font.fontName, size: Int(cell.value.font.pointSize)))
+            value.append(NSAttributedString(string: previewDetail.2))
+            cell.value!.attributedText = value
         } else {//if tableView == self.orbitTable {
             cell = tableView.dequeueReusableCell(withIdentifier: "miscCell", for: indexPath as IndexPath) as! DataViewCellViewController
             let previewDetail = misc[indexPath.row]

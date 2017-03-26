@@ -27,8 +27,6 @@ class PlanetListViewController: UITableViewController {
         tableView.backgroundView = background
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.separatorEffect = UIVibrancyEffect(blurEffect: blurView.effect as! UIBlurEffect)
-        //tableView.rowHeight = UITableViewAutomaticDimension
-        //tableView.estimatedRowHeight = 75
         tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableViewAutomaticDimension
     }
@@ -49,25 +47,14 @@ class PlanetListViewController: UITableViewController {
         let classification = Class.allValues[indexPath.section]
         let planet = objects[classification]![indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlanetCell", for: indexPath) as! PlanetCell
-//        if (cell == nil) {
-//            cell = PlanetCell(style: .default, reuseIdentifier: "PlanetCell")
-//        }
         cell.backgroundColor = UIColor.clear
         cell.name?.text = planet.name
         cell.classification?.text = planet.type.rawValue
-        //if let let_scene = planet.getScene(size: Size.small) {
-          //  cell.sceneView.scene = let_scene
-        //} else{
-        //    cell.heightConstraint.constant = 0
-        //}
         if (cell.sceneView != nil) {
             cell.sceneView.scene = planet.getScene(size: Size.small)
         }
         if (planet.getScene(size: Size.small) == nil) {
             print(planet.name + "is nil modeled")
-//            if (cell.sceneView != nil) {
-//                cell.sceneView.removeFromSuperview()
-//            }
             cell.heightConstraint.constant = 75
         }
         return cell
@@ -78,8 +65,7 @@ class PlanetListViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        //return Class.count
-        return 2
+        return Class.count
     }
     
 //    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -99,7 +85,6 @@ class PlanetListViewController: UITableViewController {
         let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
         header.contentView.backgroundColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1.0)
         header.textLabel!.textColor = UIColor.white
-//        header.backgroundView?.alpha = 0.5
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

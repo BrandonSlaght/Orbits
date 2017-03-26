@@ -16,7 +16,6 @@ class PlanetDetailViewController: UIViewController {
     @IBOutlet weak var content: UIView!
     @IBOutlet weak var tabs: UISegmentedControl!
     @IBOutlet weak var scrollView: UIScrollView!
-    //@IBOutlet weak var contentHeight: NSLayoutConstraint!
     @IBOutlet weak var globeButton: UIButton!
     @IBAction func indexChanged(_ sender: UISegmentedControl)
     {
@@ -29,6 +28,8 @@ class PlanetDetailViewController: UIViewController {
     
     var planet: Planet!
     var currentViewController: UIViewController?
+    
+    var barColor: UIColor!
     
     func cycleFromViewController(oldViewController: UIViewController, toViewController newViewController: UIViewController) {
         newViewController.view.translatesAutoresizingMaskIntoConstraints = false
@@ -50,7 +51,6 @@ class PlanetDetailViewController: UIViewController {
                                     oldViewController.removeFromParentViewController()
                                     newViewController.didMove(toParentViewController: self)
                                     self.content.reloadInputViews()
-                                    //self.contentHeight.constant = newViewController.view.bounds.height
         })
     }
     
@@ -67,15 +67,19 @@ class PlanetDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let background = UIImageView(image: UIImage(named: "milkyway.jpg")!)
-        background.contentMode = .scaleAspectFill
+
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = view.bounds
         blurView.layer.zPosition = -1
         blurView.isUserInteractionEnabled = false
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "milkyway.jpg")!)
+        
+        if let let_background = planet.background {
+            self.view.backgroundColor = UIColor(patternImage: UIImage(named: let_background)!)
+        } else {
+            self.view.backgroundColor = UIColor(patternImage: UIImage(named: "milkyway.jpg")!)
+        }
+        
         self.view.addSubview(blurView)
         
         scrollView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 4)
@@ -116,6 +120,17 @@ class PlanetDetailViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        barColor = navigationController?.navigationBar.barTintColor
+        if let let_color = planet.color1 {
+            self.navigationController?.navigationBar.barTintColor =  let_color
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.navigationBar.barTintColor = barColor
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -127,7 +142,6 @@ class PlanetDetailViewController: UIViewController {
             var temp_vc: GeneralAboutViewController?
             temp_vc = self.storyboard?.instantiateViewController(withIdentifier: "generalView") as! GeneralAboutViewController?
             temp_vc!.planet = planet
-            //temp_vc?.view.translatesAutoresizingMaskIntoConstraints = false;
             vc = temp_vc!
         case "Details":
             var temp_vc: DetailsAboutViewController?
