@@ -20,7 +20,6 @@
 		8488D4381E54EBCF009AD9D8 /* VolumeUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D42B1E54EBCF009AD9D8 /* VolumeUnit.swift */; };
 		8488D4391E54EBCF009AD9D8 /* VolumeUnit+Imperial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D42C1E54EBCF009AD9D8 /* VolumeUnit+Imperial.swift */; };
 		8488D43A1E54EBCF009AD9D8 /* VolumeUnit+US.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D42D1E54EBCF009AD9D8 /* VolumeUnit+US.swift */; };
-		84BD30271E37B2BA00C990D6 /* phobos.dae in Resources */ = {isa = PBXBuildFile; fileRef = 84BD30261E37B2BA00C990D6 /* phobos.dae */; };
 		84E044491E37D9FE00A6AAB4 /* phobos - transit.gif in Resources */ = {isa = PBXBuildFile; fileRef = 84E044481E37D9FE00A6AAB4 /* phobos - transit.gif */; };
 		84E3E38B1E240B7600872512 /* status.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 84E3E38A1E240B7600872512 /* status.rtf */; };
 		C515AE611DC8E135009A498C /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C515AE601DC8E135009A498C /* TestViewController.swift */; };
@@ -52,6 +51,14 @@
 		C54A99011E033001009A8695 /* MoonGeneralAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54A99001E033001009A8695 /* MoonGeneralAboutViewController.swift */; };
 		C54A99031E033013009A8695 /* MoonDetailsAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54A99021E033013009A8695 /* MoonDetailsAboutViewController.swift */; };
 		C54A99051E0333C8009A8695 /* MoonsAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54A99041E0333C8009A8695 /* MoonsAboutViewController.swift */; };
+		C566DED81E887FC0001EC3FE /* amalthea.dae in Resources */ = {isa = PBXBuildFile; fileRef = C566DED01E887FC0001EC3FE /* amalthea.dae */; };
+		C566DED91E887FC0001EC3FE /* epimetheus.dae in Resources */ = {isa = PBXBuildFile; fileRef = C566DED11E887FC0001EC3FE /* epimetheus.dae */; };
+		C566DEDA1E887FC0001EC3FE /* hyperion.dae in Resources */ = {isa = PBXBuildFile; fileRef = C566DED21E887FC0001EC3FE /* hyperion.dae */; };
+		C566DEDB1E887FC0001EC3FE /* janus.dae in Resources */ = {isa = PBXBuildFile; fileRef = C566DED31E887FC0001EC3FE /* janus.dae */; };
+		C566DEDC1E887FC0001EC3FE /* larissa.dae in Resources */ = {isa = PBXBuildFile; fileRef = C566DED41E887FC0001EC3FE /* larissa.dae */; };
+		C566DEDD1E887FC0001EC3FE /* phobos.dae in Resources */ = {isa = PBXBuildFile; fileRef = C566DED51E887FC0001EC3FE /* phobos.dae */; };
+		C566DEDE1E887FC0001EC3FE /* prometheus.dae in Resources */ = {isa = PBXBuildFile; fileRef = C566DED61E887FC0001EC3FE /* prometheus.dae */; };
+		C566DEDF1E887FC0001EC3FE /* proteus.dae in Resources */ = {isa = PBXBuildFile; fileRef = C566DED71E887FC0001EC3FE /* proteus.dae */; };
 		C58DEB8F1DC6B50400E6C1F3 /* PlanetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58DEB8E1DC6B50400E6C1F3 /* PlanetCell.swift */; };
 		C5941BD41DBBFD940057A46A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5941BD31DBBFD940057A46A /* AppDelegate.swift */; };
 		C5941BDD1DBBFD940057A46A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5941BDB1DBBFD940057A46A /* Main.storyboard */; };
@@ -95,7 +102,6 @@
 		8488D42B1E54EBCF009AD9D8 /* VolumeUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolumeUnit.swift; sourceTree = "<group>"; };
 		8488D42C1E54EBCF009AD9D8 /* VolumeUnit+Imperial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VolumeUnit+Imperial.swift"; sourceTree = "<group>"; };
 		8488D42D1E54EBCF009AD9D8 /* VolumeUnit+US.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VolumeUnit+US.swift"; sourceTree = "<group>"; };
-		84BD30261E37B2BA00C990D6 /* phobos.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = phobos.dae; path = Assets.xcassets/mars/phobos/phobos.dataset/phobos.dae; sourceTree = "<group>"; };
 		84E044481E37D9FE00A6AAB4 /* phobos - transit.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "phobos - transit.gif"; sourceTree = "<group>"; };
 		84E3E38A1E240B7600872512 /* status.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = status.rtf; sourceTree = "<group>"; };
 		C515AE601DC8E135009A498C /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +133,14 @@
 		C54A99001E033001009A8695 /* MoonGeneralAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonGeneralAboutViewController.swift; sourceTree = "<group>"; };
 		C54A99021E033013009A8695 /* MoonDetailsAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonDetailsAboutViewController.swift; sourceTree = "<group>"; };
 		C54A99041E0333C8009A8695 /* MoonsAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonsAboutViewController.swift; sourceTree = "<group>"; };
+		C566DED01E887FC0001EC3FE /* amalthea.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = amalthea.dae; sourceTree = "<group>"; };
+		C566DED11E887FC0001EC3FE /* epimetheus.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = epimetheus.dae; sourceTree = "<group>"; };
+		C566DED21E887FC0001EC3FE /* hyperion.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = hyperion.dae; sourceTree = "<group>"; };
+		C566DED31E887FC0001EC3FE /* janus.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = janus.dae; sourceTree = "<group>"; };
+		C566DED41E887FC0001EC3FE /* larissa.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = larissa.dae; sourceTree = "<group>"; };
+		C566DED51E887FC0001EC3FE /* phobos.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = phobos.dae; sourceTree = "<group>"; };
+		C566DED61E887FC0001EC3FE /* prometheus.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = prometheus.dae; sourceTree = "<group>"; };
+		C566DED71E887FC0001EC3FE /* proteus.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = proteus.dae; sourceTree = "<group>"; };
 		C58DEB8E1DC6B50400E6C1F3 /* PlanetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetCell.swift; sourceTree = "<group>"; };
 		C5941BD01DBBFD940057A46A /* Occupy Mars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Occupy Mars.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5941BD31DBBFD940057A46A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -214,7 +228,14 @@
 			isa = PBXGroup;
 			children = (
 				C5F371791E02366900DC373B /* deimos.dae */,
-				84BD30261E37B2BA00C990D6 /* phobos.dae */,
+				C566DED01E887FC0001EC3FE /* amalthea.dae */,
+				C566DED11E887FC0001EC3FE /* epimetheus.dae */,
+				C566DED21E887FC0001EC3FE /* hyperion.dae */,
+				C566DED31E887FC0001EC3FE /* janus.dae */,
+				C566DED41E887FC0001EC3FE /* larissa.dae */,
+				C566DED51E887FC0001EC3FE /* phobos.dae */,
+				C566DED61E887FC0001EC3FE /* prometheus.dae */,
+				C566DED71E887FC0001EC3FE /* proteus.dae */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -407,15 +428,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5F3717A1E02366900DC373B /* deimos.dae in Resources */,
-				84BD30271E37B2BA00C990D6 /* phobos.dae in Resources */,
+				C566DED91E887FC0001EC3FE /* epimetheus.dae in Resources */,
 				84E3E38B1E240B7600872512 /* status.rtf in Resources */,
+				C566DEDB1E887FC0001EC3FE /* janus.dae in Resources */,
+				C566DEDF1E887FC0001EC3FE /* proteus.dae in Resources */,
 				C5941BE21DBBFD940057A46A /* LaunchScreen.storyboard in Resources */,
 				C5AEC3EE1DCE5CB200992AEB /* texture sources.rtf in Resources */,
+				C566DEDC1E887FC0001EC3FE /* larissa.dae in Resources */,
 				C5941BDF1DBBFD940057A46A /* Assets.xcassets in Resources */,
 				C5AB79FA1DEC8D310097C295 /* DataViewCell.xib in Resources */,
 				C5CD59C31DD91F8600ACB8EA /* background.mp4 in Resources */,
+				C566DEDE1E887FC0001EC3FE /* prometheus.dae in Resources */,
 				C5C281C01DDB94B60036C7A0 /* MediaViewCell.xib in Resources */,
+				C566DEDA1E887FC0001EC3FE /* hyperion.dae in Resources */,
 				C5941BDD1DBBFD940057A46A /* Main.storyboard in Resources */,
+				C566DEDD1E887FC0001EC3FE /* phobos.dae in Resources */,
+				C566DED81E887FC0001EC3FE /* amalthea.dae in Resources */,
 				84E044491E37D9FE00A6AAB4 /* phobos - transit.gif in Resources */,
 				C520FB471DFC928C004A0FE6 /* SKPhotoBrowser.bundle in Resources */,
 			);

@@ -313,9 +313,9 @@ class Objects {
         
         //        Phobos.misc(discovered: "August 18th, 1877")
         
-        //        Phobos.display(texture: nil,
-        //                       model: "phobos.dae",
-        //                       normalmap: nil)
+        Phobos.display(texture: nil,
+                       model: "phobos.dae",
+                       normalmap: nil)
         
         Phobos.images(images: [
             ("phobos - monolith.jpg", "An apparent monolith on Phobos.  Although around 90 meters tall, it is likely just a boulder that fell from a nearby cliff."),
@@ -498,6 +498,10 @@ class Objects {
         //                          equator_inclination: 0)
         
         //        Amalthea.misc(discovered: "1892")
+        
+        Amalthea.display(texture: nil,
+                         model: "amalthea.dae",
+                         normalmap: nil)
         
         Jupiter.moons.append(Amalthea)
         
@@ -1234,6 +1238,10 @@ class Objects {
                          wiki: "https://en.wikipedia.org/wiki/Prometheus_(moon)",
                          nasa: "http://solarsystem.nasa.gov/planets/prometheus")
         
+        Prometheus.display(texture: nil,
+                           model: "prometheus.dae",
+                           normalmap: nil)
+        
         Saturn.moons.append(Prometheus)
         
         let Pandora = Moon(name: "Pandora",
@@ -1260,6 +1268,10 @@ class Objects {
         Janus.about(description: "Janus is an inner satellite of Saturn. It is also known as Saturn X. It is named after the mythological Janus.\n\nJanus was identified by Audouin Dollfus on 15 December 1966 and given the temporary designation S/1966 S 2. Previously, Jean Texereau had photographed Janus on 29 October 1966 without realising it. On December 18, Richard Walker observed an object in the same orbit as Janus, but whose position could not be reconciled with the previous observations. Twelve years later, in October 1978, Stephen M. Larson and John W. Fountain realised that the 1966 observations were best explained by two distinct objects (Janus and Epimetheus) sharing very similar orbits, Rick Walker is now credited with the discovery of Epimetheus. Voyager 1 confirmed this orbital configuration in 1980.\n\nJanus's orbit is co-orbital with that of Epimetheus. Janus's mean orbital radius from Saturn is, as of 2006 (as shown by green color in the adjacent picture), only 50 km less than that of Epimetheus, a distance smaller than either moon's mean radius. In accordance with Kepler's laws of planetary motion, the closer orbit is completed more quickly. Because of the small difference it is completed in only about 30 seconds less. Each day, the inner moon is an additional 0.25° farther around Saturn than the outer moon. As the inner moon catches up to the outer moon, their mutual gravitational attraction increases the inner moon's momentum and decreases that of the outer moon. This added momentum means that the inner moon's distance from Saturn and orbital period are increased, and the outer moon's are decreased. The timing and magnitude of the momentum exchange is such that the moons effectively swap orbits, never approaching closer than about 10,000 km. At each encounter Janus's orbital radius changes by ~20 km and Epimetheus's by ~80 km: Janus's orbit is less affected because it is four times more massive than Epimetheus. The exchange takes place close to every four years; the last close approaches occurred in January 2006, 2010 and 2014, and the next in 2018. This is the only such orbital configuration known in the Solar System.",
                     wiki: "https://en.wikipedia.org/wiki/Janus_(moon)",
                     nasa: "http://solarsystem.nasa.gov/planets/janus")
+        
+        Janus.display(texture: nil,
+                      model: "janus.dae",
+                      normalmap: nil)
         
         Saturn.moons.append(Janus)
         
@@ -1419,6 +1431,10 @@ class Objects {
         Hyperion.about(description: "Hyperion, also known as Saturn VII (7), is a moon of Saturn discovered by William Cranch Bond, George Phillips Bond and William Lassell in 1848. It is distinguished by its irregular shape, its chaotic rotation, and its unexplained sponge-like appearance. It was the first non-round moon to be discovered.\n\nThe moon is named after Hyperion, the Titan god of watchfulness and observation – the elder brother of Cronus, the Greek equivalent of Saturn – in Greek mythology. It is also designated Saturn VII. The adjectival form of the name is Hyperionian.\n\nHyperion's discovery came shortly after John Herschel had suggested names for the seven previously-known satellites of Saturn in his 1847 publication Results of Astronomical Observations made at the Cape of Good Hope. William Lassell, who saw Hyperion two days after William Bond, had already endorsed Herschel's naming scheme and suggested the name Hyperion in accordance with it. He also beat Bond to publication.\n\nHyperion is one of the largest bodies known to be highly irregularly shaped (non-ellipsoidal, i.e. not in hydrostatic equilibrium) in the Solar System. The only larger moon known to be irregular in shape is Neptune's moon Proteus. Hyperion has about 15% of the mass of Mimas, the least massive known ellipsoidal body. The largest crater on Hyperion is approximately 121.57 km (75.54 mi) in diameter and 10.2 km (6.3 mi) deep. A possible explanation for the irregular shape is that Hyperion is a fragment of a larger body that was broken up by a large impact in the distant past. A proto-Hyperion could have been 350–1,000 km (220–620 mi) in diameter. Over about 1,000 years, ejecta from a presumed Hyperion breakup would have impacted Titan at low speeds, building up volatiles in the atmosphere of Titan.\n\nLike most of Saturn's moons, Hyperion's low density indicates that it is composed largely of water ice with only a small amount of rock. It is thought that Hyperion may be similar to a loosely accreted pile of rubble in its physical composition. However, unlike most of Saturn's moons, Hyperion has a low albedo (0.2–0.3), indicating that it is covered by at least a thin layer of dark material. This may be material from Phoebe (which is much darker) that got past Iapetus. Hyperion is redder than Phoebe and closely matches the color of the dark material on Iapetus.",
                        wiki: "https://en.wikipedia.org/wiki/Hyperion_(moon)",
                        nasa: "http://solarsystem.nasa.gov/planets/hyperion")
+        
+        Hyperion.display(texture: nil,
+                         model: "hyperion.dae",
+                         normalmap: nil)
         
         Saturn.moons.append(Hyperion)
         
@@ -2207,6 +2223,10 @@ class Objects {
                       wiki: "https://en.wikipedia.org/wiki/Proteus_(moon)",
                       nasa: "http://solarsystem.nasa.gov/planets/proteus")
         
+        Proteus.display(texture: nil,
+                        model: "proteus.dae",
+                        normalmap: nil)
+        
         Neptune.moons.append(Proteus)
         
         let Triton = Moon(name: "Triton",
@@ -2334,28 +2354,28 @@ class Objects {
                       ring_outer_ratio: nil)
         
         Pluto.geology(mass: 130300000000000000.gigagram(),
-                 volume: 6970000000.kilometer(),
-                 equatorial: 1187.kilometer(),
-                 density: 1860.kilogram(),
-                 gravity: 0.62.meter(),
-                 escape_velocity: 1.21.kilometer(),
-                 irradiance: 0.873,
-                 geographic_height_variance: nil)
+                      volume: 6970000000.kilometer(),
+                      equatorial: 1187.kilometer(),
+                      density: 1860.kilogram(),
+                      gravity: 0.62.meter(),
+                      escape_velocity: 1.21.kilometer(),
+                      irradiance: 0.873,
+                      geographic_height_variance: nil)
         
         Pluto.orbitals(year_length: 90560.day(),
-                         perihelion: 4436820000.kilometer(),
-                         aphelion: 7375930000.kilometer(),
-                         velocity: 4.67.kilometer(),
-                         inclination: 17.16,
-                         eccentricity: 0.2488,
-                         day_length: 153.282.hour(),
-                         equator_inclination: 57.47,
-                         min_distance_from_earth: 4284700000.kilometer(),
-                         max_distance_from_earth: 7528000000.kilometer())
+                       perihelion: 4436820000.kilometer(),
+                       aphelion: 7375930000.kilometer(),
+                       velocity: 4.67.kilometer(),
+                       inclination: 17.16,
+                       eccentricity: 0.2488,
+                       day_length: 153.282.hour(),
+                       equator_inclination: 57.47,
+                       min_distance_from_earth: 4284700000.kilometer(),
+                       max_distance_from_earth: 7528000000.kilometer())
         
         Pluto.atmosphere(surface_pressure: 0.0000001,
-                           average_temperature: 50,
-                           total_mass: nil)
+                         average_temperature: 50,
+                         total_mass: nil)
         
         Pluto.misc(discovered: "Febuary 18th, 1930")
         
@@ -2419,28 +2439,28 @@ class Objects {
                      nasa: "http://solarsystem.nasa.gov/planets/haumea")
         
         Haumea.geology(mass: 4006000000000000.gigagram(),
-                 volume: 150000000.kilometer(),
-                 equatorial: 690.kilometer(),
-                 density: 2600.kilogram(),
-                 gravity: 0.63.meter(),
-                 escape_velocity: 0.91.kilometer(),
-                 irradiance: nil,
-                 geographic_height_variance: nil)
+                       volume: 150000000.kilometer(),
+                       equatorial: 690.kilometer(),
+                       density: 2600.kilogram(),
+                       gravity: 0.63.meter(),
+                       escape_velocity: 0.91.kilometer(),
+                       irradiance: nil,
+                       geographic_height_variance: nil)
         
         Haumea.orbitals(year_length: 103774.day(),
-                         perihelion: 5228745000.kilometer(),
-                         aphelion: 7701747000.kilometer(),
-                         velocity: (16191/60/60).kilometer(),
-                         inclination: 28.19,
-                         eccentricity: 0.198132061,
-                         day_length: 3.9154.hour(),
-                         equator_inclination: nil,
-                         min_distance_from_earth: nil,
-                         max_distance_from_earth: nil)
+                        perihelion: 5228745000.kilometer(),
+                        aphelion: 7701747000.kilometer(),
+                        velocity: (16191/60/60).kilometer(),
+                        inclination: 28.19,
+                        eccentricity: 0.198132061,
+                        day_length: 3.9154.hour(),
+                        equator_inclination: nil,
+                        min_distance_from_earth: nil,
+                        max_distance_from_earth: nil)
         
         Haumea.atmosphere(surface_pressure: nil,
-                           average_temperature: 50,
-                           total_mass: nil)
+                          average_temperature: 50,
+                          total_mass: nil)
         
         Haumea.misc(discovered: "December 28th, 2004")
         
@@ -2473,28 +2493,28 @@ class Objects {
                        nasa: "http://solarsystem.nasa.gov/planets/makemake")
         
         Makemake.geology(mass: 4400000000000000.gigagram(),
-                 volume: 1700000000.kilometer(),
-                 equatorial: 739.kilometer(),
-                 density: 1400.kilogram(),
-                 gravity: nil,
-                 escape_velocity: nil,
-                 irradiance: nil,
-                 geographic_height_variance: nil)
+                         volume: 1700000000.kilometer(),
+                         equatorial: 739.kilometer(),
+                         density: 1400.kilogram(),
+                         gravity: nil,
+                         escape_velocity: nil,
+                         irradiance: nil,
+                         geographic_height_variance: nil)
         
         Makemake.orbitals(year_length: 112897.day(),
-                         perihelion: 5772980000.kilometer(),
-                         aphelion: 7904750000.kilometer(),
-                         velocity: 4.419.kilometer(),
-                         inclination: 29.00685,
-                         eccentricity: 0.15586,
-                         day_length: 7.771.hour(),
-                         equator_inclination: nil,
-                         min_distance_from_earth: nil,
-                         max_distance_from_earth: nil)
+                          perihelion: 5772980000.kilometer(),
+                          aphelion: 7904750000.kilometer(),
+                          velocity: 4.419.kilometer(),
+                          inclination: 29.00685,
+                          eccentricity: 0.15586,
+                          day_length: 7.771.hour(),
+                          equator_inclination: nil,
+                          min_distance_from_earth: nil,
+                          max_distance_from_earth: nil)
         
         Makemake.atmosphere(surface_pressure: nil,
-                           average_temperature: 36,
-                           total_mass: nil)
+                            average_temperature: 36,
+                            total_mass: nil)
         
         Makemake.misc(discovered: "March 31st, 2005")
         
@@ -2518,28 +2538,28 @@ class Objects {
                    nasa: "http://solarsystem.nasa.gov/planets/eris")
         
         Eris.geology(mass: 16600000000000000.gigagram(),
-                 volume: 6590000000.kilometer(),
-                 equatorial: 1163.kilometer(),
-                 density: 2520.kilogram(),
-                 gravity: 0.82.meter(),
-                 escape_velocity: 1.38.kilometer(),
-                 irradiance: nil,
-                 geographic_height_variance: nil)
+                     volume: 6590000000.kilometer(),
+                     equatorial: 1163.kilometer(),
+                     density: 2520.kilogram(),
+                     gravity: 0.82.meter(),
+                     escape_velocity: 1.38.kilometer(),
+                     irradiance: nil,
+                     geographic_height_variance: nil)
         
         Eris.orbitals(year_length: 203830.day(),
-                         perihelion: 5723000000.kilometer(),
-                         aphelion: 1460200000.kilometer(),
-                         velocity: 3.4338.kilometer(),
-                         inclination: 44.0445,
-                         eccentricity: 0.44068,
-                         day_length: 25.9.hour(),
-                         equator_inclination: nil,
-                         min_distance_from_earth: nil,
-                         max_distance_from_earth: nil)
+                      perihelion: 5723000000.kilometer(),
+                      aphelion: 1460200000.kilometer(),
+                      velocity: 3.4338.kilometer(),
+                      inclination: 44.0445,
+                      eccentricity: 0.44068,
+                      day_length: 25.9.hour(),
+                      equator_inclination: nil,
+                      min_distance_from_earth: nil,
+                      max_distance_from_earth: nil)
         
         Eris.atmosphere(surface_pressure: nil,
-                           average_temperature: 30,
-                           total_mass: nil)
+                        average_temperature: 30,
+                        total_mass: nil)
         
         Eris.misc(discovered: "January 5th, 2005")
         
