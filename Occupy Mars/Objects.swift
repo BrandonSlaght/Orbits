@@ -140,6 +140,10 @@ class Objects {
             ("venus - venera13.jpg", "Soviet spacecraft were the first to reach the surface of Venus.  Venera 13 returned color images of the surface."),
             ("venus - venera14.jpg", "Probes sent to the surface only last a few hours due to the harsh conditions.  Here Venera 14 takes another picture of the surface.")])
         
+        Venus.colors(background: "venussurface.jpg",
+                     color1: "E29759",
+                     color2: "774A36")
+        
         
         //----------------------------------------------------------------------------------------------
         let Earth = Planet(name: "Earth",
@@ -194,6 +198,10 @@ class Objects {
             ("earth - falls.jpg", "Less than three percent of all the water on Earth is fresh water.  Fortunately, water that evaporates from the seas leaves behind its salt."),
             ("earth - canyon.jpg", "The dynamic weather conditions shape Earth moreso than other planets.  Seen here is the Grand Canyon, formed by erosion over millions of years."),
             ("earth - crater.jpg", "Although many small meteorites burn up in the atmosphere, occasionally a meteor will impact the ground.  The Meteor Crater in Arizona is a 560 foot deep crater formed some 50,000 years ago.")])
+        
+        Earth.colors(background: "earthsurface.jpg",
+                     color1: "15334C",
+                     color2: "C4C4BB")
         
         //tofix
         let moon = Moon(name: "Moon",
