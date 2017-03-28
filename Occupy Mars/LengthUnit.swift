@@ -27,6 +27,30 @@ import Foundation
 
 public final class LengthUnit: Unit {
 
+    public static var terameter: LengthUnit {
+        return LengthUnit(
+            name: "terameter",
+            symbol: "Tm",
+            ratio: NSDecimalNumber(mantissa: 1, exponent: 12, isNegative: false)
+        )
+    }
+    
+    public static var gigameter: LengthUnit {
+        return LengthUnit(
+            name: "gigameter",
+            symbol: "Gm",
+            ratio: NSDecimalNumber(mantissa: 1, exponent: 9, isNegative: false)
+        )
+    }
+
+    public static var megameter: LengthUnit {
+        return LengthUnit(
+            name: "megameter",
+            symbol: "Mm",
+            ratio: NSDecimalNumber(mantissa: 1, exponent: 6, isNegative: false)
+        )
+    }
+    
     /**
      Returns kilometer `[km]` length unit.
      
@@ -83,6 +107,21 @@ public final class LengthUnit: Unit {
 }
 
 extension ExpressibleByIntegerLiteral {
+
+    public func terameter() -> Quantity {
+        return Quantity(amount: self as! NSNumber, unit: LengthUnit.terameter)
+        
+    }
+    
+    public func gigameter() -> Quantity {
+        return Quantity(amount: self as! NSNumber, unit: LengthUnit.gigameter)
+        
+    }
+    
+    public func megameter() -> Quantity {
+        return Quantity(amount: self as! NSNumber, unit: LengthUnit.megameter)
+
+    }
 
     /**
      Returns instance converted as kilometer quantity.

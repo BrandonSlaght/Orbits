@@ -45,8 +45,8 @@ class Objects {
                       wiki: "https://en.wikipedia.org/wiki/Mercury",
                       nasa: "http://solarsystem.nasa.gov/planets/mercury")
         
-        Mercury.geology(mass: 330110000000000000.gigagram(),
-                        volume: 60830000000.kilometer(),
+        Mercury.geology(mass: 330110000.exogram(),
+                        volume: 60830000.megameter(),
                         equatorial: 2439.7.kilometer(),
                         density: 5427.kilogram(),
                         gravity: 3.70.meter(),
@@ -98,8 +98,8 @@ class Objects {
                     wiki: "https://en.wikipedia.org/wiki/Venus",
                     nasa: "http://solarsystem.nasa.gov/planets/venus")
         
-        Venus.geology(mass: 4867500000000000000.gigagram(),
-                      volume: 928430000000.kilometer(),
+        Venus.geology(mass: 4867500.zettagram(),
+                      volume: 928430000.megameter(),
                       equatorial: 6051.8.kilometer(),
                       density: 5243.kilogram(),
                       gravity: 8.87.meter(),
@@ -120,7 +120,7 @@ class Objects {
         
         Venus.atmosphere(surface_pressure: 92,
                          average_temperature: 737,
-                         total_mass: 480000000000000000.megagram())
+                         total_mass: 480000000.petagram())
         
         
         Venus.misc(discovered: "Prehistoric Times")
@@ -141,9 +141,8 @@ class Objects {
             ("venus - venera14.jpg", "Probes sent to the surface only last a few hours due to the harsh conditions.  Here Venera 14 takes another picture of the surface.")])
         
         Venus.colors(background: "venussurface.jpg",
-                     color1: "E29759",
-                     color2: "774A36")
-        
+                     color1: "774A36",
+                     color2: "F5BF7F")
         
         //----------------------------------------------------------------------------------------------
         let Earth = Planet(name: "Earth",
@@ -155,8 +154,8 @@ class Objects {
                     wiki: "https://en.wikipedia.org/wiki/Earth",
                     nasa: "http://solarsystem.nasa.gov/planets/earth")
         
-        Earth.geology(mass: 5972300000000000000.gigagram(),
-                      volume: 1081370000000.kilometer(),
+        Earth.geology(mass: 5972300.zettagram(),
+                      volume: 1081370000.megameter(),
                       equatorial: 6378.137.kilometer(),
                       density: 5514.kilogram(),
                       gravity: 9.798.meter(),
@@ -177,7 +176,7 @@ class Objects {
         
         Earth.atmosphere(surface_pressure: 1.014,
                          average_temperature: 288,
-                         total_mass: 5100000000000.gigagram())
+                         total_mass: 5100000.petagram())
         
         Earth.misc(discovered: nil)
         
@@ -252,8 +251,8 @@ class Objects {
                    wiki: "https://en.m.wikipedia.org/wiki/Mars",
                    nasa: "http://solarsystem.nasa.gov/planets/mars")
         
-        Mars.geology(mass: 641710000000000000.gigagram(),
-                     volume: 163180000000.kilometer(),
+        Mars.geology(mass: 641710000.exogram(),
+                     volume: 163180000.megameter(),
                      equatorial: 3396.2.kilometer(),
                      density: 3933.kilogram(),
                      gravity: 3.71.meter(),
@@ -274,7 +273,7 @@ class Objects {
         
         Mars.atmosphere(surface_pressure: 0.00636,
                         average_temperature: 210,
-                        total_mass: 25000000000000000.kilogram())
+                        total_mass: 25000000.petagram())
         
         Mars.misc(discovered: "Ancient times")
         
@@ -293,6 +292,10 @@ class Objects {
             ("mars - frosted dunes.jpg", "Sand dunes form on Mars and form patterns when they warm enough to thaw the CO2 permafrost underneath."),
             ("mars - valles marineris.png", "The Valles Marines canyon measures almost four times the length and depth of the Grand Canyon, making it the largest valley in the solar system."),
             ("mars - curiosity selfie.jpg", "Curiosity is the most recent rover to land on Mars; it has been in service since 2012.")])
+        
+        Mars.colors(background: "marssurface.jpg",
+                    color1: "5B4436",
+                    color2: "B59087")
         
         let Phobos = Moon(name: "Phobos",
                           position: 1)
@@ -380,8 +383,8 @@ class Objects {
                       wiki: "https://en.wikipedia.org/wiki/Jupiter",
                       nasa: "http://solarsystem.nasa.gov/planets/jupiter")
         
-        Jupiter.geology(mass: 1898190000000000000.teragram(),
-                        volume: 1431280000000000.kilometer(),
+        Jupiter.geology(mass: 1898190000.zettagram(),
+                        volume: 1431280.gigameter(),
                         equatorial: 71492.kilometer(),
                         density: 1326.kilogram(),
                         gravity: 24.79.meter(),
@@ -421,6 +424,10 @@ class Objects {
             ring_transparencymap: nil,
             ring_inner_ratio: 1.72,
             ring_outer_ratio: 3.92)
+        
+        Jupiter.colors(background: "jupitersurface.jpg",
+                       color1: "623D16",
+                       color2: "bf9366")
         
         let Metis = Moon(name: "Metis",
                          position: 1)
@@ -1170,8 +1177,8 @@ class Objects {
                        ring_inner_ratio: 1.239,
                        ring_outer_ratio: 2.270)
         
-        Saturn.geology(mass: 568340000000000000.teragram(),
-                       volume: 827130000000000.kilometer(),
+        Saturn.geology(mass: 568340000.zettagram(),
+                       volume: 827130000.gigameter(),
                        equatorial: 60268.kilometer(),
                        density: 687.kilogram(),
                        gravity: 10.44.meter(),
@@ -1202,6 +1209,10 @@ class Objects {
             ("saturn - quintet.jpg", "Five of Saturn's moons (from left to right: Janus, Pandora, Enceladus, Mimas, and Rhea) pose with its rings."),
             ("saturn - storm.jpg", "The beginning of a massive storm that started in late 2010.  In less than a year, the storm had expanded to encircle the planet."),
             ("saturn - waves.jpg", "Perturbations in Saturns rings caused by a young object forming in the Keeler gap in the rings.")]
+        
+        Saturn.colors(background: "saturnsurface.jpg",
+                      color1: "4F311B",
+                      color2: "CEBBA8")
         
         let S1 = Moon(name: "S/2009 S 1",
                       position: 1)
@@ -1823,8 +1834,8 @@ class Objects {
                        ring_inner_ratio: 1.750,
                        ring_outer_ratio: 2.006)
         
-        Uranus.geology(mass: 86813000000000000.teragram(),
-                       volume: 68330000000000.kilometer(),
+        Uranus.geology(mass: 86813000.zettagram(),
+                       volume: 68330000.gigameter(),
                        equatorial: 25559.kilometer(),
                        density: 1271.kilogram(),
                        gravity: 8.87.meter(),
@@ -1833,15 +1844,15 @@ class Objects {
                        geographic_height_variance: nil)
         
         Uranus.orbitals(year_length: 30588.74.day(),
-                        perihelion: 2741300000.kilometer(),
-                        aphelion: 3003620000.kilometer(),
+                        perihelion: 2741300.megameter(),
+                        aphelion: 3003620.megameter(),
                         velocity: 6.8.kilometer(),
                         inclination: 0.772,
                         eccentricity: 0.0457,
                         day_length: 17.24.hour(),
                         equator_inclination: 82.23,
-                        min_distance_from_earth: 2581900000.kilometer(),
-                        max_distance_from_earth: 3157300000.kilometer())
+                        min_distance_from_earth: 2581900.megameter(),
+                        max_distance_from_earth: 3157300.megameter())
         
         Uranus.atmosphere(surface_pressure: 1000,
                           average_temperature: 76,
@@ -1855,6 +1866,10 @@ class Objects {
             ("uranus - moons.jpg", "An infrared image of Uranus, its ring system, and ten of its moons.  Taken by Hubble."),
             ("uranus - rings.jpg", "A false color image of Uranus's known rings.  Uranus's ring system is faint and small compared to Saturn's."),
             ("uranus - storm.jpg", "Infrared images of both sides of the planet, taken by the Keck Telescope to track a storm in the upper atmosphere.")]
+        
+        Uranus.colors(background: "uranussurface.jpg",
+                      color1: "727E7E",
+                      color2: "71ACD4")
         
         let Cordelia = Moon(name: "Cordelia",
                             position: 1)
@@ -2137,8 +2152,8 @@ class Objects {
                         ring_inner_ratio: nil,
                         ring_outer_ratio: nil)
         
-        Neptune.geology(mass: 10241300000000000.gigagram(),
-                        volume: 62540000000000.kilometer(),
+        Neptune.geology(mass: 10241300.exogram(),
+                        volume: 62540000.gigameter(),
                         equatorial: 24764.kilometer(),
                         density: 1638.kilogram(),
                         gravity: 11.15.meter(),
@@ -2147,15 +2162,15 @@ class Objects {
                         geographic_height_variance: nil)
         
         Neptune.orbitals(year_length: 59799.9.day(),
-                         perihelion: 4444450000.kilometer(),
-                         aphelion: 4545670000.kilometer(),
+                         perihelion: 4444450.megameter(),
+                         aphelion: 4545670.megameter(),
                          velocity: 5.43.kilometer(),
                          inclination: 1.769,
                          eccentricity: 0.0113,
                          day_length: 16.11.hour(),
                          equator_inclination: 28.32,
-                         min_distance_from_earth: 4305900000.kilometer(),
-                         max_distance_from_earth: 4687300000.kilometer())
+                         min_distance_from_earth: 4305900.megameter(),
+                         max_distance_from_earth: 4687300.megameter())
         
         Neptune.atmosphere(surface_pressure: 1000,
                            average_temperature: 72,
@@ -2169,6 +2184,10 @@ class Objects {
             ("neptune - rings.jpg", "Uranus has a very small and faint ring system."),
             ("neptune - storms.jpg", "Neptune's prominent storms: the Great Dark Spot at the equator, Scooter, the white blob below the Great Dark Spot, and the Small Dark Spot by the south pole."),
             ("neptune - triton.jpg", "Triton, seen behind Neptune in this Voyager 2 shot, makes up 99.5% of the mass of Neptune's moons.")]
+        
+        Neptune.colors(background: "neptunesurface.jpg",
+                       color1: "565DA0",
+                       color2: "88daf6")
         
         let Naiad = Moon(name: "Naiad",
                          position: 1)
@@ -2321,7 +2340,7 @@ class Objects {
                       ring_inner_ratio: nil,
                       ring_outer_ratio: nil)
         
-        Ceres.geology(mass: 947000000000000000.megagram(),
+        Ceres.geology(mass: 947000000.petagram(),
                       volume: 452331448.kilometer(),
                       equatorial: 2992.1.kilometer(),
                       density: 2090.kilogram(),
@@ -2361,8 +2380,8 @@ class Objects {
                       ring_inner_ratio: nil,
                       ring_outer_ratio: nil)
         
-        Pluto.geology(mass: 130300000000000000.gigagram(),
-                      volume: 6970000000.kilometer(),
+        Pluto.geology(mass: 130300000.exogram(),
+                      volume: 6970000.megameter(),
                       equatorial: 1187.kilometer(),
                       density: 1860.kilogram(),
                       gravity: 0.62.meter(),
@@ -2371,15 +2390,15 @@ class Objects {
                       geographic_height_variance: nil)
         
         Pluto.orbitals(year_length: 90560.day(),
-                       perihelion: 4436820000.kilometer(),
-                       aphelion: 7375930000.kilometer(),
+                       perihelion: 4436820.megameter(),
+                       aphelion: 7375930.megameter(),
                        velocity: 4.67.kilometer(),
                        inclination: 17.16,
                        eccentricity: 0.2488,
                        day_length: 153.282.hour(),
                        equator_inclination: 57.47,
-                       min_distance_from_earth: 4284700000.kilometer(),
-                       max_distance_from_earth: 7528000000.kilometer())
+                       min_distance_from_earth: 4284700.megameter(),
+                       max_distance_from_earth: 7528000.megameter())
         
         Pluto.atmosphere(surface_pressure: 0.0000001,
                          average_temperature: 50,
@@ -2446,7 +2465,7 @@ class Objects {
                      wiki: "https://en.wikipedia.org/wiki/Haumea",
                      nasa: "http://solarsystem.nasa.gov/planets/haumea")
         
-        Haumea.geology(mass: 4006000000000000.gigagram(),
+        Haumea.geology(mass: 4006000.exogram(),
                        volume: 150000000.kilometer(),
                        equatorial: 690.kilometer(),
                        density: 2600.kilogram(),
@@ -2456,8 +2475,8 @@ class Objects {
                        geographic_height_variance: nil)
         
         Haumea.orbitals(year_length: 103774.day(),
-                        perihelion: 5228745000.kilometer(),
-                        aphelion: 7701747000.kilometer(),
+                        perihelion: 5228745.megameter(),
+                        aphelion: 7701747.megameter(),
                         velocity: (16191/60/60).kilometer(),
                         inclination: 28.19,
                         eccentricity: 0.198132061,
@@ -2500,7 +2519,7 @@ class Objects {
                        wiki: "https://en.wikipedia.org/wiki/Makemake",
                        nasa: "http://solarsystem.nasa.gov/planets/makemake")
         
-        Makemake.geology(mass: 4400000000000000.gigagram(),
+        Makemake.geology(mass: 4400000.exogram(),
                          volume: 1700000000.kilometer(),
                          equatorial: 739.kilometer(),
                          density: 1400.kilogram(),
@@ -2510,8 +2529,8 @@ class Objects {
                          geographic_height_variance: nil)
         
         Makemake.orbitals(year_length: 112897.day(),
-                          perihelion: 5772980000.kilometer(),
-                          aphelion: 7904750000.kilometer(),
+                          perihelion: 5772980.megameter(),
+                          aphelion: 7904750.megameter(),
                           velocity: 4.419.kilometer(),
                           inclination: 29.00685,
                           eccentricity: 0.15586,
@@ -2545,8 +2564,8 @@ class Objects {
                    wiki: "https://en.wikipedia.org/wiki/Eris_(dwarf_planet)",
                    nasa: "http://solarsystem.nasa.gov/planets/eris")
         
-        Eris.geology(mass: 16600000000000000.gigagram(),
-                     volume: 6590000000.kilometer(),
+        Eris.geology(mass: 16600000.exogram(),
+                     volume: 6590000.megameter(),
                      equatorial: 1163.kilometer(),
                      density: 2520.kilogram(),
                      gravity: 0.82.meter(),
@@ -2555,7 +2574,7 @@ class Objects {
                      geographic_height_variance: nil)
         
         Eris.orbitals(year_length: 203830.day(),
-                      perihelion: 5723000000.kilometer(),
+                      perihelion: 5723000.megameter(),
                       aphelion: 1460200000.kilometer(),
                       velocity: 3.4338.kilometer(),
                       inclination: 44.0445,

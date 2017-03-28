@@ -32,9 +32,9 @@ enum Size : Int {
 }
 
 extension Int {
-    var degreesToRadians: Double { return Double(self) * M_PI / 180 }
+    var degreesToRadians: Double { return Double(self) * Double.pi / 180 }
 }
 
 extension Double {
-    var degreesToRadians: Double { return self * M_PI / 180 }
+    var degreesToRadians: Double { return self * Double.pi / 180 }
 }

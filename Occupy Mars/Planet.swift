@@ -265,20 +265,13 @@ class Planet {
             planet.materials = [material]
             let planetNode = SCNNode(geometry: planet)
             planetNode.name = "planet"
-            //var box = planet.boundingBox
-            //planet.boundingBox.min.x = box.min.x*0.8
-            //planet.boundingBox.min.y = box.min.y*0.8
-            //planet.boundingBox.min.z = box.min.z*0.8
-            //planet.boundingBox.max.x = box.max.x*0.8
-            //planet.boundingBox.max.y = box.max.y*0.8
-            //planet.boundingBox.max.z = box.max.z*0.8
             let rotationNode = SCNNode()
             rotationNode.addChildNode(planetNode)
             scene.rootNode.addChildNode(rotationNode)
             
             let spin = CABasicAnimation(keyPath: "rotation")
             spin.fromValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: 0))
-            spin.toValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: Float(2 * M_PI)))
+            spin.toValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: Float(2 * Double.pi)))
             
             if let let_day_length = day_length {
                 spin.duration = let_day_length.converted(TimeUnit.minute).amount.doubleValue/24
@@ -318,7 +311,7 @@ class Planet {
                 
                 let ringNode = SCNNode(geometry: rings)
                 
-                ringNode.scale = (SCNVector3: SCNVector3(x: 1, y: 0.01, z: 1))
+                ringNode.scale = SCNVector3(x: 1, y: 0.01, z: 1)
                 
                 planetNode.addChildNode(ringNode)
                 
@@ -358,10 +351,10 @@ class Planet {
                 //rotationNode.eulerAngles = (SCNVector3: SCNVector3(x: 0, y: 0, z: Float(let_equator_inclination.degreesToRadians)))
                 
                 if ringmap != nil {
-                    rotationNode.rotation = (SCNVector4: SCNVector4(x: 0.5, y: 0, z: 1, w: Float(let_equator_inclination.degreesToRadians)))
+                    rotationNode.rotation = SCNVector4(x: 0.5, y: 0, z: 1, w: Float(let_equator_inclination.degreesToRadians))
                     //rotationNode.rotation.z = (SCNVector4: SCNVector4(x: 0, y: 0, z: 1, w: Float(let_equator_inclination.degreesToRadians))).SCNVector4.z
                 } else {
-                    rotationNode.rotation = (SCNVector4: SCNVector4(x: 0, y: 0, z: 1, w: Float(let_equator_inclination.degreesToRadians)))
+                    rotationNode.rotation = SCNVector4(x: 0, y: 0, z: 1, w: Float(let_equator_inclination.degreesToRadians))
                     //rotationNode.boundingBox = box
                 }
                 //let shrink_factor = let_equator_inclination.degreesToRadians
@@ -376,9 +369,33 @@ class Planet {
                 
                 //(planet as! SCNSphere).radius = 2.0
             }
-            
-            print(rotationNode.pivot)
-            
+//            
+//            let spot = SCNLight()
+//            spot.type = SCNLight.LightType.spot
+//            spot.castsShadow = true
+//            
+//            let spotNode = SCNNode()
+//            spotNode.light = spot
+//            spotNode.position = SCNVector3(x: 4, y: 7, z: 6)
+//            
+//            let lookAt = SCNLookAtConstraint(target: rotationNode)
+//            spotNode.constraints = [lookAt]
+//            
+//            let orbit = CABasicAnimation(keyPath: "rotation")
+//            orbit.fromValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: 0))
+//            orbit.toValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: Float(2 * Double.pi)))
+//            
+//            if let let_day_length = day_length {
+//                orbit.duration = let_day_length.converted(TimeUnit.minute).amount.doubleValue/24
+//            } else {
+//                orbit.duration = 60
+//            }
+//            
+//            orbit.repeatCount = .infinity
+//            planetNode.addAnimation(orbit, forKey: "spin around")
+//            
+//            scene.rootNode.addChildNode(spotNode)
+//            
         } else {
             return nil
         }

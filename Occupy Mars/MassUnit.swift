@@ -26,6 +26,27 @@
 import Foundation
 
 public final class MassUnit: Unit {
+
+    public static var zettagram: MassUnit {  //actually wtf??
+        return MassUnit(
+            name: "zettagram",
+            symbol: "Zg",
+            ratio: NSDecimalNumber(mantissa: 1, exponent: 18, isNegative: false))
+    }
+    
+    public static var exogram: MassUnit {  //fuck you, 32 bit
+        return MassUnit(
+            name: "exogram",
+            symbol: "Eg",
+            ratio: NSDecimalNumber(mantissa: 1, exponent: 15, isNegative: false))
+    }
+    
+    public static var petagram: MassUnit {  //fuck you, 32bit
+        return MassUnit(
+            name: "petagram",
+            symbol: "Pg",
+            ratio: NSDecimalNumber(mantissa: 1, exponent: 12, isNegative: false))
+    }
     
     public static var teragram: MassUnit {  //fuck you, Jupiter
         return MassUnit(
@@ -110,6 +131,18 @@ public final class MassUnit: Unit {
 }
 
 extension ExpressibleByIntegerLiteral {
+
+    public func zettagram() -> Quantity {
+        return Quantity(amount: self as! NSNumber, unit: MassUnit.zettagram)
+    }
+    
+    public func petagram() -> Quantity {
+        return Quantity(amount: self as! NSNumber, unit: MassUnit.petagram)
+    }
+    
+    public func exogram() -> Quantity {
+        return Quantity(amount: self as! NSNumber, unit: MassUnit.exogram)
+    }
     
     public func teragram() -> Quantity {
         return Quantity(amount: self as! NSNumber, unit: MassUnit.teragram)

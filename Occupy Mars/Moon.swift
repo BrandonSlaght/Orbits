@@ -186,7 +186,7 @@ class Moon {
             
             let spin = CABasicAnimation(keyPath: "rotation")
             spin.fromValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: 0))
-            spin.toValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: Float(2 * M_PI)))
+            spin.toValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: Float(2 * Double.pi)))
             
             if let let_day_length = day_length {
                 spin.duration = let_day_length.converted(TimeUnit.minute).amount.doubleValue/24
@@ -237,7 +237,7 @@ class Moon {
             
             let spin = CABasicAnimation(keyPath: "rotation")
             spin.fromValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: 0))
-            spin.toValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: Float(2 * M_PI)))
+            spin.toValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: Float(2 * Double.pi)))
             
             if let let_day_length = day_length {
                 spin.duration = let_day_length.converted(TimeUnit.minute).amount.doubleValue/24
@@ -279,7 +279,7 @@ class Moon {
                 //                planetNode.addAnimation(spin1, forKey: "spin around again")
                 
                 //rotationNode.eulerAngles = (SCNVector3: SCNVector3(x: 0, y: 0, z: Float(let_equator_inclination.degreesToRadians)))
-                rotationNode.rotation = (SCNVector4: SCNVector4(x: 0, y: 0, z: 1, w: Float(let_equator_inclination.degreesToRadians)))
+                rotationNode.rotation = SCNVector4(x: 0, y: 0, z: 1, w: Float(let_equator_inclination.degreesToRadians))
                 //rotationNode.boundingBox = box
                 //let shrink_factor = let_equator_inclination.degreesToRadians
                 //print("scale before: \(view.pointOfView?.camera?.orthographicScale)")
