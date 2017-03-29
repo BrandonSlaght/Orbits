@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8427FBA31E8C137600536BAB /* status.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8427FBA21E8C137400536BAB /* status.txt */; };
 		8488D42E1E54EBCF009AD9D8 /* AreaUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D4211E54EBCF009AD9D8 /* AreaUnit.swift */; };
 		8488D42F1E54EBCF009AD9D8 /* AreaUnit+Imperial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D4221E54EBCF009AD9D8 /* AreaUnit+Imperial.swift */; };
 		8488D4301E54EBCF009AD9D8 /* EnergyUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D4231E54EBCF009AD9D8 /* EnergyUnit.swift */; };
@@ -21,7 +22,6 @@
 		8488D4391E54EBCF009AD9D8 /* VolumeUnit+Imperial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D42C1E54EBCF009AD9D8 /* VolumeUnit+Imperial.swift */; };
 		8488D43A1E54EBCF009AD9D8 /* VolumeUnit+US.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D42D1E54EBCF009AD9D8 /* VolumeUnit+US.swift */; };
 		84E044491E37D9FE00A6AAB4 /* phobos - transit.gif in Resources */ = {isa = PBXBuildFile; fileRef = 84E044481E37D9FE00A6AAB4 /* phobos - transit.gif */; };
-		84E3E38B1E240B7600872512 /* status.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 84E3E38A1E240B7600872512 /* status.rtf */; };
 		C515AE611DC8E135009A498C /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C515AE601DC8E135009A498C /* TestViewController.swift */; };
 		C515AE631DC91126009A498C /* PlanetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C515AE621DC91126009A498C /* PlanetDetailViewController.swift */; };
 		C520FB3B1DFC928C004A0FE6 /* SKAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C520FB281DFC928C004A0FE6 /* SKAnimator.swift */; };
@@ -89,6 +89,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8427FBA21E8C137400536BAB /* status.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = status.txt; sourceTree = "<group>"; };
 		8488D4211E54EBCF009AD9D8 /* AreaUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaUnit.swift; sourceTree = "<group>"; };
 		8488D4221E54EBCF009AD9D8 /* AreaUnit+Imperial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AreaUnit+Imperial.swift"; sourceTree = "<group>"; };
 		8488D4231E54EBCF009AD9D8 /* EnergyUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyUnit.swift; sourceTree = "<group>"; };
@@ -103,7 +104,6 @@
 		8488D42C1E54EBCF009AD9D8 /* VolumeUnit+Imperial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VolumeUnit+Imperial.swift"; sourceTree = "<group>"; };
 		8488D42D1E54EBCF009AD9D8 /* VolumeUnit+US.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VolumeUnit+US.swift"; sourceTree = "<group>"; };
 		84E044481E37D9FE00A6AAB4 /* phobos - transit.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "phobos - transit.gif"; sourceTree = "<group>"; };
-		84E3E38A1E240B7600872512 /* status.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = status.rtf; sourceTree = "<group>"; };
 		C515AE601DC8E135009A498C /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		C515AE621DC91126009A498C /* PlanetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetDetailViewController.swift; sourceTree = "<group>"; };
 		C520FB281DFC928C004A0FE6 /* SKAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKAnimator.swift; sourceTree = "<group>"; };
@@ -256,7 +256,7 @@
 				C524583B1DC59E0B009F3374 /* Types.swift */,
 				C5C24C801DC68DA10028FAF5 /* Objects.swift */,
 				C5AEC3ED1DCE5CB200992AEB /* texture sources.rtf */,
-				84E3E38A1E240B7600872512 /* status.rtf */,
+				8427FBA21E8C137400536BAB /* status.txt */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -398,7 +398,7 @@
 				TargetAttributes = {
 					C5941BCF1DBBFD940057A46A = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = ST77J7SW46;
+						DevelopmentTeam = 98PHYR992B;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
@@ -429,8 +429,8 @@
 			files = (
 				C5F3717A1E02366900DC373B /* deimos.dae in Resources */,
 				C566DED91E887FC0001EC3FE /* epimetheus.dae in Resources */,
-				84E3E38B1E240B7600872512 /* status.rtf in Resources */,
 				C566DEDB1E887FC0001EC3FE /* janus.dae in Resources */,
+				8427FBA31E8C137600536BAB /* status.txt in Resources */,
 				C566DEDF1E887FC0001EC3FE /* proteus.dae in Resources */,
 				C5941BE21DBBFD940057A46A /* LaunchScreen.storyboard in Resources */,
 				C5AEC3EE1DCE5CB200992AEB /* texture sources.rtf in Resources */,
@@ -639,11 +639,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = ST77J7SW46;
+				DEVELOPMENT_TEAM = 98PHYR992B;
 				INFOPLIST_FILE = "Occupy Mars/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "bslaght.Occupy-Mars";
+				PRODUCT_BUNDLE_IDENTIFIER = orbitals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -658,11 +658,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = ST77J7SW46;
+				DEVELOPMENT_TEAM = 98PHYR992B;
 				INFOPLIST_FILE = "Occupy Mars/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "bslaght.Occupy-Mars";
+				PRODUCT_BUNDLE_IDENTIFIER = orbitals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;

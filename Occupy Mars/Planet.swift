@@ -255,7 +255,7 @@ class Planet {
             
             if let let_normalmap = normalmap {
                 if size == Size.small {
-                    material.normal.contents = UIImage(named: String(let_normalmap.characters.dropLast(4)) + " - thumbnail.jpg")!
+                    //material.normal.contents = UIImage(named: String(let_normalmap.characters.dropLast(4)) + " - thumbnail.jpg")!
                 } else {
                     material.normal.contents = resizeImage(UIImage(named: let_normalmap)!, newHeight: CGFloat(size.rawValue))
                 }
@@ -319,6 +319,44 @@ class Planet {
             }
             
             if size == Size.full {
+                
+//                let spot = SCNLight()
+//                spot.type = SCNLight.LightType.spot
+//                spot.castsShadow = true
+//                
+//                let spotNode = SCNNode()
+//                spotNode.light = spot
+//                spotNode.position = SCNVector3(x: 0, y: 0, z: 7)
+//                spotNode.geometry = SCNSphere(radius: 1)
+//                
+//                let offsetNode = SCNNode()
+//                offsetNode.light = spot
+//                offsetNode.position = SCNVector3(x: 0, y: 0, z: -7)
+//                offsetNode.geometry = SCNSphere(radius: 1)
+//                offsetNode.geometry?.materials = []
+//                
+//                let sunNode = SCNNode()
+//                sunNode.addChildNode(spotNode)
+//                sunNode.addChildNode(offsetNode)
+//                
+//                let lookAt = SCNLookAtConstraint(target: rotationNode)
+//                spotNode.constraints = [lookAt]
+//                
+//                let orbit = CABasicAnimation(keyPath: "rotation")
+//                orbit.fromValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: 0))
+//                orbit.toValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: Float(2 * Double.pi)))
+//                
+//                if let let_day_length = day_length {
+//                    orbit.duration = let_day_length.converted(TimeUnit.minute).amount.doubleValue/24
+//                } else {
+//                    orbit.duration = 60
+//                }
+//                
+//                orbit.repeatCount = .infinity
+//                sunNode.addAnimation(orbit, forKey: "spin around")
+//                
+//                scene.rootNode.addChildNode(sunNode)
+//                
 //                print("FULL")
 //                let camera = SCNCamera()
 //                camera.usesOrthographicProjection = true
@@ -369,33 +407,7 @@ class Planet {
                 
                 //(planet as! SCNSphere).radius = 2.0
             }
-//            
-//            let spot = SCNLight()
-//            spot.type = SCNLight.LightType.spot
-//            spot.castsShadow = true
-//            
-//            let spotNode = SCNNode()
-//            spotNode.light = spot
-//            spotNode.position = SCNVector3(x: 4, y: 7, z: 6)
-//            
-//            let lookAt = SCNLookAtConstraint(target: rotationNode)
-//            spotNode.constraints = [lookAt]
-//            
-//            let orbit = CABasicAnimation(keyPath: "rotation")
-//            orbit.fromValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: 0))
-//            orbit.toValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: Float(2 * Double.pi)))
-//            
-//            if let let_day_length = day_length {
-//                orbit.duration = let_day_length.converted(TimeUnit.minute).amount.doubleValue/24
-//            } else {
-//                orbit.duration = 60
-//            }
-//            
-//            orbit.repeatCount = .infinity
-//            planetNode.addAnimation(orbit, forKey: "spin around")
-//            
-//            scene.rootNode.addChildNode(spotNode)
-//            
+            
         } else {
             return nil
         }
@@ -427,7 +439,7 @@ class Planet {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = NumberFormatter.Style.scientific
         numberFormatter.positiveFormat = "0.### x E+0"
-        numberFormatter.exponentSymbol = " x 10^"
+        numberFormatter.exponentSymbol = " × 10^"
         numberFormatter.minimumFractionDigits = 2
         numberFormatter.maximumFractionDigits = 6
         return numberFormatter.string(from: value)!

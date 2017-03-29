@@ -214,11 +214,21 @@ class Moon {
         if let let_texture = texture {
             
             let material = SCNMaterial()
-            material.diffuse.contents = resizeImage(UIImage(named: let_texture)!, newHeight: CGFloat(size.rawValue))
+            
+            if size == Size.small {
+                material.diffuse.contents = UIImage(named: String(let_texture.characters.dropLast(4)) + " - thumbnail.jpg")!
+            } else {
+                material.diffuse.contents = resizeImage(UIImage(named: let_texture)!, newHeight: CGFloat(size.rawValue))
+            }
             material.diffuse.mipFilter = SCNFilterMode.linear
             
             if let let_normalmap = normalmap {
-                material.normal.contents = resizeImage(UIImage(named: let_normalmap)!, newHeight: CGFloat(size.rawValue))
+                if size == Size.small {
+                    //material.normal.contents = UIImage(named: String(let_normalmap.characters.dropLast(4)) + " - thumbnail.jpg")!
+                } else {
+                    material.normal.contents = resizeImage(UIImage(named: let_normalmap)!, newHeight: CGFloat(size.rawValue))
+                }
+                
             }
             
             planet.materials = [material]
@@ -329,7 +339,7 @@ class Moon {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = NumberFormatter.Style.scientific
         numberFormatter.positiveFormat = "0.### x E+0"
-        numberFormatter.exponentSymbol = " x 10^"
+        numberFormatter.exponentSymbol = " × 10^"
         numberFormatter.minimumFractionDigits = 2
         numberFormatter.maximumFractionDigits = 6
         return numberFormatter.string(from: value)!

@@ -1,0 +1,52 @@
+MERCURY - done
+VENUS - done
+
+
+TODO BEFORE LAUNCH:
+---------------------------------------------------------------------------------------------------------------------
+DONE - remove visibility tab
+DONE - -remove launch screen thing to reflect this
+DONE - add rotation button to globe view
+DONE - make globe view nav bar transparent
+DONE - resize globe view button to 80px
+DONE - fix ring scaling
+DONE - thumbnails for textures
+DONE - "From wikipedia" and "read more" headers
+DONE - Fix height of about subviews
+DONE - Do unit system
+DONE - Flip Saturn's rings
+DONE - Uranus Rings
+DONE - Rotation for moons with specific models
+---------------------------------------------------------------------------------------------------------------------
+test on other screen sizes
+test memory on weaker devices
+
+
+TODO IN FUTURE
+---------------------------------------------------------------------------------------------------------------------
+DONE - colors and backgrounds of planets
+DONE - use multiplication symbol rather than an x for scientific notation
+
+---------------------------------------------------------------------------------------------------------------------
+handle 2 of Saturn's moons in the same position (eg 7a, 7b, 7c)
+Fix navbar bugs when transitioning into and out of globe view (swiping from side or pressing back button)
+Fix scrolling in the globe view - when double tapping or tapping and holding
+Details of Moons
+Media of moons
+media of dwarf planets
+Amalthea model - jupiter
+Mimas model - saturn
+Hyperion model - saturn
+Janus model - saturn
+Fix Phobos model
+colors and backgrounds of dwarf planets
+colors and backgrounds of moons
+get textures working on the moons with models
+fix globes glitching out when slightly sliding finger from left and sliding it back
+profile lag in the info modal
+profile lag in Saturn's moons list
+update texture and model sources
+fix the alignment and constraints on the video intro screen
+make a text shadow in the SKImageView for readability against white images
+remove table cell highlight in moon list
+fix table dividers in planet and moon tables

@@ -192,11 +192,11 @@ class Objects {
             ("earth - reef.jpg", "Earth is the only planet in the universe known to harbor life."),
             ("earth - palau.jpg", "Around 71% of Earth's surface is covered by water.  It is one of several bodies in the solar system with water, but Earth is the only body with permenant liquid surface water."),
             ("earth - lights.jpg", "Seen here are the northern lights, which appear when charged particles from the sun strike the armosphere."),
-            ("earth - lava.jpg", "Earth, along with the moons Io, Triton, and Enceladus, are the only geolocically active bodies in the solar system.  Earth's atmosphere is protected by a magnetosphere, created by the planet's spinning iron core."),
+            ("earth - lava.jpg", "Earth, along with the moons Io, Triton, and Enceladus, are the only geolocically active bodies in the solar system.  Earth's atmosphere is protected by a magnetosphere."),
             ("earth - glacier.jpg", "Glaciers and ice caps account for around 2% of all water on Earth (or around 70% of all fresh water).  Ice caps reflect sunlight back into space."),
             ("earth - falls.jpg", "Less than three percent of all the water on Earth is fresh water.  Fortunately, water that evaporates from the seas leaves behind its salt."),
             ("earth - canyon.jpg", "The dynamic weather conditions shape Earth moreso than other planets.  Seen here is the Grand Canyon, formed by erosion over millions of years."),
-            ("earth - crater.jpg", "Although many small meteorites burn up in the atmosphere, occasionally a meteor will impact the ground.  The Meteor Crater in Arizona is a 560 foot deep crater formed some 50,000 years ago.")])
+            ("earth - crater.jpg", "Although many small meteorites burn up in the atmosphere, occasionally a meteor will impact the ground.  The Meteor Crater in Arizona is a 560 feet deep and formed 50,000 years ago.")])
         
         Earth.colors(background: "earthsurface.jpg",
                      color1: "15334C",
