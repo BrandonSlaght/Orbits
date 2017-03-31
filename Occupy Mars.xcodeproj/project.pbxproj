@@ -217,8 +217,8 @@
 		84E044431E37D55F00A6AAB4 /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				84E044451E37D5DA00A6AAB4 /* gifs */,
 				C5CD59C21DD91F8600ACB8EA /* background.mp4 */,
+				84E044451E37D5DA00A6AAB4 /* gifs */,
 				84E044441E37D57600A6AAB4 /* models */,
 			);
 			name = resources;
