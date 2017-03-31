@@ -324,9 +324,9 @@ class Objects {
         
         //        Phobos.misc(discovered: "August 18th, 1877")
         
-        Phobos.display(texture: nil,
-                       model: "phobos.dae",
-                       normalmap: nil)
+//        Phobos.display(texture: nil,
+//                       model: "phobos.dae",
+//                       normalmap: nil)
         
         Phobos.images(images: [
             ("phobos - monolith.jpg", "An apparent monolith on Phobos.  Although around 90 meters tall, it is likely just a boulder that fell from a nearby cliff."),
@@ -366,9 +366,9 @@ class Objects {
             ("deimos - surface.png", "Deimos's surface in detail from 30 km away, taken by the Viking 2 orbiter in a flyby."),
             ("deimos - color.jpg", "The surface of Deimos is relatively smooth because when asteroids impact it, the ejected material escapes its orbit and thus doesn't impact the surface again.")])
         
-        Deimos.display(texture: nil,
-                       model: "deimos.dae",
-                       normalmap: nil)
+//        Deimos.display(texture: nil,
+//                       model: "deimos.dae",
+//                       normalmap: nil)
         
         Mars.moons.append(Deimos)
         
@@ -1257,9 +1257,9 @@ class Objects {
                          wiki: "https://en.wikipedia.org/wiki/Prometheus_(moon)",
                          nasa: "http://solarsystem.nasa.gov/planets/prometheus")
         
-        Prometheus.display(texture: nil,
-                           model: "prometheus.dae",
-                           normalmap: nil)
+//        Prometheus.display(texture: nil,
+//                           model: "prometheus.dae",
+//                           normalmap: nil)
         
         Saturn.moons.append(Prometheus)
         
@@ -1288,9 +1288,9 @@ class Objects {
                     wiki: "https://en.wikipedia.org/wiki/Janus_(moon)",
                     nasa: "http://solarsystem.nasa.gov/planets/janus")
         
-        Janus.display(texture: nil,
-                      model: "janus.dae",
-                      normalmap: nil)
+//        Janus.display(texture: nil,
+//                      model: "janus.dae",
+//                      normalmap: nil)
         
         Saturn.moons.append(Janus)
         
@@ -1451,9 +1451,9 @@ class Objects {
                        wiki: "https://en.wikipedia.org/wiki/Hyperion_(moon)",
                        nasa: "http://solarsystem.nasa.gov/planets/hyperion")
         
-        Hyperion.display(texture: nil,
-                         model: "hyperion.dae",
-                         normalmap: nil)
+//        Hyperion.display(texture: nil,
+//                         model: "hyperion.dae",
+//                         normalmap: nil)
         
         Saturn.moons.append(Hyperion)
         
@@ -2250,9 +2250,9 @@ class Objects {
                       wiki: "https://en.wikipedia.org/wiki/Proteus_(moon)",
                       nasa: "http://solarsystem.nasa.gov/planets/proteus")
         
-        Proteus.display(texture: nil,
-                        model: "proteus.dae",
-                        normalmap: nil)
+//        Proteus.display(texture: nil,
+//                        model: "proteus.dae",
+//                        normalmap: nil)
         
         Neptune.moons.append(Proteus)
         
