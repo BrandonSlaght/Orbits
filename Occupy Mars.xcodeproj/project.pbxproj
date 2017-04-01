@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		8427FBA31E8C137600536BAB /* status.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8427FBA21E8C137400536BAB /* status.txt */; };
+		843E07A71E8F198900B4EF26 /* amaltheamap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 843E07A61E8F198900B4EF26 /* amaltheamap.jpg */; };
+		843E07A91E8F1ED800B4EF26 /* deimosmap.png in Resources */ = {isa = PBXBuildFile; fileRef = 843E07A81E8F1ED800B4EF26 /* deimosmap.png */; };
+		843E07AB1E8F1EEC00B4EF26 /* deimosnormalmap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 843E07AA1E8F1EEC00B4EF26 /* deimosnormalmap.jpg */; };
+		843E07B11E8F309800B4EF26 /* hyperionmap.png in Resources */ = {isa = PBXBuildFile; fileRef = 843E07B01E8F309800B4EF26 /* hyperionmap.png */; };
+		843E07B41E8F352000B4EF26 /* janusmap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 843E07B31E8F352000B4EF26 /* janusmap.jpg */; };
+		843E07B71E8F555600B4EF26 /* prometheusmap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 843E07B61E8F555600B4EF26 /* prometheusmap.jpg */; };
+		843E07BA1E9009AA00B4EF26 /* proteusmap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 843E07B91E9009AA00B4EF26 /* proteusmap.jpg */; };
+		843E07BE1E900A7D00B4EF26 /* phobosmap.png in Resources */ = {isa = PBXBuildFile; fileRef = 843E07BC1E900A7D00B4EF26 /* phobosmap.png */; };
+		843E07BF1E900A7D00B4EF26 /* phobosnormalmap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 843E07BD1E900A7D00B4EF26 /* phobosnormalmap.jpg */; };
 		8488D42E1E54EBCF009AD9D8 /* AreaUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D4211E54EBCF009AD9D8 /* AreaUnit.swift */; };
 		8488D42F1E54EBCF009AD9D8 /* AreaUnit+Imperial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D4221E54EBCF009AD9D8 /* AreaUnit+Imperial.swift */; };
 		8488D4301E54EBCF009AD9D8 /* EnergyUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D4231E54EBCF009AD9D8 /* EnergyUnit.swift */; };
@@ -90,6 +99,15 @@
 
 /* Begin PBXFileReference section */
 		8427FBA21E8C137400536BAB /* status.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = status.txt; sourceTree = "<group>"; };
+		843E07A61E8F198900B4EF26 /* amaltheamap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = amaltheamap.jpg; path = Assets.xcassets/jupiter/amalthea/amaltheamap.imageset/amaltheamap.jpg; sourceTree = "<group>"; };
+		843E07A81E8F1ED800B4EF26 /* deimosmap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = deimosmap.png; path = Assets.xcassets/mars/demios/deimosmap.imageset/deimosmap.png; sourceTree = "<group>"; };
+		843E07AA1E8F1EEC00B4EF26 /* deimosnormalmap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = deimosnormalmap.jpg; path = Assets.xcassets/mars/demios/deimosnormalmap.imageset/deimosnormalmap.jpg; sourceTree = "<group>"; };
+		843E07B01E8F309800B4EF26 /* hyperionmap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hyperionmap.png; path = Assets.xcassets/saturn/hyperion/hyperionmap.imageset/hyperionmap.png; sourceTree = "<group>"; };
+		843E07B31E8F352000B4EF26 /* janusmap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = janusmap.jpg; path = Assets.xcassets/saturn/janus/janusmap.imageset/janusmap.jpg; sourceTree = "<group>"; };
+		843E07B61E8F555600B4EF26 /* prometheusmap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = prometheusmap.jpg; path = Assets.xcassets/saturn/prometheus/prometheusmap.imageset/prometheusmap.jpg; sourceTree = "<group>"; };
+		843E07B91E9009AA00B4EF26 /* proteusmap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = proteusmap.jpg; path = Assets.xcassets/neptune/proteus/proteusmap.imageset/proteusmap.jpg; sourceTree = "<group>"; };
+		843E07BC1E900A7D00B4EF26 /* phobosmap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = phobosmap.png; path = Assets.xcassets/mars/phobos/phobosmap.imageset/phobosmap.png; sourceTree = "<group>"; };
+		843E07BD1E900A7D00B4EF26 /* phobosnormalmap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = phobosnormalmap.jpg; path = Assets.xcassets/mars/phobos/phobosnormalmap.imageset/phobosnormalmap.jpg; sourceTree = "<group>"; };
 		8488D4211E54EBCF009AD9D8 /* AreaUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaUnit.swift; sourceTree = "<group>"; };
 		8488D4221E54EBCF009AD9D8 /* AreaUnit+Imperial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AreaUnit+Imperial.swift"; sourceTree = "<group>"; };
 		8488D4231E54EBCF009AD9D8 /* EnergyUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyUnit.swift; sourceTree = "<group>"; };
@@ -183,6 +201,71 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		843E07AC1E8F1FFA00B4EF26 /* deimos */ = {
+			isa = PBXGroup;
+			children = (
+				843E07AA1E8F1EEC00B4EF26 /* deimosnormalmap.jpg */,
+				843E07A81E8F1ED800B4EF26 /* deimosmap.png */,
+				C5F371791E02366900DC373B /* deimos.dae */,
+			);
+			name = deimos;
+			sourceTree = "<group>";
+		};
+		843E07AD1E8F2CBA00B4EF26 /* amalthea */ = {
+			isa = PBXGroup;
+			children = (
+				C566DED01E887FC0001EC3FE /* amalthea.dae */,
+				843E07A61E8F198900B4EF26 /* amaltheamap.jpg */,
+			);
+			name = amalthea;
+			sourceTree = "<group>";
+		};
+		843E07B21E8F30CF00B4EF26 /* hyperion */ = {
+			isa = PBXGroup;
+			children = (
+				843E07B01E8F309800B4EF26 /* hyperionmap.png */,
+				C566DED21E887FC0001EC3FE /* hyperion.dae */,
+			);
+			name = hyperion;
+			sourceTree = "<group>";
+		};
+		843E07B51E8F356000B4EF26 /* janus */ = {
+			isa = PBXGroup;
+			children = (
+				843E07B31E8F352000B4EF26 /* janusmap.jpg */,
+				C566DED31E887FC0001EC3FE /* janus.dae */,
+			);
+			name = janus;
+			sourceTree = "<group>";
+		};
+		843E07B81E8F556600B4EF26 /* prometheus */ = {
+			isa = PBXGroup;
+			children = (
+				843E07B61E8F555600B4EF26 /* prometheusmap.jpg */,
+				C566DED61E887FC0001EC3FE /* prometheus.dae */,
+			);
+			name = prometheus;
+			sourceTree = "<group>";
+		};
+		843E07BB1E9009C000B4EF26 /* proteus */ = {
+			isa = PBXGroup;
+			children = (
+				C566DED71E887FC0001EC3FE /* proteus.dae */,
+				843E07B91E9009AA00B4EF26 /* proteusmap.jpg */,
+			);
+			name = proteus;
+			sourceTree = "<group>";
+		};
+		843E07C01E900ACE00B4EF26 /* phobos */ = {
+			isa = PBXGroup;
+			children = (
+				843E07BC1E900A7D00B4EF26 /* phobosmap.png */,
+				843E07BD1E900A7D00B4EF26 /* phobosnormalmap.jpg */,
+				C566DED51E887FC0001EC3FE /* phobos.dae */,
+			);
+			name = phobos;
+			sourceTree = "<group>";
+		};
 		8488D4201E54EBAB009AD9D8 /* units */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,15 +310,15 @@
 		84E044441E37D57600A6AAB4 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				C5F371791E02366900DC373B /* deimos.dae */,
-				C566DED01E887FC0001EC3FE /* amalthea.dae */,
+				843E07AC1E8F1FFA00B4EF26 /* deimos */,
+				843E07AD1E8F2CBA00B4EF26 /* amalthea */,
+				843E07B21E8F30CF00B4EF26 /* hyperion */,
 				C566DED11E887FC0001EC3FE /* epimetheus.dae */,
-				C566DED21E887FC0001EC3FE /* hyperion.dae */,
-				C566DED31E887FC0001EC3FE /* janus.dae */,
+				843E07B51E8F356000B4EF26 /* janus */,
 				C566DED41E887FC0001EC3FE /* larissa.dae */,
-				C566DED51E887FC0001EC3FE /* phobos.dae */,
-				C566DED61E887FC0001EC3FE /* prometheus.dae */,
-				C566DED71E887FC0001EC3FE /* proteus.dae */,
+				843E07C01E900ACE00B4EF26 /* phobos */,
+				843E07B81E8F556600B4EF26 /* prometheus */,
+				843E07BB1E9009C000B4EF26 /* proteus */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -428,23 +511,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5F3717A1E02366900DC373B /* deimos.dae in Resources */,
+				843E07B71E8F555600B4EF26 /* prometheusmap.jpg in Resources */,
 				C566DED91E887FC0001EC3FE /* epimetheus.dae in Resources */,
 				C566DEDB1E887FC0001EC3FE /* janus.dae in Resources */,
 				8427FBA31E8C137600536BAB /* status.txt in Resources */,
+				843E07A71E8F198900B4EF26 /* amaltheamap.jpg in Resources */,
+				843E07AB1E8F1EEC00B4EF26 /* deimosnormalmap.jpg in Resources */,
 				C566DEDF1E887FC0001EC3FE /* proteus.dae in Resources */,
 				C5941BE21DBBFD940057A46A /* LaunchScreen.storyboard in Resources */,
 				C5AEC3EE1DCE5CB200992AEB /* texture sources.rtf in Resources */,
+				843E07B41E8F352000B4EF26 /* janusmap.jpg in Resources */,
 				C566DEDC1E887FC0001EC3FE /* larissa.dae in Resources */,
 				C5941BDF1DBBFD940057A46A /* Assets.xcassets in Resources */,
 				C5AB79FA1DEC8D310097C295 /* DataViewCell.xib in Resources */,
 				C5CD59C31DD91F8600ACB8EA /* background.mp4 in Resources */,
+				843E07BF1E900A7D00B4EF26 /* phobosnormalmap.jpg in Resources */,
 				C566DEDE1E887FC0001EC3FE /* prometheus.dae in Resources */,
+				843E07B11E8F309800B4EF26 /* hyperionmap.png in Resources */,
 				C5C281C01DDB94B60036C7A0 /* MediaViewCell.xib in Resources */,
 				C566DEDA1E887FC0001EC3FE /* hyperion.dae in Resources */,
 				C5941BDD1DBBFD940057A46A /* Main.storyboard in Resources */,
 				C566DEDD1E887FC0001EC3FE /* phobos.dae in Resources */,
 				C566DED81E887FC0001EC3FE /* amalthea.dae in Resources */,
 				84E044491E37D9FE00A6AAB4 /* phobos - transit.gif in Resources */,
+				843E07A91E8F1ED800B4EF26 /* deimosmap.png in Resources */,
+				843E07BA1E9009AA00B4EF26 /* proteusmap.jpg in Resources */,
+				843E07BE1E900A7D00B4EF26 /* phobosmap.png in Resources */,
 				C520FB471DFC928C004A0FE6 /* SKPhotoBrowser.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,7 +11,7 @@
  </asset>
  <library_images>
   <image id="image1">
-   <init_from>Assets.xcassets/saturn/hyperion/hyperionmap.imageset/JVV_Hyperion.png</init_from>
+   <init_from>hyperionmap.png</init_from>
   </image>
  </library_images>
  <library_materials>
