@@ -19,7 +19,7 @@ class Moon {
     //--------------------------------------------general
     
     var name: String,
-    position: Int
+    position: String
     
     //--------------------------------------------about
     
@@ -76,7 +76,7 @@ class Moon {
     //--------------------------------------------initializers
     
     init(name: String,
-         position: Int) {
+         position: String) {
         self.name = name
         self.position = position
     }
@@ -410,7 +410,7 @@ class Moon {
     func generateMiscObjects() -> [(String, String)] {
         var ret = [(String, String)]()
         
-        ret.append(("Position from orbiting planet", String(describing: position)))
+        ret.append(("Position from orbiting planet", position))
         
         if discovered != nil{
             ret.append(("Year of discovery", discovered!))

@@ -17,8 +17,8 @@ DONE - Do unit system
 DONE - Flip Saturn's rings
 DONE - Uranus Rings
 DONE - Rotation for moons with specific models
+DONE - test on other screen sizes
 ---------------------------------------------------------------------------------------------------------------------
-test on other screen sizes
 test memory on weaker devices
 
 
@@ -26,27 +26,42 @@ TODO IN FUTURE
 ---------------------------------------------------------------------------------------------------------------------
 DONE - colors and backgrounds of planets
 DONE - use multiplication symbol rather than an x for scientific notation
-
+DONE - Amalthea model - jupiter
+DONE - Hyperion model - saturn
+DONE - Janus model - saturn
+DONE - Fix Phobos model
+DONE - get textures working on the moons with models
+DONE - colors and backgrounds of dwarf planets
+DONE - fix warnings
+DONE - media of dwarf planets
+DONE - fix mimas texture being red
+DONE - remove table cell highlight in moon list
+DONE - make images be 1 column if there is only 1 image
+DONE - make a text shadow in the SKImageView for readability against white images
 ---------------------------------------------------------------------------------------------------------------------
 handle 2 of Saturn's moons in the same position (eg 7a, 7b, 7c)
 Fix navbar bugs when transitioning into and out of globe view (swiping from side or pressing back button)
 Fix scrolling in the globe view - when double tapping or tapping and holding
 Details of Moons
 Media of moons
-media of dwarf planets
-Amalthea model - jupiter
 Mimas model - saturn
-Hyperion model - saturn
-Janus model - saturn
-Fix Phobos model
-colors and backgrounds of dwarf planets
 colors and backgrounds of moons
-get textures working on the moons with models
 fix globes glitching out when slightly sliding finger from left and sliding it back
 profile lag in the info modal
 profile lag in Saturn's moons list
 update texture and model sources
 fix the alignment and constraints on the video intro screen
-make a text shadow in the SKImageView for readability against white images
-remove table cell highlight in moon list
 fix table dividers in planet and moon tables
+do visibility
+epimetheus model/texture
+fix janus model fuckery
+low res thumbnails of models
+smooth shading of models
+higher res map of ceres
+metric/imperial setting
+units inline in text to enable conversion
+pronunciations
+info modals for each of the detail categories
+add Sun
+fix constraints not always applying in details
+actual polymorphism and inheritance

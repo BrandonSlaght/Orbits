@@ -85,10 +85,26 @@ private extension SKCaptionView {
         photoLabel.textAlignment = .center
         photoLabel.lineBreakMode = .byTruncatingTail
         photoLabel.numberOfLines = 5
-        photoLabel.shadowColor = UIColor(white: 0.0, alpha: 0.5)
+        photoLabel.shadowColor = UIColor(white: 0.0, alpha: 0.9)
         photoLabel.shadowOffset = CGSize(width: 0.0, height: 1.0)
         photoLabel.font = UIFont.systemFont(ofSize: 17.0)
-        photoLabel.text = photo?.caption
+        
+        // Create a shadow
+        let myShadow = NSShadow()
+        myShadow.shadowBlurRadius = 2
+        myShadow.shadowOffset = CGSize(width: 1, height: 1)
+        myShadow.shadowColor = UIColor.black
+        
+        // Create an attribute from the shadow
+        let myAttribute = [ NSShadowAttributeName: myShadow ]
+        
+        // Add the attribute to the string
+        let myAttrString = NSAttributedString(string: (photo?.caption)!, attributes: myAttribute)
+        
+        // set the attributed text on a label
+        photoLabel.attributedText = myAttrString
+        
+        //photoLabel.text = photo?.caption
         addSubview(photoLabel)
     }
 }

@@ -1044,7 +1044,7 @@
                                 </constraints>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MoonCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="MoonCell" rowHeight="221" id="exl-5r-9Qy" customClass="MoonCell" customModule="Occupy_Mars" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MoonCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="MoonCell" rowHeight="221" id="exl-5r-9Qy" customClass="MoonCell" customModule="Occupy_Mars" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="221"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="exl-5r-9Qy" id="3qW-gS-9Kt">

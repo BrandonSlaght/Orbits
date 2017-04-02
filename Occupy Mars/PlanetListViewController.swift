@@ -87,6 +87,8 @@ class PlanetListViewController: UITableViewController {
         header.textLabel!.textColor = UIColor.white
     }
     
+    
+        
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "planetSegue") {
             let detail = segue.destination as! PlanetDetailViewController

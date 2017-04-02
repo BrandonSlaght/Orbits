@@ -21,9 +21,7 @@ class MoonAboutViewController: AboutViewController, UITableViewDataSource, UITab
         
         tableView.delegate = self
         tableView.dataSource = self
-        //tableView.register(UINib(nibName: "DataViewCell", bundle: nil), forCellReuseIdentifier: "geologyCell")
         
-        //tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.separatorEffect = UIVibrancyEffect(blurEffect: blurView.effect as! UIBlurEffect)
         tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -46,23 +44,15 @@ class MoonAboutViewController: AboutViewController, UITableViewDataSource, UITab
         let cell = tableView.dequeueReusableCell(withIdentifier: "MoonCell", for: indexPath) as! MoonCell
         cell.backgroundColor = UIColor.clear
         let objects = planet.moons
-        //print (objects[indexPath.row].name)
-        //cell.textLabel?.text = objects[indexPath.row].name
         cell.name?.text = objects[indexPath.row].name
-        //print (cell.name.text!)
         
         if (cell.sceneView != nil) {
             cell.sceneView.scene = objects[indexPath.row].getScene(size: Size.small)
         }
         if (objects[indexPath.row].getScene(size: Size.small) == nil) {
             print(objects[indexPath.row].name + "is nil modeled")
-            //            if (cell.sceneView != nil) {
-            //                cell.sceneView.removeFromSuperview()
-            //            }
             cell.heightConstraint.constant = 75
         }
-        
-        //cell.sceneView.scene = objects[indexPath.row].getScene(size: Size.small)
         return cell
     }
     
