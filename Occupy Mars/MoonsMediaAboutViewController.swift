@@ -41,6 +41,11 @@ class MoonMediaAboutViewController: UIViewController, UICollectionViewDelegate, 
         // Change individual layout attributes for the spacing between cells
         layout.minimumColumnSpacing = 1.0
         layout.minimumInteritemSpacing = 1.0
+        if moon.images.count > 1 {
+            layout.columnCount = 2
+        } else {
+            layout.columnCount = 1
+        }
         // Collection view attributes
         self.collectionView.autoresizingMask = [UIViewAutoresizing.flexibleHeight, UIViewAutoresizing.flexibleWidth]
         self.collectionView.alwaysBounceVertical = true

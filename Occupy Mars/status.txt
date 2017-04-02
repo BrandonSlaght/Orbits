@@ -38,8 +38,8 @@ DONE - fix mimas texture being red
 DONE - remove table cell highlight in moon list
 DONE - make images be 1 column if there is only 1 image
 DONE - make a text shadow in the SKImageView for readability against white images
+DONE - handle 2 of Saturn's moons in the same position (eg 7a, 7b, 7c)
 ---------------------------------------------------------------------------------------------------------------------
-handle 2 of Saturn's moons in the same position (eg 7a, 7b, 7c)
 Fix navbar bugs when transitioning into and out of globe view (swiping from side or pressing back button)
 Fix scrolling in the globe view - when double tapping or tapping and holding
 Details of Moons
