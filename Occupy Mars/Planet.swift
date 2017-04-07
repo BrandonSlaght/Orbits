@@ -529,7 +529,7 @@ class Planet {
         ret.append(("Position from sun", String(describing: position)))
         
         if discovered != nil{
-            ret.append(("Year of discovery", discovered!))
+            ret.append(("Date of discovery", discovered!))
         }
         
         return ret

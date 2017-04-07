@@ -21,6 +21,8 @@ class DetailsAboutViewController: AboutViewController, UITableViewDataSource, UI
     var geology = [(String, String, String)]()
     var orbit = [(String, String, String)]()
     var misc = [(String, String)]()
+    
+    let tipView = EasyTipView(text: "")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -137,6 +139,12 @@ class DetailsAboutViewController: AboutViewController, UITableViewDataSource, UI
             cell.backgroundColor = UIColor(colorLiteralRed: 1, green: 1, blue: 1, alpha: 0.1)
         }
         cell.selectionStyle = .none
+        
+        let singleTap = UITapGestureRecognizer(target: self, action: Selector("tapDetected"))
+        singleTap.numberOfTapsRequired = 1 // you can change this value
+        cell.field!.isUserInteractionEnabled = true
+        cell.field!.addGestureRecognizer(singleTap)
+        
         return cell
     }
 }

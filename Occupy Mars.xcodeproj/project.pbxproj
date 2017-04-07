@@ -30,6 +30,8 @@
 		8488D4381E54EBCF009AD9D8 /* VolumeUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D42B1E54EBCF009AD9D8 /* VolumeUnit.swift */; };
 		8488D4391E54EBCF009AD9D8 /* VolumeUnit+Imperial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D42C1E54EBCF009AD9D8 /* VolumeUnit+Imperial.swift */; };
 		8488D43A1E54EBCF009AD9D8 /* VolumeUnit+US.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D42D1E54EBCF009AD9D8 /* VolumeUnit+US.swift */; };
+		84A6B5581E97FFFE00D0A5BA /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6B5571E97FFFE00D0A5BA /* UIKitExtensions.swift */; };
+		84A6B55A1E98000700D0A5BA /* EasyTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6B5591E98000700D0A5BA /* EasyTipView.swift */; };
 		84E044491E37D9FE00A6AAB4 /* phobos - transit.gif in Resources */ = {isa = PBXBuildFile; fileRef = 84E044481E37D9FE00A6AAB4 /* phobos - transit.gif */; };
 		C515AE611DC8E135009A498C /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C515AE601DC8E135009A498C /* TestViewController.swift */; };
 		C515AE631DC91126009A498C /* PlanetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C515AE621DC91126009A498C /* PlanetDetailViewController.swift */; };
@@ -121,6 +123,8 @@
 		8488D42B1E54EBCF009AD9D8 /* VolumeUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolumeUnit.swift; sourceTree = "<group>"; };
 		8488D42C1E54EBCF009AD9D8 /* VolumeUnit+Imperial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VolumeUnit+Imperial.swift"; sourceTree = "<group>"; };
 		8488D42D1E54EBCF009AD9D8 /* VolumeUnit+US.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VolumeUnit+US.swift"; sourceTree = "<group>"; };
+		84A6B5571E97FFFE00D0A5BA /* UIKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitExtensions.swift; sourceTree = "<group>"; };
+		84A6B5591E98000700D0A5BA /* EasyTipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasyTipView.swift; sourceTree = "<group>"; };
 		84E044481E37D9FE00A6AAB4 /* phobos - transit.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "phobos - transit.gif"; sourceTree = "<group>"; };
 		C515AE601DC8E135009A498C /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		C515AE621DC91126009A498C /* PlanetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetDetailViewController.swift; sourceTree = "<group>"; };
@@ -286,6 +290,15 @@
 			name = units;
 			sourceTree = "<group>";
 		};
+		84A6B5561E97FFD800D0A5BA /* info */ = {
+			isa = PBXGroup;
+			children = (
+				84A6B5591E98000700D0A5BA /* EasyTipView.swift */,
+				84A6B5571E97FFFE00D0A5BA /* UIKitExtensions.swift */,
+			);
+			name = info;
+			sourceTree = "<group>";
+		};
 		84E044421E37D4A500A6AAB4 /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -406,6 +419,7 @@
 				C597D2D31E01E287006B6D6C /* MoonDetailViewController.swift */,
 				C54A98F81E032ED3009A8695 /* sextant.swift */,
 				C5AEC3EF1DCE775100992AEB /* details */,
+				84A6B5561E97FFD800D0A5BA /* info */,
 				8488D4201E54EBAB009AD9D8 /* units */,
 				C5CF53D81DFC7EC0008A6489 /* photo browser */,
 			);
@@ -556,6 +570,7 @@
 				C520FB451DFC928C004A0FE6 /* SKPagingScrollView.swift in Sources */,
 				C520FB3C1DFC928C004A0FE6 /* SKButtons.swift in Sources */,
 				8488D4371E54EBCF009AD9D8 /* Unit.swift in Sources */,
+				84A6B55A1E98000700D0A5BA /* EasyTipView.swift in Sources */,
 				C520FB491DFC928C004A0FE6 /* SKPhotoBrowserDelegate.swift in Sources */,
 				8488D43A1E54EBCF009AD9D8 /* VolumeUnit+US.swift in Sources */,
 				C597D2D41E01E287006B6D6C /* MoonDetailViewController.swift in Sources */,
@@ -570,6 +585,7 @@
 				C520FB441DFC928C004A0FE6 /* SKMesurement.swift in Sources */,
 				C520FB3F1DFC928C004A0FE6 /* SKCaptionView.swift in Sources */,
 				C520FB481DFC928C004A0FE6 /* SKPhotoBrowser.swift in Sources */,
+				84A6B5581E97FFFE00D0A5BA /* UIKitExtensions.swift in Sources */,
 				C5AEC3F91DCE77FA00992AEB /* MediaAboutViewController.swift in Sources */,
 				C5D515B81DE106400024638D /* InfoModalVewController.swift in Sources */,
 				C5AEC3FD1DCE7D0400992AEB /* MoonCell.swift in Sources */,

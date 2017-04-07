@@ -413,7 +413,7 @@ class Moon {
         ret.append(("Position from orbiting planet", position))
         
         if discovered != nil{
-            ret.append(("Year of discovery", discovered!))
+            ret.append(("Date of discovery", discovered!))
         }
         
         return ret
