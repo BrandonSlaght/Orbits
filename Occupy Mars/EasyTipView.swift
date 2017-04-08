@@ -91,6 +91,8 @@ public extension EasyTipView {
      */
     public func show(animated: Bool = true, forView view: UIView, withinSuperview superview: UIView? = nil) {
         
+        print("show 1")
+        
         precondition(superview == nil || view.hasSuperview(superview!), "The supplied superview <\(superview!)> is not a direct nor an indirect superview of the supplied reference view <\(view)>. The superview passed to this method should be a direct or an indirect superview of the reference view. To display the tooltip within the main window, ignore the superview parameter.")
         
         let superview = superview ?? UIApplication.shared.windows.first!
@@ -102,16 +104,19 @@ public extension EasyTipView {
         let velocity = preferences.animating.springVelocity
         
         presentingView = view
+        print(presentingView?.tag)
         arrange(withinSuperview: superview)
         
         transform = initialTransform
         alpha = initialAlpha
-        
+        print(alpha)
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         tap.delegate = self
         addGestureRecognizer(tap)
         
         superview.addSubview(self)
+        
+        print(self.bounds)
         
         let animations : () -> () = {
             self.transform = finalTransform

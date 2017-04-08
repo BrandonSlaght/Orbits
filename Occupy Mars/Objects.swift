@@ -1280,6 +1280,10 @@ class Objects {
                          wiki: "https://en.wikipedia.org/wiki/Epimetheus_(moon)",
                          nasa: "http://solarsystem.nasa.gov/planets/epimetheus")
         
+        Epimetheus.display(texture: nil,
+                           model: "epimetheus.dae",
+                           normalmap: nil)
+        
         Saturn.moons.append(Epimetheus)
         
         let Janus = Moon(name: "Janus",

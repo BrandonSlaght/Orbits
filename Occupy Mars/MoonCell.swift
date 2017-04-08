@@ -23,6 +23,15 @@ class MoonCell: UITableViewCell {
     //    }
     
     override func layoutSubviews() {
+        super.layoutSubviews()
         
+        guard let superview = contentView.superview else {
+            return
+        }
+        for subview in superview.subviews {
+            if String(describing: type(of: subview)).hasSuffix("SeparatorView") {
+                subview.isHidden = false
+            }
+        }
     }
 }

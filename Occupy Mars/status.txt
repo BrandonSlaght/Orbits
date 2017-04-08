@@ -39,6 +39,9 @@ DONE - remove table cell highlight in moon list
 DONE - make images be 1 column if there is only 1 image
 DONE - make a text shadow in the SKImageView for readability against white images
 DONE - handle 2 of Saturn's moons in the same position (eg 7a, 7b, 7c)
+DONE - higher res map of ceres
+DONE - epimetheus model/texture
+DONE - fix table dividers in planet and moon tables
 ---------------------------------------------------------------------------------------------------------------------
 Fix navbar bugs when transitioning into and out of globe view (swiping from side or pressing back button)
 Fix scrolling in the globe view - when double tapping or tapping and holding
@@ -51,13 +54,10 @@ profile lag in the info modal
 profile lag in Saturn's moons list
 update texture and model sources
 fix the alignment and constraints on the video intro screen
-fix table dividers in planet and moon tables
 do visibility
-epimetheus model/texture
 fix janus model fuckery
 low res thumbnails of models
 smooth shading of models
-higher res map of ceres
 metric/imperial setting
 units inline in text to enable conversion
 pronunciations

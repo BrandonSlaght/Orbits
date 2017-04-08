@@ -23,11 +23,20 @@ class PlanetCell: UITableViewCell {
 //        detail2.font = caption1Font
 //    }
     
-    override func layoutSubviews() {
-        
-    }
-    
     override func prepareForReuse() {
         heightConstraint.constant = 183
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        guard let superview = contentView.superview else {
+            return
+        }
+        for subview in superview.subviews {
+            if String(describing: type(of: subview)).hasSuffix("SeparatorView") {
+                subview.isHidden = false
+            }
+        }
     }
 }
