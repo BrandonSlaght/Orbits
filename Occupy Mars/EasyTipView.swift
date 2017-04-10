@@ -104,7 +104,7 @@ public extension EasyTipView {
         let velocity = preferences.animating.springVelocity
         
         presentingView = view
-        print(presentingView?.tag)
+        print(presentingView?.tag ?? 100)
         arrange(withinSuperview: superview)
         
         transform = initialTransform

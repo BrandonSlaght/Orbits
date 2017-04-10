@@ -419,6 +419,32 @@ class Planet {
         return "Visible Tonight"
     }
     
+    func getVisibility() {//-> (NSDate, NSDate) {
+        let s = Sextant(N: 125.1228 - 0.0529538083 * Double(formattedTimeSinceEpoch()),
+                            i: 5.1454,
+                            w: 318.0634 + 0.1643573223 * Double(formattedTimeSinceEpoch()),
+                            a: 60.2666,
+                            e: 0.054900,
+                            M: 115.3654 + 13.0649929509 * Double(formattedTimeSinceEpoch()))
+        print(s.getPosition())
+    }
+    
+    func formattedTimeSinceEpoch() -> Int { //y, m, d,
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd HH:mm"
+        let epochTime = formatter.date(from: "2000/1/01 00:00")
+        
+        let currentTime = Date()
+        
+        let y = Calendar.current.dateComponents([.year], from: epochTime!, to: currentTime).year!
+        let m = Calendar.current.dateComponents([.month], from: epochTime!, to: currentTime).month!
+        let D = Calendar.current.dateComponents([.day], from: epochTime!, to: currentTime).day!
+        let h = Calendar.current.dateComponents([.hour], from: epochTime!, to: currentTime).hour!
+        
+        return (367*y - 7 * ( y + (m+9)/12 ) / 4 + 275*m/9 + D - 730530) + h/24
+    }
+    
     func resizeImage(_ image: UIImage, newHeight: CGFloat) -> UIImage {
         if newHeight > image.size.height {
             return image

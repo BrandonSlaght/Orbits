@@ -10,7 +10,8 @@ import UIKit
 import SceneKit
 import QuartzCore
 
-class PlanetDetailViewController: UIViewController {
+class PlanetDetailViewController: UIViewController, UIScrollViewDelegate {
+    @IBOutlet weak var tabHolder: UIView!
     @IBOutlet weak var scene: SCNView!
     @IBOutlet weak var sceneHeight: NSLayoutConstraint!
     @IBOutlet weak var content: UIView!
@@ -28,7 +29,7 @@ class PlanetDetailViewController: UIViewController {
     
     var planet: Planet!
     var currentViewController: UIViewController?
-    
+    var navigationBarOriginalOffset : CGFloat?
     var barColor: UIColor!
     
     func cycleFromViewController(oldViewController: UIViewController, toViewController newViewController: UIViewController) {
@@ -67,12 +68,16 @@ class PlanetDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        scrollView.delegate = self
 
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = view.bounds
         blurView.layer.zPosition = -1
         blurView.isUserInteractionEnabled = false
+        
+        //blurTabView = UIVisualEffectView(effect: blurEffect)
         
         if let let_background = planet.background {
             self.view.backgroundColor = UIColor(patternImage: UIImage(named: let_background)!)
@@ -118,6 +123,9 @@ class PlanetDetailViewController: UIViewController {
             globeButton.isHidden = true
             sceneHeight.constant = 0
         }
+        
+        //view.sendSubview(toBack: tabHolder)
+        tabHolder.bringSubview(toFront: tabs)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -125,6 +133,7 @@ class PlanetDetailViewController: UIViewController {
         if let let_color = planet.color1 {
             self.navigationController?.navigationBar.barTintColor =  let_color
         }
+        navigationBarOriginalOffset = tabHolder.frame.origin.y
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -162,6 +171,21 @@ class PlanetDetailViewController: UIViewController {
             vc = self.storyboard?.instantiateViewController(withIdentifier: "test1") as UIViewController?
         }
         return vc
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        tabHolder.frame.origin.y = max(navigationBarOriginalOffset!, scrollView.contentOffset.y)
+        if (navigationBarOriginalOffset! < scrollView.contentOffset.y) {
+            if let let_color = planet.color1 {
+                tabHolder.backgroundColor = let_color
+            } else {
+                tabHolder.backgroundColor = barColor
+            }
+            print("smaller")
+        } else {
+            tabHolder.backgroundColor = UIColor.clear
+            print("larger")
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

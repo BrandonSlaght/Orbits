@@ -12,7 +12,7 @@ enum Perturbations {
     case Pluto
 }
 
-class sextant: NSObject {
+class Sextant: NSObject {
     //TODO: PERTUBATIONS OF MOON, SUN, JUPITER, SATURN, AND URANUS, The Moon's topocentric position, PLUTO,  The elongation and physical ephemerides of the planets
     var N: Double,
     i: Double,
@@ -28,13 +28,13 @@ class sextant: NSObject {
     
     var perturbation: Perturbations?
     
-    init(Na: Double, i: Double, wa: Double, a: Double, e: Double, Ma: Double, perturbation: Perturbations? = nil) {
-        self.N = abs(Na).truncatingRemainder(dividingBy: 360)
+    init(N: Double, i: Double, w: Double, a: Double, e: Double, M: Double, perturbation: Perturbations? = nil) {
+        self.N = abs(N).truncatingRemainder(dividingBy: 360)
         self.i = i
-        self.w = abs(wa).truncatingRemainder(dividingBy: 360)
+        self.w = abs(w).truncatingRemainder(dividingBy: 360)
         self.a = a
         self.e = e
-        self.M = abs(Ma).truncatingRemainder(dividingBy: 360)
+        self.M = abs(M).truncatingRemainder(dividingBy: 360)
         
         self.w1 = N + w
         self.L = M + w1

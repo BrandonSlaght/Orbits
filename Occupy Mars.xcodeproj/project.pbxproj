@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8424F0831E9955950088C1D2 /* epimetheus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8424F0821E9955950088C1D2 /* epimetheus.jpg */; };
 		8427FBA31E8C137600536BAB /* status.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8427FBA21E8C137400536BAB /* status.txt */; };
 		843E07A71E8F198900B4EF26 /* amaltheamap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 843E07A61E8F198900B4EF26 /* amaltheamap.jpg */; };
 		843E07A91E8F1ED800B4EF26 /* deimosmap.png in Resources */ = {isa = PBXBuildFile; fileRef = 843E07A81E8F1ED800B4EF26 /* deimosmap.png */; };
@@ -56,7 +57,7 @@
 		C52458381DC578F1009F3374 /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52458371DC578F1009F3374 /* Planet.swift */; };
 		C524583A1DC5988D009F3374 /* Moon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52458391DC5988D009F3374 /* Moon.swift */; };
 		C524583C1DC59E0B009F3374 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = C524583B1DC59E0B009F3374 /* Types.swift */; };
-		C54A98F91E032ED3009A8695 /* sextant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54A98F81E032ED3009A8695 /* sextant.swift */; };
+		C54A98F91E032ED3009A8695 /* Sextant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54A98F81E032ED3009A8695 /* Sextant.swift */; };
 		C54A98FB1E032F82009A8695 /* MoonGlobeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54A98FA1E032F82009A8695 /* MoonGlobeViewController.swift */; };
 		C54A98FF1E032FE2009A8695 /* MoonsMediaAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54A98FE1E032FE2009A8695 /* MoonsMediaAboutViewController.swift */; };
 		C54A99011E033001009A8695 /* MoonGeneralAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54A99001E033001009A8695 /* MoonGeneralAboutViewController.swift */; };
@@ -100,6 +101,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8424F0821E9955950088C1D2 /* epimetheus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = epimetheus.jpg; sourceTree = "<group>"; };
 		8427FBA21E8C137400536BAB /* status.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = status.txt; sourceTree = "<group>"; };
 		843E07A61E8F198900B4EF26 /* amaltheamap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = amaltheamap.jpg; path = Assets.xcassets/jupiter/amalthea/amaltheamap.imageset/amaltheamap.jpg; sourceTree = "<group>"; };
 		843E07A81E8F1ED800B4EF26 /* deimosmap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = deimosmap.png; path = Assets.xcassets/mars/demios/deimosmap.imageset/deimosmap.png; sourceTree = "<group>"; };
@@ -149,7 +151,7 @@
 		C52458371DC578F1009F3374 /* Planet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
 		C52458391DC5988D009F3374 /* Moon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moon.swift; sourceTree = "<group>"; };
 		C524583B1DC59E0B009F3374 /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
-		C54A98F81E032ED3009A8695 /* sextant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sextant.swift; sourceTree = "<group>"; };
+		C54A98F81E032ED3009A8695 /* Sextant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sextant.swift; sourceTree = "<group>"; };
 		C54A98FA1E032F82009A8695 /* MoonGlobeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonGlobeViewController.swift; sourceTree = "<group>"; };
 		C54A98FE1E032FE2009A8695 /* MoonsMediaAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonsMediaAboutViewController.swift; sourceTree = "<group>"; };
 		C54A99001E033001009A8695 /* MoonGeneralAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonGeneralAboutViewController.swift; sourceTree = "<group>"; };
@@ -205,6 +207,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8424F0811E994C760088C1D2 /* epimetheus */ = {
+			isa = PBXGroup;
+			children = (
+				C566DED11E887FC0001EC3FE /* epimetheus.dae */,
+				8424F0821E9955950088C1D2 /* epimetheus.jpg */,
+			);
+			name = epimetheus;
+			sourceTree = "<group>";
+		};
 		843E07AC1E8F1FFA00B4EF26 /* deimos */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,9 +314,9 @@
 			isa = PBXGroup;
 			children = (
 				C5AB79F91DEC8D310097C295 /* DataViewCell.xib */,
+				C5C281BF1DDB94B60036C7A0 /* MediaViewCell.xib */,
 				C5941BE01DBBFD940057A46A /* LaunchScreen.storyboard */,
 				C5941BDB1DBBFD940057A46A /* Main.storyboard */,
-				C5C281BF1DDB94B60036C7A0 /* MediaViewCell.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -323,10 +334,10 @@
 		84E044441E37D57600A6AAB4 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				8424F0811E994C760088C1D2 /* epimetheus */,
 				843E07AC1E8F1FFA00B4EF26 /* deimos */,
 				843E07AD1E8F2CBA00B4EF26 /* amalthea */,
 				843E07B21E8F30CF00B4EF26 /* hyperion */,
-				C566DED11E887FC0001EC3FE /* epimetheus.dae */,
 				843E07B51E8F356000B4EF26 /* janus */,
 				C566DED41E887FC0001EC3FE /* larissa.dae */,
 				843E07C01E900ACE00B4EF26 /* phobos */,
@@ -347,6 +358,7 @@
 		C52458361DC578BA009F3374 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				C54A98F81E032ED3009A8695 /* Sextant.swift */,
 				C52458371DC578F1009F3374 /* Planet.swift */,
 				C52458391DC5988D009F3374 /* Moon.swift */,
 				C524583B1DC59E0B009F3374 /* Types.swift */,
@@ -417,7 +429,6 @@
 				C515AE601DC8E135009A498C /* TestViewController.swift */,
 				C515AE621DC91126009A498C /* PlanetDetailViewController.swift */,
 				C597D2D31E01E287006B6D6C /* MoonDetailViewController.swift */,
-				C54A98F81E032ED3009A8695 /* sextant.swift */,
 				C5AEC3EF1DCE775100992AEB /* details */,
 				84A6B5561E97FFD800D0A5BA /* info */,
 				8488D4201E54EBAB009AD9D8 /* units */,
@@ -538,6 +549,7 @@
 				C566DEDC1E887FC0001EC3FE /* larissa.dae in Resources */,
 				C5941BDF1DBBFD940057A46A /* Assets.xcassets in Resources */,
 				C5AB79FA1DEC8D310097C295 /* DataViewCell.xib in Resources */,
+				8424F0831E9955950088C1D2 /* epimetheus.jpg in Resources */,
 				C5CD59C31DD91F8600ACB8EA /* background.mp4 in Resources */,
 				843E07BF1E900A7D00B4EF26 /* phobosnormalmap.jpg in Resources */,
 				C566DEDE1E887FC0001EC3FE /* prometheus.dae in Resources */,
@@ -577,7 +589,7 @@
 				C5941BEA1DBBFEA40057A46A /* IntroPageViewController.swift in Sources */,
 				C54A98FF1E032FE2009A8695 /* MoonsMediaAboutViewController.swift in Sources */,
 				C520FB4C1DFC928C004A0FE6 /* SKZoomingScrollView.swift in Sources */,
-				C54A98F91E032ED3009A8695 /* sextant.swift in Sources */,
+				C54A98F91E032ED3009A8695 /* Sextant.swift in Sources */,
 				C5AEC3F11DCE778800992AEB /* GeneralAboutViewController.swift in Sources */,
 				C520FB401DFC928C004A0FE6 /* SKDetectingImageView.swift in Sources */,
 				C520FB3E1DFC928C004A0FE6 /* SKCacheable.swift in Sources */,
