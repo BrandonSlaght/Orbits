@@ -10,7 +10,9 @@ import UIKit
 import SceneKit
 import QuartzCore
 
-class MoonDetailViewController: UIViewController {
+class MoonDetailViewController: UIViewController, UIScrollViewDelegate  {
+    @IBOutlet weak var insideView: UIView!
+    @IBOutlet weak var tabHolder: UIView!
     @IBOutlet weak var globeButton: UIButton!
     @IBOutlet weak var scene: SCNView!
     @IBOutlet weak var sceneHeight: NSLayoutConstraint!
@@ -29,6 +31,8 @@ class MoonDetailViewController: UIViewController {
     
     var moon: Moon!
     var currentViewController: UIViewController?
+    var navigationBarOriginalOffset : CGFloat?
+    var barColor: UIColor!
     
     func cycleFromViewController(oldViewController: UIViewController, toViewController newViewController: UIViewController) {
         newViewController.view.translatesAutoresizingMaskIntoConstraints = false
@@ -50,6 +54,7 @@ class MoonDetailViewController: UIViewController {
                         oldViewController.removeFromParentViewController()
                         newViewController.didMove(toParentViewController: self)
                         self.content.reloadInputViews()
+                        self.scrollViewDidScroll(self.scrollView)
         })
     }
     
@@ -66,6 +71,8 @@ class MoonDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        scrollView.delegate = self
         
         let background = UIImageView(image: UIImage(named: "milkyway.jpg")!)
         background.contentMode = .scaleAspectFill
@@ -107,6 +114,11 @@ class MoonDetailViewController: UIViewController {
         } else {
             globeButton.isHidden = true
             sceneHeight.constant = 0
+            if let let_color = moon.color1 {
+                tabHolder.backgroundColor = let_color
+            } else {
+                tabHolder.backgroundColor = barColor
+            }
         }
         
         if tabs.numberOfSegments < 2 {
@@ -114,6 +126,28 @@ class MoonDetailViewController: UIViewController {
             tabs.isUserInteractionEnabled = false
             tabs.alpha = 0
         }
+
+        insideView.bringSubview(toFront: tabHolder)
+        
+//        scrollView.bringSubview(toFront: tabHolder)
+//        
+//        view.bringSubview(toFront: tabHolder)
+//        tabHolder.bringSubview(toFront: tabs)
+//        
+//        tabHolder.layer.zPosition = 1
+//        tabs.layer.zPosition = 2
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        barColor = navigationController?.navigationBar.barTintColor
+        if let let_color = moon.color1 {
+            self.navigationController?.navigationBar.barTintColor =  let_color
+        }
+        navigationBarOriginalOffset = tabHolder.frame.origin.y
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.navigationBar.barTintColor = barColor
     }
     
     override func didReceiveMemoryWarning() {
@@ -143,6 +177,29 @@ class MoonDetailViewController: UIViewController {
         }
         return vc
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        //tabHolder.frame.origin.y = max(navigationBarOriginalOffset!, scrollView.contentOffset.y)
+        if (sceneHeight.constant == 0) {
+            tabHolder.frame.origin.y = scrollView.contentOffset.y
+            print("no scene!")
+        } else {
+            if (navigationBarOriginalOffset! <= scrollView.contentOffset.y) {
+                tabHolder.frame.origin.y = scrollView.contentOffset.y
+                if let let_color = moon.color1 {
+                    tabHolder.backgroundColor = let_color
+                } else {
+                    tabHolder.backgroundColor = barColor
+                }
+                print("smaller")
+            } else {
+                tabHolder.frame.origin.y = navigationBarOriginalOffset!
+                tabHolder.backgroundColor = UIColor.clear
+                print("larger")
+            }
+        }
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "globeSegue") {

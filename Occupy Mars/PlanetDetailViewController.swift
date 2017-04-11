@@ -11,6 +11,7 @@ import SceneKit
 import QuartzCore
 
 class PlanetDetailViewController: UIViewController, UIScrollViewDelegate {
+    @IBOutlet weak var insideView: UIView!
     @IBOutlet weak var tabHolder: UIView!
     @IBOutlet weak var scene: SCNView!
     @IBOutlet weak var sceneHeight: NSLayoutConstraint!
@@ -52,6 +53,20 @@ class PlanetDetailViewController: UIViewController, UIScrollViewDelegate {
                                     oldViewController.removeFromParentViewController()
                                     newViewController.didMove(toParentViewController: self)
                                     self.content.reloadInputViews()
+                                    self.scrollViewDidScroll(self.scrollView)
+//                                    if (self.navigationBarOriginalOffset! <= self.scrollView.contentOffset.y) {
+//                                        self.tabHolder.frame.origin.y = self.scrollView.contentOffset.y
+//                                        if let let_color = self.planet.color1 {
+//                                            self.tabHolder.backgroundColor = let_color
+//                                        } else {
+//                                            self.tabHolder.backgroundColor = self.barColor
+//                                        }
+//                                        print("smaller")
+//                                    } else {
+//                                        self.tabHolder.frame.origin.y = self.navigationBarOriginalOffset!
+//                                        self.tabHolder.backgroundColor = UIColor.clear
+//                                        print("larger")
+//                                    }
         })
     }
     
@@ -122,10 +137,22 @@ class PlanetDetailViewController: UIViewController, UIScrollViewDelegate {
         } else {
             globeButton.isHidden = true
             sceneHeight.constant = 0
+            if let let_color = planet.color1 {
+                tabHolder.backgroundColor = let_color
+            } else {
+                tabHolder.backgroundColor = barColor
+            }
         }
         
-        //view.sendSubview(toBack: tabHolder)
-        tabHolder.bringSubview(toFront: tabs)
+        insideView.bringSubview(toFront: tabHolder)
+        
+//        scrollView.bringSubview(toFront: tabHolder)
+//        
+//        view.bringSubview(toFront: tabHolder)
+//        tabHolder.bringSubview(toFront: tabs)
+//        
+//        tabHolder.layer.zPosition = 1
+//        tabs.layer.zPosition = 2
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -174,17 +201,24 @@ class PlanetDetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        tabHolder.frame.origin.y = max(navigationBarOriginalOffset!, scrollView.contentOffset.y)
-        if (navigationBarOriginalOffset! < scrollView.contentOffset.y) {
-            if let let_color = planet.color1 {
-                tabHolder.backgroundColor = let_color
-            } else {
-                tabHolder.backgroundColor = barColor
-            }
-            print("smaller")
+        //tabHolder.frame.origin.y = max(navigationBarOriginalOffset!, scrollView.contentOffset.y)
+        if (sceneHeight.constant == 0) {
+            tabHolder.frame.origin.y = scrollView.contentOffset.y
+            print("no scene!")
         } else {
-            tabHolder.backgroundColor = UIColor.clear
-            print("larger")
+            if (navigationBarOriginalOffset! <= scrollView.contentOffset.y) {
+                tabHolder.frame.origin.y = scrollView.contentOffset.y
+                if let let_color = planet.color1 {
+                    tabHolder.backgroundColor = let_color
+                } else {
+                    tabHolder.backgroundColor = barColor
+                }
+                print("smaller")
+            } else {
+                tabHolder.frame.origin.y = navigationBarOriginalOffset!
+                tabHolder.backgroundColor = UIColor.clear
+                print("larger")
+            }
         }
     }
     

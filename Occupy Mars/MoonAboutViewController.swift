@@ -51,7 +51,7 @@ class MoonAboutViewController: AboutViewController, UITableViewDataSource, UITab
         }
         if (objects[indexPath.row].getScene(size: Size.small) == nil) {
             print(objects[indexPath.row].name + "is nil modeled")
-            cell.heightConstraint.constant = 75
+            cell.heightConstraint.constant = 60
         }
         return cell
     }

@@ -18,8 +18,8 @@ DONE - Flip Saturn's rings
 DONE - Uranus Rings
 DONE - Rotation for moons with specific models
 DONE - test on other screen sizes
+DONE - test memory on weaker devices
 ---------------------------------------------------------------------------------------------------------------------
-test memory on weaker devices
 
 
 TODO IN FUTURE
@@ -65,3 +65,5 @@ info modals for each of the detail categories
 add Sun
 fix constraints not always applying in details
 actual polymorphism and inheritance
+make the sticky tab bar be animated and blurry and also make the navbar blurry
+add a whats new section and popup

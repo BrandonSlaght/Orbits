@@ -55,7 +55,7 @@ class PlanetListViewController: UITableViewController {
         }
         if (planet.getScene(size: Size.small) == nil) {
             print(planet.name + "is nil modeled")
-            cell.heightConstraint.constant = 75
+            cell.heightConstraint.constant = 90
         }
         planet.getVisibility()
         return cell
