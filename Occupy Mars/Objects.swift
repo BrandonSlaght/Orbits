@@ -2056,6 +2056,10 @@ class Objects {
                      wiki: "https://en.wikipedia.org/wiki/Oberon_(moon)",
                      nasa: "http://solarsystem.nasa.gov/planets/oberon")
         
+        Oberon.display(texture: "oberonmap.jpg",
+                       model: nil,
+                       normalmap: nil)
+        
         Uranus.moons.append(Oberon)
         
         let Francisco = Moon(name: "Francisco",

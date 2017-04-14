@@ -124,7 +124,7 @@ class DetailsAboutViewController: AboutViewController, UITableViewDataSource, UI
             value.append(superscript(string: previewDetail.1, fontName: cell.value.font.fontName, size: Int(cell.value.font.pointSize)))
             value.append(NSAttributedString(string: previewDetail.2))
             cell.value!.attributedText = value
-            addTargets(key: previewDetail.0, gesture: singleTap, view: cell)
+            addTargets(key: previewDetail.0, gesture: singleTap, view: cell.field!)
         } else if tableView == self.orbitTable {
             cell = tableView.dequeueReusableCell(withIdentifier: "orbitCell", for: indexPath as IndexPath) as! DataViewCellViewController
             let previewDetail = orbit[indexPath.row]
@@ -133,13 +133,13 @@ class DetailsAboutViewController: AboutViewController, UITableViewDataSource, UI
             value.append(superscript(string: previewDetail.1, fontName: cell.value.font.fontName, size: Int(cell.value.font.pointSize)))
             value.append(NSAttributedString(string: previewDetail.2))
             cell.value!.attributedText = value
-            addTargets(key: previewDetail.0, gesture: singleTap, view: cell)
+            addTargets(key: previewDetail.0, gesture: singleTap, view: cell.field!)
         } else {//if tableView == self.orbitTable {
             cell = tableView.dequeueReusableCell(withIdentifier: "miscCell", for: indexPath as IndexPath) as! DataViewCellViewController
             let previewDetail = misc[indexPath.row]
             cell.field!.text = previewDetail.0
             cell.value!.text = previewDetail.1
-            addTargets(key: previewDetail.0, gesture: singleTap, view: cell)
+            addTargets(key: previewDetail.0, gesture: singleTap, view: cell.field!)
         }
         if indexPath.row % 2 == 0 {
             cell.backgroundColor = UIColor.clear
@@ -154,32 +154,119 @@ class DetailsAboutViewController: AboutViewController, UITableViewDataSource, UI
     }
     
     func addTargets(key: String, gesture: UITapGestureRecognizer, view: UIView) {
+        BTBalloon.sharedInstance().hide()
         gesture.cancelsTouchesInView = false
-        print("here1")
         switch key {
         case "Mass":
-            print("here4")
             view.tag = 1
             gesture.addTarget(self, action: #selector(DetailsAboutViewController.addMass(_:)))
             view.addGestureRecognizer(gesture)
-        default:
-            print("here5")
+        case "Volume":
             view.tag = 2
             gesture.addTarget(self, action: #selector(DetailsAboutViewController.addVolume(_:)))
             view.addGestureRecognizer(gesture)
+        case "Density":
+            view.tag = 3
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            view.addGestureRecognizer(gesture)
+        case "Density":
+            view.tag = 3
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            view.addGestureRecognizer(gesture)
+        case "Density":
+            view.tag = 3
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            view.addGestureRecognizer(gesture)
+        case "Density":
+            view.tag = 3
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            view.addGestureRecognizer(gesture)
+        case "Density":
+            view.tag = 3
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            view.addGestureRecognizer(gesture)
+        case "Density":
+            view.tag = 3
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            view.addGestureRecognizer(gesture)
+        case "Density":
+            view.tag = 3
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            view.addGestureRecognizer(gesture)
+        case "Density":
+            view.tag = 3
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            view.addGestureRecognizer(gesture)
+        case "Density":
+            view.tag = 3
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            view.addGestureRecognizer(gesture)
+        case "Density":
+            view.tag = 3
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            view.addGestureRecognizer(gesture)
+        case "Density":
+            view.tag = 3
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            view.addGestureRecognizer(gesture)
+        case "Density":
+            view.tag = 3
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            view.addGestureRecognizer(gesture)
+        case "Density":
+            view.tag = 3
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            view.addGestureRecognizer(gesture)
+        case "Density":
+            view.tag = 3
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            view.addGestureRecognizer(gesture)
+        case "Density":
+            view.tag = 3
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            view.addGestureRecognizer(gesture)
+        case "Density":
+            view.tag = 3
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            view.addGestureRecognizer(gesture)
+        case "Density":
+            view.tag = 3
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            view.addGestureRecognizer(gesture)
+        case "Density":
+            view.tag = 3
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            view.addGestureRecognizer(gesture)
+        case "Density":
+            view.tag = 3
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            view.addGestureRecognizer(gesture)
+        case "Density":
+            view.tag = 3
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            view.addGestureRecognizer(gesture)
+        case "Density":
+            view.tag = 3
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            view.addGestureRecognizer(gesture)
+        default:
+            print("THERE IS AN UNHANDLED DETAILS CASE")
+            break
         }
     }
     
     func addMass(_ sender: UITapGestureRecognizer) {
-        print("here2")
-        let tip = EasyTipView(text: "mass test LOREM IPSUM DOLOR SEDET BLAH BLAH BLAH BLAH BLAH ")
-        tip.show(forView: self.view.viewWithTag(1)!)
+        
     }
     
     func addVolume(_ sender: UITapGestureRecognizer) {
-        print("here3")
-        let tip = EasyTipView(text: "volume test")
-        tip.show(forView: self.view.viewWithTag(2)!)
+
+    }
+    
+    func addDensity(_ sender: UITapGestureRecognizer) {
+        BTBalloon.sharedInstance().show(withTitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                                        image: UIImage(),
+                                        anchorTo: self.view.viewWithTag(3)!)
     }
     
 }

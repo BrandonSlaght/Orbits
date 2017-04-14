@@ -31,8 +31,6 @@
 		8488D4381E54EBCF009AD9D8 /* VolumeUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D42B1E54EBCF009AD9D8 /* VolumeUnit.swift */; };
 		8488D4391E54EBCF009AD9D8 /* VolumeUnit+Imperial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D42C1E54EBCF009AD9D8 /* VolumeUnit+Imperial.swift */; };
 		8488D43A1E54EBCF009AD9D8 /* VolumeUnit+US.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D42D1E54EBCF009AD9D8 /* VolumeUnit+US.swift */; };
-		84A6B5581E97FFFE00D0A5BA /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6B5571E97FFFE00D0A5BA /* UIKitExtensions.swift */; };
-		84A6B55A1E98000700D0A5BA /* EasyTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6B5591E98000700D0A5BA /* EasyTipView.swift */; };
 		84E044491E37D9FE00A6AAB4 /* phobos - transit.gif in Resources */ = {isa = PBXBuildFile; fileRef = 84E044481E37D9FE00A6AAB4 /* phobos - transit.gif */; };
 		C515AE611DC8E135009A498C /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C515AE601DC8E135009A498C /* TestViewController.swift */; };
 		C515AE631DC91126009A498C /* PlanetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C515AE621DC91126009A498C /* PlanetDetailViewController.swift */; };
@@ -57,6 +55,11 @@
 		C52458381DC578F1009F3374 /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52458371DC578F1009F3374 /* Planet.swift */; };
 		C524583A1DC5988D009F3374 /* Moon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52458391DC5988D009F3374 /* Moon.swift */; };
 		C524583C1DC59E0B009F3374 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = C524583B1DC59E0B009F3374 /* Types.swift */; };
+		C54A60E11EA14A74008012C6 /* BTBalloon.m in Sources */ = {isa = PBXBuildFile; fileRef = C54A60DE1EA14A74008012C6 /* BTBalloon.m */; };
+		C54A60E21EA14A74008012C6 /* BTBalloonArrow.m in Sources */ = {isa = PBXBuildFile; fileRef = C54A60E01EA14A74008012C6 /* BTBalloonArrow.m */; };
+		C54A60EC1EA14DAC008012C6 /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C54A60E41EA14DAC008012C6 /* ALView+PureLayout.m */; };
+		C54A60ED1EA14DAC008012C6 /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C54A60E61EA14DAC008012C6 /* NSArray+PureLayout.m */; };
+		C54A60EE1EA14DAC008012C6 /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C54A60E81EA14DAC008012C6 /* NSLayoutConstraint+PureLayout.m */; };
 		C54A98F91E032ED3009A8695 /* Sextant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54A98F81E032ED3009A8695 /* Sextant.swift */; };
 		C54A98FB1E032F82009A8695 /* MoonGlobeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54A98FA1E032F82009A8695 /* MoonGlobeViewController.swift */; };
 		C54A98FF1E032FE2009A8695 /* MoonsMediaAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54A98FE1E032FE2009A8695 /* MoonsMediaAboutViewController.swift */; };
@@ -125,8 +128,6 @@
 		8488D42B1E54EBCF009AD9D8 /* VolumeUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolumeUnit.swift; sourceTree = "<group>"; };
 		8488D42C1E54EBCF009AD9D8 /* VolumeUnit+Imperial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VolumeUnit+Imperial.swift"; sourceTree = "<group>"; };
 		8488D42D1E54EBCF009AD9D8 /* VolumeUnit+US.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VolumeUnit+US.swift"; sourceTree = "<group>"; };
-		84A6B5571E97FFFE00D0A5BA /* UIKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitExtensions.swift; sourceTree = "<group>"; };
-		84A6B5591E98000700D0A5BA /* EasyTipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasyTipView.swift; sourceTree = "<group>"; };
 		84E044481E37D9FE00A6AAB4 /* phobos - transit.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "phobos - transit.gif"; sourceTree = "<group>"; };
 		C515AE601DC8E135009A498C /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		C515AE621DC91126009A498C /* PlanetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetDetailViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +152,20 @@
 		C52458371DC578F1009F3374 /* Planet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
 		C52458391DC5988D009F3374 /* Moon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moon.swift; sourceTree = "<group>"; };
 		C524583B1DC59E0B009F3374 /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		C54A60D51EA1418A008012C6 /* Occupy Mars-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Occupy Mars-Bridging-Header.h"; sourceTree = "<group>"; };
+		C54A60DD1EA14A74008012C6 /* BTBalloon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTBalloon.h; sourceTree = "<group>"; };
+		C54A60DE1EA14A74008012C6 /* BTBalloon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTBalloon.m; sourceTree = "<group>"; };
+		C54A60DF1EA14A74008012C6 /* BTBalloonArrow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTBalloonArrow.h; sourceTree = "<group>"; };
+		C54A60E01EA14A74008012C6 /* BTBalloonArrow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTBalloonArrow.m; sourceTree = "<group>"; };
+		C54A60E31EA14DAC008012C6 /* ALView+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALView+PureLayout.h"; sourceTree = "<group>"; };
+		C54A60E41EA14DAC008012C6 /* ALView+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALView+PureLayout.m"; sourceTree = "<group>"; };
+		C54A60E51EA14DAC008012C6 /* NSArray+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+PureLayout.h"; sourceTree = "<group>"; };
+		C54A60E61EA14DAC008012C6 /* NSArray+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+PureLayout.m"; sourceTree = "<group>"; };
+		C54A60E71EA14DAC008012C6 /* NSLayoutConstraint+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+PureLayout.h"; sourceTree = "<group>"; };
+		C54A60E81EA14DAC008012C6 /* NSLayoutConstraint+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+PureLayout.m"; sourceTree = "<group>"; };
+		C54A60E91EA14DAC008012C6 /* PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayout.h; sourceTree = "<group>"; };
+		C54A60EA1EA14DAC008012C6 /* PureLayout+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PureLayout+Internal.h"; sourceTree = "<group>"; };
+		C54A60EB1EA14DAC008012C6 /* PureLayoutDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayoutDefines.h; sourceTree = "<group>"; };
 		C54A98F81E032ED3009A8695 /* Sextant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sextant.swift; sourceTree = "<group>"; };
 		C54A98FA1E032F82009A8695 /* MoonGlobeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonGlobeViewController.swift; sourceTree = "<group>"; };
 		C54A98FE1E032FE2009A8695 /* MoonsMediaAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonsMediaAboutViewController.swift; sourceTree = "<group>"; };
@@ -304,8 +319,20 @@
 		84A6B5561E97FFD800D0A5BA /* info */ = {
 			isa = PBXGroup;
 			children = (
-				84A6B5591E98000700D0A5BA /* EasyTipView.swift */,
-				84A6B5571E97FFFE00D0A5BA /* UIKitExtensions.swift */,
+				C54A60E31EA14DAC008012C6 /* ALView+PureLayout.h */,
+				C54A60E41EA14DAC008012C6 /* ALView+PureLayout.m */,
+				C54A60E51EA14DAC008012C6 /* NSArray+PureLayout.h */,
+				C54A60E61EA14DAC008012C6 /* NSArray+PureLayout.m */,
+				C54A60E71EA14DAC008012C6 /* NSLayoutConstraint+PureLayout.h */,
+				C54A60E81EA14DAC008012C6 /* NSLayoutConstraint+PureLayout.m */,
+				C54A60E91EA14DAC008012C6 /* PureLayout.h */,
+				C54A60EA1EA14DAC008012C6 /* PureLayout+Internal.h */,
+				C54A60EB1EA14DAC008012C6 /* PureLayoutDefines.h */,
+				C54A60DD1EA14A74008012C6 /* BTBalloon.h */,
+				C54A60DE1EA14A74008012C6 /* BTBalloon.m */,
+				C54A60DF1EA14A74008012C6 /* BTBalloonArrow.h */,
+				C54A60E01EA14A74008012C6 /* BTBalloonArrow.m */,
+				C54A60D51EA1418A008012C6 /* Occupy Mars-Bridging-Header.h */,
 			);
 			name = info;
 			sourceTree = "<group>";
@@ -515,7 +542,7 @@
 					C5941BCF1DBBFD940057A46A = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 98PHYR992B;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -589,8 +616,8 @@
 				C515AE611DC8E135009A498C /* TestViewController.swift in Sources */,
 				C520FB451DFC928C004A0FE6 /* SKPagingScrollView.swift in Sources */,
 				C520FB3C1DFC928C004A0FE6 /* SKButtons.swift in Sources */,
+				C54A60E11EA14A74008012C6 /* BTBalloon.m in Sources */,
 				8488D4371E54EBCF009AD9D8 /* Unit.swift in Sources */,
-				84A6B55A1E98000700D0A5BA /* EasyTipView.swift in Sources */,
 				C520FB491DFC928C004A0FE6 /* SKPhotoBrowserDelegate.swift in Sources */,
 				8488D43A1E54EBCF009AD9D8 /* VolumeUnit+US.swift in Sources */,
 				C597D2D41E01E287006B6D6C /* MoonDetailViewController.swift in Sources */,
@@ -604,8 +631,8 @@
 				C54A99031E033013009A8695 /* MoonDetailsAboutViewController.swift in Sources */,
 				C520FB441DFC928C004A0FE6 /* SKMesurement.swift in Sources */,
 				C520FB3F1DFC928C004A0FE6 /* SKCaptionView.swift in Sources */,
+				C54A60ED1EA14DAC008012C6 /* NSArray+PureLayout.m in Sources */,
 				C520FB481DFC928C004A0FE6 /* SKPhotoBrowser.swift in Sources */,
-				84A6B5581E97FFFE00D0A5BA /* UIKitExtensions.swift in Sources */,
 				C5AEC3F91DCE77FA00992AEB /* MediaAboutViewController.swift in Sources */,
 				C5D515B81DE106400024638D /* InfoModalVewController.swift in Sources */,
 				C5AEC3FD1DCE7D0400992AEB /* MoonCell.swift in Sources */,
@@ -617,9 +644,12 @@
 				C520FB4B1DFC928C004A0FE6 /* SKToolbar.swift in Sources */,
 				8488D4351E54EBCF009AD9D8 /* Quantity.swift in Sources */,
 				C54A98FB1E032F82009A8695 /* MoonGlobeViewController.swift in Sources */,
+				C54A60E21EA14A74008012C6 /* BTBalloonArrow.m in Sources */,
 				C5991A3E1DD9738200A86F04 /* WaterfallLayout.swift in Sources */,
 				C5C24C811DC68DA10028FAF5 /* Objects.swift in Sources */,
+				C54A60EE1EA14DAC008012C6 /* NSLayoutConstraint+PureLayout.m in Sources */,
 				8488D4311E54EBCF009AD9D8 /* LengthUnit.swift in Sources */,
+				C54A60EC1EA14DAC008012C6 /* ALView+PureLayout.m in Sources */,
 				C54A99051E0333C8009A8695 /* MoonsAboutViewController.swift in Sources */,
 				C524583A1DC5988D009F3374 /* Moon.swift in Sources */,
 				C520FB421DFC928C004A0FE6 /* SKIndicatorView.swift in Sources */,
@@ -773,7 +803,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = orbitals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Occupy Mars/Occupy Mars-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -792,7 +822,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = orbitals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Occupy Mars/Occupy Mars-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

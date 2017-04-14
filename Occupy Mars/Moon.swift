@@ -258,17 +258,17 @@ class Moon {
             }
             material.diffuse.mipFilter = SCNFilterMode.linear
             
-            if (ProcessInfo.processInfo.physicalMemory/1024/1024 > 1536) {
-                if let let_normalmap = normalmap {
-                    if size == Size.small {
-                        //material.normal.contents = UIImage(named: String(let_normalmap.characters.dropLast(4)) + " - thumbnail.jpg")!
-                    } else {
-                        material.normal.contents = resizeImage(UIImage(named: let_normalmap)!, newHeight: CGFloat(size.rawValue))
-                    }
-                }
-            } else {
-                print("device has less than a giga and a half of memory, ignoring normal map")
-            }
+//            if (ProcessInfo.processInfo.physicalMemory/1024/1024 > 1536) {
+//                if let let_normalmap = normalmap {
+//                    if size == Size.small {
+//                        //material.normal.contents = UIImage(named: String(let_normalmap.characters.dropLast(4)) + " - thumbnail.jpg")!
+//                    } else {
+//                        material.normal.contents = resizeImage(UIImage(named: let_normalmap)!, newHeight: CGFloat(size.rawValue))
+//                    }
+//                }
+//            } else {
+//                print("device has less than a giga and a half of memory, ignoring normal map")
+//            }
             
             planet.materials = [material]
             let planetNode = SCNNode(geometry: planet)

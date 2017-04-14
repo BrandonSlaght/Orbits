@@ -21,6 +21,7 @@ class PlanetDetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var globeButton: UIButton!
     @IBAction func indexChanged(_ sender: UISegmentedControl)
     {
+        BTBalloon.sharedInstance().hide()
         if let vc = getDetailViewController(sender.selectedSegmentIndex) {
             vc.view.translatesAutoresizingMaskIntoConstraints = false
             self.cycleFromViewController(oldViewController: self.currentViewController!, toViewController: vc)
@@ -85,6 +86,13 @@ class PlanetDetailViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         
         scrollView.delegate = self
+        
+        let singleTap = UITapGestureRecognizer()
+        singleTap.numberOfTapsRequired = 1
+        singleTap.numberOfTouchesRequired = 1
+        singleTap.cancelsTouchesInView = false;
+        singleTap.addTarget(self, action: #selector(PlanetDetailViewController.hide(_:)))
+        self.view.addGestureRecognizer(singleTap)
 
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
         let blurView = UIVisualEffectView(effect: blurEffect)
@@ -155,6 +163,10 @@ class PlanetDetailViewController: UIViewController, UIScrollViewDelegate {
 //        tabs.layer.zPosition = 2
     }
     
+    func hide(_ sender: UITapGestureRecognizer) {
+        BTBalloon.sharedInstance().hide()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         barColor = navigationController?.navigationBar.barTintColor
         if let let_color = planet.color1 {
@@ -165,6 +177,7 @@ class PlanetDetailViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.navigationBar.barTintColor = barColor
+        BTBalloon.sharedInstance().hide()
     }
     
     override func didReceiveMemoryWarning() {
@@ -220,6 +233,7 @@ class PlanetDetailViewController: UIViewController, UIScrollViewDelegate {
                 print("larger")
             }
         }
+        BTBalloon.sharedInstance().hide()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -229,6 +243,7 @@ class PlanetDetailViewController: UIViewController, UIScrollViewDelegate {
         } else {
             segue.destination.view.translatesAutoresizingMaskIntoConstraints = false
         }
+        BTBalloon.sharedInstance().hide()
     }
 }
 
