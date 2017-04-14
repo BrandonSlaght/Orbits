@@ -9,6 +9,11 @@
   <unit meter="1.000000"/>
   <up_axis>Z_UP</up_axis>
  </asset>
+ <library_images>
+  <image id="image1">
+   <init_from>epimetheusmap.jpg</init_from>
+  </image>
+ </library_images>
  <library_materials>
   <material id="Material_001-material" name="Material_001">
    <instance_effect url="#effect_Material_001-material"/>
@@ -16,20 +21,29 @@
  </library_materials>
  <library_effects>
   <effect id="effect_Material_001-material">
-   <profile_COMMON>
+<profile_COMMON>
+    <newparam sid="ID2_image1_surface">
+     <surface type="2D">
+      <init_from>image1</init_from>
+     </surface>
+    </newparam>
+    <newparam sid="ID2_image1">
+     <sampler2D>
+      <source>ID2_image1_surface</source>
+      <wrap_s>CLAMP</wrap_s>
+      <wrap_t>CLAMP</wrap_t>
+      <minfilter>LINEAR</minfilter>
+      <magfilter>LINEAR</magfilter>
+      <mipfilter>NONE</mipfilter>
+     </sampler2D>
+    </newparam>
     <technique sid="common">
-     <phong>
-      <ambient>
-       <color>0 0 0 1</color>
-      </ambient>
+     <blinn>
       <diffuse>
-       <color>0.64 0.64 0.64 1</color>
+       <texture texture="ID2_image1" texcoord="CHANNEL2"/>
       </diffuse>
-      <specular>
-       <color>0.5 0.5 0.5 1</color>
-      </specular>
       <shininess>
-       <float>50</float>
+       <float>0.022516</float>
       </shininess>
       <transparency>
        <float>1</float>
@@ -37,7 +51,7 @@
       <index_of_refraction>
        <float>1</float>
       </index_of_refraction>
-     </phong>
+     </blinn>
     </technique>
    </profile_COMMON>
    <extra>

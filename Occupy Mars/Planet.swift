@@ -95,6 +95,17 @@ class Planet {
         color1: UIColor?,
         color2: UIColor?
     
+    //--------------------------------------------orbital elements
+    
+    var a: Double?, //Mean distance, or semi-major axis
+        e: Double?, //Eccentricity
+        T: Double?, //Time at perihelion
+        i: Double?, //Inclination, i.e. the "tilt" of the orbit relative to the ecliptic.  The inclination varies from 0 to 180 degrees. If the inclination is larger than 90 degrees, the planet is in a retrogade orbit, i.e. it moves "backwards".
+        N: Double?, //Longitude of Ascending Node. This is the angle, along the ecliptic, from the Vernal Point to the Ascending Node, which is the intersection between the orbit and the ecliptic, where the planet moves from south of to north of the ecliptic, i.e. from negative to positive latitudes.
+        w: Double?,  //The angle from the Ascending node to the Perihelion, along the orbit.
+        m: Double?, //Solar mass of the planet
+        M1: Double? //mean anomaly
+    
     //--------------------------------------------initializers
     
     init(name: String,
@@ -422,30 +433,78 @@ class Planet {
         return "Visible Tonight"
     }
     
-    func getVisibility() {//-> (NSDate, NSDate) {
-        let s = Sextant(N: 125.1228 - 0.0529538083 * Double(formattedTimeSinceEpoch()),
-                            i: 5.1454,
-                            w: 318.0634 + 0.1643573223 * Double(formattedTimeSinceEpoch()),
-                            a: 60.2666,
-                            e: 0.054900,
-                            M: 115.3654 + 13.0649929509 * Double(formattedTimeSinceEpoch()))
-        print(s.getPosition())
+    func getVisibility() {
+        print("__________________")
+        self.w = 282.9404 + (0.000047093 * formattedTimeSinceEpoch())
+        self.a = 1.000000
+        self.e = 0.016709 - (0.000000001151 * formattedTimeSinceEpoch())
+        self.M1 = 356.0470 + (0.9856002585 * formattedTimeSinceEpoch())
+        self.m = 1
+        self.i = inclination!
+        self.N = 0
+        let s = Sextant(p: self)
+        print(w)
+        print(a)
+        print(e)
+        print(M1)
+        print(m)
+        print(i)
+        print(N)
+        print("__________________")
+        //-> (NSDate, NSDate) {
+//        let s = Sextant(N: 125.1228 - 0.0529538083 * Double(formattedTimeSinceEpoch()),
+//                            i: 5.1454,
+//                            w: 318.0634 + 0.1643573223 * Double(formattedTimeSinceEpoch()),
+//                            a: 60.2666,
+//                            e: 0.054900,
+//                            M: 115.3654 + 13.0649929509 * Double(formattedTimeSinceEpoch()))
+        s.getPosition()
     }
     
-    func formattedTimeSinceEpoch() -> Int { //y, m, d,
+    func formattedTimeSinceEpoch() -> Double { //y, m, d,
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd HH:mm"
         let epochTime = formatter.date(from: "2000/1/01 00:00")
         
-        let currentTime = Date()
+        //let currentTime = Date()
+        let currentTime = formatter.date(from: "1990/4/19 00:00")
         
-        let y = Calendar.current.dateComponents([.year], from: epochTime!, to: currentTime).year!
-        let m = Calendar.current.dateComponents([.month], from: epochTime!, to: currentTime).month!
-        let D = Calendar.current.dateComponents([.day], from: epochTime!, to: currentTime).day!
-        let h = Calendar.current.dateComponents([.hour], from: epochTime!, to: currentTime).hour!
+        let components = Calendar.current.dateComponents([.year, .month, .day, .hour], from: currentTime!)
+        print("---------------------------")
+        let y = components.year!
+        let m = components.month!
+        let D = components.day!
+        let h = components.hour!
         
-        return (367*y - 7 * ( y + (m+9)/12 ) / 4 + 275*m/9 + D - 730530) + h/24
+        print(y)
+        print(m)
+        print(D)
+        print(h)
+        
+        //let y = Calendar.current.dateComponents([.year], from: epochTime!, to: currentTime!).year!
+        //let m = Calendar.current.dateComponents([.month], from: epochTime!, to: currentTime!).month!
+        //let D = Calendar.current.dateComponents([.day], from: epochTime!, to: currentTime!).day!
+        //let h = Calendar.current.dateComponents([.hour], from: epochTime!, to: currentTime!).hour!
+        
+        let zero = Int(367 * y)
+        let one = Int((7 * (y + Int((m + 9) / 12))) / 4)
+        //let one = Int((y + Int((m + 9) / 12)) / 4)
+        let two = Int((275 * m) / 9)
+        let three = Double(D - 730530 + h / 24)
+        let four = Double(Double(two) - Double(one) + three)
+        
+        print(zero)
+        print(one)
+        print(two)
+        print(three)
+        print(four)
+        
+        print(Double(zero) + four)
+        
+        print("--------------------------")
+        
+        return Double(zero) + four
     }
     
     func resizeImage(_ image: UIImage, newHeight: CGFloat) -> UIImage {
