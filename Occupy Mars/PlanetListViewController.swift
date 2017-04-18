@@ -29,6 +29,8 @@ class PlanetListViewController: UITableViewController {
         tableView.separatorEffect = UIVibrancyEffect(blurEffect: blurView.effect as! UIBlurEffect)
         tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableViewAutomaticDimension
+        let appDefaults = [String:AnyObject]()
+        UserDefaults.standard.register(defaults: appDefaults)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -52,6 +54,8 @@ class PlanetListViewController: UITableViewController {
         cell.classification?.text = planet.type.rawValue
         if (cell.sceneView != nil) {
             cell.sceneView.scene = planet.getScene(size: Size.small)
+            cell.sceneView.isPlaying = true
+            cell.sceneView.antialiasingMode = .multisampling4X
         }
         if (planet.getScene(size: Size.small) == nil) {
             print(planet.name + "is nil modeled")

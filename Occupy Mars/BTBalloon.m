@@ -29,7 +29,7 @@ typedef NS_ENUM(NSInteger, BTBalloonArrowPosition) {
 };
 
 
-static CGFloat const arrowWidth = 20.0f;
+static CGFloat const arrowWidth = 10.0f;
 static CGFloat const arrowHeight = 10.0f;
 static CGFloat const margin = 5.0f;
 
@@ -83,7 +83,7 @@ static CGFloat const margin = 5.0f;
         _buttonFont = [UIFont systemFontOfSize:16.0f];
         _buttonTextColor = [UIColor whiteColor];
         _buttonBackgroundColor = [UIColor blueColor];
-        _balloonBackgroundColor = [UIColor colorWithWhite:0 alpha:0.85f];
+        _balloonBackgroundColor = [UIColor colorWithWhite:0 alpha:1.0f];
         _textFont = [UIFont systemFontOfSize:16.0f];
         _textColor = [UIColor whiteColor];
         
@@ -150,7 +150,34 @@ static CGFloat const margin = 5.0f;
     // add arrow view
     self.arrowView = [[BTBalloonArrow alloc] initWithFrame:CGRectZero];
     self.arrowView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.arrowView.backgroundColor = [UIColor clearColor];
+    
+//    //blurry background
+//    self.arrowView.backgroundColor = [UIColor clearColor];
+//    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleRegular];
+//    UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+//    blurEffectView.frame = self.arrowView.bounds;
+//    blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+//    blurEffectView.clipsToBounds = YES;
+//    
+//    UIView *maskView = [[UIView alloc] initWithFrame:blurEffectView.frame];
+//    maskView.clipsToBounds = true;
+//    maskView.backgroundColor = [UIColor clearColor];
+//    
+//    UIBezierPath *outerbezierPath = [UIBezierPath bezierPathWithRoundedRect:blurEffectView.bounds cornerRadius:0];  //init(roundedRect: blurView.bounds, cornerRadius: 0)
+//    CGRect rect = blurEffectView.frame; //CGRect(x: 150, y: 150, width: 100, height: 100)
+//    UIBezierPath *innerCirclepath = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius: blurEffectView.bounds.size.height / 2];
+//    [outerbezierPath appendPath:innerCirclepath];
+//    outerbezierPath.usesEvenOddFillRule = YES;
+//    
+//    CAShapeLayer *fillLayer = [[CAShapeLayer alloc] init];
+//    fillLayer.fillRule = kCAFillRuleEvenOdd;
+//    fillLayer.fillColor = [[UIColor greenColor] CGColor];
+//    fillLayer.path = outerbezierPath.CGPath;
+//    [maskView.layer addSublayer:fillLayer];
+//    
+//    blurEffectView.maskView = maskView;
+//    
+//    [self.arrowView addSubview:blurEffectView];
     self.arrowView.opaque = NO;
     self.arrowView.fillColour = self.balloonBackgroundColor;
     [self addSubview:self.arrowView];
@@ -177,13 +204,32 @@ static CGFloat const margin = 5.0f;
     [self addConstraint:arrowTopConstraint];
 }
 
+- (void)handleTap:(UITapGestureRecognizer *)recognizer
+{
+    [self hide];
+}
 
 - (void)addBalloonView
 {
+    //gesture recognizer for balloon view
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc]initWithTarget:self                                                                            action:@selector(handleTap:)];
+    
     // add balloon view
     self.balloonView = [[UIView alloc] initWithFrame:CGRectZero];
     self.balloonView.translatesAutoresizingMaskIntoConstraints = NO;
     self.balloonView.backgroundColor = self.balloonBackgroundColor;
+    self.balloonView.layer.cornerRadius = 5;
+    
+    //blurry background
+//    self.balloonView.backgroundColor = [UIColor clearColor];
+//    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleRegular];
+//    UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+//    blurEffectView.frame = self.balloonView.bounds;
+//    blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+//    blurEffectView.layer.cornerRadius = 5;
+//    
+//    [self.balloonView addSubview:blurEffectView];
+    [self.balloonView addGestureRecognizer:singleTap];
     [self addSubview:self.balloonView];
     [self.balloonView autoPinEdgeToSuperviewEdge:ALEdgeLeading];
     [self.balloonView autoPinEdgeToSuperviewEdge:ALEdgeTrailing];
@@ -366,7 +412,7 @@ static CGFloat const margin = 5.0f;
     // update label
     self.label.text = title;
     [self.balloonView addSubview:self.label];
-    [self.balloonView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(10)-[label]-(10)-|" options:0 metrics:nil views:@{@"label": self.label}]];
+    [self.balloonView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(5)-[label]-(5)-|" options:0 metrics:nil views:@{@"label": self.label}]];
 
     // add image
     if (image) {
@@ -377,13 +423,13 @@ static CGFloat const margin = 5.0f;
         [self.balloonView addSubview:self.imageView];
         
         // add constraints
-        [self.balloonView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(10)-[image]-(10)-|" options:0 metrics:nil views:viewsDictionary]];
-        [self.balloonView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(10)-[image]-(10)-[label]" options:0 metrics:nil views:viewsDictionary]];
+        [self.balloonView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(3)-[image]-(3)-|" options:0 metrics:nil views:viewsDictionary]];
+        [self.balloonView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(3)-[image]-(3)-[label]" options:0 metrics:nil views:viewsDictionary]];
         
     } else {
         
         // add constraints
-        [self.balloonView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(10)-[label]" options:0 metrics:nil views:@{@"label": self.label}]];
+        [self.balloonView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(3)-[label]" options:0 metrics:nil views:@{@"label": self.label}]];
     }
     
     // add button
@@ -396,12 +442,12 @@ static CGFloat const margin = 5.0f;
         [self.balloonView addSubview:self.button];
         
         // add constraints
-        [self.balloonView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(10)-[button]-(10)-|" options:0 metrics:nil views:viewsDictionary]];
-        [self.balloonView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[label]-(10)-[button]-(10)-|" options:0 metrics:nil views:viewsDictionary]];
+        [self.balloonView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(5)-[button]-(5)-|" options:0 metrics:nil views:viewsDictionary]];
+        [self.balloonView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[label]-(5)-[button]-(5)-|" options:0 metrics:nil views:viewsDictionary]];
         
     } else {
         // add constraints
-        [self.balloonView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[label]-(10)-|" options:0 metrics:nil views:@{@"label": self.label}]];
+        [self.balloonView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[label]-(5)-|" options:0 metrics:nil views:@{@"label": self.label}]];
     }
 
     [self.balloonView layoutIfNeeded];

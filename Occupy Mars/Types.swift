@@ -18,10 +18,10 @@ enum Type : String {
 enum Class : String {
     case Major = "Planets"
     case Dwarf = "Dwarf Planets"
-    //case Other = "Other"
+    case Other = "Other"
     
-    static var count: Int { return Class.Dwarf.hashValue + 1}
-    static let allValues = [Major, Dwarf]//, Other]
+    static var count: Int { return Class.Other.hashValue + 1}
+    static let allValues = [Major, Dwarf, Other]
 }
 
 enum Size : Int {

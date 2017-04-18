@@ -16,21 +16,33 @@ class Sextant: NSObject {
     
     var a: Double,
         e: Double,
-        //T1: Double,
+     //T1: Double,
         i: Double,
-        N1: Double,
+       N1: Double,
         w: Double,
-        M1: Double,
+       M1: Double,
         q: Double,
-        Q1: Double,
-        P1: Double,
+       Q1: Double,
+       P1: Double,
         n: Double,
-        //t: Double,
-        L1: Double,
-        E1: Double,
+      //t: Double,
+       L1: Double,
+       E1: Double,
         v: Double,
         r: Double,
-        m: Double
+        m: Double,
+        x: Double,
+        y: Double,
+      lon: Double,
+       x1: Double,
+       y1: Double,
+       z1: Double,
+   xequat: Double,
+   yequat: Double,
+   zequat: Double,
+       r1: Double,
+       RA: Double,
+     Decl: Double
     
     init(p: Planet) {
         self.a = p.a!
@@ -64,11 +76,26 @@ class Sextant: NSObject {
         //    E1 = E0 - ( E0 - e*(180/Double.pi) * sin(E0) - M1 ) / ( 1 - e * cos(E0) )
         //}
         
-        var x = __cospi(E1 / 180.0) - e
-        var y = __sinpi(E1 / 180.0) * sqrt(1 - e * e)
+        x = __cospi(E1 / 180.0) - e
+        y = __sinpi(E1 / 180.0) * sqrt(1 - e * e)
         
         r = sqrt(x * x + y * y)
-        v = atan2(y, x)
+        v = atan2(y / 180.0, x / 180.0) * (180.0 / Double.pi)
+        
+        lon = v + w
+        lon = lon.truncatingRemainder(dividingBy: 360.0)
+        
+        x1 = r * __cospi(lon / 180.0)
+        y1 = r * __sinpi(lon / 180.0)
+        z1 = 0.0
+        
+        xequat = x1
+        yequat = y1 * __cospi(23.4406 / 180.0) - z1 * __sinpi(23.4406 / 180.0)
+        zequat = y1 * __sinpi(23.4406 / 180.0) + z1 * __cospi(23.4406 / 180.0)
+        
+        r1 = sqrt(xequat * xequat + yequat * yequat + zequat * zequat)
+        RA = atan2(yequat / 180.0, xequat / 180.0) * (180.0 / Double.pi)
+        Decl = atan2(zequat / 180, sqrt(xequat * xequat + yequat * yequat) / 180)
     }
     
     func sin(degrees: Double) -> Double {
@@ -90,21 +117,16 @@ class Sextant: NSObject {
         print(a) //good
         print(e) //good
         print(M1) //good
-        M1 = rev(x: M1)
         print(M1) //good
         print(N1) //good
-        print(M1 + w + N1) //good
-        print(370.0.truncatingRemainder(dividingBy: 360.0)) //good
-        print((M1 + w + N1).truncatingRemainder(dividingBy: 360.0)) //good
         print(L1)  //good
         print("-------E HERE -------")
         print(E1) //good
-        var lon = v + w
-        print(cos(degrees: E1) - e) //good
-        print(sin(degrees: E1) * sqrt(1 - e * e)) //good
+        print(x) //good
+        print(y) //good
         print(r) //good
-        print(v)
-        print(lon)
+        print(v) //good
+        print(lon) //good
         print("===================")
     }
     

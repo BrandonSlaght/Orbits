@@ -111,6 +111,8 @@ class MoonDetailViewController: UIViewController, UIScrollViewDelegate  {
         
         if let let_scene = moon.getScene(size: Size.medium) {
             scene.scene = let_scene
+            scene.isPlaying = true
+            scene.antialiasingMode = .multisampling4X
         } else {
             globeButton.isHidden = true
             sceneHeight.constant = 0
@@ -128,14 +130,6 @@ class MoonDetailViewController: UIViewController, UIScrollViewDelegate  {
         }
 
         insideView.bringSubview(toFront: tabHolder)
-        
-//        scrollView.bringSubview(toFront: tabHolder)
-//        
-//        view.bringSubview(toFront: tabHolder)
-//        tabHolder.bringSubview(toFront: tabs)
-//        
-//        tabHolder.layer.zPosition = 1
-//        tabs.layer.zPosition = 2
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -143,7 +137,9 @@ class MoonDetailViewController: UIViewController, UIScrollViewDelegate  {
         if let let_color = moon.color1 {
             self.navigationController?.navigationBar.barTintColor =  let_color
         }
-        navigationBarOriginalOffset = tabHolder.frame.origin.y
+        if (navigationBarOriginalOffset == nil) {
+            navigationBarOriginalOffset = tabHolder.frame.origin.y
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {

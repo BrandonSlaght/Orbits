@@ -42,6 +42,9 @@ DONE - handle 2 of Saturn's moons in the same position (eg 7a, 7b, 7c)
 DONE - higher res map of ceres
 DONE - epimetheus model/texture
 DONE - fix table dividers in planet and moon tables
+DONE - add Sun
+DONE - metric/imperial setting
+DONE - info modals for each of the detail categories
 ---------------------------------------------------------------------------------------------------------------------
 Fix navbar bugs when transitioning into and out of globe view (swiping from side or pressing back button)
 Fix scrolling in the globe view - when double tapping or tapping and holding
@@ -58,12 +61,23 @@ do visibility
 fix janus model fuckery
 low res thumbnails of models
 smooth shading of models
-metric/imperial setting
 units inline in text to enable conversion
 pronunciations
-info modals for each of the detail categories
-add Sun
 fix constraints not always applying in details
 actual polymorphism and inheritance
 make the sticky tab bar be animated and blurry and also make the navbar blurry
 add a whats new section and popup
+add sun model
+atmosphere details section
+
+
+CHANGELOG:
+1.2:
+Fixed some of the crashes in the globe view controller
+added floating tabs
+added tooltip popups
+added settings to change between standard and simplified units
+added oberon partial map
+added epimetheus model
+added sun
+

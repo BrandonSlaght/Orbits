@@ -124,7 +124,7 @@ class Objects {
                          total_mass: 480000000.petagram())
         
         
-        Venus.misc(discovered: "Prehistoric Times")
+        Venus.misc(discovered: "Ancient Times")
         
         Venus.display(texture: "venusmap.jpg",
                       model: nil,
@@ -2650,9 +2650,52 @@ class Objects {
         
         //----------------------------------------------------------------------------------------------
         
+        let Sun = Planet(name: "Sun",
+                         type: Type.Star,
+                         position: 0,
+                         classification: Class.Other)
         
+        Sun.about(description: "The Sun is the star at the center of the Solar System. It is a nearly perfect sphere of hot plasma, with internal convective motion that generates a magnetic field via a dynamo process. It is by far the most important source of energy for life on Earth. Its diameter is about 109 times that of Earth, and its mass is about 330,000 times that of Earth, accounting for about 99.86% of the total mass of the Solar System. About three quarters of the Sun's mass consists of hydrogen (~73%); the rest is mostly helium (~25%), with much smaller quantities of heavier elements, including oxygen, carbon, neon, and iron.\n\nThe Sun is a G-type main-sequence star (G2V) based on its spectral class, and is informally referred to as a yellow dwarf. It formed approximately 4.6 billion years ago from the gravitational collapse of matter within a region of a large molecular cloud. Most of this matter gathered in the center, whereas the rest flattened into an orbiting disk that became the Solar System. The central mass became so hot and dense that it eventually initiated nuclear fusion in its core. It is thought that almost all stars form by this process.\n\nThe Sun is roughly middle-aged; it has not changed dramatically for more than four billion years, and will remain fairly stable for more than another five billion years. After hydrogen fusion in its core has diminished to the point at which it is no longer in hydrostatic equilibrium, the core of the Sun will experience a marked increase in density and temperature while its outer layers expand to eventually become a red giant. It is calculated that the Sun will become sufficiently large to engulf the current orbits of Mercury, Venus, and probably Earth.\n\nThe enormous effect of the Sun on Earth has been recognized since prehistoric times, and the Sun has been regarded by some cultures as a deity. The synodic rotation of Earth and its orbit around the Sun are the basis of the solar calendar, which is the predominant calendar in use today.",
+                  wiki: "https://en.wikipedia.org/wiki/Sun",
+                  nasa: "https://solarsystem.nasa.gov/planets/sun")
         
-        return [Class.Major: [Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune], Class.Dwarf: [Ceres, Pluto, Haumea, Makemake, Eris]]
+        Sun.geology(mass: 1988550000000.zettagram(),
+                    volume: 1410000000.terameter(),
+                    equatorial: 695700.kilometer(),
+                    density: 1408.kilogram(),
+                    gravity: 274.meter(),
+                    escape_velocity: 617.7.kilometer(),
+                    irradiance: nil,
+                    geographic_height_variance: nil)
+        
+        Sun.orbitals(year_length: nil,
+                     perihelion: nil,
+                     aphelion: nil,
+                     velocity: nil,
+                     inclination: 0.0,
+                     eccentricity: nil,
+                     day_length: 25.05.day(),
+                     equator_inclination: 7.25,
+                     min_distance_from_earth: 146000000.kilometer(),
+                     max_distance_from_earth: 152000000.kilometer())
+        
+        Sun.atmosphere(surface_pressure: 0.000868,
+                       average_temperature: 5772,
+                       total_mass: nil)
+        
+        Sun.colors(background: "sunsurface.jpg",
+                   color1: "6C1605",
+                   color2: "F9B243")
+        
+        Sun.images = [
+            ("sun - cme.jpg", "Eruptions of mass from the Sun, called coronal mass ejections, are sometimes strong enough to overwhelm Earth's magnetic field and affect electronics on the surface."),
+            ("sun - set.jpg", "A sunset on Mars.  Mar's atmosphere filters different wavelengths of light than Earth's, giving the Sun a different color."),
+            ("sun - loop.jpg", "Loops in the corona of the sun can span up to 30 times Earth's diameter."),
+            ("sun - spot.jpg", "Sunspots are areas of the surface that are temporaraly cooler than normal.  Some of them, like this one, can be larger than Earth."),
+            ("sun - flare.jpg", "Filaments of plasma connect regions of the sun with different magnetic polarity."),
+            ("sun - venus.jpg", "A rare transit of Venus in front of the Sun.")]
+        
+        return [Class.Major: [Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune], Class.Dwarf: [Ceres, Pluto, Haumea, Makemake, Eris], Class.Other: [Sun]]
     }
     
     static func itemsInSection(_ section: Int) -> Int {

@@ -12,6 +12,11 @@ import SceneKit
 // notes: use metric and kelvin
 
 class Moon {
+    
+    //--------------------------------------------settings
+    
+    let defaults = UserDefaults.standard
+    
     //--------------------------------------------meta
     
     var hasDetails = false
@@ -259,13 +264,13 @@ class Moon {
             material.diffuse.mipFilter = SCNFilterMode.linear
             
 //            if (ProcessInfo.processInfo.physicalMemory/1024/1024 > 1536) {
-//                if let let_normalmap = normalmap {
-//                    if size == Size.small {
-//                        //material.normal.contents = UIImage(named: String(let_normalmap.characters.dropLast(4)) + " - thumbnail.jpg")!
-//                    } else {
-//                        material.normal.contents = resizeImage(UIImage(named: let_normalmap)!, newHeight: CGFloat(size.rawValue))
-//                    }
-//                }
+                if let let_normalmap = normalmap {
+                    if size == Size.small {
+                        //material.normal.contents = UIImage(named: String(let_normalmap.characters.dropLast(4)) + " - thumbnail.jpg")!
+                    } else {
+                        material.normal.contents = resizeImage(UIImage(named: let_normalmap)!, newHeight: CGFloat(size.rawValue))
+                    }
+                }
 //            } else {
 //                print("device has less than a giga and a half of memory, ignoring normal map")
 //            }
@@ -387,31 +392,61 @@ class Moon {
     func generateGeologyObjects() -> [(String, String, String)] {
         var ret = [(String, String, String)]()
         
-        if mass != nil{
-            ret.append(("Mass", toScientificNotation(value: mass!.converted(MassUnit.kilogram).rounded(7).amount), " kg"))
-        }
-        if volume != nil{
-            ret.append(("Volume", toScientificNotation(value: volume!.converted(LengthUnit.kilometer).rounded(7).amount), " km³"))
-        }
-        if density != nil{
-            ret.append(("Density", toScientificNotation(value: density!.converted(MassUnit.kilogram).rounded(7).amount), " kg/m³"))
-        }
-        if equatorial != nil{
-            ret.append(("Radius", toScientificNotation(value: equatorial!.converted(LengthUnit.kilometer).rounded(7).amount), " km"))
-        }
-        if gravity != nil{
-            ret.append(("Gravity", toScientificNotation(value: gravity!.converted(LengthUnit.meter).rounded(7).amount), " m/s²"))
-        }
-        if escape_velocity != nil{
-            ret.append(("Escape Velocity", toScientificNotation(value: escape_velocity!.converted(LengthUnit.kilometer).rounded(7).amount), " km/s"))
-        }
-        if irradiance != nil{
-            ret.append(("Irradiance", String(describing: irradiance!), " W/m²"))
-        }
-        if geographic_height_variance != nil{
-            ret.append(("Height Variance", toScientificNotation(value: geographic_height_variance!.converted(LengthUnit.kilometer).rounded(7).amount), " km"))
-        }
+        let scale: Int16 = 6
+        let behavior = NSDecimalNumberHandler(roundingMode: .plain, scale: scale, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: true)
         
+        if (defaults.bool(forKey: "useImperial")) {
+            if mass != nil{
+                ret.append(("Mass", toScientificNotation(value: mass!.converted(MassUnit.pound).rounded(6).amount), " lb"))
+            }
+            if volume != nil{
+                ret.append(("Volume", toScientificNotation(value: volume!.converted(LengthUnit.mile).rounded(6).amount), " mi³"))
+            }
+            if density != nil{
+                ret.append(("Density", toScientificNotation(value: density!.converted(MassUnit.kilogram).amount.dividing(by:16.02).rounding(accordingToBehavior: behavior)), " lb/ft³"))  //THIS ONE IS SPECIAL
+            }
+            if equatorial != nil{
+                ret.append(("Radius", toScientificNotation(value: equatorial!.converted(LengthUnit.mile).rounded(6).amount), " mi"))
+            }
+            if gravity != nil{
+                ret.append(("Gravity", toScientificNotation(value: gravity!.converted(LengthUnit.foot).rounded(6).amount), " ft/s²"))
+            }
+            if escape_velocity != nil{
+                ret.append(("Escape Velocity", toScientificNotation(value: escape_velocity!.converted(LengthUnit.mile).rounded(6).amount), " mi/s"))
+            }
+            if irradiance != nil{
+                let value = NSDecimalNumber.init(value: irradiance!/10.7639105)
+                ret.append(("Irradiance", String(describing: value.rounding(accordingToBehavior: behavior)), " W/ft²"))
+            }
+            if geographic_height_variance != nil{
+                ret.append(("Height Variance", toScientificNotation(value: geographic_height_variance!.converted(LengthUnit.mile).rounded(6).amount), " mi"))
+            }
+        } else {
+            if mass != nil{
+                ret.append(("Mass", toScientificNotation(value: mass!.converted(MassUnit.kilogram).rounded(6).amount), " kg"))
+            }
+            if volume != nil{
+                ret.append(("Volume", toScientificNotation(value: volume!.converted(LengthUnit.kilometer).rounded(6).amount), " km³"))
+            }
+            if density != nil{
+                ret.append(("Density", toScientificNotation(value: density!.converted(MassUnit.kilogram).rounded(6).amount), " kg/m³"))
+            }
+            if equatorial != nil{
+                ret.append(("Radius", toScientificNotation(value: equatorial!.converted(LengthUnit.kilometer).rounded(6).amount), " km"))
+            }
+            if gravity != nil{
+                ret.append(("Gravity", toScientificNotation(value: gravity!.converted(LengthUnit.meter).rounded(6).amount), " m/s²"))
+            }
+            if escape_velocity != nil{
+                ret.append(("Escape Velocity", toScientificNotation(value: escape_velocity!.converted(LengthUnit.kilometer).rounded(6).amount), " km/s"))
+            }
+            if irradiance != nil{
+                ret.append(("Irradiance", String(describing: irradiance!), " W/m²"))
+            }
+            if geographic_height_variance != nil{
+                ret.append(("Height Variance", toScientificNotation(value: geographic_height_variance!.converted(LengthUnit.kilometer).rounded(6).amount), " km"))
+            }
+        }
         return ret
     }
     
@@ -419,20 +454,34 @@ class Moon {
         var ret = [(String, String, String)]()
         
         if orbital_length != nil{
-            ret.append(("Year Length", toScientificNotation(value: orbital_length!.converted(TimeUnit.day).rounded(7).amount), " days")) //for some reason, this library does not convert days properly
+            ret.append(("Year Length", toScientificNotation(value: orbital_length!.converted(TimeUnit.day).rounded(6).amount), " days")) //for some reason, this library does not convert days properly
         }
         if day_length != nil{
-            ret.append(("Day Length", toScientificNotation(value: day_length!.converted(TimeUnit.hour).rounded(7).amount), " hours"))
+            ret.append(("Day Length", toScientificNotation(value: day_length!.converted(TimeUnit.hour).rounded(6).amount), " hours"))
         }
-        if velocity != nil{
-            ret.append(("Average Velocity", toScientificNotation(value: velocity!.converted(LengthUnit.kilometer).rounded(7).amount), " km/h"))
+        
+        if (defaults.bool(forKey: "useImperial")) {
+            if velocity != nil{
+                ret.append(("Average Velocity", toScientificNotation(value: velocity!.converted(LengthUnit.mile).rounded(6).amount), " mi/h"))
+            }
+            if perigee != nil{
+                ret.append(("Perihilion", toScientificNotation(value: perigee!.converted(LengthUnit.mile).rounded(6).amount), " mi"))
+            }
+            if apogee != nil{
+                ret.append(("Aphelion", toScientificNotation(value: apogee!.converted(LengthUnit.mile).rounded(6).amount), " mi"))
+            }
+        } else {
+            if velocity != nil{
+                ret.append(("Average Velocity", toScientificNotation(value: velocity!.converted(LengthUnit.kilometer).rounded(6).amount), " km/h"))
+            }
+            if perigee != nil{
+                ret.append(("Perihilion", toScientificNotation(value: perigee!.converted(LengthUnit.kilometer).rounded(6).amount), " km"))
+            }
+            if apogee != nil{
+                ret.append(("Aphelion", toScientificNotation(value: apogee!.converted(LengthUnit.kilometer).rounded(6).amount), " km"))
+            }
         }
-        if perigee != nil{
-            ret.append(("Perihilion", toScientificNotation(value: perigee!.converted(LengthUnit.kilometer).rounded(7).amount), " km"))
-        }
-        if apogee != nil{
-            ret.append(("Aphelion", toScientificNotation(value: apogee!.converted(LengthUnit.kilometer).rounded(7).amount), " km"))
-        }
+        
         if inclination != nil{
             ret.append(("Orbital Tilt", String(describing: inclination!), " degrees"))
         }
@@ -440,7 +489,7 @@ class Moon {
             ret.append(("Eccentricity", String(describing: eccentricity!), ""))
         }
         if equator_inclination != nil{
-            ret.append(("Equator Tilt", String(describing: equator_inclination!), " degrees"))
+            ret.append(("Equatorial Tilt", String(describing: equator_inclination!), " degrees"))
         }
         
         return ret
@@ -449,10 +498,10 @@ class Moon {
     func generateMiscObjects() -> [(String, String)] {
         var ret = [(String, String)]()
         
-        ret.append(("Position from orbiting planet", position))
+        ret.append(("Position from Orbiting Planet", position))
         
         if discovered != nil{
-            ret.append(("Date of discovery", discovered!))
+            ret.append(("Date of Discovery", discovered!))
         }
         
         return ret

@@ -47,6 +47,21 @@
         CGContextAddLineToPoint(context, CGRectGetWidth(self.bounds), 0);
     }
     
+//    if (self.direction == BTBalloonArrowDirectionUp) {
+//        CGContextMoveToPoint(context, 0, CGRectGetHeight(self.bounds));
+//        CGContextAddLineToPoint(context, 0, 0);
+//        CGContextAddLineToPoint(context, CGRectGetWidth(self.bounds), 0);
+//        CGContextAddLineToPoint(context, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
+//        CGContextAddLineToPoint(context, CGRectGetWidth(self.bounds) / 2, 0);
+//        
+//    } else {
+//        CGContextMoveToPoint(context, 0, 0);
+//        CGContextAddLineToPoint(context, 0, CGRectGetHeight(self.bounds));
+//        CGContextAddLineToPoint(context, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
+//        CGContextAddLineToPoint(context, CGRectGetWidth(self.bounds), 0);
+//        CGContextAddLineToPoint(context, CGRectGetWidth(self.bounds) / 2, CGRectGetHeight(self.bounds));
+//    }
+    
     CGContextClosePath(context);
     
     // fill

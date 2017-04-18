@@ -108,6 +108,11 @@ class MoonDetailsAboutViewController: MoonsAboutViewController, UITableViewDataS
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         var cell: DataViewCellViewController
+        
+        let singleTap = UITapGestureRecognizer()
+        singleTap.numberOfTapsRequired = 1
+        singleTap.numberOfTouchesRequired = 1
+        singleTap.cancelsTouchesInView = false;
 
         if tableView == self.geologyTable {
             cell = tableView.dequeueReusableCell(withIdentifier: "geologyCell", for: indexPath as IndexPath) as! DataViewCellViewController
@@ -117,6 +122,7 @@ class MoonDetailsAboutViewController: MoonsAboutViewController, UITableViewDataS
             value.append(superscript(string: previewDetail.1, fontName: cell.value.font.fontName, size: Int(cell.value.font.pointSize)))
             value.append(NSAttributedString(string: previewDetail.2))
             cell.value!.attributedText = value
+            addTargets(key: previewDetail.0, gesture: singleTap, view: cell.field!)
         } else if tableView == self.orbitTable {
             cell = tableView.dequeueReusableCell(withIdentifier: "orbitCell", for: indexPath as IndexPath) as! DataViewCellViewController
             let previewDetail = orbit[indexPath.row]
@@ -125,11 +131,13 @@ class MoonDetailsAboutViewController: MoonsAboutViewController, UITableViewDataS
             value.append(superscript(string: previewDetail.1, fontName: cell.value.font.fontName, size: Int(cell.value.font.pointSize)))
             value.append(NSAttributedString(string: previewDetail.2))
             cell.value!.attributedText = value
+            addTargets(key: previewDetail.0, gesture: singleTap, view: cell.field!)
         } else {//if tableView == self.orbitTable {
             cell = tableView.dequeueReusableCell(withIdentifier: "miscCell", for: indexPath as IndexPath) as! DataViewCellViewController
             let previewDetail = misc[indexPath.row]
             cell.field!.text = previewDetail.0
             cell.value!.text = previewDetail.1
+            addTargets(key: previewDetail.0, gesture: singleTap, view: cell.field!)
         }
         if indexPath.row % 2 == 0 {
             cell.backgroundColor = UIColor.clear
@@ -137,6 +145,194 @@ class MoonDetailsAboutViewController: MoonsAboutViewController, UITableViewDataS
             cell.backgroundColor = UIColor(colorLiteralRed: 1, green: 1, blue: 1, alpha: 0.1)
         }
         cell.selectionStyle = .none
+        cell.isUserInteractionEnabled = true
+        cell.field.isUserInteractionEnabled = true
+        cell.value.isUserInteractionEnabled = true
         return cell
+    }
+    
+    func addTargets(key: String, gesture: UITapGestureRecognizer, view: UILabel) {
+        BTBalloon.sharedInstance().hide()
+        gesture.cancelsTouchesInView = false
+        switch key {
+        case "Mass":
+            //view.tag = 1
+            //gesture.addTarget(self, action: #selector(DetailsAboutViewController.addMass(_:)))
+            //view.addGestureRecognizer(gesture)
+            break
+        case "Volume":
+            //view.tag = 2
+            //gesture.addTarget(self, action: #selector(DetailsAboutViewController.addVolume(_:)))
+            //view.addGestureRecognizer(gesture)
+            break
+        case "Density":
+            //view.tag = 3
+            //gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            //view.addGestureRecognizer(gesture)
+            break
+        case "Radius":
+            //view.tag = 4
+            //gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            //view.addGestureRecognizer(gesture)
+            break
+        case "Gravity":
+            view.tag = 5
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addGravity(_:)))
+            view.addGestureRecognizer(gesture)
+            view.text = view.text! + " ⓘ"
+        case "Escape Velocity":
+            view.tag = 6
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addEscapeVelocity(_:)))
+            view.addGestureRecognizer(gesture)
+            view.text = view.text! + " ⓘ"
+        case "Irradiance":
+            view.tag = 7
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addIrradiance(_:)))
+            view.addGestureRecognizer(gesture)
+            view.text = view.text! + " ⓘ"
+        case "Height Variance":
+            view.tag = 8
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addHeightVariance(_:)))
+            view.addGestureRecognizer(gesture)
+            view.text = view.text! + " ⓘ"
+        case "Year Length":
+            //view.tag = 9
+            //gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            //view.addGestureRecognizer(gesture)
+            break
+        case "Day Length":
+            //view.tag = 10
+            //gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            //view.addGestureRecognizer(gesture)
+            break
+        case "Average Velocity":
+            view.tag = 11
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addAverageVelocity(_:)))
+            view.addGestureRecognizer(gesture)
+            view.text = view.text! + " ⓘ"
+        case "Perihilion":
+            view.tag = 12
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addPerihilion(_:)))
+            view.addGestureRecognizer(gesture)
+            view.text = view.text! + " ⓘ"
+        case "Aphelion":
+            view.tag = 13
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addAphelion(_:)))
+            view.addGestureRecognizer(gesture)
+            view.text = view.text! + " ⓘ"
+        case "Orbital Tilt":
+            view.tag = 14
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addOrbitalTilt(_:)))
+            view.addGestureRecognizer(gesture)
+            view.text = view.text! + " ⓘ"
+        case "Eccentricity":
+            view.tag = 15
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addEccentricity(_:)))
+            view.addGestureRecognizer(gesture)
+            view.text = view.text! + " ⓘ"
+        case "Equatorial Tilt":
+            view.tag = 16
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addEquatorialTilt(_:)))
+            view.addGestureRecognizer(gesture)
+            view.text = view.text! + " ⓘ"
+        case "Nearest to Earth":
+            //view.tag = 17
+            //gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            //view.addGestureRecognizer(gesture)
+            break
+        case "Farthest from Earth":
+            //view.tag = 18
+            //gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            //view.addGestureRecognizer(gesture)
+            break
+        case "Moons":
+            //view.tag = 19
+            //gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            //view.addGestureRecognizer(gesture)
+            break
+        case "Ring System":
+            //view.tag = 20
+            //gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            //view.addGestureRecognizer(gesture)
+            break
+        case "Type":
+            //view.tag = 21
+            //gesture.addTarget(self, action: #selector(DetailsAboutViewController.addType(_:)))
+            //view.addGestureRecognizer(gesture)
+            break
+        case "Position from Sun":
+            //view.tag = 22
+            //gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            //view.addGestureRecognizer(gesture)
+            break
+        case "Date of Discovery":
+            //view.tag = 23
+            //gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            //view.addGestureRecognizer(gesture)
+            break
+        default:
+            print("THERE IS AN UNHANDLED DETAILS CASE")
+            break
+        }
+    }
+    
+    func addGravity(_ sender: UITapGestureRecognizer) {
+        BTBalloon.sharedInstance().show(withTitle: "The speed you would accelerate in free fall on the surface of the planet.",
+                                        image: nil,
+                                        anchorTo: self.view.viewWithTag(5)!)
+    }
+    
+    func addEscapeVelocity(_ sender: UITapGestureRecognizer) {
+        BTBalloon.sharedInstance().show(withTitle: "The minimum speed you need to be traveling to completely escape the planet's gravitational influence.",
+                                        image: nil,
+                                        anchorTo: self.view.viewWithTag(6)!)
+    }
+    
+    func addIrradiance(_ sender: UITapGestureRecognizer) {
+        BTBalloon.sharedInstance().show(withTitle: "How much energy the planet recieves from the Sun, in watts.  A perfect solar panel would be able to produce this much energy per square meter of coverage.",
+                                        image: nil,
+                                        anchorTo: self.view.viewWithTag(7)!)
+    }
+    
+    func addHeightVariance(_ sender: UITapGestureRecognizer) {
+        BTBalloon.sharedInstance().show(withTitle: "The difference between the highest and lowest points on the planet.  On Earth, this would be Mt. Everest and the Mariana Trench",
+                                        image: nil,
+                                        anchorTo: self.view.viewWithTag(8)!)
+    }
+    
+    func addAverageVelocity(_ sender: UITapGestureRecognizer) {
+        BTBalloon.sharedInstance().show(withTitle: "The average speed that the planet moves around the Sun.  The velovity isn't constant because planets move faster when they are closer to the Sun.",
+                                        image: nil,
+                                        anchorTo: self.view.viewWithTag(11)!)
+    }
+    
+    func addPerihilion(_ sender: UITapGestureRecognizer) {
+        BTBalloon.sharedInstance().show(withTitle: "The closest the planets comes to the Sun in its orbit.",
+                                        image: nil,
+                                        anchorTo: self.view.viewWithTag(12)!)
+    }
+    
+    func addAphelion(_ sender: UITapGestureRecognizer) {
+        BTBalloon.sharedInstance().show(withTitle: "The farthest a planet gets from the Sun in its orbit.",
+                                        image: nil,
+                                        anchorTo: self.view.viewWithTag(13)!)
+    }
+    
+    func addOrbitalTilt(_ sender: UITapGestureRecognizer) {
+        BTBalloon.sharedInstance().show(withTitle: "How many degrees off the orbital plane the planet orbits.  The orbital plane is set equal to Earth's orbit.",
+                                        image: nil,
+                                        anchorTo: self.view.viewWithTag(14)!)
+    }
+    
+    func addEccentricity(_ sender: UITapGestureRecognizer) {
+        BTBalloon.sharedInstance().show(withTitle: "The amount by which the planet's orbit deviates from a perfect circle.",
+                                        image: nil,
+                                        anchorTo: self.view.viewWithTag(15)!)
+    }
+    
+    func addEquatorialTilt(_ sender: UITapGestureRecognizer) {
+        BTBalloon.sharedInstance().show(withTitle: "How much the poles of the planet deviate from zero.  Significant deviations cause seasonal cycles on planets.",
+                                        image: nil,
+                                        anchorTo: self.view.viewWithTag(16)!)
     }
 }

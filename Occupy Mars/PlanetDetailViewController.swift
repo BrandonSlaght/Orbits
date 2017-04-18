@@ -22,19 +22,23 @@ class PlanetDetailViewController: UIViewController, UIScrollViewDelegate {
     @IBAction func indexChanged(_ sender: UISegmentedControl)
     {
         BTBalloon.sharedInstance().hide()
+        transitioning = true
         if let vc = getDetailViewController(sender.selectedSegmentIndex) {
             vc.view.translatesAutoresizingMaskIntoConstraints = false
             self.cycleFromViewController(oldViewController: self.currentViewController!, toViewController: vc)
             self.currentViewController = vc
         }
+        scrollViewDidScroll(scrollView)
     }
     
     var planet: Planet!
     var currentViewController: UIViewController?
     var navigationBarOriginalOffset : CGFloat?
     var barColor: UIColor!
+    var transitioning = false;
     
     func cycleFromViewController(oldViewController: UIViewController, toViewController newViewController: UIViewController) {
+        //transitioning = true
         newViewController.view.translatesAutoresizingMaskIntoConstraints = false
         oldViewController.willMove(toParentViewController: nil)
         self.addChildViewController(newViewController)
@@ -54,7 +58,10 @@ class PlanetDetailViewController: UIViewController, UIScrollViewDelegate {
                                     oldViewController.removeFromParentViewController()
                                     newViewController.didMove(toParentViewController: self)
                                     self.content.reloadInputViews()
+                                    self.transitioning = false
                                     self.scrollViewDidScroll(self.scrollView)
+//                                    self.transitioning = false
+//                                    self.scrollViewDidScroll(self.scrollView)
 //                                    if (self.navigationBarOriginalOffset! <= self.scrollView.contentOffset.y) {
 //                                        self.tabHolder.frame.origin.y = self.scrollView.contentOffset.y
 //                                        if let let_color = self.planet.color1 {
@@ -142,6 +149,8 @@ class PlanetDetailViewController: UIViewController, UIScrollViewDelegate {
         
         if let let_scene = planet.getScene(size: Size.medium) {
             scene.scene = let_scene
+            scene.isPlaying = true
+            scene.antialiasingMode = .multisampling4X
         } else {
             globeButton.isHidden = true
             sceneHeight.constant = 0
@@ -153,14 +162,6 @@ class PlanetDetailViewController: UIViewController, UIScrollViewDelegate {
         }
         
         insideView.bringSubview(toFront: tabHolder)
-        
-//        scrollView.bringSubview(toFront: tabHolder)
-//        
-//        view.bringSubview(toFront: tabHolder)
-//        tabHolder.bringSubview(toFront: tabs)
-//        
-//        tabHolder.layer.zPosition = 1
-//        tabs.layer.zPosition = 2
     }
     
     func hide(_ sender: UITapGestureRecognizer) {
@@ -172,7 +173,9 @@ class PlanetDetailViewController: UIViewController, UIScrollViewDelegate {
         if let let_color = planet.color1 {
             self.navigationController?.navigationBar.barTintColor =  let_color
         }
-        navigationBarOriginalOffset = tabHolder.frame.origin.y
+        if (navigationBarOriginalOffset == nil) {
+            navigationBarOriginalOffset = tabHolder.frame.origin.y
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -219,18 +222,20 @@ class PlanetDetailViewController: UIViewController, UIScrollViewDelegate {
             tabHolder.frame.origin.y = scrollView.contentOffset.y
             print("no scene!")
         } else {
-            if (navigationBarOriginalOffset! <= scrollView.contentOffset.y) {
-                tabHolder.frame.origin.y = scrollView.contentOffset.y
-                if let let_color = planet.color1 {
-                    tabHolder.backgroundColor = let_color
+            if (!transitioning) {
+                if (navigationBarOriginalOffset! <= scrollView.contentOffset.y) {
+                    tabHolder.frame.origin.y = scrollView.contentOffset.y
+                    if let let_color = planet.color1 {
+                        tabHolder.backgroundColor = let_color
+                    } else {
+                        tabHolder.backgroundColor = barColor
+                    }
                 } else {
-                    tabHolder.backgroundColor = barColor
+                    tabHolder.frame.origin.y = navigationBarOriginalOffset!
+                    tabHolder.backgroundColor = UIColor.clear
                 }
-                print("smaller")
             } else {
-                tabHolder.frame.origin.y = navigationBarOriginalOffset!
-                tabHolder.backgroundColor = UIColor.clear
-                print("larger")
+                print("hererino")
             }
         }
         BTBalloon.sharedInstance().hide()
