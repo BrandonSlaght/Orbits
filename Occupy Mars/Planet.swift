@@ -254,7 +254,11 @@ class Planet {
             planet = tempScene!.rootNode.childNodes[0].geometry! //= SCNGeometry  //(sources: [SCNGeometrySource], elements: <#T##[SCNGeometryElement]#>)
         } else {
             planet = SCNSphere(radius: 1.0)
-            (planet as! SCNSphere).segmentCount = 80
+            if size == Size.small {
+                (planet as! SCNSphere).segmentCount = 30
+            } else {
+                (planet as! SCNSphere).segmentCount = 80
+            }
         }
         
         if let let_texture = texture {
@@ -298,8 +302,10 @@ class Planet {
             }
             
             spin.repeatCount = .infinity
-            planetNode.addAnimation(spin, forKey: "spin around")
             
+            if size != Size.small {
+                planetNode.addAnimation(spin, forKey: "spin around")
+            }
             if let let_ringsmap = ringmap {
                 let rings = SCNTorus(ringRadius: 2, pipeRadius: 0.5)
                 //print("here")
@@ -437,7 +443,7 @@ class Planet {
     }
     
     func getVisibility() {
-        print("__________________")
+        //print("__________________")
         self.w = 282.9404 + (0.000047093 * formattedTimeSinceEpoch())
         self.a = 1.000000
         self.e = 0.016709 - (0.000000001151 * formattedTimeSinceEpoch())
@@ -446,15 +452,15 @@ class Planet {
         self.i = inclination!
         self.N = 0
         let s = Sextant(p: self)
-        print(w)
-        print(a)
-        print(e)
-        print(M1)
-        print(m)
-        print(i)
-        print(N)
-        print("__________________")
-        //-> (NSDate, NSDate) {
+//        print(w)
+//        print(a)
+//        print(e)
+//        print(M1)
+//        print(m)
+//        print(i)
+//        print(N)
+//        print("__________________")
+//        //-> (NSDate, NSDate) {
 //        let s = Sextant(N: 125.1228 - 0.0529538083 * Double(formattedTimeSinceEpoch()),
 //                            i: 5.1454,
 //                            w: 318.0634 + 0.1643573223 * Double(formattedTimeSinceEpoch()),
@@ -468,22 +474,22 @@ class Planet {
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd HH:mm"
-        let epochTime = formatter.date(from: "2000/1/01 00:00")
+        //let epochTime = formatter.date(from: "2000/1/01 00:00")
         
         //let currentTime = Date()
         let currentTime = formatter.date(from: "1990/4/19 00:00")
         
         let components = Calendar.current.dateComponents([.year, .month, .day, .hour], from: currentTime!)
-        print("---------------------------")
+        //print("---------------------------")
         let y = components.year!
         let m = components.month!
         let D = components.day!
         let h = components.hour!
         
-        print(y)
-        print(m)
-        print(D)
-        print(h)
+        //print(y)
+        //print(m)
+        //print(D)
+        //print(h)
         
         //let y = Calendar.current.dateComponents([.year], from: epochTime!, to: currentTime!).year!
         //let m = Calendar.current.dateComponents([.month], from: epochTime!, to: currentTime!).month!
@@ -497,15 +503,15 @@ class Planet {
         let three = Double(D - 730530 + h / 24)
         let four = Double(Double(two) - Double(one) + three)
         
-        print(zero)
-        print(one)
-        print(two)
-        print(three)
-        print(four)
+        //print(zero)
+        //print(one)
+        //print(two)
+        //print(three)
+        //print(four)
         
-        print(Double(zero) + four)
+        //print(Double(zero) + four)
         
-        print("--------------------------")
+        //print("--------------------------")
         
         return Double(zero) + four
     }

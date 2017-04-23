@@ -2,6 +2,7 @@
 //  "Dispatch", or "Glibc"
 
 import Foundation
+import CoreLocation
 
 enum Perturbations {
     case Sun
@@ -14,35 +15,47 @@ enum Perturbations {
 
 class Sextant: NSObject {
     
-    var a: Double,
-        e: Double,
-     //T1: Double,
-        i: Double,
-       N1: Double,
-        w: Double,
-       M1: Double,
-        q: Double,
-       Q1: Double,
-       P1: Double,
-        n: Double,
-      //t: Double,
-       L1: Double,
-       E1: Double,
-        v: Double,
-        r: Double,
-        m: Double,
-        x: Double,
-        y: Double,
-      lon: Double,
-       x1: Double,
-       y1: Double,
-       z1: Double,
-   xequat: Double,
-   yequat: Double,
-   zequat: Double,
-       r1: Double,
-       RA: Double,
-     Decl: Double
+     var a: Double,
+         e: Double,
+      //T1: Double,
+         i: Double,
+        N1: Double,
+         w: Double,
+        M1: Double,
+         q: Double,
+        Q1: Double,
+        P1: Double,
+         n: Double,
+       //t: Double,
+        L1: Double,
+        E1: Double,
+         v: Double,
+         r: Double,
+         m: Double,
+         x: Double,
+         y: Double,
+       lon: Double,
+        x1: Double,
+        y1: Double,
+        z1: Double,
+    xequat: Double,
+    yequat: Double,
+    zequat: Double,
+        r1: Double,
+        RA: Double,
+      Decl: Double,
+     GMST0: Double,
+longnitude: Double,
+   SIDTIME: Double,
+        HA: Double,
+        x2: Double,
+        y2: Double,
+        z2: Double,
+      xhor: Double,
+      yhor: Double,
+      zhor: Double,
+   azimuth: Double,
+  altitude: Double
     
     init(p: Planet) {
         self.a = p.a!
@@ -95,7 +108,43 @@ class Sextant: NSObject {
         
         r1 = sqrt(xequat * xequat + yequat * yequat + zequat * zequat)
         RA = atan2(yequat / 180.0, xequat / 180.0) * (180.0 / Double.pi)
-        Decl = atan2(zequat / 180, sqrt(xequat * xequat + yequat * yequat) / 180)
+        Decl = atan2(zequat / 180, sqrt(xequat * xequat + yequat * yequat) / 180) * (180.0 / Double.pi)
+        
+        let locationManager = CLLocationManager()
+        //locationManager.distanceFilter = kCLDistanceFilterNone
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
+        //longnitude = (locationManager.location?.coordinate.longitude)!
+        
+        //TESTING ONLY, DELETE THIS LATER
+        longnitude = 15
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd HH:mm"
+        //let currentTime = Date()
+        let currentTime = formatter.date(from: "1990/4/19 00:00")
+        let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour], from: currentTime!)
+        let year = dateComponents.year!
+        let month = dateComponents.month!
+        let day = dateComponents.day!
+        let hour = dateComponents.hour!
+        
+        GMST0 = (L1) / 15.0 + 12.0
+        SIDTIME = GMST0 + Double(hour) + longnitude / 15
+        SIDTIME = abs(SIDTIME).truncatingRemainder(dividingBy: 24.0)
+        HA = (SIDTIME - RA) / 15
+        
+        x2 = __cospi(HA / 180.0) * __cospi(Decl / 180.0)
+        y2 = __sinpi(HA / 180.0) * __sinpi(Decl / 180.0)
+        z2 = __sinpi(Decl / 180.0)
+        
+        xhor = x2 * __sinpi(longnitude) - z2 * __cospi(longnitude)
+        yhor = y2
+        zhor = z2 * __cospi(longnitude) + z2 * __sinpi(longnitude)
+        
+        azimuth = atan2(yhor / 180, xhor / 180) + 180
+        altitude = asin(zhor / 180)
     }
     
     func sin(degrees: Double) -> Double {
@@ -127,6 +176,30 @@ class Sextant: NSObject {
         print(r) //good
         print(v) //good
         print(lon) //good
+        print("-----x1 y1 z1 HERE--------")
+        print(x1) //good
+        print(y1) //off by a tiny amount
+        print(z1) //good
+        print(xequat) //good
+        print(yequat) //off by a tiny amount
+        print(zequat) //good
+        print(r1) //good
+        print(RA) //good
+        print(Decl) //good
+        print("------TIMES HERE----------")
+        print(GMST0) //good
+        print(longnitude) //good
+        print(SIDTIME) //good
+        print(HA)
+        print(x2)
+        print(y2)
+        print(z2) //good
+        print("----xhor,yhor,zhor------")
+        print(xhor)
+        print(yhor)
+        print(zhor)
+        print(azimuth)
+        print(altitude)
         print("===================")
     }
     

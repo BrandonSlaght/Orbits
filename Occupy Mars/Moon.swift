@@ -236,8 +236,10 @@ class Moon {
             }
             
             spin.repeatCount = .infinity
-            geometry?.addAnimation(spin, forKey: "spin around")
-
+            
+            if size != Size.small {
+                geometry?.addAnimation(spin, forKey: "spin around")
+            }
             
             scene.rootNode.addChildNode(geometry!)
             //var box = planet.boundingBox
@@ -249,7 +251,11 @@ class Moon {
             //planet.boundingBox.max.z = box.max.z*0.8
             //planet = tempScene!.rootNode.childNodes[0].geometry! //= SCNGeometry  //(sources: [SCNGeometrySource], elements: <#T##[SCNGeometryElement]#>)
         } else {
-            (planet as! SCNSphere).segmentCount = 80
+            if size == Size.small {
+                (planet as! SCNSphere).segmentCount = 30
+            } else {
+                (planet as! SCNSphere).segmentCount = 80
+            }
         }
         
         if let let_texture = texture {
@@ -300,7 +306,10 @@ class Moon {
             }
             
             spin.repeatCount = .infinity
-            planetNode.addAnimation(spin, forKey: "spin around")
+            
+            if size != Size.small {
+                planetNode.addAnimation(spin, forKey: "spin around")
+            }
             
             if size == Size.full {
                 //                print("FULL")

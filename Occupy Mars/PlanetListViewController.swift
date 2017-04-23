@@ -31,6 +31,15 @@ class PlanetListViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         let appDefaults = [String:AnyObject]()
         UserDefaults.standard.register(defaults: appDefaults)
+        
+        objects.first?.value[0].getVisibility()
+        
+//        let bounds = self.navigationController?.navigationBar.bounds as CGRect!
+//        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+//        visualEffectView.frame = bounds!
+//        visualEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//        self.navigationController?.navigationBar.alpha = 0.5
+//        self.navigationController?.navigationBar.addSubview(visualEffectView)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,7 +70,6 @@ class PlanetListViewController: UITableViewController {
             print(planet.name + "is nil modeled")
             cell.heightConstraint.constant = 90
         }
-        planet.getVisibility()
         return cell
     }
     
@@ -88,8 +96,16 @@ class PlanetListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
-        header.contentView.backgroundColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1.0)
+        header.contentView.backgroundColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 0.5)
         header.textLabel!.textColor = UIColor.white
+        
+//        let blurEffect = UIBlurEffect(style: .dark)
+//        let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
+//        let vibrancyEffectView = UIVisualEffectView(effect: vibrancyEffect)
+//        vibrancyEffectView.frame = view.frame
+//        vibrancyEffectView.autoresizingMask = .flexibleWidth
+//        
+//        view.addSubview(vibrancyEffectView)
     }
     
     

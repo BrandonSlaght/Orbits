@@ -1204,7 +1204,7 @@ class Objects {
         
         Saturn.images = [
             ("saturn - backlit.jpg", "Saturn's rings are best visualized with sunlight from behind them."),
-            ("saturn - dot.jpg", "Cassini's recreation of the famous \"Pale Blue Dot\" image taken by Voyager.  All of human existence is contained on Earth, the small spec to the right of the middle of the image."),
+            ("saturn - dot.jpg", "Cassini's recreation of the famous \"Pale Blue Dot\" image taken by Voyager.  All of human existence is contained on Earth, the small speck to the right of the middle of the image."),
             ("saturn - hexagon.jpg", "The north pole of Saturn has a hexagonial storm caused by perturbations in the jet stream.  This is a false-color infrared image from Cassini"),
             ("saturn - pole.jpg", "A close up of the eye of the storm at the north pole.  This part of the storm is around the diameter of Earth."),
             ("saturn - quintet.jpg", "Five of Saturn's moons (from left to right: Janus, Pandora, Enceladus, Mimas, and Rhea) pose with its rings."),
@@ -2659,7 +2659,7 @@ class Objects {
                   wiki: "https://en.wikipedia.org/wiki/Sun",
                   nasa: "https://solarsystem.nasa.gov/planets/sun")
         
-        Sun.geology(mass: 1988550000000.zettagram(),
+        Sun.geology(mass: 1988550000.zettagram(),
                     volume: 1410000000.terameter(),
                     equatorial: 695700.kilometer(),
                     density: 1408.kilogram(),
@@ -2686,6 +2686,14 @@ class Objects {
         Sun.colors(background: "sunsurface.jpg",
                    color1: "6C1605",
                    color2: "F9B243")
+        
+        Sun.display(texture: "sunmap.png",
+                    model: nil,
+                    normalmap: nil,
+                    ringmap: nil,
+                    ring_transparencymap: nil,
+                    ring_inner_ratio: nil,
+                    ring_outer_ratio: nil)
         
         Sun.images = [
             ("sun - cme.jpg", "Eruptions of mass from the Sun, called coronal mass ejections, are sometimes strong enough to overwhelm Earth's magnetic field and affect electronics on the surface."),
