@@ -15,7 +15,7 @@ class GlobeViewController: UIViewController {
     @IBOutlet weak var rotate: UIButton!
     @IBAction func press(_ sender: UIButton) {
         SCNTransaction.begin()
-        SCNTransaction.animationDuration = 1
+        SCNTransaction.animationDuration = 1.0
         SCNTransaction.animationTimingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionEaseInEaseOut)
         globe.pointOfView? = camera
         SCNTransaction.commit()
@@ -70,8 +70,25 @@ class GlobeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         globe.pointOfView?.position.z = 5
-        camera = (globe.pointOfView?.clone())!
+        globe.pointOfView?.camera?.motionBlurIntensity = 1.0
+        globe.pointOfView?.camera?.wantsHDR = true
+        globe.pointOfView?.camera?.bloomIntensity = 1.0
+        //if let let_camera = globe.pointOfView?.clone() {
+        //    camera = let_camera
+        //} else {
+        ///    print("ERROR, NO CAMERA FOUND")
+        camera = SCNNode()
+        camera.camera = SCNCamera()
+        camera.position = SCNVector3(0.0, 0.0, 5.0)
+        camera.name = "default camera"
+        camera.position.z = 5
+        camera.camera?.motionBlurIntensity = 1.0
+        camera.camera?.wantsHDR = true
+        camera.camera?.bloomIntensity = 1.0
+        //}
+        //camera = (globe.pointOfView?.clone())!
         print(globe.pointOfView ?? "")
+        print(camera ?? "")
     }
     
     override func viewWillAppear(_ animated: Bool) {

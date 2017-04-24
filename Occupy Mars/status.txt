@@ -80,8 +80,10 @@ CHANGELOG:
 Fixed some of the crashes in the globe view controller
 added floating tabs
 added tooltip popups
-added settings to change between standard and simplified units
+added settings to change between metric and simplified units
 added oberon partial map
 added epimetheus model
 added sun
-
+reduced app size by 100 mb
+minor text fixes
+ui improvements

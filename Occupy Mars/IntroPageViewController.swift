@@ -36,7 +36,7 @@ class IntroPageViewController: UIPageViewController {
         let path = Bundle.main.path(forResource: "background", ofType: "mp4")
         player = AVPlayer(url: URL(fileURLWithPath: path!))
         player!.actionAtItemEnd = AVPlayerActionAtItemEnd.none;
-        player!.isMuted=true
+        player!.isMuted = true
         let playerLayer = AVPlayerLayer(player: player)
         playerLayer.frame = self.view.frame
         playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
