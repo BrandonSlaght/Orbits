@@ -45,31 +45,36 @@ DONE - fix table dividers in planet and moon tables
 DONE - add Sun
 DONE - metric/imperial setting
 DONE - info modals for each of the detail categories
+DONE - add sun model
+DONE - profile lag in Saturn's moons list
 ---------------------------------------------------------------------------------------------------------------------
 Fix navbar bugs when transitioning into and out of globe view (swiping from side or pressing back button)
 Fix scrolling in the globe view - when double tapping or tapping and holding
 Details of Moons
 Media of moons
-Mimas model - saturn
+EZ - Mimas model - saturn
 colors and backgrounds of moons
 fix globes glitching out when slightly sliding finger from left and sliding it back
-profile lag in the info modal
-profile lag in Saturn's moons list
-update texture and model sources
-fix the alignment and constraints on the video intro screen
+EZ - profile lag in the info modal
+EZ - update texture and model sources
+EZ - fix the alignment and constraints on the video intro screen
 do visibility
 fix janus model fuckery
-low res thumbnails of models
-smooth shading of models
+EZ - low res thumbnails of models
+EZ - smooth shading of models
 units inline in text to enable conversion
-pronunciations
+EZ - pronunciations
 fix constraints not always applying in details
 actual polymorphism and inheritance
 make the sticky tab bar be animated and blurry and also make the navbar blurry
-add a whats new section and popup
-add sun model
+EZ - add a whats new section and popup
 atmosphere details section
-
+make modal tooltips blurry
+fix bug where tab bar dissapears
+fix performance so models can rotate again
+localize
+widget for visibility
+core spotlight support
 
 CHANGELOG:
 1.2:
