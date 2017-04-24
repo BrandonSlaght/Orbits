@@ -1,7 +1,3 @@
-MERCURY - done
-VENUS - done
-
-
 TODO BEFORE LAUNCH:
 ---------------------------------------------------------------------------------------------------------------------
 DONE - remove visibility tab
@@ -75,8 +71,11 @@ fix performance so models can rotate again
 localize
 widget for visibility
 core spotlight support
+---------------------------------------------------------------------------------------------------------------------
+
 
 CHANGELOG:
+---------------------------------------------------------------------------------------------------------------------
 1.2:
 Fixed some of the crashes in the globe view controller
 added floating tabs
