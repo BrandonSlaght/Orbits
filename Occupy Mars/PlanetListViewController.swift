@@ -32,7 +32,7 @@ class PlanetListViewController: UITableViewController {
         let appDefaults = [String:AnyObject]()
         UserDefaults.standard.register(defaults: appDefaults)
         
-        objects.first?.value[0].getVisibility()
+        //objects.first?.value[0].getVisibility()
         
 //        let bounds = self.navigationController?.navigationBar.bounds as CGRect!
 //        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
@@ -65,6 +65,7 @@ class PlanetListViewController: UITableViewController {
             cell.sceneView.scene = planet.getScene(size: Size.small)
             cell.sceneView.isPlaying = true
             cell.sceneView.antialiasingMode = .multisampling4X
+            cell.sceneView.preferredFramesPerSecond = 15
         }
         if (planet.getScene(size: Size.small) == nil) {
             print(planet.name + "is nil modeled")

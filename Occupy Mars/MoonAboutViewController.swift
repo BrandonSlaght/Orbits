@@ -50,6 +50,7 @@ class MoonAboutViewController: AboutViewController, UITableViewDataSource, UITab
             cell.sceneView.scene = objects[indexPath.row].getScene(size: Size.small)
             cell.sceneView.isPlaying = true
             cell.sceneView.antialiasingMode = .multisampling4X
+            cell.sceneView.preferredFramesPerSecond = 15
         }
         if (objects[indexPath.row].getScene(size: Size.small) == nil) {
             print(objects[indexPath.row].name + "is nil modeled")

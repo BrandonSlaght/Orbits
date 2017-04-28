@@ -237,9 +237,7 @@ class Moon {
             
             spin.repeatCount = .infinity
             
-            if size != Size.small {
-                geometry?.addAnimation(spin, forKey: "spin around")
-            }
+            geometry?.addAnimation(spin, forKey: "spin around")
             
             scene.rootNode.addChildNode(geometry!)
             //var box = planet.boundingBox
@@ -307,9 +305,7 @@ class Moon {
             
             spin.repeatCount = .infinity
             
-            if size != Size.small {
-                planetNode.addAnimation(spin, forKey: "spin around")
-            }
+            planetNode.addAnimation(spin, forKey: "spin around")
             
             if size == Size.full {
                 //                print("FULL")

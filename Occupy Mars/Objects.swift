@@ -1831,14 +1831,6 @@ class Objects {
                      wiki: "https://en.wikipedia.org/wiki/Uranus",
                      nasa: "http://solarsystem.nasa.gov/planets/uranus")
         
-        Uranus.display(texture: "uranusmap.jpg",
-                       model: nil,
-                       normalmap: nil,
-                       ringmap: "uranusrings.png",
-                       ring_transparencymap: "uranusringtransparency.png",
-                       ring_inner_ratio: 1.750,
-                       ring_outer_ratio: 2.006)
-        
         Uranus.geology(mass: 86813000.zettagram(),
                        volume: 68330000.gigameter(),
                        equatorial: 25559.kilometer(),
@@ -1858,6 +1850,14 @@ class Objects {
                         equator_inclination: 82.23,
                         min_distance_from_earth: 2581900.megameter(),
                         max_distance_from_earth: 3157300.megameter())
+        
+        Uranus.display(texture: "uranusmap.jpg",
+                       model: nil,
+                       normalmap: nil,
+                       ringmap: "uranusrings.png",
+                       ring_transparencymap: "uranusringtransparency.png",
+                       ring_inner_ratio: 1.750,
+                       ring_outer_ratio: 2.006)
         
         Uranus.atmosphere(surface_pressure: 1000,
                           average_temperature: 76,
@@ -2153,14 +2153,6 @@ class Objects {
                       wiki: "https://en.wikipedia.org/wiki/Neptune",
                       nasa: "http://solarsystem.nasa.gov/planets/neptune")
         
-        Neptune.display(texture: "neptunemap.jpg",
-                        model: nil,
-                        normalmap: nil,
-                        ringmap: nil,
-                        ring_transparencymap: nil,
-                        ring_inner_ratio: nil,
-                        ring_outer_ratio: nil)
-        
         Neptune.geology(mass: 10241300.exogram(),
                         volume: 62540000.gigameter(),
                         equatorial: 24764.kilometer(),
@@ -2180,6 +2172,14 @@ class Objects {
                          equator_inclination: 28.32,
                          min_distance_from_earth: 4305900.megameter(),
                          max_distance_from_earth: 4687300.megameter())
+        
+        Neptune.display(texture: "neptunemap.jpg",
+                        model: nil,
+                        normalmap: nil,
+                        ringmap: nil,
+                        ring_transparencymap: nil,
+                        ring_inner_ratio: nil,
+                        ring_outer_ratio: nil)
         
         Neptune.atmosphere(surface_pressure: 1000,
                            average_temperature: 72,

@@ -303,9 +303,9 @@ class Planet {
             
             spin.repeatCount = .infinity
             
-            if size != Size.small {
+            //if size != Size.small {
                 planetNode.addAnimation(spin, forKey: "spin around")
-            }
+            //}
             if let let_ringsmap = ringmap {
                 let rings = SCNTorus(ringRadius: 2, pipeRadius: 0.5)
                 //print("here")
