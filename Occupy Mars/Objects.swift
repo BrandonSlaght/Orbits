@@ -203,7 +203,6 @@ class Objects {
                      color1: "15334C",
                      color2: "C4C4BB")
         
-        //tofix
         let moon = Moon(name: "Moon",
                         position: "1")
         
@@ -211,25 +210,25 @@ class Objects {
                    wiki: "https://en.wikipedia.org/wiki/Moon",
                    nasa: "http://solarsystem.nasa.gov/planets/moon")
         
-        //        moon.geology(mass: 0.07346,
-        //                     volume: 2.1968,
-        //                     equatorial: 1738.1,
-        //                     density: 33.44,
-        //                     gravity: 1.62,
-        //                     escape_velocity: 2.38,
-        //                     irradiance: 1361.0,
-        //                     geographic_height_variance: 13)
-        //
-        //        moon.orbitals(orbital_length: 29.53,
-        //                      perigee: 0.3633,
-        //                      apogee: 0.4055,
-        //                      velocity: 1.022,
-        //                      inclination: 5.145,
-        //                      eccentricity: 0.0549,
-        //                      day_length: 27.3217,
-        //                      equator_inclination: 6.68)
+        moon.geology(mass: 73420000000000.teragram(),
+                     volume: 21968000000.kilometer(),
+                     equatorial: 1738.1.kilometer(),
+                     density: 3344.kilogram(),
+                     gravity: 1.62.meter(),
+                     escape_velocity: 2.38.kilometer(),
+                     irradiance: 1361.0,
+                     geographic_height_variance: 13.kilometer())
         
-        //moon.misc(discovered: nil)
+        moon.orbitals(orbital_length: 29.53.day(),
+                      perigee: 362600.kilmoeter(),
+                      apogee: 405400.kilometer(),
+                      velocity: 1.022.kilometer(),
+                      inclination: 5.145,
+                      eccentricity: 0.0549,
+                      day_length: 27.3217.hour(),
+                      equator_inclination: 6.68)
+        
+        moon.misc(discovered: nil)
         
         moon.display(texture: "moonmap.jpg",
                      model: nil,
@@ -305,25 +304,25 @@ class Objects {
                      wiki: "https://en.wikipedia.org/wiki/Phobos_(moon)",
                      nasa: "http://solarsystem.nasa.gov/planets/phobos")
         
-        //        Phobos.geology(mass: 0.0000000010659,
-        //                       volume: 0.00000057861,
-        //                       equatorial: 11.2667,
-        //                       density: 1876,
-        //                       gravity: 0.0057,
-        //                       escape_velocity: 0.001139,
-        //                       irradiance: 586.2,
-        //                       geographic_height_variance: nil)
-        //
-        //        Phobos.orbitals(orbital_length: 0.31891023,
-        //                        perigee: 0.00923442,
-        //                        apogee: 0.00951758,
-        //                        velocity: 2.138,
-        //                        inclination: 1.093,
-        //                        eccentricity: 0.0151,
-        //                        day_length: 24.624,
-        //                        equator_inclination: 0.046)
+        Phobos.geology(mass: 10659000.teragram(),
+                       volume: 5783.61.kilometer(),
+                       equatorial: 11.2667.kilometer(),
+                       density: 1876.kilogram(),
+                       gravity: 0.0057.meter(),
+                       escape_velocity: 11.39.meter(),
+                       irradiance: 586.2,
+                       geographic_height_variance: nil)
+       
+        Phobos.orbitals(orbital_length: 0.31891023.day(),
+                        perigee: 9234.42.kilometer(),
+                        apogee: 9517.58.kilometer(),
+                        velocity: 2.138.kilometer(),
+                        inclination: 1.093,
+                        eccentricity: 0.0151,
+                        day_length: 24.624.hour(),
+                        equator_inclination: 0.046)
         
-        //        Phobos.misc(discovered: "August 18th, 1877")
+        Phobos.misc(discovered: "August 18th, 1877")
         
         Phobos.display(texture: nil,
                        model: "phobos.dae",
@@ -343,25 +342,25 @@ class Objects {
         
         Deimos.about(description: "Deimos (systematic designation: Mars II) is the smaller and outer of the two natural satellites of the planet Mars, the other being Phobos. Deimos has a mean radius of 6.2 km (3.9 mi) and takes 30.3 hours to orbit Mars. The name Deimos is pronounced /ˈdaɪmɒs/ dy-mos, or sometimes /ˈdiːməs/ dee-məs or like the Greek Δεῖμος. In Greek mythology, Deimos was the twin brother of Phobos and personified terror.\n\nDeimos is 23,460 km (14,580 mi) from Mars, much further than Mars's other moon, Phobos.\n\nDeimos was discovered by Asaph Hall, Sr. at the United States Naval Observatory in Washington, D.C on 12 August 1877, at about 07:48 UTC (given in contemporary sources as \"11 August 14:40\" Washington mean time, using an astronomical convention of beginning a day at noon, so 12 hours must be added to get the actual local mean time). Hall also discovered Phobos on 18 August 1877, at about 09:14 GMT, after deliberately searching for Martian moons.", wiki: "https://en.wikipedia.org/wiki/Deimos_(moon)", nasa: "http://solarsystem.nasa.gov/planets/deimos")
         
-        //        Deimos.geology(mass: 0.00000000014762,
-        //                       volume: 999.78,
-        //                       equatorial: 6.2,
-        //                       density: 1471,
-        //                       gravity: 0.003,
-        //                       escape_velocity: 0.0005556,
-        //                       irradiance: 586.2,
-        //                       geographic_height_variance: nil)
-        //
-        //        Deimos.orbitals(orbital_length: 1.263,
-        //                        perigee: 0.0234555,
-        //                        apogee: 0.0234709,
-        //                        velocity: 1.3513,
-        //                        inclination: 0.93,
-        //                        eccentricity: 0.00033,
-        //                        day_length: 24.624,
-        //                        equator_inclination: 1.791)
+        Deimos.geology(mass: 1476200000.gigagram(),
+                       volume: 999.78.kilometer(),
+                       equatorial: 6.2.kilometer(),
+                       density: 1471.kilogram(),
+                       gravity: 0.003.meter(),
+                       escape_velocity: 5.556.meter(),
+                       irradiance: 586.2,
+                       geographic_height_variance: nil)
         
-        //        Deimos.misc(discovered: "August 12th, 1877")
+        Deimos.orbitals(orbital_length: 1.263.day(),
+                        perigee: 23455.5.kilometer(),
+                        apogee: 23470.9.kilometer(),
+                        velocity: 1.3513.kilometer(),
+                        inclination: 0.93,
+                        eccentricity: 0.00033,
+                        day_length: 24.624.hour(),
+                        equator_inclination: 1.791)
+        
+        Deimos.misc(discovered: "August 12th, 1877")
         
         Deimos.images(images: [
             ("deimos - surface.png", "Deimos's surface in detail from 30 km away, taken by the Viking 2 orbiter in a flyby."),
@@ -2535,6 +2534,26 @@ class Objects {
                      wiki: "https://en.wikipedia.org/wiki/Moons_of_Haumea#Namaka",
                      nasa: "http://solarsystem.nasa.gov/planets/haumea/moons")
         
+        Namaka.geology(mass: 1790000000.teragram(),
+                       volume: nil,
+                       equatorial: nil,
+                       density: 1000.kilogram(),
+                       gravity: nil,
+                       escape_velocity: nil,
+                       irradiance: nil,
+                       geographic_height_variance: nil)
+        
+        Namaka.orbitals(orbital_length: 18.2783.day(),
+                        perigee: nil,
+                        apogee: nil,
+                        velocity: nil,
+                        inclination: 113.013,
+                        eccentricity: 0.249,
+                        day_length: nil,
+                        equator_inclination: nil)
+        
+        Namaka.misc(discovered: "June 30th, 2005")
+        
         Haumea.moons.append(Namaka)
         
         let Hiiaka = Moon(name: "Hi'iaka",
@@ -2543,6 +2562,26 @@ class Objects {
         Hiiaka.about(description: "Hiʻiaka is the larger, outer moon of the dwarf planet Haumea.\n\nHiʻiaka was the first satellite discovered around Haumea. It is named after one of the daughters of Haumea, Hiʻiaka, the patron goddess of the Big Island of Hawaii, though at first it had gone by the nickname \"Rudolph\" by its discovery team. It orbits once every 49.12±0.03 d at a distance of 49880±198 km, with an eccentricity of 0.0513±0.0078 and an inclination of 126.356±0.064°. Mutual events expected in July 2009 should improve the knowledge of the orbits and masses of the components of the Haumean system.\n\nIts measured brightness is 5.9±0.5%, translating into a diameter of about 22% of its primary, or in the range of 320 km, assuming similar albedo. To put this in perspective, this would make it larger than all but four of the asteroids, after 1 Ceres, 2 Pallas, 4 Vesta, and 10 Hygiea. In spite of its relatively large size, however, lightcurve studies suggest that Hi'iaka is not a gravitationally collapsed spheroid; they further suggest that Hi'iaka is not tidally locked and has a rotation period of about 9.8 hours.\n\nThe mass of Hiʻiaka is estimated to be (1.79±0.11)×1019 kg using precise relative astrometry from Hubble Telescope and Keck Telescope and applying 3-body, point-mass model to the Haumean system.\n\nThe near infrared spectrum of Hiʻiaka is dominated by water-ice absorption bands, which means that its surface is made mainly of water ice. The presence of the band centered at 1.65 µm indicates that the surface water ice is primarily in the crystalline form. Currently it is unclear why water ice on the surface has not turned into amorphous form as would be expected due to its constant irradiation by cosmic rays.",
                      wiki: "https://en.wikipedia.org/wiki/Moons_of_Haumea#Hi.CA.BBiaka",
                      nasa: "http://solarsystem.nasa.gov/planets/haumea/moons")
+        
+        Hiiaka.geology(mass: 17900000000.teragram(),
+                       volume: nil,
+                       equatorial: nil,
+                       density: 1000.kilogram(),
+                       gravity: nil,
+                       escape_velocity: nil,
+                       irradiance: nil,
+                       geographic_height_variance: nil)
+        
+        Hiiaka.orbitals(orbital_length: 49.12.day(),
+                        perigee: nil,
+                        apogee: nil,
+                        velocity: nil,
+                        inclination: 126.356,
+                        eccentricity: 0.0513,
+                        day_length: nil,
+                        equator_inclination: nil)
+        
+        Hiiaka.misc(discovered: "January 26th, 2005")
         
         Haumea.moons.append(Hiiaka)
         
@@ -2595,6 +2634,26 @@ class Objects {
                   wiki: "https://en.wikipedia.org/wiki/Makemake#Satellite",
                   nasa: "http://solarsystem.nasa.gov/planets/makemake/indepth")
         
+        MK2.geology(mass: nil,
+                    volume: nil,
+                    equatorial: 200.kilometer(),
+                    density: nil,
+                    gravity: nil,
+                    escape_velocity: nil,
+                    irradiance: nil,
+                    geographic_height_variance: nil)
+        
+        MK2.orbitals(orbital_length: 12.4.day(),
+                     perigee: nil,
+                     apogee: nil,
+                     velocity: nil,
+                     inclination: nil,
+                     eccentricity: nil,
+                     day_length: nil,
+                     equator_inclination: nil)
+        
+        MK2.misc(discovered: "March 31st, 2005")
+        
         Makemake.moons.append(MK2)
         
         //----------------------------------------------------------------------------------------------
@@ -2645,6 +2704,26 @@ class Objects {
         Dysnomia.about(description: "Dysnomia —officially (136199) Eris I Dysnomia— is the only known moon of the dwarf planet Eris (the most massive known dwarf planet in the Solar System). It was discovered in 2005 by Mike Brown and the laser guide star adaptive optics team at the W. M. Keck Observatory, and carried the provisional designation of S/2005 (2003 UB313) 1 until officially named Dysnomia (from the Ancient Greek word Δυσνομία meaning anarchy/lawlessness) after the daughter of the Greek goddess Eris.\n\nDysnomia was found 4.43 magnitudes fainter than Eris, and its diameter is estimated to be between 350 and 490 km, though Mike Brown claims that it is 500 times fainter and between 100 and 250 km in diameter. It is 60 times fainter than Eris in the K band and 480 times fainter in the V band, which means a very different, and quite redder, spectrum, indicating a significantly darker surface. Assuming its albedo is five times lower than Eris's, its diameter would be 685±50 km, meaning that Dysnomia is itself likely a rather large Trans-Neptunian object. Of the Solar System's dwarf planet and minor planet moons, only Charon is definitely larger than Dysnomia.\n\nAstronomers now know that the four brightest Kuiper belt objects (KBOs) have satellites. Among the fainter members of the belt only about 10% are known to have satellites. This is thought to imply that collisions between large KBOs have been frequent in the past. Impacts between bodies of the order of 1000 km across would throw off large amounts of material that would coalesce into a moon. A similar mechanism is thought to have led to the formation of the Moon when Earth was struck by a giant impactor early in the history of the Solar System.",
                        wiki: "https://en.wikipedia.org/wiki/Dysnomia_(moon)",
                        nasa: "http://solarsystem.nasa.gov/galleries/eris-and-dysnomia")
+        
+        Dysnomia.geology(mass: nil,
+                         volume: nil,
+                         equatorial: 342.kilometer(),
+                         density: nil,
+                         gravity: nil,
+                         escape_velocity: nil,
+                         irradiance: nil,
+                         geographic_height_variance: nil)
+        
+        Dysnomia.orbitals(orbital_length: 15.774.day(),
+                          perigee: nil,
+                          apogee: nil,
+                          velocity: 0.172.kilometer(),
+                          inclination: 142,
+                          eccentricity: 0.013,
+                          day_length: nil,
+                          equator_inclination: nil)
+        
+        Dysnomia.misc(discovered: "September 10th, 2005")
         
         Eris.moons.append(Dysnomia)
         
