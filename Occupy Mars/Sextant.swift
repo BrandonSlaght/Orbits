@@ -46,6 +46,7 @@ class Sextant: NSObject {
       Decl: Double,
      GMST0: Double,
 longnitude: Double,
+  latitude: Double,
    SIDTIME: Double,
         HA: Double,
         x2: Double,
@@ -55,7 +56,15 @@ longnitude: Double,
       yhor: Double,
       zhor: Double,
    azimuth: Double,
-  altitude: Double
+  altitude: Double,
+      sinh: Double,
+         h: Double,
+   noon_RA: Double,
+UT_Sun_in_south: Double,
+    cosLHA: Double,
+       LHA: Double,
+    sunset: Double,
+   sunrise: Double
     
     init(p: Planet) {
         self.a = p.a!
@@ -118,7 +127,10 @@ longnitude: Double,
         //longnitude = (locationManager.location?.coordinate.longitude)!
         
         //TESTING ONLY, DELETE THIS LATER
+        //longnitude = 123.55
+        //latitude = 37.24
         longnitude = 15
+        latitude = 15
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd HH:mm"
@@ -133,7 +145,7 @@ longnitude: Double,
         GMST0 = (L1) / 15.0 + 12.0
         SIDTIME = GMST0 + Double(hour) + longnitude / 15
         SIDTIME = abs(SIDTIME).truncatingRemainder(dividingBy: 24.0)
-        HA = (SIDTIME - RA) / 15
+        HA = SIDTIME - (RA / 15)
         
         x2 = __cospi(HA / 180.0) * __cospi(Decl / 180.0)
         y2 = __sinpi(HA / 180.0) * __sinpi(Decl / 180.0)
@@ -145,6 +157,25 @@ longnitude: Double,
         
         azimuth = atan2(yhor / 180, xhor / 180) + 180
         altitude = asin(zhor / 180)
+    
+        sinh = __sinpi(latitude / 180) * __sinpi(Decl / 180) + __cospi(latitude / 180) * __cospi(Decl / 180) * __cospi(HA / 180)
+        h = asin(sinh / 180)
+        
+        noon_RA = GMST0 + 12.0 + longnitude / 15
+        UT_Sun_in_south = (noon_RA - GMST0 - longnitude) / 15.0
+        cosLHA = (sinh - __sinpi(latitude / 180) * __sinpi(Decl / 180)) / (__cospi(latitude / 180) * __cospi(Decl / 180))
+        
+        if cosLHA > 1.0 {
+            LHA = Double.infinity
+        } else if cosLHA < -1.0 { //midnight sunbath
+            LHA = -Double.infinity
+        } else {
+            LHA = acos(cosLHA / 180) / 15.0
+        }
+        sunset = UT_Sun_in_south + LHA
+        sunrise = UT_Sun_in_south - LHA
+        
+        //convert UT to local time
     }
     
     func sin(degrees: Double) -> Double {
@@ -200,6 +231,15 @@ longnitude: Double,
         print(zhor)
         print(azimuth)
         print(altitude)
+        print("---Position for times---")
+        print(sinh)
+        print(h)
+        print(noon_RA)
+        print(UT_Sun_in_south)
+        print(cosLHA)
+        print(LHA)
+        print(sunrise)
+        print(sunset)
         print("===================")
     }
     

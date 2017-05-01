@@ -43,6 +43,8 @@ DONE - metric/imperial setting
 DONE - info modals for each of the detail categories
 DONE - add sun model
 DONE - profile lag in Saturn's moons list
+DONE - fix performance so models can rotate again
+DONE - core spotlight support
 ---------------------------------------------------------------------------------------------------------------------
 Fix navbar bugs when transitioning into and out of globe view (swiping from side or pressing back button)
 Fix scrolling in the globe view - when double tapping or tapping and holding
@@ -67,10 +69,10 @@ EZ - add a whats new section and popup
 atmosphere details section
 make modal tooltips blurry
 fix bug where tab bar dissapears
-fix performance so models can rotate again
 localize
 widget for visibility
-core spotlight support
+pictures for spotlight
+core siri support
 ---------------------------------------------------------------------------------------------------------------------
 
 
@@ -87,3 +89,15 @@ added sun
 reduced app size by 100 mb
 minor text fixes
 ui improvements
+
+1.2.1:
+Fixed a possible crash in the globe view",
+
+1.2.2:
+Reduced minimum iOS version to 10.0
+Fixed performance issues when scrolling lists of moons and planets
+
+1.2.3
+Added a 'What's New' dialogue
+Added details to moons of Earth, Mars, Haumea, Makemake, and Eris
+Spotlight support! You can now search planets and moons from the app directly in Spotlight

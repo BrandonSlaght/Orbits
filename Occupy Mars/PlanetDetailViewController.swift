@@ -169,6 +169,7 @@ class PlanetDetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear")
         barColor = navigationController?.navigationBar.barTintColor
         if let let_color = planet.color1 {
             self.navigationController?.navigationBar.barTintColor =  let_color
@@ -217,7 +218,9 @@ class PlanetDetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        //tabHolder.frame.origin.y = max(navigationBarOriginalOffset!, scrollView.contentOffset.y)
+//        if (navigationBarOriginalOffset == nil) {
+//            navigationBarOriginalOffset = tabHolder.frame.origin.y
+//        }
         if (sceneHeight.constant == 0) {
             tabHolder.frame.origin.y = scrollView.contentOffset.y
             print("no scene!")

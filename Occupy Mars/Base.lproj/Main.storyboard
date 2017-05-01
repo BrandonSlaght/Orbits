@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EI3-eX-e9c">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EI3-eX-e9c">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -84,7 +84,7 @@
                                 <rect key="frame" x="37" y="149" width="301.5" height="370"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="icon-observatory" translatesAutoresizingMaskIntoConstraints="NO" id="Fyb-TD-TCN">
-                                        <rect key="frame" x="34" y="0.0" width="233" height="266"/>
+                                        <rect key="frame" x="34.5" y="0.0" width="233" height="266"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Observe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LX3-QF-9Ki">
                                         <rect key="frame" x="86.5" y="276" width="128.5" height="38.5"/>
@@ -345,7 +345,7 @@
         <!--Planet Detail View Controller-->
         <scene sceneID="82V-o3-Hfc">
             <objects>
-                <viewController id="iFP-Sf-DDu" customClass="PlanetDetailViewController" customModule="Occupy_Mars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlanetDetail" id="iFP-Sf-DDu" customClass="PlanetDetailViewController" customModule="Occupy_Mars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sy7-yf-gzq"/>
                         <viewControllerLayoutGuide type="bottom" id="V8T-sq-QOA"/>
@@ -890,7 +890,7 @@
         <!--Moon Detail View Controller-->
         <scene sceneID="w2a-sF-Q03">
             <objects>
-                <viewController id="79a-5C-jXn" customClass="MoonDetailViewController" customModule="Occupy_Mars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MoonDetail" id="79a-5C-jXn" customClass="MoonDetailViewController" customModule="Occupy_Mars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SI3-qC-n9P"/>
                         <viewControllerLayoutGuide type="bottom" id="guo-06-FN8"/>
