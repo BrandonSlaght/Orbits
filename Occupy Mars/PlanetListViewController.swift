@@ -12,12 +12,17 @@ import MobileCoreServices
 import SceneKit
 import CLibnova
 
+protocol PlanetSelectionDelegate: class {
+    func planetSelected(newPlanet: Planet)
+}
+
 class PlanetListViewController: UITableViewController {
     
     @IBAction func dismissInfo(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)
     }
     
+    weak var delegate: PlanetSelectionDelegate?
     let objects = Objects.planets()
     var selectedGroup : Int?
     var selectedIndex : Int?
@@ -52,6 +57,7 @@ class PlanetListViewController: UITableViewController {
 //        visualEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 //        self.navigationController?.navigationBar.alpha = 0.5
 //        self.navigationController?.navigationBar.addSubview(visualEffectView)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -77,6 +83,16 @@ class PlanetListViewController: UITableViewController {
         
         UserDefaults.standard.set(true, forKey: "launchedBefore")
         UserDefaults.standard.set(thisVersionInt, forKey: "lastLaunchedVersion")
+        
+        let initialIndexPath = IndexPath(row: 0, section: 0)
+        self.tableView.selectRow(at: initialIndexPath, animated: true, scrollPosition:UITableViewScrollPosition.none)
+        
+        print("got here")
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            print("detected iPad")
+            //self.performSegue(withIdentifier: "planetSegue", sender: initialIndexPath)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -240,13 +256,19 @@ class PlanetListViewController: UITableViewController {
             }
         }
     }
-        
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let classification = Class.allValues[indexPath.section]
+        self.delegate?.planetSelected(newPlanet: objects[classification]![indexPath.row])
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "planetSegue") {//|| segue.identifier == "showDetails") {
-            let detail = segue.destination as! PlanetDetailViewController
-            if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
-                let classification = Class.allValues[indexPath.section]
-                detail.planet = objects[classification]![indexPath.row]
+//        if (segue.identifier == "planetSegue") {//|| segue.identifier == "showDetails") {
+//            let detail = segue.destination as! PlanetDetailViewController
+//            if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
+//                let classification = Class.allValues[indexPath.section]
+//                detail.planet = objects[classification]![indexPath.row]
+//                self.delegate?.planetSelected(newPlanet: objects[classification]![indexPath.row])
 //            } else {
 //                if let let_group = selectedGroup, let let_index = selectedIndex {
 //                    if let let_moon = selectedMoon {
@@ -258,7 +280,14 @@ class PlanetListViewController: UITableViewController {
 //                        detail.planet = objects[classification]![let_index]
 //                    }
 //                }
-            }
-        }
+//            } else if let cell = sender as? IndexPath{
+//                print("detected segue")
+//                let tableCell = self.tableView.cellForRow(at: cell)
+//                let indexPath = self.tableView.indexPath(for: tableCell!)
+//                
+//                let classification = Class.allValues[(indexPath?.section)!]
+//                detail.planet = objects[classification]![(indexPath?.row)!]
+//            }
+//        }
     }
 }

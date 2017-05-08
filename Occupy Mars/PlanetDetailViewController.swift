@@ -92,6 +92,10 @@ class PlanetDetailViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if planet == nil {
+            return
+        }
+        
         scrollView.delegate = self
         
         let singleTap = UITapGestureRecognizer()
@@ -162,6 +166,10 @@ class PlanetDetailViewController: UIViewController, UIScrollViewDelegate {
         }
         
         insideView.bringSubview(toFront: tabHolder)
+    
+        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+        navigationItem.leftItemsSupplementBackButton = true
+        
     }
     
     func hide(_ sender: UITapGestureRecognizer) {
@@ -169,6 +177,9 @@ class PlanetDetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        if planet == nil {
+            return
+        }
         print("viewWillAppear")
         barColor = navigationController?.navigationBar.barTintColor
         if let let_color = planet.color1 {
@@ -252,6 +263,12 @@ class PlanetDetailViewController: UIViewController, UIScrollViewDelegate {
             segue.destination.view.translatesAutoresizingMaskIntoConstraints = false
         }
         BTBalloon.sharedInstance().hide()
+    }
+}
+
+extension PlanetDetailViewController: PlanetSelectionDelegate {
+    func planetSelected(newPlanet: Planet) {
+        self.planet = newPlanet
     }
 }
 

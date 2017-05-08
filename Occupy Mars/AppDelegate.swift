@@ -21,10 +21,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if launchedBefore  {
             self.window = UIWindow(frame: UIScreen.main.bounds)
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: "MainListView")
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "SplitView")
             self.window?.rootViewController = initialViewController
             self.window?.makeKeyAndVisible()
         }
+        
+        let splitViewController = self.window!.rootViewController as! UISplitViewController
+        let leftNavController = splitViewController.viewControllers.first as! UINavigationController
+        let masterViewController = leftNavController.topViewController as! PlanetListViewController
+        let detailViewController = splitViewController.viewControllers.last as! PlanetDetailViewController
+        
+        let first = masterViewController.objects.first?.value.first
+        detailViewController.planet = first
+        masterViewController.delegate = detailViewController
         return true
     }
 
