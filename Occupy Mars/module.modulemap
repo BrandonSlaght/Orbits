@@ -1,0 +1,5 @@
+module CLibnova {
+ header "sextant/libnova/libnova.h"
+ //link "./sextant/libnova/libnova.h"
+ export *
+}

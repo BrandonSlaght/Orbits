@@ -4,3 +4,5 @@
 
 #import "BTBalloon.h"
 #import "BTBalloonArrow.h"
+#import "sextant/libnova/libnova.h"
+#import "sextant/libnova/uranus.h"

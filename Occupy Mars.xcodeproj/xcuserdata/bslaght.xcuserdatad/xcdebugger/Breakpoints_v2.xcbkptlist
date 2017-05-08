@@ -47,8 +47,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "19"
             endingLineNumber = "19"
-            landmarkName = "name"
-            landmarkType = "24">
+            landmarkName = "Planet"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -79,8 +79,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
             endingLineNumber = "63"
-            landmarkName = "Planet"
-            landmarkType = "3">
+            landmarkName = "composition"
+            landmarkType = "24">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -137,11 +137,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Occupy Mars/Planet.swift"
-            timestampString = "513561484.349122"
+            timestampString = "515896348.958116"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "345"
-            endingLineNumber = "345"
+            startingLineNumber = "350"
+            endingLineNumber = "350"
             landmarkName = "getScene(size:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -831,7 +831,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "163"
             endingLineNumber = "163"
-            landmarkName = "images(images:)"
+            landmarkName = "display(texture:model:normalmap:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -847,8 +847,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "162"
             endingLineNumber = "162"
-            landmarkName = "Moon"
-            landmarkType = "3">
+            landmarkName = "display(texture:model:normalmap:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -858,11 +858,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Occupy Mars/Planet.swift"
-            timestampString = "513561484.349122"
+            timestampString = "515896348.958116"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "321"
-            endingLineNumber = "321"
+            startingLineNumber = "326"
+            endingLineNumber = "326"
             landmarkName = "getScene(size:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -879,7 +879,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "212"
             endingLineNumber = "212"
-            landmarkName = "scrollViewDidScroll(_:)"
+            landmarkName = "getDetailViewController(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -896,6 +896,38 @@
             startingLineNumber = "66"
             endingLineNumber = "66"
             landmarkName = "cycleFromViewController(oldViewController:toViewController:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Occupy Mars/PlanetListViewController.swift"
+            timestampString = "515894860.700605"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Occupy Mars/Moon.swift"
+            timestampString = "515896328.245363"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
+            landmarkName = "getScene(size:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

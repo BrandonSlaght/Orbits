@@ -220,7 +220,7 @@ class Objects {
                      geographic_height_variance: 13.kilometer())
         
         moon.orbitals(orbital_length: 29.53.day(),
-                      perigee: 362600.kilmoeter(),
+                      perigee: 362600.kilometer(),
                       apogee: 405400.kilometer(),
                       velocity: 1.022.kilometer(),
                       inclination: 5.145,
@@ -1499,8 +1499,8 @@ class Objects {
                      wiki: "https://en.wikipedia.org/wiki/Phoebe_(moon)",
                      nasa: "http://solarsystem.nasa.gov/planets/phoebe")
         
-        Phoebe.display(texture: "phoebemap.jpg",
-                       model: nil,
+        Phoebe.display(texture: nil,
+                       model: "phoebe.dae",
                        normalmap: nil)
         
         Saturn.moons.append(Phoebe)

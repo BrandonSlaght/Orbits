@@ -10,6 +10,7 @@ import UIKit
 import CoreSpotlight
 import MobileCoreServices
 import SceneKit
+import CLibnova
 
 class PlanetListViewController: UITableViewController {
     
@@ -38,8 +39,12 @@ class PlanetListViewController: UITableViewController {
         let appDefaults = [String:AnyObject]()
         UserDefaults.standard.register(defaults: appDefaults)
         setupSearchableContent()
+
+        //let test = Libnova.uranus_new()
         
-        objects.first?.value[0].getVisibility()
+        //let test = uranus.ln_get_uranus_sdiam(5.0)
+        
+        //objects.first?.value[0].getVisibility()
         
 //        let bounds = self.navigationController?.navigationBar.bounds as CGRect!
 //        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .light))

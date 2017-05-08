@@ -250,8 +250,13 @@ class Planet {
         var planet : SCNGeometry
         
         if let let_model = model {
-            let tempScene = SCNScene(named: let_model)
-            planet = tempScene!.rootNode.childNodes[0].geometry! //= SCNGeometry  //(sources: [SCNGeometrySource], elements: <#T##[SCNGeometryElement]#>)
+            let tempScene: SCNScene
+            if (size == Size.small) {
+                tempScene = SCNScene(named: String(let_model.characters.dropLast(4)) + " - thumbnail.dae")!
+            } else {
+                tempScene = SCNScene(named: let_model)!
+            }
+            planet = tempScene.rootNode.childNodes[0].geometry!
         } else {
             planet = SCNSphere(radius: 1.0)
             if size == Size.small {

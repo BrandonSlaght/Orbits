@@ -215,10 +215,16 @@ class Moon {
         planet = SCNSphere(radius: 1.0)
         
         if let let_model = model {
-            let tempScene = SCNScene(named: let_model)
-            print(tempScene ?? "")
-            let geometry = tempScene?.rootNode.childNodes[0]
-            geometry?.name = "planet"
+            let tempScene: SCNScene
+            if (size == Size.small) {
+                tempScene = SCNScene(named: String(let_model.characters.dropLast(4)) + " - thumbnail.dae")!
+            } else {
+                tempScene = SCNScene(named: let_model)!
+            }
+
+            print(tempScene )
+            let geometry = tempScene.rootNode.childNodes[0]
+            geometry.name = "planet"
             
             //let rotationNode = SCNNode()
             ///rotationNode.geometry = nil
@@ -237,9 +243,9 @@ class Moon {
             
             spin.repeatCount = .infinity
             
-            geometry?.addAnimation(spin, forKey: "spin around")
+            geometry.addAnimation(spin, forKey: "spin around")
             
-            scene.rootNode.addChildNode(geometry!)
+            scene.rootNode.addChildNode(geometry)
             //var box = planet.boundingBox
             //planet.boundingBox.min.x = box.min.x*0.8
             //planet.boundingBox.min.y = box.min.y*0.8
