@@ -12,29 +12,27 @@ import MobileCoreServices
 import SceneKit
 import CLibnova
 
-protocol PlanetSelectionDelegate: class {
-    func planetSelected(newPlanet: Planet)
-}
-
-class PlanetListViewController: UITableViewController {
+class PlanetListViewController: UITableViewController, UISplitViewControllerDelegate {
     
     @IBAction func dismissInfo(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    weak var delegate: PlanetSelectionDelegate?
     let objects = Objects.planets()
     var selectedGroup : Int?
     var selectedIndex : Int?
     var selectedMoon : Int?
+    var collapseSplitView = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        splitViewController?.delegate = self
         let background = UIImageView(image: UIImage(named: "milkyway.jpg")!)
         background.contentMode = .scaleAspectFill
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = view.bounds
+        blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         background.addSubview(blurView)
         tableView.backgroundView = background
         tableView.tableFooterView = UIView(frame: CGRect.zero)
@@ -44,6 +42,10 @@ class PlanetListViewController: UITableViewController {
         let appDefaults = [String:AnyObject]()
         UserDefaults.standard.register(defaults: appDefaults)
         setupSearchableContent()
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            splitViewController?.preferredDisplayMode = .allVisible
+        }
 
         //let test = Libnova.uranus_new()
         
@@ -146,7 +148,7 @@ class PlanetListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
-        header.contentView.backgroundColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
+        header.contentView.backgroundColor = UIColor(red: 78/255, green: 78/255, blue: 78/255, alpha: 1)
         header.textLabel!.textColor = UIColor.white
         
 //        let blurEffect = UIBlurEffect(style: .dark)
@@ -259,34 +261,42 @@ class PlanetListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let classification = Class.allValues[indexPath.section]
-        self.delegate?.planetSelected(newPlanet: objects[classification]![indexPath.row])
+        let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PlanetDetail") as! UINavigationController
+        let detail = detailViewController.topViewController as? PlanetDetailViewController
+        detail?.planet = objects[classification]![indexPath.row]
+        showDetailViewController(detailViewController, sender: self)
+    }
+    
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        print("split view handling")
+        return collapseSplitView
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        collapseSplitView = false
 //        if (segue.identifier == "planetSegue") {//|| segue.identifier == "showDetails") {
 //            let detail = segue.destination as! PlanetDetailViewController
 //            if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
 //                let classification = Class.allValues[indexPath.section]
 //                detail.planet = objects[classification]![indexPath.row]
-//                self.delegate?.planetSelected(newPlanet: objects[classification]![indexPath.row])
-//            } else {
-//                if let let_group = selectedGroup, let let_index = selectedIndex {
-//                    if let let_moon = selectedMoon {
-//                        let moonDetail = segue.destination as! MoonDetailViewController
-//                        let classification = Class.allValues[let_group]
-//                        moonDetail.moon = objects[classification]![let_index].moons[let_moon]
-//                    } else {
-//                        let classification = Class.allValues[let_group]
-//                        detail.planet = objects[classification]![let_index]
-//                    }
-//                }
-//            } else if let cell = sender as? IndexPath{
-//                print("detected segue")
-//                let tableCell = self.tableView.cellForRow(at: cell)
-//                let indexPath = self.tableView.indexPath(for: tableCell!)
-//                
-//                let classification = Class.allValues[(indexPath?.section)!]
-//                detail.planet = objects[classification]![(indexPath?.row)!]
+////            } else {
+////                if let let_group = selectedGroup, let let_index = selectedIndex {
+////                    if let let_moon = selectedMoon {
+////                        let moonDetail = segue.destination as! MoonDetailViewController
+////                        let classification = Class.allValues[let_group]
+////                        moonDetail.moon = objects[classification]![let_index].moons[let_moon]
+////                    } else {
+////                        let classification = Class.allValues[let_group]
+////                        detail.planet = objects[classification]![let_index]
+////                    }
+////                }
+////            } else if let cell = sender as? IndexPath{
+////                print("detected segue")
+////                let tableCell = self.tableView.cellForRow(at: cell)
+////                let indexPath = self.tableView.indexPath(for: tableCell!)
+////                
+////                let classification = Class.allValues[(indexPath?.section)!]
+////                detail.planet = objects[classification]![(indexPath?.row)!]
 //            }
 //        }
     }

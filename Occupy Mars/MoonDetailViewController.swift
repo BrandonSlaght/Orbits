@@ -177,11 +177,11 @@ class MoonDetailViewController: UIViewController, UIScrollViewDelegate  {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         //tabHolder.frame.origin.y = max(navigationBarOriginalOffset!, scrollView.contentOffset.y)
         if (sceneHeight.constant == 0) {
-            tabHolder.frame.origin.y = scrollView.contentOffset.y
+            tabHolder.frame.origin.y = scrollView.contentOffset.y + (navigationController?.navigationBar.frame.height)! + statusBarHeight()
             print("no scene!")
         } else {
-            if (navigationBarOriginalOffset! <= scrollView.contentOffset.y) {
-                tabHolder.frame.origin.y = scrollView.contentOffset.y
+            if (navigationBarOriginalOffset! <= scrollView.contentOffset.y + (navigationController?.navigationBar.frame.height)! + statusBarHeight()) { //crashes on getting navbar frame height
+                tabHolder.frame.origin.y = scrollView.contentOffset.y + (navigationController?.navigationBar.frame.height)! + statusBarHeight()
                 if let let_color = moon.color1 {
                     tabHolder.backgroundColor = let_color
                 } else {
@@ -196,6 +196,10 @@ class MoonDetailViewController: UIViewController, UIScrollViewDelegate  {
         }
     }
     
+    func statusBarHeight() -> CGFloat {
+        let statusBarSize = UIApplication.shared.statusBarFrame.size
+        return min(statusBarSize.width, statusBarSize.height)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "globeSegue") {

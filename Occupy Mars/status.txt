@@ -45,6 +45,9 @@ DONE - add sun model
 DONE - profile lag in Saturn's moons list
 DONE - fix performance so models can rotate again
 DONE - core spotlight support
+DONE - fix janus model fuckery
+DONE - low res thumbnails of models
+DONE - smooth shading of models
 ---------------------------------------------------------------------------------------------------------------------
 Fix navbar bugs when transitioning into and out of globe view (swiping from side or pressing back button)
 Fix scrolling in the globe view - when double tapping or tapping and holding
@@ -57,9 +60,6 @@ EZ - profile lag in the info modal
 EZ - update texture and model sources
 EZ - fix the alignment and constraints on the video intro screen
 do visibility
-fix janus model fuckery
-EZ - low res thumbnails of models
-EZ - smooth shading of models
 units inline in text to enable conversion
 EZ - pronunciations
 fix constraints not always applying in details

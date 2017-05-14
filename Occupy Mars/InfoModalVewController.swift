@@ -21,6 +21,7 @@ class InfoModalViewController: UIViewController {
         let blurEffect = UIBlurEffect(style: .dark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = self.view.frame
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.view.insertSubview(blurEffectView, at: 0)
         
         let touchGit = UITapGestureRecognizer(target: self, action:#selector(self.openGit))

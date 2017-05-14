@@ -122,7 +122,7 @@ class DetailsAboutViewController: AboutViewController, UITableViewDataSource, UI
             value.append(superscript(string: previewDetail.1, fontName: cell.value.font.fontName, size: Int(cell.value.font.pointSize)))
             value.append(NSAttributedString(string: previewDetail.2))
             cell.value!.attributedText = value
-            addTargets(key: previewDetail.0, gesture: singleTap, view: cell.field!)
+            addTargets(key: previewDetail.0, gesture: singleTap, view: cell.info!)
         } else if tableView == self.orbitTable {
             cell = tableView.dequeueReusableCell(withIdentifier: "orbitCell", for: indexPath as IndexPath) as! DataViewCellViewController
             let previewDetail = orbit[indexPath.row]
@@ -131,23 +131,24 @@ class DetailsAboutViewController: AboutViewController, UITableViewDataSource, UI
             value.append(superscript(string: previewDetail.1, fontName: cell.value.font.fontName, size: Int(cell.value.font.pointSize)))
             value.append(NSAttributedString(string: previewDetail.2))
             cell.value!.attributedText = value
-            addTargets(key: previewDetail.0, gesture: singleTap, view: cell.field!)
+            addTargets(key: previewDetail.0, gesture: singleTap, view: cell.info!)
         } else {//if tableView == self.orbitTable {
             cell = tableView.dequeueReusableCell(withIdentifier: "miscCell", for: indexPath as IndexPath) as! DataViewCellViewController
             let previewDetail = misc[indexPath.row]
             cell.field!.text = previewDetail.0
             cell.value!.text = previewDetail.1
-            addTargets(key: previewDetail.0, gesture: singleTap, view: cell.field!)
+            addTargets(key: previewDetail.0, gesture: singleTap, view: cell.info!)
         }
-        if indexPath.row % 2 == 0 {
+        if indexPath.row % 2 == 1 {
             cell.backgroundColor = UIColor.clear
         } else {
             cell.backgroundColor = UIColor(colorLiteralRed: 1, green: 1, blue: 1, alpha: 0.1)
         }
         cell.selectionStyle = .none
-        cell.isUserInteractionEnabled = true
-        cell.field.isUserInteractionEnabled = true
-        cell.value.isUserInteractionEnabled = true
+        //cell.isUserInteractionEnabled = true
+        //cell.field.isUserInteractionEnabled = true
+        //cell.info.isUserInteractionEnabled = true
+        //cell.value.isUserInteractionEnabled = true
         return cell
     }
     
@@ -179,22 +180,22 @@ class DetailsAboutViewController: AboutViewController, UITableViewDataSource, UI
             view.tag = 5
             gesture.addTarget(self, action: #selector(DetailsAboutViewController.addGravity(_:)))
             view.addGestureRecognizer(gesture)
-            view.text = view.text! + " ⓘ"
+            view.text = " ⓘ"
         case "Escape Velocity":
             view.tag = 6
             gesture.addTarget(self, action: #selector(DetailsAboutViewController.addEscapeVelocity(_:)))
             view.addGestureRecognizer(gesture)
-            view.text = view.text! + " ⓘ"
+            view.text = " ⓘ"
         case "Irradiance":
             view.tag = 7
             gesture.addTarget(self, action: #selector(DetailsAboutViewController.addIrradiance(_:)))
             view.addGestureRecognizer(gesture)
-            view.text = view.text! + " ⓘ"
+            view.text = " ⓘ"
         case "Height Variance":
             view.tag = 8
             gesture.addTarget(self, action: #selector(DetailsAboutViewController.addHeightVariance(_:)))
             view.addGestureRecognizer(gesture)
-            view.text = view.text! + " ⓘ"
+            view.text = " ⓘ"
         case "Year Length":
             //view.tag = 9
             //gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
@@ -209,32 +210,32 @@ class DetailsAboutViewController: AboutViewController, UITableViewDataSource, UI
             view.tag = 11
             gesture.addTarget(self, action: #selector(DetailsAboutViewController.addAverageVelocity(_:)))
             view.addGestureRecognizer(gesture)
-            view.text = view.text! + " ⓘ"
+            view.text = " ⓘ"
         case "Perihilion":
             view.tag = 12
             gesture.addTarget(self, action: #selector(DetailsAboutViewController.addPerihilion(_:)))
             view.addGestureRecognizer(gesture)
-            view.text = view.text! + " ⓘ"
+            view.text = " ⓘ"
         case "Aphelion":
             view.tag = 13
             gesture.addTarget(self, action: #selector(DetailsAboutViewController.addAphelion(_:)))
             view.addGestureRecognizer(gesture)
-            view.text = view.text! + " ⓘ"
+            view.text = " ⓘ"
         case "Orbital Tilt":
             view.tag = 14
             gesture.addTarget(self, action: #selector(DetailsAboutViewController.addOrbitalTilt(_:)))
             view.addGestureRecognizer(gesture)
-            view.text = view.text! + " ⓘ"
+            view.text = " ⓘ"
         case "Eccentricity":
             view.tag = 15
             gesture.addTarget(self, action: #selector(DetailsAboutViewController.addEccentricity(_:)))
             view.addGestureRecognizer(gesture)
-            view.text = view.text! + " ⓘ"
+            view.text = " ⓘ"
         case "Equatorial Tilt":
             view.tag = 16
             gesture.addTarget(self, action: #selector(DetailsAboutViewController.addEquatorialTilt(_:)))
             view.addGestureRecognizer(gesture)
-            view.text = view.text! + " ⓘ"
+            view.text = " ⓘ"
         case "Nearest to Earth":
             //view.tag = 17
             //gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))

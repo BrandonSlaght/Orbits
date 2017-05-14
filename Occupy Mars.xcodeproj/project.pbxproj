@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8427FBA31E8C137600536BAB /* status.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8427FBA21E8C137400536BAB /* status.txt */; };
+		84297BEA1EC6A314003604C7 /* Body.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84297BE91EC6A314003604C7 /* Body.swift */; };
 		843E07A71E8F198900B4EF26 /* amaltheamap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 843E07A61E8F198900B4EF26 /* amaltheamap.jpg */; };
 		843E07AB1E8F1EEC00B4EF26 /* deimosnormalmap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 843E07AA1E8F1EEC00B4EF26 /* deimosnormalmap.jpg */; };
 		8488D42E1E54EBCF009AD9D8 /* AreaUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D4211E54EBCF009AD9D8 /* AreaUnit.swift */; };
@@ -130,6 +131,7 @@
 
 /* Begin PBXFileReference section */
 		8427FBA21E8C137400536BAB /* status.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = status.txt; sourceTree = "<group>"; };
+		84297BE91EC6A314003604C7 /* Body.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Body.swift; sourceTree = "<group>"; };
 		843E07A61E8F198900B4EF26 /* amaltheamap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = amaltheamap.jpg; path = Assets.xcassets/jupiter/amalthea/amaltheamap.imageset/amaltheamap.jpg; sourceTree = "<group>"; };
 		843E07AA1E8F1EEC00B4EF26 /* deimosnormalmap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = deimosnormalmap.jpg; path = Assets.xcassets/mars/demios/deimosnormalmap.imageset/deimosnormalmap.jpg; sourceTree = "<group>"; };
 		8488D4211E54EBCF009AD9D8 /* AreaUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaUnit.swift; sourceTree = "<group>"; };
@@ -284,6 +286,34 @@
 			name = epimetheus;
 			sourceTree = "<group>";
 		};
+		84297BE81EC6A211003604C7 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				C5AEC3EF1DCE775100992AEB /* details */,
+				C58DEB8E1DC6B50400E6C1F3 /* PlanetCell.swift */,
+				C5AEC3FC1DCE7D0400992AEB /* MoonCell.swift */,
+				C5941BE91DBBFEA40057A46A /* IntroPageViewController.swift */,
+				C5D515B71DE106400024638D /* InfoModalVewController.swift */,
+				C5C24C7E1DC685F50028FAF5 /* PlanetListViewController.swift */,
+				C515AE601DC8E135009A498C /* TestViewController.swift */,
+				C515AE621DC91126009A498C /* PlanetDetailViewController.swift */,
+				C597D2D31E01E287006B6D6C /* MoonDetailViewController.swift */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		84297BEB1EC8F12B003604C7 /* libraries */ = {
+			isa = PBXGroup;
+			children = (
+				84A6B5561E97FFD800D0A5BA /* info */,
+				C5CF53D81DFC7EC0008A6489 /* photo browser */,
+				C54958271EBFDAC200153998 /* sextant */,
+				8488D4201E54EBAB009AD9D8 /* units */,
+				C54958291EBFE7BA00153998 /* module.modulemap */,
+			);
+			name = libraries;
+			sourceTree = "<group>";
+		};
 		843E07AC1E8F1FFA00B4EF26 /* deimos */ = {
 			isa = PBXGroup;
 			children = (
@@ -410,9 +440,9 @@
 			isa = PBXGroup;
 			children = (
 				C5AB79F91DEC8D310097C295 /* DataViewCell.xib */,
-				C5C281BF1DDB94B60036C7A0 /* MediaViewCell.xib */,
 				C5941BE01DBBFD940057A46A /* LaunchScreen.storyboard */,
 				C5941BDB1DBBFD940057A46A /* Main.storyboard */,
+				C5C281BF1DDB94B60036C7A0 /* MediaViewCell.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -420,6 +450,7 @@
 		84E044431E37D55F00A6AAB4 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				C5941BDE1DBBFD940057A46A /* Assets.xcassets */,
 				C5CD59C21DD91F8600ACB8EA /* background.mp4 */,
 				84E044451E37D5DA00A6AAB4 /* gifs */,
 				84E044441E37D57600A6AAB4 /* models */,
@@ -463,12 +494,13 @@
 		C52458361DC578BA009F3374 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				84297BE91EC6A314003604C7 /* Body.swift */,
 				84FFCB2E1EB70E47001DE7B7 /* Cartographer.swift */,
-				C54A98F81E032ED3009A8695 /* Sextant.swift */,
-				C52458371DC578F1009F3374 /* Planet.swift */,
 				C52458391DC5988D009F3374 /* Moon.swift */,
-				C524583B1DC59E0B009F3374 /* Types.swift */,
 				C5C24C801DC68DA10028FAF5 /* Objects.swift */,
+				C52458371DC578F1009F3374 /* Planet.swift */,
+				C54A98F81E032ED3009A8695 /* Sextant.swift */,
+				C524583B1DC59E0B009F3374 /* Types.swift */,
 				C5AEC3ED1DCE5CB200992AEB /* texture sources.rtf */,
 				8427FBA21E8C137400536BAB /* status.txt */,
 			);
@@ -535,24 +567,11 @@
 			children = (
 				C52458361DC578BA009F3374 /* model */,
 				84E044421E37D4A500A6AAB4 /* view */,
-				C5941BE31DBBFD940057A46A /* Info.plist */,
+				84297BE81EC6A211003604C7 /* controller */,
+				84297BEB1EC8F12B003604C7 /* libraries */,
 				84E044431E37D55F00A6AAB4 /* resources */,
-				C5941BDE1DBBFD940057A46A /* Assets.xcassets */,
+				C5941BE31DBBFD940057A46A /* Info.plist */,
 				C5941BD31DBBFD940057A46A /* AppDelegate.swift */,
-				C58DEB8E1DC6B50400E6C1F3 /* PlanetCell.swift */,
-				C5AEC3FC1DCE7D0400992AEB /* MoonCell.swift */,
-				C5941BE91DBBFEA40057A46A /* IntroPageViewController.swift */,
-				C5D515B71DE106400024638D /* InfoModalVewController.swift */,
-				C5C24C7E1DC685F50028FAF5 /* PlanetListViewController.swift */,
-				C515AE601DC8E135009A498C /* TestViewController.swift */,
-				C515AE621DC91126009A498C /* PlanetDetailViewController.swift */,
-				C597D2D31E01E287006B6D6C /* MoonDetailViewController.swift */,
-				C54958291EBFE7BA00153998 /* module.modulemap */,
-				C5AEC3EF1DCE775100992AEB /* details */,
-				C54958271EBFDAC200153998 /* sextant */,
-				84A6B5561E97FFD800D0A5BA /* info */,
-				8488D4201E54EBAB009AD9D8 /* units */,
-				C5CF53D81DFC7EC0008A6489 /* photo browser */,
 			);
 			path = "Occupy Mars";
 			sourceTree = "<group>";
@@ -774,6 +793,7 @@
 				84FFCB2F1EB70E47001DE7B7 /* Cartographer.swift in Sources */,
 				C515AE631DC91126009A498C /* PlanetDetailViewController.swift in Sources */,
 				C5AEC3F31DCE77C500992AEB /* MoonAboutViewController.swift in Sources */,
+				84297BEA1EC6A314003604C7 /* Body.swift in Sources */,
 				8488D4331E54EBCF009AD9D8 /* MassUnit.swift in Sources */,
 				C5CD59C01DD91E4F00ACB8EA /* GlobeViewController.swift in Sources */,
 				C520FB4A1DFC928C004A0FE6 /* SKPhotoBrowserOptions.swift in Sources */,

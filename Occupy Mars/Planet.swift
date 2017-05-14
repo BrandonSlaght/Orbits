@@ -7,60 +7,18 @@
 //
 
 import Foundation
-import SceneKit
 
-// notes: use metric and kelvin
-
-class Planet {
-    
-    //--------------------------------------------settings
-
-    let defaults = UserDefaults.standard
+class Planet : Body {
     
     //--------------------------------------------general
     
-    var name: String,
-        type: Type,
-        position: Int,
+    var type: Type,
         classification: Class
     
-    //--------------------------------------------about
+    //--------------------------------------------orbit
     
-    var description: String?,
-        wiki: String?,
-        nasa: String?
-    
-    //--------------------------------------------geology - notes: use equatorial radius and mean density and surface gravity / acceleration
-    
-    var mass: Quantity?,
-        volume: Quantity?,
-        equatorial: Quantity?,
-        density: Quantity?,
-        gravity: Quantity?,
-        escape_velocity: Quantity?,
-        irradiance: Double?,
-        geographic_height_variance: Quantity?
-    
-    //--------------------------------------------orbit - notes: use tropical orbit, mean orbital velocity, and obliquidy from orbit for equator inclination
-    
-    var year_length: Quantity?,
-        perihelion: Quantity?,
-        aphelion: Quantity?,
-        velocity: Quantity?,
-        inclination: Double?,
-        eccentricity: Double?,
-        day_length: Quantity?,
-        equator_inclination: Double?,
-        min_distance_from_earth: Quantity?,
+    var min_distance_from_earth: Quantity?,
         max_distance_from_earth: Quantity?
-    
-    //--------------------------------------------atmosphere - notes: use metric tones for total mass
-    
-    var surface_pressure: Double?,
-        average_temperature: Double?,
-        total_mass: Quantity?
-    var composition = [(gas: String,
-                        ppm: Double)]()
     
     //--------------------------------------------moons
     
@@ -72,32 +30,7 @@ class Planet {
                 width: Quantity,
                 thickness: Quantity,
                 density: Double)]()
-    
-    //--------------------------------------------miscelanious
-    
-    var discovered: String?
-    
-    //--------------------------------------------visual
-    
-    var texture: String?,
-        model: String?,
-        normalmap: String?,
-        ringmap: String?,
-        ring_transparencymap: String?,
-        ring_inner_ratio: Double?,
-        ring_outer_ratio: Double?
-    
-    //--------------------------------------------media
-    
-    var images = [(image: String,
-                   caption: String)]()
-    var videos = [String]()
-    
-    //--------------------------------------------visuals
-    
-    var background: String?,
-        color1: UIColor?,
-        color2: UIColor?
+
     
     //--------------------------------------------orbital elements
     
@@ -114,38 +47,11 @@ class Planet {
     
     init(name: String,
          type: Type,
-         position: Int,
+         position: String,
          classification: Class ) {
-        self.name = name
         self.type = type
-        self.position = position
         self.classification = classification
-    }
-    
-    func about(description: String?,
-                     wiki: String?,
-                     nasa: String?) {
-        self.description = description
-        self.wiki = wiki
-        self.nasa = nasa
-    }
-    
-    func geology(mass: Quantity?,
-                 volume: Quantity?,
-                 equatorial: Quantity?,
-                 density: Quantity?,
-                 gravity: Quantity?,
-                 escape_velocity: Quantity?,
-                 irradiance: Double?,
-                 geographic_height_variance: Quantity?) {
-        self.mass = mass
-        self.volume = volume
-        self.equatorial = equatorial
-        self.density = density
-        self.gravity = gravity
-        self.escape_velocity = escape_velocity
-        self.irradiance = irradiance
-        self.geographic_height_variance = geographic_height_variance
+        super.init(name: name, position: position)
     }
     
     func orbitals(year_length: Quantity?,
@@ -158,293 +64,16 @@ class Planet {
                   equator_inclination: Double?,
                   min_distance_from_earth: Quantity?,
                   max_distance_from_earth: Quantity?) {
-        self.year_length = year_length
-        self.perihelion = perihelion
-        self.aphelion = aphelion
-        self.velocity = velocity
-        self.inclination = inclination
-        self.eccentricity = eccentricity
-        self.day_length = day_length
-        self.equator_inclination = equator_inclination
+        super.orbitals(orbital_length: year_length,
+                       perigee: perihelion,
+                       apogee: aphelion,
+                       velocity: velocity,
+                       inclination: inclination,
+                       eccentricity: eccentricity,
+                       day_length: day_length,
+                       equator_inclination: equator_inclination)
         self.min_distance_from_earth = min_distance_from_earth
         self.max_distance_from_earth = max_distance_from_earth
-    }
-    
-    func atmosphere(surface_pressure: Double?,
-                    average_temperature: Double?,
-                    total_mass: Quantity?) {
-        self.surface_pressure = surface_pressure
-        self.average_temperature = average_temperature
-        self.total_mass = total_mass
-    }
-    
-    func composition(composition: [(gas: String, ppm: Double)]) {
-        self.composition = composition
-    }
-    
-    func misc(discovered: String?) {
-        self.discovered = discovered
-    }
-    
-    func display(texture: String?,
-                 model: String?,
-                 normalmap: String?,
-                 ringmap: String?,
-                 ring_transparencymap: String?,
-                 ring_inner_ratio: Double?,
-                 ring_outer_ratio: Double?) {
-        self.texture = texture
-        self.model = model
-        self.normalmap = normalmap
-        self.ringmap = ringmap
-        self.ring_transparencymap = ring_transparencymap
-        self.ring_inner_ratio = ring_inner_ratio
-        self.ring_outer_ratio = ring_outer_ratio
-    }
-    
-    func images(images: [(image: String, caption: String)]) {
-        self.images = images
-    }
-    
-    func colors(background: String?,
-                color1: String,
-                color2: String) {
-        self.background = background
-        self.color1 = hexStringToUIColor(hex: color1)
-        self.color2 = hexStringToUIColor(hex: color2)
-    }
-    
-    //--------------------------------------------helpers
-    
-    func hexStringToUIColor (hex:String) -> UIColor {
-        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-        
-        if (cString.hasPrefix("#")) {
-            cString.remove(at: cString.startIndex)
-        }
-        
-        if ((cString.characters.count) != 6) {
-            return UIColor.gray
-        }
-        
-        var rgbValue:UInt32 = 0
-        Scanner(string: cString).scanHexInt32(&rgbValue)
-        
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
-    }
-    
-    func getScene(size: Size) -> SCNScene? {
-        
-        let scene = SCNScene()
-        let ambientLightNode = SCNNode()
-        ambientLightNode.light = SCNLight()
-        ambientLightNode.light!.type = SCNLight.LightType.ambient
-        ambientLightNode.light!.color = UIColor(white: 0.11, alpha: 1.0)
-        scene.rootNode.addChildNode(ambientLightNode)
-        
-        var planet : SCNGeometry
-        
-        if let let_model = model {
-            let tempScene: SCNScene
-            if (size == Size.small) {
-                tempScene = SCNScene(named: String(let_model.characters.dropLast(4)) + " - thumbnail.dae")!
-            } else {
-                tempScene = SCNScene(named: let_model)!
-            }
-            planet = tempScene.rootNode.childNodes[0].geometry!
-        } else {
-            planet = SCNSphere(radius: 1.0)
-            if size == Size.small {
-                (planet as! SCNSphere).segmentCount = 30
-            } else {
-                (planet as! SCNSphere).segmentCount = 80
-            }
-        }
-        
-        if let let_texture = texture {
-            
-            let material = SCNMaterial()
-            
-            if size == Size.small {
-                material.diffuse.contents = UIImage(named: String(let_texture.characters.dropLast(4)) + " - thumbnail.jpg")!
-            } else {
-                material.diffuse.contents = resizeImage(UIImage(named: let_texture)!, newHeight: CGFloat(size.rawValue))
-            }
-            material.diffuse.mipFilter = SCNFilterMode.linear
-            
-//            if (ProcessInfo.processInfo.physicalMemory/1024/1024 > 1536) {
-                if let let_normalmap = normalmap {
-                    if size == Size.small {
-                        //material.normal.contents = UIImage(named: String(let_normalmap.characters.dropLast(4)) + " - thumbnail.jpg")!
-                    } else {
-                        material.normal.contents = resizeImage(UIImage(named: let_normalmap)!, newHeight: CGFloat(size.rawValue))
-                    }
-                }
-//            } else {
-//                print("device has less than a giga and a half of memory, ignoring normal map")
-//            }
-        
-            planet.materials = [material]
-            let planetNode = SCNNode(geometry: planet)
-            planetNode.name = "planet"
-            let rotationNode = SCNNode()
-            rotationNode.addChildNode(planetNode)
-            scene.rootNode.addChildNode(rotationNode)
-            
-            let spin = CABasicAnimation(keyPath: "rotation")
-            spin.fromValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: 0))
-            spin.toValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: Float(2 * Double.pi)))
-            
-            if let let_day_length = day_length {
-                spin.duration = let_day_length.converted(TimeUnit.minute).amount.doubleValue/24
-            } else {
-                spin.duration = 60
-            }
-            
-            spin.repeatCount = .infinity
-            
-            //if size != Size.small {
-                planetNode.addAnimation(spin, forKey: "spin around")
-            //}
-            if let let_ringsmap = ringmap {
-                let rings = SCNTorus(ringRadius: 2, pipeRadius: 0.5)
-                //print("here")
-                
-                if let let_ring_inner_ratio = ring_inner_ratio, let let_ring_outer_ratio = ring_outer_ratio {
-                    //print("hereeeeee")
-                    rings.pipeRadius = CGFloat((let_ring_outer_ratio - let_ring_inner_ratio) / 2)
-                    rings.ringRadius = CGFloat(let_ring_outer_ratio - 0.5) //+ let_ring_inner_ratio) / 2) //CGFloat(let_ring_outer_ratio / )
-                }
-                
-                rings.ringSegmentCount = 176
-                
-                let material = SCNMaterial()
-                material.isDoubleSided = true
-                material.diffuse.contents = UIImage(named: let_ringsmap)!
-                material.diffuse.mipFilter = SCNFilterMode.linear
-                material.diffuse.wrapT = SCNWrapMode.repeat
-                material.transparencyMode = .rgbZero
-
-                if let let_ring_transparencymap = ring_transparencymap {
-                    material.transparent.contents = UIImage(named: let_ring_transparencymap)!
-                    material.transparent.mipFilter = SCNFilterMode.linear
-                    material.transparent.wrapT = SCNWrapMode.repeat
-                }
-                
-                rings.materials = [material]
-                
-                let ringNode = SCNNode(geometry: rings)
-                
-                ringNode.scale = SCNVector3(x: 1, y: 0.01, z: 1)
-                
-                planetNode.addChildNode(ringNode)
-                
-                //rotationNode.rotation = (SCNVector4: SCNVector4(x: 1, y: 0, z: 0, w: 0.2))
-            }
-            
-            if size == Size.full {
-                
-//                let spot = SCNLight()
-//                spot.type = SCNLight.LightType.spot
-//                spot.castsShadow = true
-//                
-//                let spotNode = SCNNode()
-//                spotNode.light = spot
-//                spotNode.position = SCNVector3(x: 0, y: 0, z: 7)
-//                spotNode.geometry = SCNSphere(radius: 1)
-//                
-//                let offsetNode = SCNNode()
-//                offsetNode.light = spot
-//                offsetNode.position = SCNVector3(x: 0, y: 0, z: -7)
-//                offsetNode.geometry = SCNSphere(radius: 1)
-//                offsetNode.geometry?.materials = []
-//                
-//                let sunNode = SCNNode()
-//                sunNode.addChildNode(spotNode)
-//                sunNode.addChildNode(offsetNode)
-//                
-//                let lookAt = SCNLookAtConstraint(target: rotationNode)
-//                spotNode.constraints = [lookAt]
-//                
-//                let orbit = CABasicAnimation(keyPath: "rotation")
-//                orbit.fromValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: 0))
-//                orbit.toValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: Float(2 * Double.pi)))
-//                
-//                if let let_day_length = day_length {
-//                    orbit.duration = let_day_length.converted(TimeUnit.minute).amount.doubleValue/24
-//                } else {
-//                    orbit.duration = 60
-//                }
-//                
-//                orbit.repeatCount = .infinity
-//                sunNode.addAnimation(orbit, forKey: "spin around")
-//                
-//                scene.rootNode.addChildNode(sunNode)
-//                
-//                print("FULL")
-//                let camera = SCNCamera()
-//                camera.usesOrthographicProjection = true
-//                camera.orthographicScale = 1.5
-//                camera.zNear = 0
-//                camera.zFar = 80
-//                let cameraNode = SCNNode()
-//                cameraNode.name = "camera"
-//                cameraNode.position = SCNVector3(x: 0, y: 0, z: 20)
-//                cameraNode.camera = camera
-//                let cameraOrbit = SCNNode()
-//                cameraOrbit.name = "cameraOrbit"
-//                cameraOrbit.addChildNode(cameraNode)
-//                scene.rootNode.addChildNode(cameraOrbit)
-                
-                // rotate it (I've left out some animation code here to show just the rotation)
-                //cameraOrbit.eulerAngles.x -= Float(M_PI_4)
-                //cameraOrbit.eulerAngles.y -= Float(M_PI_4*3)
-            }
-            
-            if let let_equator_inclination = equator_inclination {
-                
-                //                let spin1 = CABasicAnimation(keyPath: "otherrotation")
-                //                spin1.fromValue = NSValue(scnVector4: SCNVector4(x: 0, y: 0, z: 1, w: 0))
-                //                spin1.toValue = NSValue(scnVector4: SCNVector4(x: 0, y: 0, z: 1, w: Float(2 * M_PI)))
-                //                spin1.duration = 60
-                //                spin1.repeatCount = .infinity
-                //                planetNode.addAnimation(spin1, forKey: "spin around again")
-                
-                //rotationNode.eulerAngles = (SCNVector3: SCNVector3(x: 0, y: 0, z: Float(let_equator_inclination.degreesToRadians)))
-                
-                if ringmap != nil {
-                    rotationNode.rotation = SCNVector4(x: 0.5, y: 0, z: 1, w: Float(let_equator_inclination.degreesToRadians))
-                    //rotationNode.rotation.z = (SCNVector4: SCNVector4(x: 0, y: 0, z: 1, w: Float(let_equator_inclination.degreesToRadians))).SCNVector4.z
-                } else {
-                    rotationNode.rotation = SCNVector4(x: 0, y: 0, z: 1, w: Float(let_equator_inclination.degreesToRadians))
-                    //rotationNode.boundingBox = box
-                }
-                //let shrink_factor = let_equator_inclination.degreesToRadians
-                //print("scale before: \(view.pointOfView?.camera?.orthographicScale)")
-                //view.pointOfView?.camera?.orthographicScale -= shrink_factor
-                //print("scale after: \(view.pointOfView?.camera?.orthographicScale)")
-                //print(shrink_factor)
-                //planetNode.scale = (SCNVector3: SCNVector3(x: 50, y: 50, z: 50))
-                //planetNode.scale = (SCNVector3: SCNVector3(x: shrink_factor, y: shrink_factor, z: shrink_factor))
-                //rotationNode.scale = (SCNVector3: SCNVector3(x: 20, y: 20, z: 20))//shrink_factor, y: shrink_factor, z: shrink_factor))
-                //planetNode.position = (SCNVector3: SCNVector3(x: 0, y: 0, z: 20))
-                
-                //(planet as! SCNSphere).radius = 2.0
-            }
-            
-        } else {
-            return nil
-        }
-        return scene
-    }
-    
-    func getPrettyVisibility() -> String {
-        return "Visible Tonight"
     }
     
     func getVisibility() {
@@ -521,113 +150,20 @@ class Planet {
         return Double(zero) + four
     }
     
-    func resizeImage(_ image: UIImage, newHeight: CGFloat) -> UIImage {
-        if newHeight > image.size.height {
-            return image
-        }
-        let scale = newHeight / image.size.height
-        let newWidth = image.size.width * scale
-        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
-        image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return newImage!
-    }
-    
-    func toScientificNotation(value: NSNumber) -> String {
-        if value.floatValue < 10000000 {
-            return String(describing: value)
-        }
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = NumberFormatter.Style.scientific
-        numberFormatter.positiveFormat = "0.### x E+0"
-        numberFormatter.exponentSymbol = " × 10^"
-        numberFormatter.minimumFractionDigits = 2
-        numberFormatter.maximumFractionDigits = 6
-        return numberFormatter.string(from: value)!
-    }
-    
-    func generateGeologyObjects() -> [(String, String, String)] {
-        var ret = [(String, String, String)]()
+    override func generateOrbitalObjects() -> [(String, String, String)] {
+        var ret = super.generateOrbitalObjects()
+        var temp = [(String, String, String)]()
         
-        let scale: Int16 = 6
-        let behavior = NSDecimalNumberHandler(roundingMode: .plain, scale: scale, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: true)
-        
-        if (defaults.bool(forKey: "useImperial")) {
-            if mass != nil{
-                ret.append(("Mass", toScientificNotation(value: mass!.converted(MassUnit.pound).rounded(6).amount), " lb"))
-            }
-            if volume != nil{
-                ret.append(("Volume", toScientificNotation(value: volume!.converted(LengthUnit.mile).rounded(6).amount), " mi³"))
-            }
-            if density != nil{
-                ret.append(("Density", toScientificNotation(value: density!.converted(MassUnit.kilogram).amount.dividing(by:16.02).rounding(accordingToBehavior: behavior)), " lb/ft³"))  //THIS ONE IS SPECIAL
-            }
-            if equatorial != nil{
-                ret.append(("Radius", toScientificNotation(value: equatorial!.converted(LengthUnit.mile).rounded(6).amount), " mi"))
-            }
-            if gravity != nil{
-                ret.append(("Gravity", toScientificNotation(value: gravity!.converted(LengthUnit.foot).rounded(6).amount), " ft/s²"))
-            }
-            if escape_velocity != nil{
-                ret.append(("Escape Velocity", toScientificNotation(value: escape_velocity!.converted(LengthUnit.mile).rounded(6).amount), " mi/s"))
-            }
-            if irradiance != nil{
-                let value = NSDecimalNumber.init(value: irradiance!/10.7639105)
-                ret.append(("Irradiance", String(describing: value.rounding(accordingToBehavior: behavior)), " W/ft²"))
-            }
-            if geographic_height_variance != nil{
-                ret.append(("Height Variance", toScientificNotation(value: geographic_height_variance!.converted(LengthUnit.mile).rounded(6).amount), " mi"))
-            }
-        } else {
-            if mass != nil{
-                ret.append(("Mass", toScientificNotation(value: mass!.converted(MassUnit.kilogram).rounded(6).amount), " kg"))
-            }
-            if volume != nil{
-                ret.append(("Volume", toScientificNotation(value: volume!.converted(LengthUnit.kilometer).rounded(6).amount), " km³"))
-            }
-            if density != nil{
-                ret.append(("Density", toScientificNotation(value: density!.converted(MassUnit.kilogram).rounded(6).amount), " kg/m³"))
-            }
-            if equatorial != nil{
-                ret.append(("Radius", toScientificNotation(value: equatorial!.converted(LengthUnit.kilometer).rounded(6).amount), " km"))
-            }
-            if gravity != nil{
-                ret.append(("Gravity", toScientificNotation(value: gravity!.converted(LengthUnit.meter).rounded(6).amount), " m/s²"))
-            }
-            if escape_velocity != nil{
-                ret.append(("Escape Velocity", toScientificNotation(value: escape_velocity!.converted(LengthUnit.kilometer).rounded(6).amount), " km/s"))
-            }
-            if irradiance != nil{
-                ret.append(("Irradiance", String(describing: irradiance!), " W/m²"))
-            }
-            if geographic_height_variance != nil{
-                ret.append(("Height Variance", toScientificNotation(value: geographic_height_variance!.converted(LengthUnit.kilometer).rounded(6).amount), " km"))
-            }
-        }
-        
-        return ret
-    }
-    
-    func generateOrbitalObjects() -> [(String, String, String)] {
-        var ret = [(String, String, String)]()
-        
-        if year_length != nil{
-            ret.append(("Year Length", toScientificNotation(value: year_length!.converted(TimeUnit.day).rounded(6).amount), " days")) //for some reason, this library does not convert days properly
-        }
-        if day_length != nil{
-            ret.append(("Day Length", toScientificNotation(value: day_length!.converted(TimeUnit.hour).rounded(6).amount), " hours"))
+        if orbital_length != nil{
+            temp.append(("Year Length", toScientificNotation(value: orbital_length!.converted(TimeUnit.day).rounded(6).amount), " days")) //for some reason, this library does not convert days properly
         }
         
         if (defaults.bool(forKey: "useImperial")) {
-            if velocity != nil{
-                ret.append(("Average Velocity", toScientificNotation(value: velocity!.converted(LengthUnit.mile).rounded(6).amount), " mi/h"))
+            if perigee != nil{
+                ret.append(("Perihilion", toScientificNotation(value: perigee!.converted(LengthUnit.mile).rounded(6).amount), " mi"))
             }
-            if perihelion != nil{
-                ret.append(("Perihilion", toScientificNotation(value: perihelion!.converted(LengthUnit.mile).rounded(6).amount), " mi"))
-            }
-            if aphelion != nil{
-                ret.append(("Aphelion", toScientificNotation(value: aphelion!.converted(LengthUnit.mile).rounded(6).amount), " mi"))
+            if apogee != nil{
+                ret.append(("Aphelion", toScientificNotation(value: apogee!.converted(LengthUnit.mile).rounded(6).amount), " mi"))
             }
             if min_distance_from_earth != nil{
                 ret.append(("Nearest to Earth", toScientificNotation(value: min_distance_from_earth!.converted(LengthUnit.mile).rounded(6).amount), " mi"))
@@ -636,14 +172,11 @@ class Planet {
                 ret.append(("Farthest from Earth", toScientificNotation(value: max_distance_from_earth!.converted(LengthUnit.mile).rounded(6).amount), " mi"))
             }
         } else {
-            if velocity != nil{
-                ret.append(("Average Velocity", toScientificNotation(value: velocity!.converted(LengthUnit.kilometer).rounded(6).amount), " km/h"))
+            if perigee != nil{
+                ret.append(("Perihilion", toScientificNotation(value: perigee!.converted(LengthUnit.kilometer).rounded(6).amount), " km"))
             }
-            if perihelion != nil{
-                ret.append(("Perihilion", toScientificNotation(value: perihelion!.converted(LengthUnit.kilometer).rounded(6).amount), " km"))
-            }
-            if aphelion != nil{
-                ret.append(("Aphelion", toScientificNotation(value: aphelion!.converted(LengthUnit.kilometer).rounded(6).amount), " km"))
+            if apogee != nil{
+                ret.append(("Aphelion", toScientificNotation(value: apogee!.converted(LengthUnit.kilometer).rounded(6).amount), " km"))
             }
             if min_distance_from_earth != nil{
                 ret.append(("Nearest to Earth", toScientificNotation(value: min_distance_from_earth!.converted(LengthUnit.kilometer).rounded(6).amount), " km"))
@@ -653,21 +186,12 @@ class Planet {
             }
         }
         
-        if inclination != nil{
-            ret.append(("Orbital Tilt", String(describing: inclination!), " degrees"))
-        }
-        if eccentricity != nil{
-            ret.append(("Eccentricity", String(describing: eccentricity!), ""))
-        }
-        if equator_inclination != nil{
-            ret.append(("Equatorial Tilt", String(describing: equator_inclination!), " degrees"))
-        }
-        
+        ret = temp + ret
         return ret
     }
     
-    func generateMiscObjects() -> [(String, String)] {
-        var ret = [(String, String)]()
+    override func generateMiscObjects() -> [(String, String)] {
+        var ret = super.generateMiscObjects()
         
         ret.append(("Moons",String(describing: moons.count)))
         
@@ -679,11 +203,7 @@ class Planet {
         
         ret.append(("Type", type.rawValue))
         
-        ret.append(("Position from Sun", String(describing: position)))
-        
-        if discovered != nil{
-            ret.append(("Date of Discovery", discovered!))
-        }
+        ret.append(("Position from Sun", position))
         
         return ret
     }
