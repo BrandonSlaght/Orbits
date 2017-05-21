@@ -10,66 +10,7 @@ import Foundation
 
 class Moon : Body{
     
-    var hasDetails = false
-    
     //--------------------------------------------initializers
-    
-    override func geology(mass: Quantity?,
-                 volume: Quantity?,
-                 equatorial: Quantity?,
-                 density: Quantity?,
-                 gravity: Quantity?,
-                 escape_velocity: Quantity?,
-                 irradiance: Double?,
-                 geographic_height_variance: Quantity?) {
-        super.geology(mass: mass,
-                      volume: volume,
-                      equatorial: equatorial,
-                      density: density,
-                      gravity: gravity,
-                      escape_velocity: escape_velocity,
-                      irradiance: irradiance,
-                      geographic_height_variance: geographic_height_variance)
-        self.hasDetails = true
-    }
-    
-    override func orbitals (orbital_length: Quantity?,
-                  perigee: Quantity?,
-                  apogee: Quantity?,
-                  velocity: Quantity?,
-                  inclination: Double?,
-                  eccentricity: Double?,
-                  day_length: Quantity?,
-                  equator_inclination: Double?) {
-        super.orbitals(orbital_length: orbital_length,
-                       perigee: perigee,
-                       apogee: apogee,
-                       velocity: velocity,
-                       inclination: inclination,
-                       eccentricity: eccentricity,
-                       day_length: day_length,
-                       equator_inclination: equator_inclination)
-        self.hasDetails = true
-    }
-    
-    override func atmosphere(surface_pressure: Double?,
-                    average_temperature: Double?,
-                    total_mass: Quantity?) {
-        super.atmosphere(surface_pressure: surface_pressure,
-                         average_temperature: average_temperature,
-                         total_mass: total_mass)
-        self.hasDetails = true
-    }
-    
-    override func composition(composition: [(gas: String, ppm: Double)]) {
-        super.composition(composition: composition)
-        self.hasDetails = true
-    }
-    
-    override func misc(discovered: String?) {
-        super.misc(discovered: discovered)
-        self.hasDetails = true
-    }
     
     func display(texture: String?,
                  model: String?,

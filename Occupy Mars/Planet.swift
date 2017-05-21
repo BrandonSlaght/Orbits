@@ -20,18 +20,6 @@ class Planet : Body {
     var min_distance_from_earth: Quantity?,
         max_distance_from_earth: Quantity?
     
-    //--------------------------------------------moons
-    
-    var moons = [Moon]()
-    
-    //--------------------------------------------rings
-    
-    var rings = [(name: String,
-                width: Quantity,
-                thickness: Quantity,
-                density: Double)]()
-
-    
     //--------------------------------------------orbital elements
     
     var a: Double?, //Mean distance, or semi-major axis

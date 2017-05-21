@@ -16,7 +16,7 @@ class GeneralAboutViewController: AboutViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let let_description = planet.description {
+        if let let_description = body.description {
             descriptionText.text = let_description
         }
         
@@ -37,13 +37,13 @@ class GeneralAboutViewController: AboutViewController {
     }
     
     func openWiki() {
-        if let let_wiki = planet.wiki {
+        if let let_wiki = body.wiki {
             UIApplication.shared.openURL(URL(string: let_wiki)!)
         }
     }
     
     func openNASA() {
-        if let let_nasa = planet.nasa {
+        if let let_nasa = body.nasa {
             UIApplication.shared.openURL(URL(string: let_nasa)!)
         }
     }

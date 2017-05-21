@@ -37,13 +37,13 @@ class MoonAboutViewController: AboutViewController, UITableViewDataSource, UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return planet.moons.count
+        return body.moons.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MoonCell", for: indexPath) as! MoonCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MoonCell", for: indexPath) as! BodyCell
         cell.backgroundColor = UIColor.clear
-        let objects = planet.moons
+        let objects = body.moons
         cell.name?.text = objects[indexPath.row].name
         
         if (cell.sceneView != nil) {
@@ -60,12 +60,10 @@ class MoonAboutViewController: AboutViewController, UITableViewDataSource, UITab
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("here")
         if (segue.identifier == "moonSegue") {
-            print("here2")
-            let detail = segue.destination as! MoonDetailViewController
+            let detail = (segue.destination as! UINavigationController).topViewController as! DetailViewController
             if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
-                detail.moon = planet.moons[indexPath.row]
+                detail.body = body.moons[indexPath.row]
             }
         }
     }

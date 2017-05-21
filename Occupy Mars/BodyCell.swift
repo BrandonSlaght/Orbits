@@ -9,7 +9,7 @@
 import UIKit
 import SceneKit
 
-class PlanetCell: UITableViewCell {
+class BodyCell: UITableViewCell {
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet var name: UILabel!
     @IBOutlet var classification: UILabel!

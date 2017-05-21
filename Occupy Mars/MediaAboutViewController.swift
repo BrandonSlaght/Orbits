@@ -13,7 +13,7 @@ class MediaAboutViewController: UIViewController, UICollectionViewDelegate, UICo
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
     
-    var planet: Planet!
+    var body: Body!
     
     var images = [SKPhoto]()
     
@@ -41,7 +41,7 @@ class MediaAboutViewController: UIViewController, UICollectionViewDelegate, UICo
         // Change individual layout attributes for the spacing between cells
         layout.minimumColumnSpacing = 1.0
         layout.minimumInteritemSpacing = 1.0
-        if planet.images.count > 1 {
+        if body.images.count > 1 {
             layout.columnCount = 2
         } else {
             layout.columnCount = 1
@@ -51,7 +51,7 @@ class MediaAboutViewController: UIViewController, UICollectionViewDelegate, UICo
         self.collectionView.alwaysBounceVertical = true
         // Add the waterfall layout to your collection view
         self.collectionView.collectionViewLayout = layout
-        for image in planet.images {
+        for image in body.images {
             let item = SKPhoto.photoWithImage(UIImage(named: image.image)!)
             item.caption = image.caption
             images.append(item)
@@ -68,14 +68,14 @@ class MediaAboutViewController: UIViewController, UICollectionViewDelegate, UICo
     //MARK: - CollectionView Delegate Methods
     //** Number of Cells in the CollectionView */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return planet.images.count
+        return body.images.count
     }
     
     //** Create a basic CollectionView Cell */
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // Create the cell and return the cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MediaHolder
-        cell.image.image = UIImage(named: planet.images[indexPath.row].image)
+        cell.image.image = UIImage(named: body.images[indexPath.row].image)
         return cell
     }
     
@@ -83,7 +83,7 @@ class MediaAboutViewController: UIViewController, UICollectionViewDelegate, UICo
     //** Size for the cells in the Waterfall Layout */
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         // create a cell size from the image size, and return the size
-        let imageSize = UIImage(named: planet.images[indexPath.row].image)!.size
+        let imageSize = UIImage(named: body.images[indexPath.row].image)!.size
         return imageSize
     }
     

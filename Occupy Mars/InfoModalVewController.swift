@@ -18,11 +18,7 @@ class InfoModalViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        let blurEffect = UIBlurEffect(style: .dark)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = self.view.frame
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.view.insertSubview(blurEffectView, at: 0)
+        self.view.insertSubview(getBlurView(frame: self.view.frame), at: 0)
         
         let touchGit = UITapGestureRecognizer(target: self, action:#selector(self.openGit))
         touchGit.numberOfTapsRequired = 1
@@ -33,12 +29,6 @@ class InfoModalViewController: UIViewController {
         touchWeb.numberOfTapsRequired = 1
         webImage.isUserInteractionEnabled = true
         webImage.addGestureRecognizer(touchWeb)
-        
-//        textView.isUserInteractionEnabled = true
-//        textView.dataDetectorTypes = UIDataDetectorTypes.link
-//        textView.isScrollEnabled = false
-//        textView.isEditable = false
-//        textView.isSelectable = true
         
         let string = "Planet reference data:\nNASA\n\nPlanet texture maps\nSteve Albers\nBjörn Jónsson\nJames Hastings-Trew\nJohn van Vliet\nAnd probably others\n\nOrbital calculations:\nPaul Schlyter\n\nImages and other media:\nNASA\nESA\n\nIf I forgot to list you as a source of media, let me know and I will credit you!"
         let linkString = NSMutableAttributedString(string: string)

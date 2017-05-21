@@ -14,6 +14,7 @@ class Body {
     //--------------------------------------------settings
     
     let defaults = UserDefaults.standard
+    var hasDetails = false
     
     //--------------------------------------------general
     
@@ -55,6 +56,17 @@ class Body {
         total_mass: Quantity?
     var composition = [(gas: String,
                         ppm: Double)]()
+    
+    //--------------------------------------------moons
+    
+    var moons = [Moon]()
+    
+    //--------------------------------------------rings
+    
+    var rings = [(name: String,
+                  width: Quantity,
+                  thickness: Quantity,
+                  density: Double)]()
     
     //--------------------------------------------miscelanious
     
@@ -114,6 +126,7 @@ class Body {
         self.escape_velocity = escape_velocity
         self.irradiance = irradiance
         self.geographic_height_variance = geographic_height_variance
+        self.hasDetails = true
     }
     
     func orbitals(orbital_length: Quantity?,
@@ -126,12 +139,13 @@ class Body {
                   equator_inclination: Double?) {
         self.orbital_length = orbital_length
         self.perigee = perigee
-        self.aphogee = apogee
+        self.apogee = apogee
         self.velocity = velocity
         self.inclination = inclination
         self.eccentricity = eccentricity
         self.day_length = day_length
         self.equator_inclination = equator_inclination
+        self.hasDetails = true
     }
     
     func atmosphere(surface_pressure: Double?,
@@ -140,10 +154,12 @@ class Body {
         self.surface_pressure = surface_pressure
         self.average_temperature = average_temperature
         self.total_mass = total_mass
+        self.hasDetails = true
     }
     
     func composition(composition: [(gas: String, ppm: Double)]) {
         self.composition = composition
+        self.hasDetails = true
     }
     
     func misc(discovered: String?) {
@@ -164,6 +180,7 @@ class Body {
         self.ring_transparencymap = ring_transparencymap
         self.ring_inner_ratio = ring_inner_ratio
         self.ring_outer_ratio = ring_outer_ratio
+        self.hasDetails = true
     }
     
     func images(images: [(image: String, caption: String)]) {
@@ -213,6 +230,8 @@ class Body {
         
         var planet : SCNGeometry
         
+        planet = SCNSphere(radius: 1.0)
+        
         if let let_model = model {
             let tempScene: SCNScene
             if (size == Size.small) {
@@ -220,9 +239,27 @@ class Body {
             } else {
                 tempScene = SCNScene(named: let_model)!
             }
-            planet = tempScene.rootNode.childNodes[0].geometry!
+            
+            print(tempScene )
+            let geometry = tempScene.rootNode.childNodes[0]
+            geometry.name = "planet"
+            
+            let spin = CABasicAnimation(keyPath: "rotation")
+            spin.fromValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: 0))
+            spin.toValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: Float(2 * Double.pi)))
+            
+            if let let_day_length = day_length {
+                spin.duration = let_day_length.converted(TimeUnit.minute).amount.doubleValue/24
+            } else {
+                spin.duration = 60
+            }
+            
+            spin.repeatCount = .infinity
+            
+            geometry.addAnimation(spin, forKey: "spin around")
+            
+            scene.rootNode.addChildNode(geometry)
         } else {
-            planet = SCNSphere(radius: 1.0)
             if size == Size.small {
                 (planet as! SCNSphere).segmentCount = 30
             } else {
@@ -241,8 +278,13 @@ class Body {
             }
             material.diffuse.mipFilter = SCNFilterMode.linear
             
-            if let let_normalmap = normalmap && size != Size.small {
-                material.normal.contents = resizeImage(UIImage(named: let_normalmap)!, newHeight: CGFloat(size.rawValue))
+            //            if (ProcessInfo.processInfo.physicalMemory/1024/1024 > 1536) {
+            if let let_normalmap = normalmap {
+                if size == Size.small {
+                    //material.normal.contents = UIImage(named: String(let_normalmap.characters.dropLast(4)) + " - thumbnail.jpg")!
+                } else {
+                    material.normal.contents = resizeImage(UIImage(named: let_normalmap)!, newHeight: CGFloat(size.rawValue))
+                }
             }
             
             planet.materials = [material]
@@ -268,9 +310,10 @@ class Body {
             
             if let let_ringsmap = ringmap {
                 let rings = SCNTorus(ringRadius: 2, pipeRadius: 0.5)
+                
                 if let let_ring_inner_ratio = ring_inner_ratio, let let_ring_outer_ratio = ring_outer_ratio {
                     rings.pipeRadius = CGFloat((let_ring_outer_ratio - let_ring_inner_ratio) / 2)
-                    rings.ringRadius = CGFloat(let_ring_outer_ratio - 0.5)
+                    rings.ringRadius = CGFloat(let_ring_outer_ratio - 0.5) //+ let_ring_inner_ratio) / 2) //CGFloat(let_ring_outer_ratio / )
                 }
                 
                 rings.ringSegmentCount = 176
@@ -295,48 +338,9 @@ class Body {
                 ringNode.scale = SCNVector3(x: 1, y: 0.01, z: 1)
                 
                 planetNode.addChildNode(ringNode)
-                
             }
             
             if size == Size.full {
-                
-                //                let spot = SCNLight()
-                //                spot.type = SCNLight.LightType.spot
-                //                spot.castsShadow = true
-                //
-                //                let spotNode = SCNNode()
-                //                spotNode.light = spot
-                //                spotNode.position = SCNVector3(x: 0, y: 0, z: 7)
-                //                spotNode.geometry = SCNSphere(radius: 1)
-                //
-                //                let offsetNode = SCNNode()
-                //                offsetNode.light = spot
-                //                offsetNode.position = SCNVector3(x: 0, y: 0, z: -7)
-                //                offsetNode.geometry = SCNSphere(radius: 1)
-                //                offsetNode.geometry?.materials = []
-                //
-                //                let sunNode = SCNNode()
-                //                sunNode.addChildNode(spotNode)
-                //                sunNode.addChildNode(offsetNode)
-                //
-                //                let lookAt = SCNLookAtConstraint(target: rotationNode)
-                //                spotNode.constraints = [lookAt]
-                //
-                //                let orbit = CABasicAnimation(keyPath: "rotation")
-                //                orbit.fromValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: 0))
-                //                orbit.toValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: Float(2 * Double.pi)))
-                //
-                //                if let let_day_length = day_length {
-                //                    orbit.duration = let_day_length.converted(TimeUnit.minute).amount.doubleValue/24
-                //                } else {
-                //                    orbit.duration = 60
-                //                }
-                //
-                //                orbit.repeatCount = .infinity
-                //                sunNode.addAnimation(orbit, forKey: "spin around")
-                //
-                //                scene.rootNode.addChildNode(sunNode)
-                //
                 //                print("FULL")
                 //                let camera = SCNCamera()
                 //                camera.usesOrthographicProjection = true
@@ -358,19 +362,19 @@ class Body {
             }
             
             if let let_equator_inclination = equator_inclination {
-                
                 if ringmap != nil {
                     rotationNode.rotation = SCNVector4(x: 0.5, y: 0, z: 1, w: Float(let_equator_inclination.degreesToRadians))
                 } else {
                     rotationNode.rotation = SCNVector4(x: 0, y: 0, z: 1, w: Float(let_equator_inclination.degreesToRadians))
                 }
             }
-            
-        } else {
-            return nil
         }
         
-        return scene
+        if texture != nil || model != nil {
+            return scene
+        } else{
+            return nil
+        }
     }
     
     func resizeImage(_ image: UIImage, newHeight: CGFloat) -> UIImage {

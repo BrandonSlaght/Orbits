@@ -9,14 +9,6 @@
 import UIKit
 import AVFoundation
 
-var introViewControllers = getViewControllers()
-
-func getViewControllers() -> [UIViewController] {
-    return [UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "IntroView1"),
-            UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "IntroView2"),
-            UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "IntroView3")]
-}
-
 class IntroPageViewController: UIPageViewController {
     
     var player: AVPlayer?
@@ -71,6 +63,14 @@ class IntroPageViewController: UIPageViewController {
         player?.pause()
         time = (player?.currentTime())!
     }
+}
+
+var introViewControllers = getViewControllers()
+
+func getViewControllers() -> [UIViewController] {
+    return [UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "IntroView1"),
+            UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "IntroView2"),
+            UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "IntroView3")]
 }
 
 extension IntroPageViewController: UIPageViewControllerDataSource {

@@ -118,40 +118,6 @@
             </objects>
             <point key="canvasLocation" x="-327" y="684"/>
         </scene>
-        <!--Visibility Times-->
-        <scene sceneID="DKg-go-v4U">
-            <objects>
-                <viewController id="ctq-4f-KAz" customClass="WebBrowserController" customModule="Occupy_Mars" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Muc-va-QWJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="5uW-Ts-ezJ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="nfD-0d-2K7">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J74-M9-Unu">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="J74-M9-Unu" secondAttribute="bottom" id="3vR-5l-riV"/>
-                            <constraint firstAttribute="trailing" secondItem="J74-M9-Unu" secondAttribute="trailing" id="4mX-IC-M93"/>
-                            <constraint firstItem="J74-M9-Unu" firstAttribute="top" secondItem="nfD-0d-2K7" secondAttribute="top" id="TYs-2k-zXY"/>
-                            <constraint firstItem="J74-M9-Unu" firstAttribute="leading" secondItem="nfD-0d-2K7" secondAttribute="leading" id="TaP-oa-gK9"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Visibility Times" id="Jx1-Q9-hgl"/>
-                    <connections>
-                        <outlet property="webView" destination="J74-M9-Unu" id="cer-wQ-Lha"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gVZ-v2-e4H" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3169.5652173913045" y="-339.13043478260875"/>
-        </scene>
         <!--Planet Reference-->
         <scene sceneID="SGl-Wv-9W5">
             <objects>
@@ -161,7 +127,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PlanetCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="PlanetCell" rowHeight="200" id="Phx-Dk-Inn" customClass="PlanetCell" customModule="Occupy_Mars" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PlanetCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="PlanetCell" rowHeight="200" id="Phx-Dk-Inn" customClass="BodyCell" customModule="Occupy_Mars" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.94999999999999996" contentMode="center" tableViewCell="Phx-Dk-Inn" id="PXn-ba-6AK">
@@ -203,10 +169,11 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="classification" destination="jXE-VF-uqt" id="1Q9-fD-kwV"/>
-                                    <outlet property="heightConstraint" destination="Q4h-uA-nCc" id="U14-qY-gzL"/>
-                                    <outlet property="name" destination="Dgx-zh-qFl" id="QBZ-Au-ZjJ"/>
-                                    <outlet property="sceneView" destination="byj-MS-oJQ" id="1JJ-D7-AJ2"/>
+                                    <outlet property="classification" destination="jXE-VF-uqt" id="oaz-Q9-shL"/>
+                                    <outlet property="heightConstraint" destination="Q4h-uA-nCc" id="9Ur-OU-e3l"/>
+                                    <outlet property="name" destination="Dgx-zh-qFl" id="Jgc-Nv-7KV"/>
+                                    <outlet property="sceneView" destination="byj-MS-oJQ" id="1xq-H3-1qC"/>
+                                    <segue destination="KEg-9l-Zwd" kind="showDetail" identifier="planetSegue" id="uy9-4G-SSX"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -240,6 +207,9 @@
                                     <segue destination="ol9-2m-eHV" kind="presentation" identifier="infoSegue" modalPresentationStyle="overFullScreen" id="Gtp-jV-yyR"/>
                                 </connections>
                             </button>
+                            <connections>
+                                <action selector="dismissInfo:" destination="vYI-sN-gHO" id="9RQ-Kg-hS8"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
@@ -341,10 +311,10 @@
             </objects>
             <point key="canvasLocation" x="3940" y="-9"/>
         </scene>
-        <!--Planet Detail View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="82V-o3-Hfc">
             <objects>
-                <viewController id="iFP-Sf-DDu" customClass="PlanetDetailViewController" customModule="Occupy_Mars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="iFP-Sf-DDu" customClass="DetailViewController" customModule="Occupy_Mars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sy7-yf-gzq"/>
                         <viewControllerLayoutGuide type="bottom" id="V8T-sq-QOA"/>
@@ -359,13 +329,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mYK-s6-dM8">
                                         <rect key="frame" x="0.0" y="0.0" width="383" height="1465"/>
                                         <subviews>
-                                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" sceneName="PlanetScene" autoenablesDefaultLighting="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xfy-D2-hHD" userLabel="Scene View">
-                                                <rect key="frame" x="0.0" y="0.0" width="383" height="400"/>
-                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="400" id="4In-Xw-d7E"/>
-                                                </constraints>
-                                            </sceneKitView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ifl-6E-sFH">
                                                 <rect key="frame" x="0.0" y="400" width="383" height="55"/>
                                                 <subviews>
@@ -400,9 +363,16 @@
                                                 <rect key="frame" x="285" y="370" width="78" height="30"/>
                                                 <state key="normal" title="Globe View"/>
                                                 <connections>
-                                                    <segue destination="LxB-TC-tsO" kind="showDetail" identifier="globeSegue" id="tHr-0A-37Z"/>
+                                                    <segue destination="LxB-TC-tsO" kind="show" identifier="globeSegue" action="showDetailViewController:sender:" id="hln-wk-UTu"/>
                                                 </connections>
                                             </button>
+                                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" sceneName="PlanetScene" autoenablesDefaultLighting="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xfy-D2-hHD" userLabel="Scene View">
+                                                <rect key="frame" x="0.0" y="0.0" width="383" height="400"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="400" id="4In-Xw-d7E"/>
+                                                </constraints>
+                                            </sceneKitView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -447,13 +417,15 @@
                         <outlet property="scene" destination="xfy-D2-hHD" id="2XK-7Q-qbR"/>
                         <outlet property="sceneHeight" destination="4In-Xw-d7E" id="RcQ-81-ggf"/>
                         <outlet property="scrollView" destination="y1J-Ti-1Z4" id="x2H-pC-jae"/>
+                        <outlet property="tabHeight" destination="p6N-15-AI2" id="sKR-8X-FXt"/>
                         <outlet property="tabHolder" destination="ifl-6E-sFH" id="O6C-LX-TsR"/>
+                        <outlet property="tabHolderHeight" destination="xEk-qg-OZe" id="g3K-Zc-vz2"/>
                         <outlet property="tabs" destination="8AT-4a-iW4" id="grN-zn-rkO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QSQ-sq-vaS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4658" y="683"/>
+            <point key="canvasLocation" x="4670" y="681"/>
         </scene>
         <!--Globe View Controller-->
         <scene sceneID="Nde-kZ-d4N">
@@ -562,25 +534,6 @@
             </objects>
             <point key="canvasLocation" x="4257" y="1404"/>
         </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="oMY-TU-Tfl">
-            <objects>
-                <tabBarController storyboardIdentifier="MainTabView" modalTransitionStyle="crossDissolve" id="saF-J2-Yo2" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="jOA-bv-Eth">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.30196078431372547" green="0.30196078431372547" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="1b7-hp-oWL" kind="relationship" relationship="viewControllers" id="ZdU-s8-5Ny"/>
-                        <segue destination="TrF-oR-PQP" kind="relationship" relationship="viewControllers" id="sR5-jm-qT4"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Brk-vl-LKM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1692" y="-9"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="KGa-pz-mxd">
             <objects>
@@ -657,40 +610,16 @@
             </objects>
             <point key="canvasLocation" x="1692" y="683"/>
         </scene>
-        <!--Visibility-->
-        <scene sceneID="VGS-Uj-9Q6">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TrF-oR-PQP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Visibility" image="icon-telescope-filled-small" id="mpF-rG-70x"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="BSc-XW-95s">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="ctq-4f-KAz" kind="relationship" relationship="rootViewController" id="g94-QX-Ck6"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1Fe-Uz-vJ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2479" y="-339"/>
-        </scene>
         <!--Planets-->
         <scene sceneID="iAr-ak-rMK">
             <objects>
-                <navigationController storyboardIdentifier="MainListView" automaticallyAdjustsScrollViewInsets="NO" id="1b7-hp-oWL" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainListView" id="1b7-hp-oWL" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Planets" image="icon-planet-filled-small" id="WFc-Zq-VBZ"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="DN8-R1-epU">
+                    <navigationBar key="navigationBar" clipsSubviews="YES" contentMode="scaleToFill" id="DN8-R1-epU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.30588235294117649" green="0.30588235294117649" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -901,10 +830,10 @@
             </objects>
             <point key="canvasLocation" x="2969" y="1404"/>
         </scene>
-        <!--Moon Detail View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="w2a-sF-Q03">
             <objects>
-                <viewController storyboardIdentifier="MoonDetail" id="79a-5C-jXn" customClass="MoonDetailViewController" customModule="Occupy_Mars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MoonDetail" id="79a-5C-jXn" customClass="DetailViewController" customModule="Occupy_Mars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SI3-qC-n9P"/>
                         <viewControllerLayoutGuide type="bottom" id="guo-06-FN8"/>
@@ -1015,10 +944,10 @@
             </objects>
             <point key="canvasLocation" x="8263.2000000000007" y="1038.5307346326838"/>
         </scene>
-        <!--Moon Globe View Controller-->
+        <!--Globe View Controller-->
         <scene sceneID="vur-6t-ixI">
             <objects>
-                <viewController id="SJ7-Dr-rlY" customClass="MoonGlobeViewController" customModule="Occupy_Mars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="SJ7-Dr-rlY" customClass="GlobeViewController" customModule="Occupy_Mars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Oem-Ry-4rV"/>
                         <viewControllerLayoutGuide type="bottom" id="HQ5-e3-EgJ"/>
@@ -1095,7 +1024,7 @@
                                 </constraints>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MoonCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="MoonCell" rowHeight="221" id="exl-5r-9Qy" customClass="MoonCell" customModule="Occupy_Mars" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MoonCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="MoonCell" rowHeight="221" id="exl-5r-9Qy" customClass="BodyCell" customModule="Occupy_Mars" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="221"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="exl-5r-9Qy" id="3qW-gS-9Kt">
@@ -1137,7 +1066,7 @@
                                             <outlet property="heightConstraint" destination="oXf-uI-gAk" id="hpr-8a-Abm"/>
                                             <outlet property="name" destination="gk7-4P-vm5" id="cYL-FC-ccZ"/>
                                             <outlet property="sceneView" destination="fyE-A0-6Xh" id="F9h-2z-rKn"/>
-                                            <segue destination="79a-5C-jXn" kind="show" identifier="moonSegue" id="rwD-JB-nZV"/>
+                                            <segue destination="KEg-9l-Zwd" kind="show" identifier="moonSegue" action="showDetailViewController:sender:" id="NYa-TG-VXm"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1163,10 +1092,10 @@
             </objects>
             <point key="canvasLocation" x="4914" y="1404"/>
         </scene>
-        <!--Moon General About View Controller-->
+        <!--General About View Controller-->
         <scene sceneID="ZVX-bn-9Kj">
             <objects>
-                <viewController storyboardIdentifier="moonGeneralView" id="BHk-3H-VKN" customClass="MoonGeneralAboutViewController" customModule="Occupy_Mars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="moonGeneralView" id="BHk-3H-VKN" customClass="GeneralAboutViewController" customModule="Occupy_Mars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PGS-RI-tn7"/>
                         <viewControllerLayoutGuide type="bottom" id="FcI-sK-JI1"/>
@@ -1237,10 +1166,10 @@
             </objects>
             <point key="canvasLocation" x="5672" y="1851"/>
         </scene>
-        <!--Moon Media About View Controller-->
+        <!--Media About View Controller-->
         <scene sceneID="UEP-ew-tTa">
             <objects>
-                <viewController storyboardIdentifier="moonMediaView" id="kf2-sh-twm" customClass="MoonMediaAboutViewController" customModule="Occupy_Mars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="moonMediaView" id="kf2-sh-twm" customClass="MediaAboutViewController" customModule="Occupy_Mars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sH8-dp-PmJ"/>
                         <viewControllerLayoutGuide type="bottom" id="FdO-Lp-cty"/>
@@ -1290,10 +1219,10 @@
             </objects>
             <point key="canvasLocation" x="7130" y="1851"/>
         </scene>
-        <!--Moon Details About View Controller-->
+        <!--Details About View Controller-->
         <scene sceneID="WH9-dy-73h">
             <objects>
-                <viewController storyboardIdentifier="moonDetailsView" id="pO4-Va-9fF" customClass="MoonDetailsAboutViewController" customModule="Occupy_Mars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="moonDetailsView" id="pO4-Va-9fF" customClass="DetailsAboutViewController" customModule="Occupy_Mars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="g9r-do-fJN"/>
                         <viewControllerLayoutGuide type="bottom" id="vXn-QI-JPD"/>
@@ -1416,12 +1345,11 @@
         <!--Navigation Controller-->
         <scene sceneID="bdd-tD-dlK">
             <objects>
-                <navigationController storyboardIdentifier="PlanetDetail" automaticallyAdjustsScrollViewInsets="NO" id="KEg-9l-Zwd" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="PlanetDetail" id="KEg-9l-Zwd" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4w8-xF-izd">
+                    <navigationBar key="navigationBar" clipsSubviews="YES" contentMode="scaleToFill" id="4w8-xF-izd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.30588235289999999" green="0.30588235289999999" blue="0.30588235289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
@@ -1443,13 +1371,12 @@
         <image name="icon-reset" width="30" height="30"/>
         <image name="icon-rotation-on" width="30" height="30"/>
         <image name="icon-satelite" width="266" height="266"/>
-        <image name="icon-telescope-filled-small" width="27" height="30"/>
         <image name="logo-github" width="40" height="40"/>
         <image name="logo-nasa" width="336" height="287"/>
         <image name="logo-web" width="40" height="40"/>
         <image name="logo-wikipedia" width="341" height="341"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1ze-Um-D0f"/>
+        <segue reference="NYa-TG-VXm"/>
     </inferredMetricsTieBreakers>
 </document>

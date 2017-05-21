@@ -13,7 +13,6 @@ class DetailsAboutViewController: AboutViewController, UITableViewDataSource, UI
     @IBOutlet weak var geologyTable: UITableView!
     @IBOutlet weak var orbitTable: UITableView!
     @IBOutlet weak var miscTable: UITableView!
-    //@IBOutlet weak var otherTable: UITableView!
     @IBOutlet weak var geologyHeight: NSLayoutConstraint!
     @IBOutlet weak var orbitHeight: NSLayoutConstraint!
     @IBOutlet weak var miscHeight: NSLayoutConstraint!
@@ -25,9 +24,9 @@ class DetailsAboutViewController: AboutViewController, UITableViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        geology = planet.generateGeologyObjects()
-        orbit = planet.generateOrbitalObjects()
-        misc = planet.generateMiscObjects()
+        geology = body.generateGeologyObjects()
+        orbit = body.generateOrbitalObjects()
+        misc = body.generateMiscObjects()
 
         geologyTable.delegate = self
         geologyTable.dataSource = self
@@ -44,7 +43,6 @@ class DetailsAboutViewController: AboutViewController, UITableViewDataSource, UI
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewDidLayoutSubviews() {
@@ -73,21 +71,6 @@ class DetailsAboutViewController: AboutViewController, UITableViewDataSource, UI
         }
         return count!
     }
-    
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        let subviews = cell.subviews
-//        print("here")
-//        print(tableView.numberOfRows(inSection: 0)-1)
-//        print(indexPath.row)
-//        if indexPath.row == (tableView.numberOfRows(inSection: 0) - 1) && subviews.count >= 3 {
-//            print ("here2")
-//            for subview in subviews {
-//                if subview != cell.contentView {
-//                    subview.removeFromSuperview()
-//                }
-//            }
-//        }
-//    }
     
     func superscript(string: String, fontName: String, size: Int) -> NSAttributedString {
         let font:UIFont? = UIFont(name: fontName, size: CGFloat(size))
@@ -132,7 +115,7 @@ class DetailsAboutViewController: AboutViewController, UITableViewDataSource, UI
             value.append(NSAttributedString(string: previewDetail.2))
             cell.value!.attributedText = value
             addTargets(key: previewDetail.0, gesture: singleTap, view: cell.info!)
-        } else {//if tableView == self.orbitTable {
+        } else {
             cell = tableView.dequeueReusableCell(withIdentifier: "miscCell", for: indexPath as IndexPath) as! DataViewCellViewController
             let previewDetail = misc[indexPath.row]
             cell.field!.text = previewDetail.0
@@ -145,10 +128,6 @@ class DetailsAboutViewController: AboutViewController, UITableViewDataSource, UI
             cell.backgroundColor = UIColor(colorLiteralRed: 1, green: 1, blue: 1, alpha: 0.1)
         }
         cell.selectionStyle = .none
-        //cell.isUserInteractionEnabled = true
-        //cell.field.isUserInteractionEnabled = true
-        //cell.info.isUserInteractionEnabled = true
-        //cell.value.isUserInteractionEnabled = true
         return cell
     }
     

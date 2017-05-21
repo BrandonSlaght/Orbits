@@ -26,49 +26,33 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
         splitViewController?.delegate = self
-        let background = UIImageView(image: UIImage(named: "milkyway.jpg")!)
-        background.contentMode = .scaleAspectFill
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
-        let blurView = UIVisualEffectView(effect: blurEffect)
-        blurView.frame = view.bounds
-        blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        background.addSubview(blurView)
-        tableView.backgroundView = background
+        tableView.backgroundView = getBlurViewWithBackground(frame: self.view.frame, background: "milkyway.jpg")
         tableView.tableFooterView = UIView(frame: CGRect.zero)
-        tableView.separatorEffect = UIVibrancyEffect(blurEffect: blurView.effect as! UIBlurEffect)
+        tableView.separatorEffect = UIVibrancyEffect(blurEffect: UIBlurEffect(style: .dark))
         tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableViewAutomaticDimension
+
         let appDefaults = [String:AnyObject]()
         UserDefaults.standard.register(defaults: appDefaults)
         setupSearchableContent()
         
+        self.navigationController?.navigationBar.barTintColor = UIColor.green
+        
         if UIDevice.current.userInterfaceIdiom == .pad {
             splitViewController?.preferredDisplayMode = .allVisible
         }
-
-        //let test = Libnova.uranus_new()
-        
-        //let test = uranus.ln_get_uranus_sdiam(5.0)
-        
-        //objects.first?.value[0].getVisibility()
-        
-//        let bounds = self.navigationController?.navigationBar.bounds as CGRect!
-//        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
-//        visualEffectView.frame = bounds!
-//        visualEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//        self.navigationController?.navigationBar.alpha = 0.5
-//        self.navigationController?.navigationBar.addSubview(visualEffectView)
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor.green
+        
         let thisVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
         let thisVersionInt = Int(thisVersion.replacingOccurrences(of: ".", with: ""))
-        print(thisVersionInt)
         
         let lastLaunchedVersion = UserDefaults.standard.integer(forKey: "lastLaunchedVersion")
-        print(lastLaunchedVersion)
         
         //if we have been launched before and the current version has not been launched before
         if (lastLaunchedVersion != 0 && lastLaunchedVersion < thisVersionInt!) {
@@ -88,13 +72,6 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
         
         let initialIndexPath = IndexPath(row: 0, section: 0)
         self.tableView.selectRow(at: initialIndexPath, animated: true, scrollPosition:UITableViewScrollPosition.none)
-        
-        print("got here")
-        
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            print("detected iPad")
-            //self.performSegue(withIdentifier: "planetSegue", sender: initialIndexPath)
-        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -108,7 +85,7 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let classification = Class.allValues[indexPath.section]
         let planet = objects[classification]![indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PlanetCell", for: indexPath) as! PlanetCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PlanetCell", for: indexPath) as! BodyCell
         cell.backgroundColor = UIColor.clear
         cell.name?.text = planet.name
         cell.classification?.text = planet.type.rawValue
@@ -133,31 +110,27 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
         return Class.count
     }
     
-//    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        let subviews = cell.subviews
-//        let classification = Class.allValues[indexPath.section]
-//        if indexPath.row == (objects[classification]?.count)! - 1 && subviews.count >= 3 {
-//            for subview in subviews {
-//                if subview != cell.contentView {
-//                    print("removing last table separator in section")
-//                    //subview.removeFromSuperview()
-//                }
-//            }
-//        }
-//    }
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let subviews = cell.subviews
+        let classification = Class.allValues[indexPath.section]
+        if indexPath.row == (objects[classification]?.count)! - 1 && subviews.count >= 3 {
+            for subview in subviews {
+                if subview != cell.contentView {
+                    print("removing last table separator in section")
+                    //subview.removeFromSuperview()
+                }
+            }
+        }
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        BTBalloon.sharedInstance().hide()
+    }
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
         header.contentView.backgroundColor = UIColor(red: 78/255, green: 78/255, blue: 78/255, alpha: 1)
         header.textLabel!.textColor = UIColor.white
-        
-//        let blurEffect = UIBlurEffect(style: .dark)
-//        let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
-//        let vibrancyEffectView = UIVisualEffectView(effect: vibrancyEffect)
-//        vibrancyEffectView.frame = view.frame
-//        vibrancyEffectView.autoresizingMask = .flexibleWidth
-//        
-//        view.addSubview(vibrancyEffectView)
     }
     
     func setupSearchableContent() {
@@ -242,38 +215,59 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
                 
                 if didSelectMoon {
                     selectedMoon = Int(selectedItem.components(separatedBy: ".")[3].components(separatedBy: "-")[1])
-                    let newVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MoonDetail") as! MoonDetailViewController
-                    newVC.moon = objects[classFromName]?[selectedIndex!].moons[selectedMoon!]
-                    self.navigationController?.pushViewController(newVC, animated: true)
+                    let newVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MoonDetail") as! DetailViewController
+                    newVC.body = objects[classFromName]?[selectedIndex!].moons[selectedMoon!]
+                    //self.navigationController?.pushViewController(newVC, animated: true)
                 } else {
-                    let newVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PlanetDetail") as! PlanetDetailViewController
-//                    let navVC = UINavigationController(rootViewController: newVC)
-//                    navVC.toolbar.tintColor = UIColor.white
-//                    navVC.toolbar.left
-                    newVC.planet = objects[classFromName]?[selectedIndex!]
+                    let newVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PlanetDetail") as! DetailViewController
+                    newVC.body = objects[classFromName]?[selectedIndex!]
                     print("set VS planet = to " + (objects[classFromName]?[selectedIndex!].name)!)
-                    //self.navigationItem.present(navVC, animated: true)
-                    self.navigationController?.pushViewController(newVC, animated: true)
+                    //self.navigationController?.pushViewController(newVC, animated: true)
                 }
             }
         }
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let classification = Class.allValues[indexPath.section]
-        let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PlanetDetail") as! UINavigationController
-        let detail = detailViewController.topViewController as? PlanetDetailViewController
-        detail?.planet = objects[classification]![indexPath.row]
-        showDetailViewController(detailViewController, sender: self)
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        return collapseSplitView
     }
     
-    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
-        print("split view handling")
-        return collapseSplitView
+    override func viewWillAppear(_ animated: Bool) {
+        print("in viewWillAppear")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         collapseSplitView = false
+        
+        if segue.identifier == "planetSegue", let destination = segue.destination as? UINavigationController {
+            if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
+                let classification = Class.allValues[indexPath.section]
+                let detail = destination.topViewController as? DetailViewController
+                detail?.body = objects[classification]![indexPath.row]
+                
+                if let let_nav = self.navigationController, let let_color = objects[classification]![indexPath.row].color1 {
+                    
+                    if (splitViewController?.preferredDisplayMode != .allVisible) {
+                        let_nav.navigationBar.barTintColor = let_color
+                    }
+
+                    print(self.splitViewController?.preferredDisplayMode == .allVisible)
+                    print(self.splitViewController?.preferredDisplayMode != .allVisible)
+                    print(splitViewController?.preferredDisplayMode == .allVisible)
+                    print(splitViewController?.preferredDisplayMode != .allVisible)
+                }
+            }
+        }
+        
+//        if (segue.identifier == "planetSegue") {//|| segue.identifier == "showDetails") {
+//            let detail = segue.destination as! UINavigationController
+//            let view = detail.topViewController as! DetailViewController
+//            
+//        }
+//        
+//        if let let_nav = self.navigationController {
+//            let_nav.navigationBar.backgroundColor = getRandomColor()
+//        }
 //        if (segue.identifier == "planetSegue") {//|| segue.identifier == "showDetails") {
 //            let detail = segue.destination as! PlanetDetailViewController
 //            if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {

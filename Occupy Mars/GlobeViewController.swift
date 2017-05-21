@@ -36,7 +36,7 @@ class GlobeViewController: UIViewController {
     
     var rotating = true
     
-    var planet: Planet!
+    var body: Body!
     var camera: SCNNode!
     
     var barColor: UIColor!
@@ -50,7 +50,7 @@ class GlobeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let let_scene = planet.getScene(size: Size.full) {
+        if let let_scene = body.getScene(size: Size.full) {
             globe.antialiasingMode = .multisampling4X
             globe.scene = let_scene
             globe.scene?.background.contents = UIImage(named: "sky.jpg")
@@ -66,6 +66,33 @@ class GlobeViewController: UIViewController {
         } else {
             self.navigationItem.title = "Error"
         }
+        
+//        if let let_split = splitViewController {
+//            print("has SplitViewController")
+//            if let let_master = let_split.primaryViewController {
+//                print("has primary")
+//                if let let_nav = let_master.navigationController {
+//                    print("primary has a nav!")
+//                } else {
+//                    print("primary has NO nav")
+//                }
+//            } else {
+//                print("has NO primary")
+//            }
+//            if let let_detail = let_split.secondaryViewController {
+//                print("has Secondary")
+//                
+//                if let let_nav = let_detail.navigationController {
+//                    print("detail has a nav!")
+//                } else {
+//                    print("detail has NO nav")
+//                }
+//            } else {
+//                print("has NO secondary")
+//            }
+//        } else {
+//            print("does NOT have SplitViewController")
+//        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -73,10 +100,7 @@ class GlobeViewController: UIViewController {
         globe.pointOfView?.camera?.motionBlurIntensity = 1.0
         globe.pointOfView?.camera?.wantsHDR = true
         globe.pointOfView?.camera?.bloomIntensity = 1.0
-        //if let let_camera = globe.pointOfView?.clone() {
-        //    camera = let_camera
-        //} else {
-        ///    print("ERROR, NO CAMERA FOUND")
+
         camera = SCNNode()
         camera.camera = SCNCamera()
         camera.position = SCNVector3(0.0, 0.0, 5.0)
@@ -85,26 +109,22 @@ class GlobeViewController: UIViewController {
         camera.camera?.motionBlurIntensity = 1.0
         camera.camera?.wantsHDR = true
         camera.camera?.bloomIntensity = 1.0
-        //}
-        //camera = (globe.pointOfView?.clone())!
-        print(globe.pointOfView ?? "")
-        print(camera ?? "")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         //navigationController?.setNavigationBarHidden(false, animated: true)
-        barColor = navigationController?.navigationBar.barTintColor
-        barImage = navigationController?.navigationBar.shadowImage
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
+        //barColor = navigationController?.navigationBar.barTintColor
+        //barImage = navigationController?.navigationBar.shadowImage
+        //navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        //navigationController?.navigationBar.shadowImage = UIImage()
+        //navigationController?.navigationBar.isTranslucent = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.navigationBar.barTintColor = barColor
-        navigationController?.navigationBar.shadowImage = barImage
+        //navigationController?.navigationBar.barTintColor = barColor
+        //navigationController?.navigationBar.shadowImage = barImage
         //navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = false
+        //navigationController?.navigationBar.isTranslucent = false
     }
     
     override func didReceiveMemoryWarning() {

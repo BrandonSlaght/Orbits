@@ -137,9 +137,9 @@ UT_Sun_in_south: Double,
         //let currentTime = Date()
         let currentTime = formatter.date(from: "1990/4/19 00:00")
         let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour], from: currentTime!)
-        let year = dateComponents.year!
-        let month = dateComponents.month!
-        let day = dateComponents.day!
+        let _ = dateComponents.year!
+        let _ = dateComponents.month!
+        let _ = dateComponents.day!
         let hour = dateComponents.hour!
         
         GMST0 = (L1) / 15.0 + 12.0

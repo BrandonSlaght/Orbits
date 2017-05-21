@@ -1,0 +1,27 @@
+//
+//  Extensions.swift
+//  Occupy Mars
+//
+//  Created by Admin on 5/14/17.
+//  Copyright © 2017 Slaght, Brandon. All rights reserved.
+//
+
+import Foundation
+
+extension Int {
+    var degreesToRadians: Double { return Double(self) * Double.pi / 180 }
+}
+
+extension Double {
+    var degreesToRadians: Double { return self * Double.pi / 180 }
+}
+
+extension UISplitViewController {
+    var primaryViewController: UIViewController? {
+        return self.viewControllers.first
+    }
+    
+    var secondaryViewController: UIViewController? {
+        return self.viewControllers.count > 1 ? self.viewControllers[1] : nil
+    }
+}
