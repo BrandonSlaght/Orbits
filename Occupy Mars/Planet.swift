@@ -191,7 +191,9 @@ class Planet : Body {
         
         ret.append(("Type", type.rawValue))
         
-        ret.append(("Position from Sun", position))
+        if position != "" {
+            ret.append(("Position from Sun", position))
+        }
         
         return ret
     }

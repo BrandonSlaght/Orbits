@@ -122,6 +122,15 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
         }
     }
     
+    func changeDetailNavColor(to color: UIColor) {
+        print("in changing color method")
+        if let let_detail = self.splitViewController?.secondaryViewController {
+            let_detail.navigationController?.navigationBar.barTintColor = color
+        } else {
+            self.navigationController?.navigationBar.barTintColor = color
+        }
+    }
+    
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         BTBalloon.sharedInstance().hide()
     }
@@ -243,7 +252,7 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
                 if let let_nav = self.navigationController, let let_color = objects[classification]![indexPath.row].color1 {
                     
                     if (splitViewController?.preferredDisplayMode != .allVisible) {
-                        let_nav.navigationBar.barTintColor = let_color
+                        //let_nav.navigationBar.barTintColor = let_color
                     }
                 }
             }

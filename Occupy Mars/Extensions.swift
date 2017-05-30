@@ -9,11 +9,15 @@
 import Foundation
 
 extension Int {
-    var degreesToRadians: Double { return Double(self) * Double.pi / 180 }
+    var degreesToRadians: Double {
+        return Double(self) * Double.pi / 180
+    }
 }
 
 extension Double {
-    var degreesToRadians: Double { return self * Double.pi / 180 }
+    var degreesToRadians: Double {
+        return self * Double.pi / 180
+    }
 }
 
 extension UISplitViewController {

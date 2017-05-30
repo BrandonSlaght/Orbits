@@ -41,6 +41,7 @@ class GlobeViewController: UIViewController {
     
     var barColor: UIColor!
     var barImage: UIImage!
+    var barBackground: UIImage!
     
     var primaryWidth = CGFloat(100)
     
@@ -63,11 +64,11 @@ class GlobeViewController: UIViewController {
             //globe.addGestureRecognizer(pinchGesture)
             //ortho = globe.scene?.rootNode.childNode(withName: "camera", recursively: true)?.camera?.orthographicScale
             //lastOrtho = ortho
-            
-            //self.navigationItem.title = planet.name
+        
         } else {
             self.navigationItem.title = "Error"
         }
+    
         
 //        if UIDevice.current.userInterfaceIdiom == .pad {
 //            print(self.splitViewController?.primaryColumnWidth ?? "ERROR UNWRAPPING COLUMN WIDTH")
@@ -94,24 +95,37 @@ class GlobeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        //(((self.splitViewController?.primaryViewController as! UINavigationController).topViewController as! UINavigationController).topViewController as! PlanetListViewController).clearNavbar()
-        
-//        navigationController?.setNavigationBarHidden(false, animated: true)
-//        barColor = navigationController?.navigationBar.barTintColor
-//        barImage = navigationController?.navigationBar.shadowImage
-//        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-//        navigationController?.navigationBar.shadowImage = UIImage()
-//        navigationController?.navigationBar.isTranslucent = true
-//        
-//        print("view will appear for globe controller")
+        var navBar: UINavigationBar
+        if splitViewController?.secondaryViewController != nil {
+            navBar = (navigationController?.navigationBar)!
+
+            //navigationController?.navigationBar.barTintColor = UIColor.clear
+        } else {
+            navBar = (self.splitViewController?.primaryViewController as! UINavigationController).navigationBar
+        }
+        //barColor = navBar.barTintColor
+        barImage = navBar.shadowImage
+        barBackground = navBar.backgroundImage(for: UIBarMetrics.default)
+        navBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navBar.shadowImage = UIImage()
+        //navBar.isTranslucent = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         
-//        navigationController?.navigationBar.barTintColor = barColor
-//        navigationController?.navigationBar.shadowImage = barImage
-//        navigationController?.navigationBar.shadowImage = UIImage()
-//        navigationController?.navigationBar.isTranslucent = false
+        var navBar: UINavigationBar
+        if splitViewController?.secondaryViewController != nil {
+            navBar = (navigationController?.navigationBar)!
+            
+            //navigationController?.navigationBar.barTintColor = UIColor.clear
+        } else {
+            navBar = (self.splitViewController?.primaryViewController as! UINavigationController).navigationBar
+        }
+
+        //navBar.barTintColor = barColor
+        navBar.shadowImage = barImage
+        navBar.setBackgroundImage(barBackground, for: UIBarMetrics.default)
+        //navBar.isTranslucent = false
     }
     
     override func viewDidDisappear(_ animated: Bool) {

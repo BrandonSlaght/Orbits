@@ -177,11 +177,20 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         barColor = navigationController?.navigationBar.barTintColor
 
-        //scrollView.contentInset.top = 44
-        //scrollView.contentOffset = CGPoint(x: 0, y: 44)
-        
         if let let_color = body.color1 {
-            navigationController?.navigationBar.barTintColor = let_color
+            //we are on an iPad and don't have to do anything fucked up
+            if splitViewController?.secondaryViewController != nil {
+                navigationController?.navigationBar.barTintColor = let_color
+            } else { //we are on an iPhone :(
+                (self.splitViewController?.primaryViewController as! UINavigationController).navigationBar.barTintColor = let_color
+            }
+        } else {
+            let gray = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
+            if splitViewController?.secondaryViewController != nil {
+                navigationController?.navigationBar.barTintColor = gray
+            } else {
+                (self.splitViewController?.primaryViewController as! UINavigationController).navigationBar.barTintColor = gray
+            }
         }
         
         if (navigationBarOriginalOffset == nil) {
@@ -236,7 +245,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
                     if let let_color = body.color1 {
                         tabHolder.backgroundColor = let_color
                     } else {
-                        tabHolder.backgroundColor = barColor
+                        tabHolder.backgroundColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
                     }
                 } else {
                     tabHolder.frame.origin.y = navigationBarOriginalOffset!
@@ -256,7 +265,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         let globe = self.storyboard?.instantiateViewController(withIdentifier: "globeView") as? GlobeViewController
         globe?.body = body
         self.navigationController?.pushViewController(globe!, animated: true)
-        self.navigationController?.navigationBar.backgroundColor = UIColor.clear
         BTBalloon.sharedInstance().hide()
     }
 }
