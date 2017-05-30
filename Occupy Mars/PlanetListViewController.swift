@@ -227,12 +227,12 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
         }
     }
     
-//    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
-//        return collapseSplitView
-//    }
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        return collapseSplitView
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //collapseSplitView = false
+        collapseSplitView = false
         
         if segue.identifier == "planetSegue", let destination = segue.destination as? UINavigationController {
             if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
@@ -245,11 +245,6 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
                     if (splitViewController?.preferredDisplayMode != .allVisible) {
                         let_nav.navigationBar.barTintColor = let_color
                     }
-
-                    print(self.splitViewController?.preferredDisplayMode == .allVisible)
-                    print(self.splitViewController?.preferredDisplayMode != .allVisible)
-                    print(splitViewController?.preferredDisplayMode == .allVisible)
-                    print(splitViewController?.preferredDisplayMode != .allVisible)
                 }
             }
         }

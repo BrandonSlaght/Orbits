@@ -36,8 +36,9 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     var body: Body!
     var currentViewController: UIViewController?
     var navigationBarOriginalOffset : CGFloat?
+    var extraPadding: CGFloat!
     var barColor: UIColor!
-    var transitioning = false;
+    var transitioning = false
     
     func cycleFromViewController(oldViewController: UIViewController, toViewController newViewController: UIViewController) {
         //transitioning = true
@@ -162,9 +163,11 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         insideView.bringSubview(toFront: tabHolder)
         
-        globeButton.bringSubview(toFront: scrollView)
-        globeButton.bringSubview(toFront: content)
+        //globeButton.bringSubview(toFront: scrollView)
+        //globeButton.bringSubview(toFront: content)
         globeButton.addTarget(self, action: #selector(globeSegue), for: .touchUpInside)
+        
+        extraPadding = (navigationController?.navigationBar.frame.height)! + statusBarHeight()
     }
     
     func hide(_ sender: UITapGestureRecognizer) {
@@ -174,6 +177,9 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         barColor = navigationController?.navigationBar.barTintColor
 
+        //scrollView.contentInset.top = 44
+        //scrollView.contentOffset = CGPoint(x: 0, y: 44)
+        
         if let let_color = body.color1 {
             navigationController?.navigationBar.barTintColor = let_color
         }
@@ -222,11 +228,11 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if (sceneHeight.constant == 0) {
-            tabHolder.frame.origin.y = scrollView.contentOffset.y
+            tabHolder.frame.origin.y = scrollView.contentOffset.y + extraPadding
         } else {
             if (!transitioning) {
-                if (navigationBarOriginalOffset! <= scrollView.contentOffset.y) {
-                    tabHolder.frame.origin.y = scrollView.contentOffset.y
+                if (navigationBarOriginalOffset! <= scrollView.contentOffset.y + extraPadding) {
+                    tabHolder.frame.origin.y = scrollView.contentOffset.y + extraPadding
                     if let let_color = body.color1 {
                         tabHolder.backgroundColor = let_color
                     } else {
@@ -239,6 +245,11 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             }
         }
         BTBalloon.sharedInstance().hide()
+    }
+    
+    func statusBarHeight() -> CGFloat {
+        let statusBarSize = UIApplication.shared.statusBarFrame.size
+        return min(statusBarSize.width, statusBarSize.height)
     }
     
     func globeSegue(){

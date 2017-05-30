@@ -42,6 +42,8 @@ class GlobeViewController: UIViewController {
     var barColor: UIColor!
     var barImage: UIImage!
     
+    var primaryWidth = CGFloat(100)
+    
     //var lastWidthRatio: Float = 0
     //var lastHeightRatio: Float = 0
     //var lastOrtho: Double = 0
@@ -66,6 +68,12 @@ class GlobeViewController: UIViewController {
         } else {
             self.navigationItem.title = "Error"
         }
+        
+//        if UIDevice.current.userInterfaceIdiom == .pad {
+//            print(self.splitViewController?.primaryColumnWidth ?? "ERROR UNWRAPPING COLUMN WIDTH")
+//            primaryWidth = (self.splitViewController?.primaryColumnWidth)!
+//            self.splitViewController?.maximumPrimaryColumnWidth = 0
+//        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -99,10 +107,19 @@ class GlobeViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        
 //        navigationController?.navigationBar.barTintColor = barColor
 //        navigationController?.navigationBar.shadowImage = barImage
 //        navigationController?.navigationBar.shadowImage = UIImage()
 //        navigationController?.navigationBar.isTranslucent = false
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+//        if UIDevice.current.userInterfaceIdiom == .pad {
+//            print(self.splitViewController?.primaryColumnWidth ?? "ERROR UNWRAPPING COLUMN WIDTH")
+//            self.splitViewController?.maximumPrimaryColumnWidth = primaryWidth + 1
+//            self.splitViewController?.minimumPrimaryColumnWidth = primaryWidth
+//        }
     }
     
     override func didReceiveMemoryWarning() {
