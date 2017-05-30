@@ -180,78 +180,98 @@ class DetailsAboutViewController: AboutViewController, UITableViewDataSource, UI
             //gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
             //view.addGestureRecognizer(gesture)
             break
-        case "Day Length":
+        case "Orbital Length":
             //view.tag = 10
             //gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
             //view.addGestureRecognizer(gesture)
             break
+        case "Day Length":
+            //view.tag = 11
+            //gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            //view.addGestureRecognizer(gesture)
+            break
         case "Average Velocity":
-            view.tag = 11
+            view.tag = 12
             gesture.addTarget(self, action: #selector(DetailsAboutViewController.addAverageVelocity(_:)))
             view.addGestureRecognizer(gesture)
             view.text = " ⓘ"
+        case "Perigee":
+            view.tag = 13
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addPerigee(_:)))
+            view.addGestureRecognizer(gesture)
+            view.text = " ⓘ"
         case "Perihilion":
-            view.tag = 12
+            view.tag = 14
             gesture.addTarget(self, action: #selector(DetailsAboutViewController.addPerihilion(_:)))
             view.addGestureRecognizer(gesture)
             view.text = " ⓘ"
+        case "Apogee":
+            view.tag = 15
+            gesture.addTarget(self, action: #selector(DetailsAboutViewController.addApogee(_:)))
+            view.addGestureRecognizer(gesture)
+            view.text = " ⓘ"
         case "Aphelion":
-            view.tag = 13
+            view.tag = 16
             gesture.addTarget(self, action: #selector(DetailsAboutViewController.addAphelion(_:)))
             view.addGestureRecognizer(gesture)
             view.text = " ⓘ"
         case "Orbital Tilt":
-            view.tag = 14
+            view.tag = 17
             gesture.addTarget(self, action: #selector(DetailsAboutViewController.addOrbitalTilt(_:)))
             view.addGestureRecognizer(gesture)
             view.text = " ⓘ"
         case "Eccentricity":
-            view.tag = 15
+            view.tag = 18
             gesture.addTarget(self, action: #selector(DetailsAboutViewController.addEccentricity(_:)))
             view.addGestureRecognizer(gesture)
             view.text = " ⓘ"
         case "Equatorial Tilt":
-            view.tag = 16
+            view.tag = 19
             gesture.addTarget(self, action: #selector(DetailsAboutViewController.addEquatorialTilt(_:)))
             view.addGestureRecognizer(gesture)
             view.text = " ⓘ"
         case "Nearest to Earth":
-            //view.tag = 17
-            //gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
-            //view.addGestureRecognizer(gesture)
-            break
-        case "Farthest from Earth":
-            //view.tag = 18
-            //gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
-            //view.addGestureRecognizer(gesture)
-            break
-        case "Moons":
-            //view.tag = 19
-            //gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
-            //view.addGestureRecognizer(gesture)
-            break
-        case "Ring System":
             //view.tag = 20
             //gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
             //view.addGestureRecognizer(gesture)
             break
-        case "Type":
+        case "Farthest from Earth":
             //view.tag = 21
-            //gesture.addTarget(self, action: #selector(DetailsAboutViewController.addType(_:)))
+            //gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
             //view.addGestureRecognizer(gesture)
             break
-        case "Position from Sun":
+        case "Moons":
             //view.tag = 22
             //gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
             //view.addGestureRecognizer(gesture)
             break
-        case "Date of Discovery":
+        case "Ring System":
             //view.tag = 23
             //gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
             //view.addGestureRecognizer(gesture)
             break
+        case "Type":
+            //view.tag = 24
+            //gesture.addTarget(self, action: #selector(DetailsAboutViewController.addType(_:)))
+            //view.addGestureRecognizer(gesture)
+            break
+        case "Position from Sun":
+            //view.tag = 25
+            //gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            //view.addGestureRecognizer(gesture)
+            break
+        case "Position from Planet":
+            //view.tag = 26
+            //gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            //view.addGestureRecognizer(gesture)
+            break
+        case "Date of Discovery":
+            //view.tag = 27
+            //gesture.addTarget(self, action: #selector(DetailsAboutViewController.addDensity(_:)))
+            //view.addGestureRecognizer(gesture)
+            break
         default:
-            print("THERE IS AN UNHANDLED DETAILS CASE")
+            print("THERE IS AN UNHANDLED DETAILS CASE: \(key)")
             break
         }
     }
@@ -283,36 +303,48 @@ class DetailsAboutViewController: AboutViewController, UITableViewDataSource, UI
     func addAverageVelocity(_ sender: UITapGestureRecognizer) {
         BTBalloon.sharedInstance().show(withTitle: "The average speed that the planet moves around the Sun.  The velovity isn't constant because planets move faster when they are closer to the Sun.",
                                         image: nil,
-                                        anchorTo: self.view.viewWithTag(11)!)
+                                        anchorTo: self.view.viewWithTag(12)!)
+    }
+    
+    func addPerigee(_ sender: UITapGestureRecognizer) {
+        BTBalloon.sharedInstance().show(withTitle: "The closest a moon gets to the planet it orbits.",
+                                        image: nil,
+                                        anchorTo: self.view.viewWithTag(13)!)
     }
     
     func addPerihilion(_ sender: UITapGestureRecognizer) {
         BTBalloon.sharedInstance().show(withTitle: "The closest the planets comes to the Sun in its orbit.",
                                         image: nil,
-                                        anchorTo: self.view.viewWithTag(12)!)
+                                        anchorTo: self.view.viewWithTag(14)!)
+    }
+    
+    func addApogee(_ sender: UITapGestureRecognizer) {
+        BTBalloon.sharedInstance().show(withTitle: "The farthest a moon gets from the planet it orbits.",
+                                        image: nil,
+                                        anchorTo: self.view.viewWithTag(15)!)
     }
     
     func addAphelion(_ sender: UITapGestureRecognizer) {
         BTBalloon.sharedInstance().show(withTitle: "The farthest a planet gets from the Sun in its orbit.",
                                         image: nil,
-                                        anchorTo: self.view.viewWithTag(13)!)
+                                        anchorTo: self.view.viewWithTag(16)!)
     }
     
     func addOrbitalTilt(_ sender: UITapGestureRecognizer) {
         BTBalloon.sharedInstance().show(withTitle: "How many degrees off the orbital plane the planet orbits.  The orbital plane is set equal to Earth's orbit.",
                                         image: nil,
-                                        anchorTo: self.view.viewWithTag(14)!)
+                                        anchorTo: self.view.viewWithTag(17)!)
     }
     
     func addEccentricity(_ sender: UITapGestureRecognizer) {
         BTBalloon.sharedInstance().show(withTitle: "The amount by which the planet's orbit deviates from a perfect circle.",
                                         image: nil,
-                                        anchorTo: self.view.viewWithTag(15)!)
+                                        anchorTo: self.view.viewWithTag(18)!)
     }
     
     func addEquatorialTilt(_ sender: UITapGestureRecognizer) {
         BTBalloon.sharedInstance().show(withTitle: "How much the poles of the planet deviate from zero.  Significant deviations cause seasonal cycles on planets.",
                                         image: nil,
-                                        anchorTo: self.view.viewWithTag(16)!)
+                                        anchorTo: self.view.viewWithTag(19)!)
     }
 }

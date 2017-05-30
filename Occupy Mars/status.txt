@@ -68,6 +68,9 @@ make the sticky tab bar be animated and blurry and also make the navbar blurry
 EZ - add a whats new section and popup
 atmosphere details section
 make modal tooltips blurry
+make modal tooltips fade between each other rather than transition abruptly
+fix audio being paused on first launch from the media player
+add paralax effect to the media player and also maybe the other views with backgrounds
 fix bug where tab bar dissapears
 localize
 widget for visibility

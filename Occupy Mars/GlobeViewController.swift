@@ -66,33 +66,6 @@ class GlobeViewController: UIViewController {
         } else {
             self.navigationItem.title = "Error"
         }
-        
-//        if let let_split = splitViewController {
-//            print("has SplitViewController")
-//            if let let_master = let_split.primaryViewController {
-//                print("has primary")
-//                if let let_nav = let_master.navigationController {
-//                    print("primary has a nav!")
-//                } else {
-//                    print("primary has NO nav")
-//                }
-//            } else {
-//                print("has NO primary")
-//            }
-//            if let let_detail = let_split.secondaryViewController {
-//                print("has Secondary")
-//                
-//                if let let_nav = let_detail.navigationController {
-//                    print("detail has a nav!")
-//                } else {
-//                    print("detail has NO nav")
-//                }
-//            } else {
-//                print("has NO secondary")
-//            }
-//        } else {
-//            print("does NOT have SplitViewController")
-//        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -112,19 +85,24 @@ class GlobeViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //navigationController?.setNavigationBarHidden(false, animated: true)
-        //barColor = navigationController?.navigationBar.barTintColor
-        //barImage = navigationController?.navigationBar.shadowImage
-        //navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        //navigationController?.navigationBar.shadowImage = UIImage()
-        //navigationController?.navigationBar.isTranslucent = true
+        
+        //(((self.splitViewController?.primaryViewController as! UINavigationController).topViewController as! UINavigationController).topViewController as! PlanetListViewController).clearNavbar()
+        
+//        navigationController?.setNavigationBarHidden(false, animated: true)
+//        barColor = navigationController?.navigationBar.barTintColor
+//        barImage = navigationController?.navigationBar.shadowImage
+//        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+//        navigationController?.navigationBar.shadowImage = UIImage()
+//        navigationController?.navigationBar.isTranslucent = true
+//        
+//        print("view will appear for globe controller")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        //navigationController?.navigationBar.barTintColor = barColor
-        //navigationController?.navigationBar.shadowImage = barImage
-        //navigationController?.navigationBar.shadowImage = UIImage()
-        //navigationController?.navigationBar.isTranslucent = false
+//        navigationController?.navigationBar.barTintColor = barColor
+//        navigationController?.navigationBar.shadowImage = barImage
+//        navigationController?.navigationBar.shadowImage = UIImage()
+//        navigationController?.navigationBar.isTranslucent = false
     }
     
     override func didReceiveMemoryWarning() {
@@ -142,15 +120,11 @@ class GlobeViewController: UIViewController {
     }
     
     func stopMotion() {
-        //print("stopping rotation")
         globe.scene?.rootNode.childNode(withName: "planet", recursively: true)?.pauseAnimation(forKey: "spin around")
     }
     
     func startMotion() {
-        //print("starting rotation")
-        //if rotate.isSelected {
-            globe.scene?.rootNode.childNode(withName: "planet", recursively: true)?.resumeAnimation(forKey: "spin around")
-        //}
+        globe.scene?.rootNode.childNode(withName: "planet", recursively: true)?.resumeAnimation(forKey: "spin around")
     }
     
     func panDetected(sender: UIPanGestureRecognizer) {

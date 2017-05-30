@@ -59,12 +59,10 @@ class MoonAboutViewController: AboutViewController, UITableViewDataSource, UITab
         return cell
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "moonSegue") {
-            let detail = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-            if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
-                detail.body = body.moons[indexPath.row]
-            }
-        }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let index = indexPath.row
+        let detail = self.storyboard?.instantiateViewController(withIdentifier: "detailViewController") as? DetailViewController
+        detail?.body = body.moons[index]
+        self.navigationController?.pushViewController(detail!, animated: true)
     }
 }

@@ -164,6 +164,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         globeButton.bringSubview(toFront: scrollView)
         globeButton.bringSubview(toFront: content)
+        globeButton.addTarget(self, action: #selector(globeSegue), for: .touchUpInside)
     }
     
     func hide(_ sender: UITapGestureRecognizer) {
@@ -240,25 +241,11 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         BTBalloon.sharedInstance().hide()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("point1")
-        if (segue.identifier == "globeSegue") {
-            print("point2")
-            let globe = segue.destination as! GlobeViewController
-            globe.body = body
-            
-            if let let_nav = self.navigationController {
-                print("point3")
-                let_nav.navigationBar.backgroundColor = UIColor.clear
-            }
-
-            if let let_nav = globe.navigationController {
-                print("point5")
-                let_nav.navigationBar.backgroundColor = UIColor.clear
-            }
-        } else {
-            segue.destination.view.translatesAutoresizingMaskIntoConstraints = false
-        }
+    func globeSegue(){
+        let globe = self.storyboard?.instantiateViewController(withIdentifier: "globeView") as? GlobeViewController
+        globe?.body = body
+        self.navigationController?.pushViewController(globe!, animated: true)
+        self.navigationController?.navigationBar.backgroundColor = UIColor.clear
         BTBalloon.sharedInstance().hide()
     }
 }

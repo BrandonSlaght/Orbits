@@ -28,7 +28,6 @@ fileprivate func > <T: Comparable>(lhs: T?, rhs: T?) -> Bool {
     }
 }
 
-
 @objc protocol CHTCollectionViewDelegateWaterfallLayout: UICollectionViewDelegate {
     
     func collectionView (_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,

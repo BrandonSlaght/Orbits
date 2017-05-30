@@ -38,7 +38,7 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
         UserDefaults.standard.register(defaults: appDefaults)
         setupSearchableContent()
         
-        self.navigationController?.navigationBar.barTintColor = UIColor.green
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
         
         if UIDevice.current.userInterfaceIdiom == .pad {
             splitViewController?.preferredDisplayMode = .allVisible
@@ -47,7 +47,7 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
     
     override func viewDidAppear(_ animated: Bool) {
         
-        self.navigationController?.navigationBar.barTintColor = UIColor.green
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
         
         let thisVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
         let thisVersionInt = Int(thisVersion.replacingOccurrences(of: ".", with: ""))
@@ -96,7 +96,6 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
             cell.sceneView.preferredFramesPerSecond = 15
         }
         if (planet.getScene(size: Size.small) == nil) {
-            print(planet.name + "is nil modeled")
             cell.heightConstraint.constant = 90
         }
         return cell
@@ -116,7 +115,7 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
         if indexPath.row == (objects[classification]?.count)! - 1 && subviews.count >= 3 {
             for subview in subviews {
                 if subview != cell.contentView {
-                    print("removing last table separator in section")
+                    //print("removing last table separator in section")
                     //subview.removeFromSuperview()
                 }
             }
@@ -129,7 +128,7 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
-        header.contentView.backgroundColor = UIColor(red: 78/255, green: 78/255, blue: 78/255, alpha: 1)
+        header.contentView.backgroundColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
         header.textLabel!.textColor = UIColor.white
     }
     
@@ -228,16 +227,12 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
         }
     }
     
-    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
-        return collapseSplitView
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        print("in viewWillAppear")
-    }
+//    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+//        return collapseSplitView
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        collapseSplitView = false
+        //collapseSplitView = false
         
         if segue.identifier == "planetSegue", let destination = segue.destination as? UINavigationController {
             if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {

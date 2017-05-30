@@ -56,7 +56,7 @@ class Moon : Body{
     override func generateMiscObjects() -> [(String, String)] {
         var ret = super.generateMiscObjects()
         
-        ret.append(("Position from Orbiting Planet", position))
+        ret.append(("Position from Planet", position))
         
         return ret
     }
