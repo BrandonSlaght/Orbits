@@ -10,10 +10,24 @@ import UIKit
 import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
-        
+    
+    @IBOutlet weak var sunsetLabel: UILabel!
+    @IBOutlet weak var sunriseLabel: UILabel!
+    @IBOutlet weak var moonPhaseLabel: UILabel!
+    
+    @IBOutlet weak var cloudCoverLabel: UILabel!
+    @IBOutlet weak var visibilityLabel: UILabel!
+    @IBOutlet weak var windLabel: UILabel!
+    @IBOutlet weak var lightPollutionLabel: UILabel!
+    
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var humidityLabel: UILabel!
+    @IBOutlet weak var dayLengthLabel: UILabel!
+    @IBOutlet weak var sunAngleLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        preferredContentSize = CGSize(width: 0, height: 120)
+        preferredContentSize = CGSize(width: 0, height: 100)
         extensionContext?.widgetLargestAvailableDisplayMode = .expanded
     }
     
@@ -33,9 +47,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         if activeDisplayMode == .expanded {
-            preferredContentSize = CGSize(width: 0, height: 500)
+            preferredContentSize = CGSize(width: 0, height: 425)
         } else {
-            preferredContentSize = CGSize(width: 0, height: 120)
+            preferredContentSize = CGSize(width: 0, height: 100)
         }
     }
 }
