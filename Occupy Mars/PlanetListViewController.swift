@@ -248,13 +248,6 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
                 let classification = Class.allValues[indexPath.section]
                 let detail = destination.topViewController as? DetailViewController
                 detail?.body = objects[classification]![indexPath.row]
-                
-                if let let_nav = self.navigationController, let let_color = objects[classification]![indexPath.row].color1 {
-                    
-                    if (splitViewController?.preferredDisplayMode != .allVisible) {
-                        //let_nav.navigationBar.barTintColor = let_color
-                    }
-                }
             }
         }
         
