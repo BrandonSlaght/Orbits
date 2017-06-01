@@ -11,7 +11,6 @@
 		840FEFBA1EDE3D570005B69E /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840FEFB91EDE3D570005B69E /* TodayViewController.swift */; };
 		840FEFBD1EDE3D570005B69E /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 840FEFBB1EDE3D570005B69E /* MainInterface.storyboard */; };
 		840FEFC11EDE3D570005B69E /* tonight.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 840FEFB41EDE3D560005B69E /* tonight.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		840FEFC61EDF34EF0005B69E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5941BDE1DBBFD940057A46A /* Assets.xcassets */; };
 		8427FBA31E8C137600536BAB /* status.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8427FBA21E8C137400536BAB /* status.txt */; };
 		84297BEA1EC6A314003604C7 /* Body.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84297BE91EC6A314003604C7 /* Body.swift */; };
 		84297BEE1EC8F4AA003604C7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84297BED1EC8F4AA003604C7 /* Extensions.swift */; };
@@ -37,6 +36,7 @@
 		8488D43A1E54EBCF009AD9D8 /* VolumeUnit+US.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D42D1E54EBCF009AD9D8 /* VolumeUnit+US.swift */; };
 		84BCC3231EA498E3008DF21B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84BCC3221EA498E3008DF21B /* Settings.bundle */; };
 		84E044491E37D9FE00A6AAB4 /* phobos - transit.gif in Resources */ = {isa = PBXBuildFile; fileRef = 84E044481E37D9FE00A6AAB4 /* phobos - transit.gif */; };
+		84F2AAE11EDFDF7A00FFF898 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5941BDE1DBBFD940057A46A /* Assets.xcassets */; };
 		84FFCB2F1EB70E47001DE7B7 /* Cartographer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFCB2E1EB70E47001DE7B7 /* Cartographer.swift */; };
 		C515AE631DC91126009A498C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C515AE621DC91126009A498C /* DetailViewController.swift */; };
 		C520FB3B1DFC928C004A0FE6 /* SKAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C520FB281DFC928C004A0FE6 /* SKAnimator.swift */; };
@@ -760,7 +760,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8431B7FE1EDFB4930068D596 /* Visibility.xib in Resources */,
-				840FEFC61EDF34EF0005B69E /* Assets.xcassets in Resources */,
+				84F2AAE11EDFDF7A00FFF898 /* Assets.xcassets in Resources */,
 				840FEFBD1EDE3D570005B69E /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

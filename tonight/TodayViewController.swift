@@ -13,6 +13,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        preferredContentSize = CGSize(width: 0, height: 120)
         extensionContext?.widgetLargestAvailableDisplayMode = .expanded
     }
     

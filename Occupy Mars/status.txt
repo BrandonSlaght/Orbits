@@ -48,24 +48,25 @@ DONE - core spotlight support
 DONE - fix janus model fuckery
 DONE - low res thumbnails of models
 DONE - smooth shading of models
+DONE - Fix navbar bugs when transitioning into and out of globe view (swiping from side or pressing back button)
+DONE - profile lag in the info modal (it only happens when debugging so who cares)
+DONE - actual polymorphism and inheritance
+DONE - add a whats new section and popup
 ---------------------------------------------------------------------------------------------------------------------
-Fix navbar bugs when transitioning into and out of globe view (swiping from side or pressing back button)
 Fix scrolling in the globe view - when double tapping or tapping and holding
 Details of Moons
 Media of moons
 EZ - Mimas model - saturn
 colors and backgrounds of moons
 fix globes glitching out when slightly sliding finger from left and sliding it back
-EZ - profile lag in the info modal
 EZ - update texture and model sources
 EZ - fix the alignment and constraints on the video intro screen
+EZ - better iPad support for text on the intro screen
 do visibility
 units inline in text to enable conversion
 EZ - pronunciations
 fix constraints not always applying in details
-actual polymorphism and inheritance
 make the sticky tab bar be animated and blurry and also make the navbar blurry
-EZ - add a whats new section and popup
 atmosphere details section
 make modal tooltips blurry
 make modal tooltips fade between each other rather than transition abruptly
@@ -76,6 +77,12 @@ localize
 widget for visibility
 pictures for spotlight
 core siri support
+fix shitty navbar color transitions
+change sun background color
+touchable icons highlight version
+start sceneviews in new threads
+make website with about and changelog, possibly from template
+the app delegate resume method
 ---------------------------------------------------------------------------------------------------------------------
 
 
@@ -94,7 +101,7 @@ minor text fixes
 ui improvements
 
 1.2.1:
-Fixed a possible crash in the globe view",
+Fixed a possible crash in the globe view
 
 1.2.2:
 Reduced minimum iOS version to 10.0
