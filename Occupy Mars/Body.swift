@@ -70,7 +70,8 @@ class Body {
     
     //--------------------------------------------miscelanious
     
-    var discovered: String?
+    var discovered: String?,
+        pronunciation: String?
     
     //--------------------------------------------visual
     
@@ -162,7 +163,9 @@ class Body {
         self.hasDetails = true
     }
     
-    func misc(discovered: String?) {
+    func misc(pronunciation: String?,
+              discovered: String?) {
+        self.pronunciation = pronunciation
         self.discovered = discovered
     }
     
@@ -410,54 +413,54 @@ class Body {
         let behavior = NSDecimalNumberHandler(roundingMode: .plain, scale: scale, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: true)
         
         if (defaults.bool(forKey: "useImperial")) {
-            if mass != nil{
+            if mass != nil {
                 ret.append(("Mass", toScientificNotation(value: mass!.converted(MassUnit.pound).rounded(6).amount), " lb"))
             }
-            if volume != nil{
+            if volume != nil {
                 ret.append(("Volume", toScientificNotation(value: volume!.converted(LengthUnit.mile).rounded(6).amount), " mi³"))
             }
-            if density != nil{
+            if density != nil {
                 ret.append(("Density", toScientificNotation(value: density!.converted(MassUnit.kilogram).amount.dividing(by:16.02).rounding(accordingToBehavior: behavior)), " lb/ft³"))  //THIS ONE IS SPECIAL
             }
-            if equatorial != nil{
+            if equatorial != nil {
                 ret.append(("Radius", toScientificNotation(value: equatorial!.converted(LengthUnit.mile).rounded(6).amount), " mi"))
             }
-            if gravity != nil{
+            if gravity != nil {
                 ret.append(("Gravity", toScientificNotation(value: gravity!.converted(LengthUnit.foot).rounded(6).amount), " ft/s²"))
             }
-            if escape_velocity != nil{
+            if escape_velocity != nil {
                 ret.append(("Escape Velocity", toScientificNotation(value: escape_velocity!.converted(LengthUnit.mile).rounded(6).amount), " mi/s"))
             }
-            if irradiance != nil{
+            if irradiance != nil {
                 let value = NSDecimalNumber.init(value: irradiance!/10.7639105)
                 ret.append(("Irradiance", String(describing: value.rounding(accordingToBehavior: behavior)), " W/ft²"))
             }
-            if geographic_height_variance != nil{
+            if geographic_height_variance != nil {
                 ret.append(("Height Variance", toScientificNotation(value: geographic_height_variance!.converted(LengthUnit.mile).rounded(6).amount), " mi"))
             }
         } else {
-            if mass != nil{
+            if mass != nil {
                 ret.append(("Mass", toScientificNotation(value: mass!.converted(MassUnit.kilogram).rounded(6).amount), " kg"))
             }
-            if volume != nil{
+            if volume != nil {
                 ret.append(("Volume", toScientificNotation(value: volume!.converted(LengthUnit.kilometer).rounded(6).amount), " km³"))
             }
-            if density != nil{
+            if density != nil {
                 ret.append(("Density", toScientificNotation(value: density!.converted(MassUnit.kilogram).rounded(6).amount), " kg/m³"))
             }
-            if equatorial != nil{
+            if equatorial != nil {
                 ret.append(("Radius", toScientificNotation(value: equatorial!.converted(LengthUnit.kilometer).rounded(6).amount), " km"))
             }
-            if gravity != nil{
+            if gravity != nil {
                 ret.append(("Gravity", toScientificNotation(value: gravity!.converted(LengthUnit.meter).rounded(6).amount), " m/s²"))
             }
-            if escape_velocity != nil{
+            if escape_velocity != nil {
                 ret.append(("Escape Velocity", toScientificNotation(value: escape_velocity!.converted(LengthUnit.kilometer).rounded(6).amount), " km/s"))
             }
-            if irradiance != nil{
+            if irradiance != nil {
                 ret.append(("Irradiance", String(describing: irradiance!), " W/m²"))
             }
-            if geographic_height_variance != nil{
+            if geographic_height_variance != nil {
                 ret.append(("Height Variance", toScientificNotation(value: geographic_height_variance!.converted(LengthUnit.kilometer).rounded(6).amount), " km"))
             }
         }
@@ -468,27 +471,27 @@ class Body {
     func generateOrbitalObjects() -> [(String, String, String)] {
         var ret = [(String, String, String)]()
         
-        if day_length != nil{
+        if day_length != nil {
             ret.append(("Day Length", toScientificNotation(value: day_length!.converted(TimeUnit.hour).rounded(6).amount), " hours"))
         }
         
         if (defaults.bool(forKey: "useImperial")) {
-            if velocity != nil{
+            if velocity != nil {
                 ret.append(("Average Velocity", toScientificNotation(value: velocity!.converted(LengthUnit.mile).rounded(6).amount), " mi/h"))
             }
         } else {
-            if velocity != nil{
+            if velocity != nil {
                 ret.append(("Average Velocity", toScientificNotation(value: velocity!.converted(LengthUnit.kilometer).rounded(6).amount), " km/h"))
             }
         }
         
-        if inclination != nil{
+        if inclination != nil {
             ret.append(("Orbital Tilt", String(describing: inclination!), " degrees"))
         }
-        if eccentricity != nil{
+        if eccentricity != nil {
             ret.append(("Eccentricity", String(describing: eccentricity!), ""))
         }
-        if equator_inclination != nil{
+        if equator_inclination != nil {
             ret.append(("Equatorial Tilt", String(describing: equator_inclination!), " degrees"))
         }
         
@@ -498,8 +501,11 @@ class Body {
     func generateMiscObjects() -> [(String, String)] {
         var ret = [(String, String)]()
         
-        if discovered != nil{
+        if discovered != nil {
             ret.append(("Date of Discovery", discovered!))
+        }
+        if pronunciation != nil {
+            ret.append(("Pronunciation", pronunciation!))
         }
         
         return ret

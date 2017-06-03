@@ -142,34 +142,34 @@ class Planet : Body {
         var ret = super.generateOrbitalObjects()
         var temp = [(String, String, String)]()
         
-        if orbital_length != nil{
+        if orbital_length != nil {
             temp.append(("Year Length", toScientificNotation(value: orbital_length!.converted(TimeUnit.day).rounded(6).amount), " days")) //for some reason, this library does not convert days properly
         }
         
         if (defaults.bool(forKey: "useImperial")) {
-            if perigee != nil{
+            if perigee != nil {
                 ret.append(("Perihilion", toScientificNotation(value: perigee!.converted(LengthUnit.mile).rounded(6).amount), " mi"))
             }
-            if apogee != nil{
+            if apogee != nil {
                 ret.append(("Aphelion", toScientificNotation(value: apogee!.converted(LengthUnit.mile).rounded(6).amount), " mi"))
             }
-            if min_distance_from_earth != nil{
+            if min_distance_from_earth != nil {
                 ret.append(("Nearest to Earth", toScientificNotation(value: min_distance_from_earth!.converted(LengthUnit.mile).rounded(6).amount), " mi"))
             }
-            if max_distance_from_earth != nil{
+            if max_distance_from_earth != nil {
                 ret.append(("Farthest from Earth", toScientificNotation(value: max_distance_from_earth!.converted(LengthUnit.mile).rounded(6).amount), " mi"))
             }
         } else {
-            if perigee != nil{
+            if perigee != nil {
                 ret.append(("Perihilion", toScientificNotation(value: perigee!.converted(LengthUnit.kilometer).rounded(6).amount), " km"))
             }
-            if apogee != nil{
+            if apogee != nil {
                 ret.append(("Aphelion", toScientificNotation(value: apogee!.converted(LengthUnit.kilometer).rounded(6).amount), " km"))
             }
-            if min_distance_from_earth != nil{
+            if min_distance_from_earth != nil {
                 ret.append(("Nearest to Earth", toScientificNotation(value: min_distance_from_earth!.converted(LengthUnit.kilometer).rounded(6).amount), " km"))
             }
-            if max_distance_from_earth != nil{
+            if max_distance_from_earth != nil {
                 ret.append(("Farthest from Earth", toScientificNotation(value: max_distance_from_earth!.converted(LengthUnit.kilometer).rounded(6).amount), " km"))
             }
         }

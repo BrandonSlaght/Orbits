@@ -497,7 +497,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oHg-QT-6dS">
-                                <rect key="frame" x="8" y="667" width="359" height="0.0"/>
+                                <rect key="frame" x="16" y="667" width="343" height="0.0"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" id="3td-kY-jsZ"/>
@@ -513,9 +513,9 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="oHg-QT-6dS" firstAttribute="leading" secondItem="HBv-zi-KMV" secondAttribute="leadingMargin" constant="-8" id="7vH-Ui-MA7"/>
+                            <constraint firstItem="oHg-QT-6dS" firstAttribute="leading" secondItem="HBv-zi-KMV" secondAttribute="leadingMargin" id="7vH-Ui-MA7"/>
                             <constraint firstItem="5dq-Mf-xAG" firstAttribute="leading" secondItem="HBv-zi-KMV" secondAttribute="leadingMargin" id="CSk-if-Vqq"/>
-                            <constraint firstItem="oHg-QT-6dS" firstAttribute="trailing" secondItem="HBv-zi-KMV" secondAttribute="trailingMargin" constant="8" id="Xg2-5w-Ag2"/>
+                            <constraint firstItem="oHg-QT-6dS" firstAttribute="trailing" secondItem="HBv-zi-KMV" secondAttribute="trailingMargin" id="Xg2-5w-Ag2"/>
                             <constraint firstItem="5dq-Mf-xAG" firstAttribute="bottom" secondItem="oHg-QT-6dS" secondAttribute="top" id="a4h-oN-bKI"/>
                             <constraint firstItem="pFg-nq-tgr" firstAttribute="top" secondItem="oHg-QT-6dS" secondAttribute="bottom" id="hLm-qU-iDm"/>
                             <constraint firstItem="5dq-Mf-xAG" firstAttribute="top" secondItem="cqX-6F-Lxw" secondAttribute="bottom" id="kx5-H1-rbI"/>
@@ -529,7 +529,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AiY-Ma-P3u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4257" y="1404"/>
+            <point key="canvasLocation" x="4897" y="1404"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="KGa-pz-mxd">
@@ -613,7 +613,7 @@
                 <navigationController storyboardIdentifier="MainListView" id="1b7-hp-oWL" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Planets" image="icon-planet-filled-small" id="WFc-Zq-VBZ"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" id="DN8-R1-epU">
+                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="DN8-R1-epU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -918,14 +918,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r1U-mi-y4G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4914" y="1404"/>
+            <point key="canvasLocation" x="4254" y="1404"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bdd-tD-dlK">
             <objects>
                 <navigationController storyboardIdentifier="PlanetDetail" id="KEg-9l-Zwd" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" id="4w8-xF-izd">
+                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="4w8-xF-izd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -70,7 +70,8 @@ class Objects {
                            average_temperature: 440,
                            total_mass: 10000.kilogram())
         
-        Mercury.misc(discovered: "265 B.C.E.")
+        Mercury.misc(pronunciation: nil,
+                     discovered: "265 B.C.E.")
         
         Mercury.display(texture: "mercurymap.jpg",
                         model: nil,
@@ -124,7 +125,8 @@ class Objects {
                          total_mass: 480000000.petagram())
         
         
-        Venus.misc(discovered: "Ancient Times")
+        Venus.misc(pronunciation: nil,
+                   discovered: "Ancient Times")
         
         Venus.display(texture: "venusmap.jpg",
                       model: nil,
@@ -179,7 +181,8 @@ class Objects {
                          average_temperature: 288,
                          total_mass: 5100000.petagram())
         
-        Earth.misc(discovered: nil)
+        Earth.misc(pronunciation: nil,
+                   discovered: nil)
         
         Earth.display(texture: "earthmap.jpg",
                       model: nil,
@@ -228,7 +231,8 @@ class Objects {
                       day_length: 27.3217.hour(),
                       equator_inclination: 6.68)
         
-        moon.misc(discovered: nil)
+        moon.misc(pronunciation: nil,
+                  discovered: nil)
         
         moon.display(texture: "moonmap.jpg",
                      model: nil,
@@ -278,7 +282,8 @@ class Objects {
                         average_temperature: 210,
                         total_mass: 25000000.petagram())
         
-        Mars.misc(discovered: "Ancient times")
+        Mars.misc(pronunciation: nil,
+                  discovered: "Ancient times")
         
         Mars.display(texture: "marsmap.jpg",
                      model: nil,
@@ -325,7 +330,8 @@ class Objects {
                         day_length: 24.624.hour(),
                         equator_inclination: 0.046)
         
-        Phobos.misc(discovered: "August 18th, 1877")
+        Phobos.misc(pronunciation: nil,
+                    discovered: "August 18th, 1877")
         
         Phobos.display(texture: nil,
                        model: "phobos.dae",
@@ -363,7 +369,8 @@ class Objects {
                         day_length: 24.624.hour(),
                         equator_inclination: 1.791)
         
-        Deimos.misc(discovered: "August 12th, 1877")
+        Deimos.misc(pronunciation: nil,
+                    discovered: "August 12th, 1877")
         
         Deimos.images(images: [
             ("deimos - surface.png", "Deimos's surface in detail from 30 km away, taken by the Viking 2 orbiter in a flyby."),
@@ -410,7 +417,8 @@ class Objects {
                            average_temperature: 165,
                            total_mass: nil)
         
-        Jupiter.misc(discovered: "Ancient Times")
+        Jupiter.misc(pronunciation: nil,
+                     discovered: "Ancient Times")
         
         Jupiter.images(images: [
             ("jupiter - pole.jpg", "The southern pole of Jupiter, including the Great Red Spot.  Imaged by the Cassini orbiter."),
@@ -457,7 +465,8 @@ class Objects {
         //                       day_length: 0.294791666,
         //                       equator_inclination: 0)
         
-        //        Metis.misc(discovered: "1979")
+        //        Metis.misc(pronunciation: nil, 
+        //                   discovered: "1979")
         
         Jupiter.moons.append(Metis)
         
@@ -486,7 +495,8 @@ class Objects {
         //                          day_length: 0.29826,
         //                          equator_inclination: 0)
         
-        //        Adrastea.misc(discovered: "1979")
+        //        Adrastea.misc(pronunciation: nil, 
+        //                      discovered: "1979")
         
         Jupiter.moons.append(Adrastea)
         
@@ -515,7 +525,8 @@ class Objects {
         //                          day_length: 0.49817943,
         //                          equator_inclination: 0)
         
-        //        Amalthea.misc(discovered: "1892")
+        //        Amalthea.misc(pronunciation: nil, 
+        //                      discovered: "1892")
         
         Amalthea.display(texture: nil,
                          model: "amalthea.dae",
@@ -547,7 +558,8 @@ class Objects {
         //                       day_length: 0.674536,
         //                       equator_inclination: 0)
         
-        //        Thebe.misc(discovered: "1979")
+        //        Thebe.misc(pronunciation: nil, 
+        //                   discovered: "1979")
         
         Jupiter.moons.append(Thebe);
         
@@ -1865,7 +1877,8 @@ class Objects {
                           average_temperature: 76,
                           total_mass: nil)
         
-        Uranus.misc(discovered: "March 13th, 1781")
+        Uranus.misc(pronunciation: nil,
+                    discovered: "March 13th, 1781")
         
         Uranus.images = [
             ("uranus - ball.jpg", "Uranus is mostly featureless.  However, winds in its atmosphere can reach up to 560 mph"),
@@ -2188,7 +2201,8 @@ class Objects {
                            average_temperature: 72,
                            total_mass: nil)
         
-        Neptune.misc(discovered: "September 23rd, 1846")
+        Neptune.misc(pronunciation: nil,
+                     discovered: "September 23rd, 1846")
         
         Neptune.images = [
             ("neptune - clouds.jpg", "This image, taken by Voyager 2, shows cloud differentiation, or layering.  The upper clouds are arounds 30 miles above the rest of the \"surface\"."),
@@ -2372,7 +2386,8 @@ class Objects {
                        min_distance_from_earth: nil,
                        max_distance_from_earth: nil)
         
-        Ceres.misc(discovered: "January 1st, 1801")
+        Ceres.misc(pronunciation: nil,
+                   discovered: "January 1st, 1801")
         
         Ceres.images = [
             ("ceres - mountain.jpg", "Ahuna Mons, the tallest mountain on Ceres' surface. It rises about 3 miles above the surface."),
@@ -2426,7 +2441,8 @@ class Objects {
                          average_temperature: 50,
                          total_mass: nil)
         
-        Pluto.misc(discovered: "Febuary 18th, 1930")
+        Pluto.misc(pronunciation: nil,
+                   discovered: "Febuary 18th, 1930")
         
         Pluto.images = [
             ("pluto - mountain.jpg", "New Horizons images this detailed close up of a mountain surrounded by a plain of ice."),
@@ -2523,7 +2539,8 @@ class Objects {
                           average_temperature: 50,
                           total_mass: nil)
         
-        Haumea.misc(discovered: "December 28th, 2004")
+        Haumea.misc(pronunciation: nil,
+                    discovered: "December 28th, 2004")
         
         Haumea.images = [("haumea - pixels.jpg", "Keck telescope image of Haumea and its moons.  This is the highest resolution image of the dwarf planet to date.")]
         
@@ -2556,7 +2573,8 @@ class Objects {
                         day_length: nil,
                         equator_inclination: nil)
         
-        Namaka.misc(discovered: "June 30th, 2005")
+        Namaka.misc(pronunciation: nil,
+                    discovered: "June 30th, 2005")
         
         Haumea.moons.append(Namaka)
         
@@ -2585,7 +2603,8 @@ class Objects {
                         day_length: nil,
                         equator_inclination: nil)
         
-        Hiiaka.misc(discovered: "January 26th, 2005")
+        Hiiaka.misc(pronunciation: nil,
+                    discovered: "January 26th, 2005")
         
         Haumea.moons.append(Hiiaka)
         
@@ -2623,7 +2642,8 @@ class Objects {
                             average_temperature: 36,
                             total_mass: nil)
         
-        Makemake.misc(discovered: "March 31st, 2005")
+        Makemake.misc(pronunciation: nil,
+                      discovered: "March 31st, 2005")
         
         Makemake.images = [("makemake - pixels.jpg", "Makemake and its moon, MK2, which can be seen above the dwarf planet.")]
         
@@ -2656,7 +2676,8 @@ class Objects {
                      day_length: nil,
                      equator_inclination: nil)
         
-        MK2.misc(discovered: "March 31st, 2005")
+        MK2.misc(pronunciation: nil,
+                 discovered: "March 31st, 2005")
         
         Makemake.moons.append(MK2)
         
@@ -2694,7 +2715,8 @@ class Objects {
                         average_temperature: 30,
                         total_mass: nil)
         
-        Eris.misc(discovered: "January 5th, 2005")
+        Eris.misc(pronunciation: nil,
+                  discovered: "January 5th, 2005")
         
         Eris.colors(background: "erissurface.jpg",
                     color1: "3E322C",
@@ -2727,7 +2749,8 @@ class Objects {
                           day_length: nil,
                           equator_inclination: nil)
         
-        Dysnomia.misc(discovered: "September 10th, 2005")
+        Dysnomia.misc(pronunciation: nil,
+                      discovered: "September 10th, 2005")
         
         Eris.moons.append(Dysnomia)
         
