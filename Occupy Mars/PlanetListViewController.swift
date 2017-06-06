@@ -29,6 +29,7 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
         tableView.delegate = self
         splitViewController?.delegate = self
         tableView.backgroundView = getBlurViewWithBackground(frame: self.view.frame, background: "milkyway.jpg")
+        tableView.backgroundView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.separatorEffect = UIVibrancyEffect(blurEffect: UIBlurEffect(style: .dark))
         tableView.estimatedRowHeight = 200

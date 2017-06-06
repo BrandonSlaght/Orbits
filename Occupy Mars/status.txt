@@ -52,6 +52,7 @@ DONE - Fix navbar bugs when transitioning into and out of globe view (swiping fr
 DONE - profile lag in the info modal (it only happens when debugging so who cares)
 DONE - actual polymorphism and inheritance
 DONE - add a whats new section and popup
+DONE
 ---------------------------------------------------------------------------------------------------------------------
 Fix scrolling in the globe view - when double tapping or tapping and holding
 Details of Moons

@@ -13,6 +13,7 @@ class IntroPageViewController: UIPageViewController {
     
     var player: AVPlayer?
     var time = kCMTimeZero
+    var playerLayer: AVPlayerLayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +30,12 @@ class IntroPageViewController: UIPageViewController {
         player = AVPlayer(url: URL(fileURLWithPath: path!))
         player!.actionAtItemEnd = AVPlayerActionAtItemEnd.none;
         player!.isMuted = true
-        let playerLayer = AVPlayerLayer(player: player)
-        playerLayer.frame = self.view.frame
-        playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
-        self.view.layer.insertSublayer(playerLayer, at: 0)
+        player!.volume = 0
+        playerLayer = AVPlayerLayer(player: player)
+        playerLayer?.frame = self.view.frame //.layer.bounds
+        playerLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+        
+        self.view.layer.insertSublayer(playerLayer!, at: 0)
         NotificationCenter.default.addObserver(self, selector: #selector(IntroPageViewController.playerItemDidReachEnd), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player!.currentItem)
         player!.seek(to: kCMTimeZero)
         player!.play()
@@ -48,6 +51,18 @@ class IntroPageViewController: UIPageViewController {
             name: NSNotification.Name.UIApplicationWillResignActive,
             object: nil)
         
+        //parallax
+        let verticalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
+        verticalMotionEffect.minimumRelativeValue = -50
+        verticalMotionEffect.maximumRelativeValue = 50
+        
+        let horizontalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
+        horizontalMotionEffect.minimumRelativeValue = -50
+        horizontalMotionEffect.maximumRelativeValue = 50
+        
+        let group = UIMotionEffectGroup()
+        group.motionEffects = [horizontalMotionEffect, verticalMotionEffect]
+        self.view.addMotionEffect(group)
     }
     
     func playerItemDidReachEnd() {
@@ -62,6 +77,14 @@ class IntroPageViewController: UIPageViewController {
     func applicationWillResignActive() {
         player?.pause()
         time = (player?.currentTime())!
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        coordinator.animate(alongsideTransition: { (UIViewControllerTransitionCoordinatorContext) -> Void in
+            self.playerLayer?.frame = self.view.frame
+        }, completion: { (UIViewControllerTransitionCoordinatorContext) -> Void in
+        })
+        super.viewWillTransition(to: size, with: coordinator)
     }
 }
 
