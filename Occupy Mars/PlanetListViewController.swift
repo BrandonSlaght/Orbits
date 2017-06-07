@@ -28,7 +28,20 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
         super.viewDidLoad()
         tableView.delegate = self
         splitViewController?.delegate = self
-        tableView.backgroundView = getBlurViewWithBackground(frame: self.view.frame, background: "milkyway.jpg")
+        
+        let blurEffect = UIBlurEffect(style: .dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = self.view.frame
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurEffectView.layer.zPosition = -1
+        blurEffectView.isUserInteractionEnabled = false
+        
+        let background = UIImageView(image: UIImage(named: "milkyway.jpg")!)
+        background.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        background.contentMode = .scaleAspectFill
+        background.addSubview(blurEffectView)
+        
+        tableView.backgroundView = background
         tableView.backgroundView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.separatorEffect = UIVibrancyEffect(blurEffect: UIBlurEffect(style: .dark))
