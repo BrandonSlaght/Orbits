@@ -34,6 +34,8 @@ class GlobeViewController: UIViewController {
         }
     }
     
+    var split: UISplitViewController!
+    
     var rotating = true
     
     var body: Body!
@@ -56,7 +58,19 @@ class GlobeViewController: UIViewController {
         if let let_scene = body.getScene(size: Size.full) {
             globe.antialiasingMode = .multisampling4X
             globe.scene = let_scene
-            globe.scene?.background.contents = UIImage(named: "sky.jpg")
+            
+//            let sky = SCNSphere(radius: 2.0)
+//            sky.segmentCount = 100
+//            let skymap = SCNMaterial()
+//            skymap.diffuse.contents = UIImage(named: "sky.jpg")
+//            skymap.isDoubleSided = true
+//            skymap.diffuse.mipFilter = SCNFilterMode.linear
+//            sky.materials.append(skymap)
+//            let skynode = SCNNode(geometry: sky)
+//            globe.pointOfView?.addChildNode(skynode)
+//            
+            
+            //globe.scene?.background.contents = UIImage(named: "sky.jpg")
             //globe.scene?.rootNode.childNodes.first.
             //let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.panDetected(sender:)));
             //globe.addGestureRecognizer(panGesture);
@@ -75,6 +89,8 @@ class GlobeViewController: UIViewController {
 //            primaryWidth = (self.splitViewController?.primaryColumnWidth)!
 //            self.splitViewController?.maximumPrimaryColumnWidth = 0
 //        }
+        
+        split = self.splitViewController!
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -82,6 +98,20 @@ class GlobeViewController: UIViewController {
         globe.pointOfView?.camera?.motionBlurIntensity = 1.0
         globe.pointOfView?.camera?.wantsHDR = true
         globe.pointOfView?.camera?.bloomIntensity = 1.0
+        
+        let skyBox = SCNSphere(radius: 15)
+        skyBox.segmentCount = 80
+        
+        let sky = SCNMaterial()
+        sky.diffuse.contents = UIImage(named: "sky.jpg")!
+        sky.diffuse.mipFilter = SCNFilterMode.linear
+        sky.isDoubleSided = true
+        
+        skyBox.materials = [sky]
+        let skyNode = SCNNode(geometry: skyBox)
+        skyNode.name = "skyBox"
+        skyNode.position = SCNVector3(0, 0, 0)
+        globe.pointOfView?.addChildNode(skyNode)
 
         camera = SCNNode()
         camera.camera = SCNCamera()
@@ -134,6 +164,10 @@ class GlobeViewController: UIViewController {
 //            self.splitViewController?.maximumPrimaryColumnWidth = primaryWidth + 1
 //            self.splitViewController?.minimumPrimaryColumnWidth = primaryWidth
 //        }
+        //if self.splitViewController?.secondaryViewController != nil {
+        print ("here in view did dissapear")
+        split.toggleMasterView()
+        //}
     }
     
     override func didReceiveMemoryWarning() {

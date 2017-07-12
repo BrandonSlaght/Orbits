@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EI3-eX-e9c">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EI3-eX-e9c">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -183,7 +183,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Planet Reference" id="Iec-yd-ONK">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="pkq-gx-yMz"/>
+                        <barButtonItem key="backBarButtonItem" title=" " id="pkq-gx-yMz">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
                         <barButtonItem key="leftBarButtonItem" id="QtQ-tW-9NP">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="J75-5Y-ICW">
                                 <rect key="frame" x="16" y="11" width="22" height="22"/>
@@ -406,7 +408,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="y1J-Ti-1Z4" secondAttribute="trailing" constant="-20" id="pb2-C4-OjR"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="jLP-Gh-zd6"/>
+                    <navigationItem key="navigationItem" id="jLP-Gh-zd6">
+                        <barButtonItem key="backBarButtonItem" id="c0g-ZV-9aR"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="content" destination="HkC-Hv-ytq" id="AW2-Dg-leg"/>
                         <outlet property="globeButton" destination="lo2-WD-AdA" id="oeo-aG-OIK"/>
@@ -613,15 +617,20 @@
                 <navigationController storyboardIdentifier="MainListView" id="1b7-hp-oWL" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Planets" image="icon-planet-filled-small" id="WFc-Zq-VBZ"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="DN8-R1-epU">
+                    <navigationBar key="navigationBar" multipleTouchEnabled="YES" contentMode="scaleToFill" id="DN8-R1-epU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="QbA-zD-Hjz">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="vYI-sN-gHO" kind="relationship" relationship="rootViewController" id="Xvi-2Q-Bed"/>
                     </connections>

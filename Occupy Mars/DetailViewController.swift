@@ -81,7 +81,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         
         if body == nil {
-            body = Objects.planets().first?.value.first
+            body = Objects.planets()[Class.Major]?.first
+            print(body.name)
         }
         
         scrollView.delegate = self
@@ -112,6 +113,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         scrollView.indicatorStyle = UIScrollViewIndicatorStyle.white
         
         self.navigationItem.title = body.name
+        //addBlurEffect(toNav: self.navigationController!)
         
         tabs.removeAllSegments()
         
@@ -151,6 +153,12 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             scene.scene = let_scene
             scene.isPlaying = true
             scene.antialiasingMode = .multisampling4X
+            
+//            let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.panDetected(sender:)));
+//            scene.addGestureRecognizer(panGesture);
+//            let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(self.pinchDetected(sender:)))
+//            scene.addGestureRecognizer(pinchGesture)
+            
         } else {
             globeButton.isHidden = true
             sceneHeight.constant = 0
@@ -163,18 +171,27 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         insideView.bringSubview(toFront: tabHolder)
         
-        //globeButton.bringSubview(toFront: scrollView)
-        //globeButton.bringSubview(toFront: content)
         globeButton.addTarget(self, action: #selector(globeSegue), for: .touchUpInside)
         
         extraPadding = (navigationController?.navigationBar.frame.height)! + statusBarHeight()
+        moveTagToBack(ofNav: self.navigationController!)
     }
+    
+    //stub methods to stop the gestures from going to the view.
+    //which we don't use because I'm retarded and didn't remember that the view is scrollable in 2 directions
+    //func pinchDetected(sender: UIPinchGestureRecognizer) {}
+    
+    //func panDetected(sender: UIPanGestureRecognizer) {}
     
     func hide(_ sender: UITapGestureRecognizer) {
         BTBalloon.sharedInstance().hide()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        print("viewWillAppear")
+        moveTagToBack(ofNav: self.navigationController!)
+        
         barColor = navigationController?.navigationBar.barTintColor
 
         if let let_color = body.color1 {
@@ -196,6 +213,11 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         if (navigationBarOriginalOffset == nil) {
             navigationBarOriginalOffset = tabHolder.frame.origin.y
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("viewDidAppear")
+        moveTagToBack(ofNav: self.navigationController!)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -265,6 +287,11 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         let globe = self.storyboard?.instantiateViewController(withIdentifier: "globeView") as? GlobeViewController
         globe?.body = body
         self.navigationController?.pushViewController(globe!, animated: true)
+        
+        //if self.splitViewController?.secondaryViewController != nil {
+            self.splitViewController?.toggleMasterView()
+        //}
+        
         BTBalloon.sharedInstance().hide()
     }
 }

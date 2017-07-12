@@ -51,8 +51,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-        let viewController = (window?.rootViewController as! UINavigationController).viewControllers[0] as! PlanetListViewController
-        viewController.restoreUserActivityState(userActivity)
+
+        if let splitViewController = window?.rootViewController as? UISplitViewController {
+            let primaryViewController = splitViewController.primaryViewController as! UINavigationController
+            let listViewController = primaryViewController.viewControllers[0] as! PlanetListViewController
+            listViewController.restoreUserActivityState(userActivity)
+        } else { //it is the first time we launched
+            let introPageViewController = window?.rootViewController as? IntroPageViewController
+            let splitViewController = introPageViewController?.childViewControllers[0] as? UISplitViewController
+            let primaryViewController = splitViewController?.primaryViewController as? UINavigationController
+            let listViewController = primaryViewController?.viewControllers[0] as! PlanetListViewController
+            listViewController.restoreUserActivityState(userActivity)
+        }
         
         return true
     }

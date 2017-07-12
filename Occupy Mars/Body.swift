@@ -362,6 +362,7 @@ class Body {
                 // rotate it (I've left out some animation code here to show just the rotation)
                 //cameraOrbit.eulerAngles.x -= Float(M_PI_4)
                 //cameraOrbit.eulerAngles.y -= Float(M_PI_4*3)
+                
             }
             
             if let let_equator_inclination = equator_inclination {

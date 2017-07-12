@@ -153,6 +153,15 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C54F928E1EF087D900B5832D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -263,6 +272,7 @@
 		C54A60EA1EA14DAC008012C6 /* PureLayout+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PureLayout+Internal.h"; sourceTree = "<group>"; };
 		C54A60EB1EA14DAC008012C6 /* PureLayoutDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayoutDefines.h; sourceTree = "<group>"; };
 		C54A98F81E032ED3009A8695 /* Sextant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sextant.swift; sourceTree = "<group>"; };
+		C54F92901EF087D900B5832D /* liblibnova.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibnova.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C566DED41E887FC0001EC3FE /* larissa.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = larissa.dae; sourceTree = "<group>"; };
 		C58DEB8E1DC6B50400E6C1F3 /* BodyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyCell.swift; sourceTree = "<group>"; };
 		C5941BD01DBBFD940057A46A /* Occupy Mars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Occupy Mars.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -297,6 +307,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				840FEFB71EDE3D570005B69E /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C54F928D1EF087D900B5832D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,6 +636,7 @@
 			children = (
 				C5941BD01DBBFD940057A46A /* Occupy Mars.app */,
 				840FEFB41EDE3D560005B69E /* tonight.appex */,
+				C54F92901EF087D900B5832D /* liblibnova.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -693,6 +711,23 @@
 			productReference = 840FEFB41EDE3D560005B69E /* tonight.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		C54F928F1EF087D900B5832D /* libnova */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C54F92981EF087D900B5832D /* Build configuration list for PBXNativeTarget "libnova" */;
+			buildPhases = (
+				C54F928C1EF087D900B5832D /* Sources */,
+				C54F928D1EF087D900B5832D /* Frameworks */,
+				C54F928E1EF087D900B5832D /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libnova;
+			productName = libnova;
+			productReference = C54F92901EF087D900B5832D /* liblibnova.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		C5941BCF1DBBFD940057A46A /* Occupy Mars */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C5941BE61DBBFD940057A46A /* Build configuration list for PBXNativeTarget "Occupy Mars" */;
@@ -727,6 +762,11 @@
 						DevelopmentTeam = 98PHYR992B;
 						ProvisioningStyle = Automatic;
 					};
+					C54F928F1EF087D900B5832D = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 98PHYR992B;
+						ProvisioningStyle = Automatic;
+					};
 					C5941BCF1DBBFD940057A46A = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 98PHYR992B;
@@ -750,6 +790,7 @@
 			targets = (
 				C5941BCF1DBBFD940057A46A /* Occupy Mars */,
 				840FEFB31EDE3D560005B69E /* tonight */,
+				C54F928F1EF087D900B5832D /* libnova */,
 			);
 		};
 /* End PBXProject section */
@@ -834,6 +875,13 @@
 			files = (
 				8431B8011EDFB5C50068D596 /* VisibilityViewController.swift in Sources */,
 				840FEFBA1EDE3D570005B69E /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C54F928C1EF087D900B5832D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -974,6 +1022,32 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		C54F92961EF087D900B5832D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = 98PHYR992B;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		C54F92971EF087D900B5832D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = 98PHYR992B;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -1121,6 +1195,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		C54F92981EF087D900B5832D /* Build configuration list for PBXNativeTarget "libnova" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C54F92961EF087D900B5832D /* Debug */,
+				C54F92971EF087D900B5832D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		C5941BCB1DBBFD940057A46A /* Build configuration list for PBXProject "Occupy Mars" */ = {
 			isa = XCConfigurationList;

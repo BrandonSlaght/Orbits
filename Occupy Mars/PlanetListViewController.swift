@@ -29,19 +29,14 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
         tableView.delegate = self
         splitViewController?.delegate = self
         
-        let blurEffect = UIBlurEffect(style: .dark)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = self.view.frame
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        blurEffectView.layer.zPosition = -1
-        blurEffectView.isUserInteractionEnabled = false
-        
         let background = UIImageView(image: UIImage(named: "milkyway.jpg")!)
-        background.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         background.contentMode = .scaleAspectFill
-        background.addSubview(blurEffectView)
-        
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame = view.bounds
+        background.addSubview(blurView)
         tableView.backgroundView = background
+
         tableView.backgroundView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.separatorEffect = UIVibrancyEffect(blurEffect: UIBlurEffect(style: .dark))
@@ -52,14 +47,48 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
         UserDefaults.standard.register(defaults: appDefaults)
         setupSearchableContent()
         
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
+        print("here in planet list view did load")
+        
+        //addBlurEffect(toNav: self.navigationController!)
+        
+        //navigationController?.navigationItem.
+//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//        self.navigationController?.navigationBar.shadowImage = UIImage()
+//        //self.navigationController?.navigationBar.barTintColor = UIColor.clear
+//        self.navigationController?.navigationBar.backgroundColor = UIColor.clear
+//        let newBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.regular)
+//        let blurEffectView = UIVisualEffectView(effect: newBlurEffect)
+//        //always fill the view
+//        var bounds = (self.navigationController?.navigationBar.bounds)!
+//        bounds = bounds.offsetBy(dx: 0.0, dy: -20.0)
+//        bounds.size.height = bounds.height + 20.0
+//        blurEffectView.frame = bounds
+//        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//        blurEffectView.tag = 10
+//        blurEffectView.isUserInteractionEnabled = false
+//        
+//        self.navigationController?.navigationBar.insertSubview(blurEffectView, at: 0)
+        //self.navigationController?.navigationBar.sendSubview(toBack: blurEffectView)
         
         if UIDevice.current.userInterfaceIdiom == .pad {
             splitViewController?.preferredDisplayMode = .allVisible
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear")
+        //moveTagToBack(ofNav: self.navigationController!)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
+        print("ViewDidAppear")
+        
+        
+        
+        //moveTagToBack(ofNav: self.navigationController!)
+
+        //let effectView = self.navigationController?.navigationBar.viewWithTag(10)
+        //self.navigationController?.navigationBar.sendSubview(toBack: effectView!)
         
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
         
@@ -135,15 +164,15 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
             }
         }
     }
-    
-    func changeDetailNavColor(to color: UIColor) {
-        print("in changing color method")
-        if let let_detail = self.splitViewController?.secondaryViewController {
-            let_detail.navigationController?.navigationBar.barTintColor = color
-        } else {
-            self.navigationController?.navigationBar.barTintColor = color
-        }
-    }
+//    
+//    func changeDetailNavColor(to color: UIColor) {
+//        print("in changing color method")
+//        if let let_detail = self.splitViewController?.secondaryViewController {
+//            let_detail.navigationController?.navigationBar.barTintColor = color
+//        } else {
+//            self.navigationController?.navigationBar.barTintColor = color
+//        }
+//    }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         BTBalloon.sharedInstance().hide()
@@ -152,7 +181,21 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
         header.contentView.backgroundColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
-        header.textLabel!.textColor = UIColor.white
+        
+//        if (header.subviews.count < 3) {
+            header.textLabel!.textColor = UIColor.white
+//            
+//            header.contentView.backgroundColor = UIColor.clear
+//            let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.regular)
+//            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+//            //always fill the view
+//            blurEffectView.frame = header.contentView.bounds
+//            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//            
+//            header.addSubview(blurEffectView)
+//            header.sendSubview(toBack: blurEffectView)
+//            header.backgroundView?.backgroundColor = UIColor.clear
+//        }
     }
     
     func setupSearchableContent() {
@@ -241,12 +284,33 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
                     newVC.body = objects[classFromName]?[selectedIndex!].moons[selectedMoon!]
                     //self.navigationController?.pushViewController(newVC, animated: true)
                 } else {
-                    let newVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PlanetDetail") as! DetailViewController
+                    //let navController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PlanetDetail") as! UINavigationController
+                    let newVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "detailViewController") as! DetailViewController
                     newVC.body = objects[classFromName]?[selectedIndex!]
                     print("set VS planet = to " + (objects[classFromName]?[selectedIndex!].name)!)
-                    //self.navigationController?.pushViewController(newVC, animated: true)
+                    
+                    if splitViewController?.secondaryViewController != nil {
+                        if (newVC.body.name != ((splitViewController?.secondaryViewController as! UINavigationController).topViewController as! DetailViewController).body.name) {
+                            pushDetailViewToProperParent(viewController: newVC)
+                        }
+                    } else { //we are on an iPhone :(
+                        if (newVC.body.name != ((splitViewController?.primaryViewController as? UINavigationController)?.topViewController as? DetailViewController)?.body.name) {
+                            pushDetailViewToProperParent(viewController: newVC)
+                        } else if let checkVC = (splitViewController?.primaryViewController as? UINavigationController)?.topViewController as? PlanetListViewController {
+                            pushDetailViewToProperParent(viewController: newVC)
+                        }
+                    }
+
                 }
             }
+        }
+    }
+    
+    func pushDetailViewToProperParent(viewController: UIViewController) {
+        if splitViewController?.secondaryViewController != nil {
+            (self.splitViewController?.secondaryViewController as! UINavigationController).pushViewController(viewController, animated: true)
+        } else { //we are on an iPhone :(
+            (self.splitViewController?.primaryViewController as! UINavigationController).pushViewController(viewController, animated: true)
         }
     }
     

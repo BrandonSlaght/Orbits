@@ -28,4 +28,9 @@ extension UISplitViewController {
     var secondaryViewController: UIViewController? {
         return self.viewControllers.count > 1 ? self.viewControllers[1] : nil
     }
+    
+    func toggleMasterView() {
+        let barButtonItem = self.displayModeButtonItem
+        UIApplication.shared.sendAction(barButtonItem.action!, to: barButtonItem.target, from: nil, for: nil)
+    }
 }

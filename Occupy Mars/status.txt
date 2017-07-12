@@ -54,7 +54,10 @@ DONE - actual polymorphism and inheritance
 DONE - add a whats new section and popup
 DONE - fixed intro page rotation on iPad
 DONE - fixed constraints in the intro page view for the last page
+DONE - fixed main table view background not getting proper constraints
 ---------------------------------------------------------------------------------------------------------------------
+URGENT - Handle ipad resizing in split screen
+URGENT - test scenekits in iOS 11
 Fix scrolling in the globe view - when double tapping or tapping and holding
 Details of Moons
 Media of moons

@@ -27,8 +27,39 @@
 //                 max_distance_from_earth: <#T##Quantity?#>.kilometer())
 //
 //.atmosphere(surface_pressure: <#T##Double?#>,
+//                average_temperature: <#T##Double?#>,
+//                total_mass: <#T##Quantity?#>)
+//
+//.misc(pronunciation: <#T##String?#>,
+//          discovered: <#T##String?#>)
+//
+//.atmosphere(surface_pressure: <#T##Double?#>,
 //                   average_temperature: <#T##Double?#>,
 //                   total_mass: <#T##Quantity?#>.kilogram())
+
+
+//Psamathe.geology(mass: <#T##Quantity?#>,
+//                 volume: <#T##Quantity?#>,
+//                 equatorial: <#T##Quantity?#>,
+//                 density: <#T##Quantity?#>,
+//                 gravity: <#T##Quantity?#>,
+//                 escape_velocity: <#T##Quantity?#>,
+//                 irradiance: <#T##Double?#>,
+//                 geographic_height_variance: <#T##Quantity?#>)
+//
+//Psamathe.orbitals(orbital_length: <#T##Quantity?#>,
+//                  perigee: <#T##Quantity?#>,
+//                  apogee: <#T##Quantity?#>,
+//                  velocity: <#T##Quantity?#>,
+//                  inclination: <#T##Double?#>,
+//                  eccentricity: <#T##Double?#>,
+//                  day_length: <#T##Quantity?#>,
+//                  equator_inclination: <#T##Double?#>)
+//
+//Psamathe.misc(pronunciation: <#T##String?#>,
+//              discovered: <#T##String?#>)
+
+
 
 import Foundation
 import UIKit
@@ -2337,6 +2368,27 @@ class Objects {
                        wiki: "https://en.wikipedia.org/wiki/Psamathe_(moon)",
                        nasa: "http://solarsystem.nasa.gov/planets/psamathe")
         
+        Psamathe.geology(mass: nil,
+                         volume: nil,
+                         equatorial: 19.kilometer(),
+                         density: nil,
+                         gravity: nil,
+                         escape_velocity: nil,
+                         irradiance: 1.508,
+                         geographic_height_variance: nil)
+        
+        Psamathe.orbitals(orbital_length: 9128.74.day().negative(),
+                          perigee: 25.7.gigameter(),
+                          apogee: 67.7.gigameter(),
+                          velocity: nil,
+                          inclination: 137.679,
+                          eccentricity: 0.4617,
+                          day_length: nil,
+                          equator_inclination: nil)
+        
+        Psamathe.misc(pronunciation: "/ˈsæməθiː/",
+                      discovered: "February 3rd, 2007")
+        
         Neptune.moons.append(Psamathe)
         
         let Neso = Moon(name: "Neso",
@@ -2345,6 +2397,28 @@ class Objects {
         Neso.about(description: "Neso, also known as Neptune XIII, is the outermost natural satellite of Neptune. It is an Irregular moon discovered by Matthew J. Holman, Brett J. Gladman, et al. on August 14, 2002, though it went unnoticed until 2003. Neso orbits Neptune at a distance of more than 48 Gm (million km), making it (as of 2015) the most distant known moon of any planet. At apocenter, the satellite is more than 72 Gm from Neptune. This distance is of such an order that it exceeds Mercury's aphelion, which is approximately 70 Gm from the Sun.\n\nNeso is also the moon with the longest orbital period, 26.67 years. It follows a highly inclined and highly eccentric orbit illustrated on the diagram in relation to other irregular satellites of Neptune. The satellites above the horizontal axis are prograde, the satellites beneath it are retrograde. The yellow segments extend from the pericentre to the apocentre, showing the eccentricity.\n\nNeso is about 60 km (37 mi) in diameter based on an assumed albedo, and assuming a mean density of 1.5 g/cm3, its mass is estimated at 2×1017 kg.\n\nGiven the similarity of the orbit's parameters with Psamathe (S/2003 N 1), it was suggested that both irregular satellites could have a common origin in the break-up of a larger moon.\n\nNeso is named after one of the Nereids. Before the announcement of its name on February 3, 2007 (IAUC 8802), Neso was known by its provisional designation, S/2002 N 4.",
                    wiki: "https://en.wikipedia.org/wiki/Neso_(moon)",
                    nasa: "http://solarsystem.nasa.gov/planets/neso")
+        
+        
+        Neso.geology(mass: 200000000000.gigagram(),
+                     volume: nil,
+                     equatorial: 30.kilometer(),
+                     density: 1500.kilogram(),
+                     gravity: nil,
+                     escape_velocity: nil,
+                     irradiance: 1.508,
+                     geographic_height_variance: nil)
+        
+        Neso.orbitals(orbital_length: 9740.73.day(),
+                      perigee: 49285000.megameter(),
+                      apogee: 72000000.kilometer(),
+                      velocity: nil,
+                      inclination: 136.439,
+                      eccentricity: 0.5714,
+                      day_length: nil,
+                      equator_inclination: nil)
+        
+        Neso.misc(pronunciation: "/ˈniːsoʊ/",
+                  discovered: "August 14th, 2002")
         
         Neptune.moons.append(Neso)
         
