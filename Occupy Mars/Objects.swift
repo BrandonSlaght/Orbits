@@ -38,7 +38,7 @@
 //                   total_mass: <#T##Quantity?#>.kilogram())
 
 
-//Psamathe.geology(mass: <#T##Quantity?#>,
+//.geology(mass: <#T##Quantity?#>,
 //                 volume: <#T##Quantity?#>,
 //                 equatorial: <#T##Quantity?#>,
 //                 density: <#T##Quantity?#>,
@@ -47,7 +47,7 @@
 //                 irradiance: <#T##Double?#>,
 //                 geographic_height_variance: <#T##Quantity?#>)
 //
-//Psamathe.orbitals(orbital_length: <#T##Quantity?#>,
+//.orbitals(orbital_length: <#T##Quantity?#>,
 //                  perigee: <#T##Quantity?#>,
 //                  apogee: <#T##Quantity?#>,
 //                  velocity: <#T##Quantity?#>,
@@ -56,7 +56,7 @@
 //                  day_length: <#T##Quantity?#>,
 //                  equator_inclination: <#T##Double?#>)
 //
-//Psamathe.misc(pronunciation: <#T##String?#>,
+//.misc(pronunciation: <#T##String?#>,
 //              discovered: <#T##String?#>)
 
 
@@ -2253,6 +2253,29 @@ class Objects {
                     wiki: "https://en.wikipedia.org/wiki/Naiad_(moon)",
                     nasa: "http://solarsystem.nasa.gov/planets/naiad")
         
+        Naiad.geology(mass: 190000000.teragram(),
+                         volume: 150000.kilometer(),
+                         equatorial: 33.kilometer(),
+                         density: 1300.kilogram(),
+                         gravity: 0.012.meter(),
+                         escape_velocity: 0.028.kilometer(),
+                         irradiance: 1.508,
+                         geographic_height_variance: nil)
+        
+        Naiad.orbitals(orbital_length: 0.2943958.day(),
+                          perigee: 48227.kilometer(),
+                          apogee: 48227.kilometer(),
+                          velocity: nil,
+                          inclination: 4.75,
+                          eccentricity: 0.0004,
+                          day_length: 0.2943958.day(),
+                          equator_inclination: 0.0)
+        
+        Naiad.misc(pronunciation: "/ˈneɪ.əd/",
+                      discovered: "Mid September, 1989")
+        
+        Naiad.images = [("naiad - voyager.jpg", "The closest image Voyager 2 took of Naiad.  The moon looks elongated due to long camera exposure times.")]
+        
         Neptune.moons.append(Naiad)
         
         let Thalassa = Moon(name: "Thalassa",
@@ -2261,6 +2284,27 @@ class Objects {
         Thalassa.about(description: "Thalassa, also known as Neptune IV, is the second innermost satellite of Neptune. Thalassa was named after sea goddess Thalassa, a daughter of Aether and Hemera from Greek mythology. \"Thalassa\" is also the Greek word for \"sea\".\n\nThalassa was discovered sometime before mid-September 1989 from the images taken by the Voyager 2 probe. It was given the temporary designation S/1989 N 5. The discovery was announced (IAUC 4867) on September 29, 1989, but the text only talks of \"25 frames taken over 11 days\", giving a discovery date of sometime before September 18. The name was given on 16 September 1991.\n\nThalassa is irregularly shaped and shows no sign of any geological modification. It is likely that it is a rubble pile re-accreted from fragments of Neptune's original satellites, which were smashed up by perturbations from Triton soon after that moon's capture into a very eccentric initial orbit. Unusually for irregular bodies, it appears to be roughly disk-shaped.\n\nSince the Thalassian orbit is below Neptune's synchronous orbit radius, it is slowly spiralling inward due to tidal deceleration and may eventually impact Neptune's atmosphere, or break up into a planetary ring upon passing its Roche limit due to tidal stretching. Relatively soon after, the spreading debris may impinge upon Despina's orbit.",
                        wiki: "https://en.wikipedia.org/wiki/Thalassa_(moon)",
                        nasa: "http://solarsystem.nasa.gov/planets/thalassa")
+        
+        Thalassa.geology(mass: 350000000.teragram(),
+                         volume: 290000.kilometer(),
+                         equatorial: 41.kilometer(),
+                         density: 1200.kilogram(),
+                         gravity: nil,
+                         escape_velocity: nil,
+                         irradiance: 1.508,
+                         geographic_height_variance: nil)
+        
+        Thalassa.orbitals(orbital_length: 0.31148444.day(),
+                          perigee: 50075.kilometer(),
+                          apogee: 50075.kilometer(),
+                          velocity: nil,
+                          inclination: 0.21,
+                          eccentricity: 0.0002,
+                          day_length: 0.31148444.day(),
+                          equator_inclination: nil)
+        
+        Thalassa.misc(pronunciation: "/θəˈlæsə/",
+                      discovered: "Mid September, 1989")
         
         Neptune.moons.append(Thalassa)
         
@@ -2271,6 +2315,29 @@ class Objects {
                       wiki: "https://en.wikipedia.org/wiki/Despina_(moon)",
                       nasa: "http://solarsystem.nasa.gov/planets/despina")
         
+        Despina.geology(mass: 2200000.petagram(),
+                         volume: 1800000.kilometer(),
+                         equatorial: 75.kilometer(),
+                         density: 1200.kilogram(),
+                         gravity: 0.026.meter(),
+                         escape_velocity: 0.063.kilometer(),
+                         irradiance: 1.508,
+                         geographic_height_variance: nil)
+        
+        Despina.orbitals(orbital_length: 0.33465551.day(),
+                          perigee: 52526.kilometer(),
+                          apogee: 52526.kilometer(),
+                          velocity: nil,
+                          inclination: 0.216,
+                          eccentricity: 0.0002,
+                          day_length: 0.33465551.day(),
+                          equator_inclination: nil)
+        
+        Despina.misc(pronunciation: "/dɪˈspiːnə/",
+                      discovered: "Late July, 1989")
+        
+        Despina.images = [("despina - voyager.jpg", "Voyager 2 is the only thing to have imaged many moons in the outer solar system.  Despina is slightly elongated in this shot due to long camera exposure times.")]
+        
         Neptune.moons.append(Despina)
         
         let Galatea = Moon(name: "Galatea",
@@ -2279,6 +2346,29 @@ class Objects {
         Galatea.about(description: "Galatea, also known as Neptune VI, is the fourth closest inner satellite of Neptune. It is named after Galatea, one of the Nereids of Greek legend, with whom the Cyclops Polyphemus was in love.\n\nGalatea was discovered in late July 1989 from the images taken by the Voyager 2 probe. It was given the temporary designation S/1989 N 4 The discovery was announced (IAUC 4824) on August 2, 1989, but the text only talks of \"10 frames taken over 5 days\", giving a discovery date of sometime before July 28. The name was given on 16 September 1991.\n\nIt is irregularly shaped and shows no sign of any geological modification. It is likely that it is a rubble pile re-accreted from fragments of Neptune's original satellites, which were smashed up by perturbations from Triton soon after that moon's capture into a very eccentric initial orbit.\n\nGalatea's orbit lies below Neptune's synchronous orbit radius, so it is slowly spiralling inward due to tidal deceleration and may eventually impact Neptune's atmosphere, or break up into a planetary ring upon passing its Roche limit due to tidal stretching.\n\nGalatea appears to be a shepherd moon for the Adams ring that is 1000 km outside its orbit. Resonances with Galatea in the ratio 42:43 are also considered the most likely mechanism for confining the unique ring arcs that exist in this ring. Galatea's mass has been estimated based on the radial perturbations it induces on the ring.",
                       wiki: "https://en.wikipedia.org/wiki/Galatea_(moon)",
                       nasa: "http://solarsystem.nasa.gov/planets/galatea")
+        
+        Galatea.geology(mass: 2120000.petagram(),
+                         volume: 2800000.kilometer(),
+                         equatorial: 88.kilometer(),
+                         density: 750.kilogram(),
+                         gravity: 0.018.meter(),
+                         escape_velocity: 0.056.kilometer(),
+                         irradiance: 1.508,
+                         geographic_height_variance: nil)
+        
+        Galatea.orbitals(orbital_length: 0.42874431.day(),
+                          perigee: 61953.kilometer(),
+                          apogee: 61953.kilometer(),
+                          velocity: nil,
+                          inclination: 0.052,
+                          eccentricity: 0.00004,
+                          day_length: 0.42874431.day(),
+                          equator_inclination: 0.0)
+        
+        Galatea.misc(pronunciation: "/ˈɡæləˈtiːə/",
+                      discovered: "Late July, 1989")
+        
+        Galatea.images = [("galatea - voyager.jpg", "Galatea seen by Voyager 2.  The moon appears elongated here due to high camera exposure times and its speed relative to Voyager.")]
         
         Neptune.moons.append(Galatea)
         
@@ -2289,6 +2379,29 @@ class Objects {
                       wiki: "https://en.wikipedia.org/wiki/Larissa_(moon)",
                       nasa: "http://solarsystem.nasa.gov/planets/larissa")
         
+        Larissa.geology(mass: 4200000.petagram(),
+                         volume: 3500000.kilometer(),
+                         equatorial: 97.kilometer(),
+                         density: 1200.kilogram(),
+                         gravity: 0.03.meter(),
+                         escape_velocity: 0.076.kilometer(),
+                         irradiance: 1.508,
+                         geographic_height_variance: nil)
+        
+        Larissa.orbitals(orbital_length: 0.55465332.day(),
+                          perigee: 73548.kilometer(),
+                          apogee: 73548.kilometer(),
+                          velocity: nil,
+                          inclination: 0.251,
+                          eccentricity: 0.001393,
+                          day_length: 0.55465332.day(),
+                          equator_inclination: 0.0)
+        
+        Larissa.misc(pronunciation: "/ləˈrɪsə/",
+                      discovered: "May 24th, 1981")
+        
+        Larissa.images = [("larissa - voyager.jpg", "This image of Larissa, taken by Voyager 2, reveals the satelite at a resolution of 4.2 kilometers per pixel.")]
+        
         Neptune.moons.append(Larissa)
         
         let N1 = Moon(name: "S/2004 N 1",
@@ -2297,6 +2410,27 @@ class Objects {
         N1.about(description: "S/2004 N 1 is a small moon of Neptune, about 18 km (11 mi) in diameter, which orbits the planet in just under one Earth day. Its discovery on 1 July 2013 increased Neptune's retinue of known satellites to fourteen. The moon is so dim that it was not observed when Voyager 2 flew by in 1989. Mark Showalter of the SETI Institute found it by analyzing archived Neptune photographs the Hubble Space Telescope captured between 2004 and 2009.\n\nThe designation \"S/2004 N 1\" is provisional; \"2004\" refers to the year the data was first acquired, not the year of discovery.",
                  wiki: "https://en.wikipedia.org/wiki/S/2004_N_1",
                  nasa: "http://solarsystem.nasa.gov/planets/s2004n1")
+        
+        N1.geology(mass: nil,
+                         volume: nil,
+                         equatorial: 9.kilometer(),
+                         density: nil,
+                         gravity: nil,
+                         escape_velocity: nil,
+                         irradiance: 1.508,
+                         geographic_height_variance: nil)
+        
+        N1.orbitals(orbital_length: 0.9362.day(),
+                          perigee: 105300.kilometer(),
+                          apogee: 105300.kilometer(),
+                          velocity: nil,
+                          inclination: 0.0,
+                          eccentricity: 0.000,
+                          day_length: nil,
+                          equator_inclination: nil)
+        
+        N1.misc(pronunciation: nil,
+                      discovered: "July 1st 2013 ")
         
         Neptune.moons.append(N1)
         
@@ -2311,6 +2445,31 @@ class Objects {
                         model: "proteus.dae",
                         normalmap: nil)
         
+        Proteus.geology(mass: 44000000.petagram(),
+                         volume: 34000000.kilometer(),
+                         equatorial: 210.kilometer(),
+                         density: 1300.kilogram(),
+                         gravity: 0.07.meter(),
+                         escape_velocity: 0.17.kilometer(),
+                         irradiance: 1.508,
+                         geographic_height_variance: nil)
+        
+        Proteus.orbitals(orbital_length: 1.12231477.day(),
+                          perigee: 117584.kilometer(),
+                          apogee: 117709.kilometer(),
+                          velocity: 7.623.kilometer(),
+                          inclination: 0.524,
+                          eccentricity: 0.00053,
+                          day_length: 1.12231477.day(),
+                          equator_inclination: 0.0)
+        
+        Proteus.misc(pronunciation: "/ˈproʊtiːəs/",
+                      discovered: "June 16th, 1989")
+        
+        Proteus.images = [
+            ("proteus - color.jpg", "The only color image of Proteus, which shows off its pink hue.  Taken by Voyager 2 in 1989."),
+            ("proteus - voyager.jpg", "The closest view Voyager 2 captured of Proteus, showing off its boxy shape.")]
+        
         Neptune.moons.append(Proteus)
         
         let Triton = Moon(name: "Triton",
@@ -2323,6 +2482,39 @@ class Objects {
                        model: nil,
                        normalmap: nil)
         
+        Triton.geology(mass: 21400000000000.teragram(),
+                         volume: 10384000000.kilometer(),
+                         equatorial: 1353.4.kilometer(),
+                         density: 2061.kilogram(),
+                         gravity: 0.779.meter(),
+                         escape_velocity: 1.455.kilometer(),
+                         irradiance: 1.508,
+                         geographic_height_variance: nil)
+        
+        Triton.orbitals(orbital_length: 5.876854.day().negative(),
+                          perigee: 354754.kilometer(),
+                          apogee: 354766.kilometer(),
+                          velocity: 4.39.kilometer(),
+                          inclination: 156.885,
+                          eccentricity: 0.000016,
+                          day_length: 5.877.day(),
+                          equator_inclination: 0.0)
+        
+        Triton.atmosphere(surface_pressure: nil,
+                          average_temperature: 38,
+                          total_mass: nil)
+        
+        Triton.misc(pronunciation: "/ˈtraɪtən/",
+                      discovered: "October 10th, 1846")
+        
+        Triton.images = [
+            ("triton - voyager.jpg", "Composite image of Triton stitched together from images taken durong Voyager's flyby."),
+            ("triton - faults.jpg", "Much of Triton's surface takes on a 'cantalope' texture."),
+            ("triton - pole.jpg", "Triton's south polar region.  The dark spots may be ice volcanoes."),
+            ("triton - clouds.jpg", "Triton has clouds of nitrogen extending above its surface."),
+            ("triton - neptune.jpg", "Three days after Voyager 2 passed Neptune, it turned its camera back and captured this image of Neptune and Triton from 4.86 million kilometers away."),
+            ("triton - cyrovolcanic plains.jpg", "Cyrovolcanic plains dominate large parts of Triton's surface.")]
+        
         Neptune.moons.append(Triton)
         
         let Nereid = Moon(name: "Nereid",
@@ -2331,6 +2523,29 @@ class Objects {
         Nereid.about(description: "Nereid is the third-largest moon of Neptune. It has a highly eccentric orbit. It was the second moon of Neptune to be discovered, by Gerard Kuiper in 1949.\n\nNereid was discovered on 1 May 1949 by Gerard P. Kuiper on photographic plates taken with the 82-inch telescope at the McDonald Observatory. He proposed the name in the report of his discovery. It is named after the Nereids, sea-nymphs of Greek mythology and attendants of the god Neptune. It was the second and last moon of Neptune to be discovered before the arrival of Voyager 2 (not counting a single observation of an occultation by Larissa in 1981).\n\nNereid orbits Neptune in the prograde direction at an average distance of 5,513,400 km (3,425,900 mi), but its high eccentricity of 0.7507 takes it as close as 1,372,000 km (853,000 mi) and as far as 9,655,000 km (5,999,000 mi).\n\nThe unusual orbit suggests that it may be either a captured asteroid or Kuiper belt object, or that it was an inner moon in the past and was perturbed during the capture of Neptune's largest moon Triton.\n\nSince 1987 some photometric observations of Nereid have detected large (by ~1 of magnitude) variations of it brightness, which can happen over years and months, but sometimes even over a few days. They persist even after a correction for distance and phase effects. On the other hand, not all astronomers who have observed Nereid have noticed such variations. This means that they may be quite chaotic. To date there is no credible explanation of the variations, but, if they exist, they are likely related to the rotation of Nereid. Nereid's rotation can be either in the state of forced precession or even chaotic rotation (like Hyperion) due to its highly elliptical orbit. In any case its rotation should be rather irregular.",
                      wiki: "https://en.wikipedia.org/wiki/Nereid_(moon)",
                      nasa: "http://solarsystem.nasa.gov/planets/nereid")
+        
+        Nereid.geology(mass: nil,
+                        volume: nil,
+                         equatorial: 170.kilometer(),
+                         density: nil,
+                         gravity: nil,
+                         escape_velocity: nil,
+                         irradiance: 1.508,
+                         geographic_height_variance: nil)
+    
+        Nereid.orbitals(orbital_length: 360.1362.day(),
+                          perigee: 1372000.kilometer(),
+                          apogee: 9655000.kilometer(),
+                          velocity: 934.meter(),
+                          inclination: 7.090,
+                          eccentricity: 0.7507,
+                          day_length: 0.48.day(),
+                          equator_inclination: nil)
+        
+        Nereid.misc(pronunciation: "/ˈnɪəri.ɪd/",
+                      discovered: "May 1st, 1949")
+        
+        Nereid.images = [("nereid - voyager.jpg", "Voyager 2 captured this image of Nereid on August 24th, 1989, from 4.7 million kilometers away.  At this range, each pixel covers 43 kilometers.")]
         
         Neptune.moons.append(Nereid)
         
@@ -2341,6 +2556,29 @@ class Objects {
                        wiki: "https://en.wikipedia.org/wiki/Halimede_(moon)",
                        nasa: "http://solarsystem.nasa.gov/planets/halimede")
         
+        Halimede.geology(mass: nil,
+                         volume: nil,
+                         equatorial: 31.kilometer(),
+                         density: nil,
+                         gravity: nil,
+                         escape_velocity: nil,
+                         irradiance: 1.508,
+                         geographic_height_variance: nil)
+        
+        Halimede.orbitals(orbital_length: 1879.08.day(),
+                          perigee: 16611000000.kilometer(),
+                          apogee: nil,
+                          velocity: nil,
+                          inclination: 112.712,
+                          eccentricity: 0.2646,
+                          day_length: nil,
+                          equator_inclination: nil)
+        
+        Halimede.misc(pronunciation: "/ˈhælᵻˈmiːdiː/",
+                      discovered: "August 14th, 2002")
+        
+        Halimede.images = [("halimede - discovery.jpg", "Halimede's discovery image, taken with CTIO’s Blanco telescope in 2002.")]
+        
         Neptune.moons.append(Halimede)
         
         let Sao = Moon(name: "Sao",
@@ -2350,6 +2588,27 @@ class Objects {
                   wiki: "https://en.wikipedia.org/wiki/Sao_(moon)",
                   nasa: "http://solarsystem.nasa.gov/planets/sao")
         
+        Sao.geology(mass: nil,
+                    volume: nil,
+                    equatorial: 22.kilometer(),
+                    density: nil,
+                    gravity: nil,
+                    escape_velocity: nil,
+                    irradiance: 1.508,
+                    geographic_height_variance: nil)
+        
+        Sao.orbitals(orbital_length: 2912.72.day(),
+                     perigee: 22400000.kilometer(),
+                     apogee: nil,
+                     velocity: nil,
+                     inclination: 53.483,
+                     eccentricity: 0.1365,
+                     day_length: nil,
+                     equator_inclination: nil)
+        
+        Sao.misc(pronunciation: "/ˈseɪ.oʊ/",
+                 discovered: "August 14th, 2002")
+        
         Neptune.moons.append(Sao)
         
         let Laomedeia = Moon(name: "Laomedeia",
@@ -2358,6 +2617,27 @@ class Objects {
         Laomedeia.about(description: "Laomedeia, also known as Neptune XII, is a prograde irregular satellite of Neptune. It was discovered by Matthew J. Holman, et al. on August 13, 2002. Before the announcement of its name on February 3, 2007 (IAUC 8802), it was known as S/2002 N 3.\n\nIt orbits Neptune at a distance of about 23,571,000 km and is about 42 kilometers in diameter (assuming albedo of 0.04). It is named after Laomedeia, one of the 50 Nereids.",
                         wiki: "https://en.wikipedia.org/wiki/Laomedeia",
                         nasa: "http://solarsystem.nasa.gov/planets/laomedeia")
+        
+        Laomedeia.geology(mass: nil,
+                          volume: nil,
+                          equatorial: 21.kilometer(),
+                          density: nil,
+                          gravity: nil,
+                          escape_velocity: nil,
+                          irradiance: 1.508,
+                          geographic_height_variance: nil)
+        
+        Laomedeia.orbitals(orbital_length: 3171.33.day(),
+                           perigee: 23571000.kilometer(),
+                           apogee: nil,
+                           velocity: nil,
+                           inclination: 37.874,
+                           eccentricity: 0.3969,
+                           day_length: nil,
+                           equator_inclination: nil)
+        
+        Laomedeia.misc(pronunciation: "/ˌleɪoʊmᵻˈdiːə, -ˈdaɪə/",
+                       discovered: "February 3rd, 2007")
         
         Neptune.moons.append(Laomedeia)
         
@@ -2388,6 +2668,8 @@ class Objects {
         
         Psamathe.misc(pronunciation: "/ˈsæməθiː/",
                       discovered: "February 3rd, 2007")
+        
+        Psamathe.images = [("psamathe - discovery.jpg", "Psamathe's discovery image, taken by Scott Sheppard and David Jewitt in 2003.")]
         
         Neptune.moons.append(Psamathe)
         
@@ -2639,7 +2921,7 @@ class Objects {
                        geographic_height_variance: nil)
         
         Namaka.orbitals(orbital_length: 18.2783.day(),
-                        perigee: nil,
+                        perigee: 25657.kilometer(),
                         apogee: nil,
                         velocity: nil,
                         inclination: 113.013,
@@ -2669,7 +2951,7 @@ class Objects {
                        geographic_height_variance: nil)
         
         Hiiaka.orbitals(orbital_length: 49.12.day(),
-                        perigee: nil,
+                        perigee: 49880.kilometer(),
                         apogee: nil,
                         velocity: nil,
                         inclination: 126.356,
@@ -2741,7 +3023,7 @@ class Objects {
                     irradiance: nil,
                     geographic_height_variance: nil)
         
-        MK2.orbitals(orbital_length: 12.4.day(),
+        MK2.orbitals(orbital_length: nil,
                      perigee: nil,
                      apogee: nil,
                      velocity: nil,
@@ -2815,7 +3097,7 @@ class Objects {
                          geographic_height_variance: nil)
         
         Dysnomia.orbitals(orbital_length: 15.774.day(),
-                          perigee: nil,
+                          perigee: 37350.kilometer(),
                           apogee: nil,
                           velocity: 0.172.kilometer(),
                           inclination: 142,

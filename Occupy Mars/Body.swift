@@ -38,7 +38,7 @@ class Body {
         irradiance: Double?,
         geographic_height_variance: Quantity?
     
-    //--------------------------------------------orbit - notes: use tropical orbit, mean orbital velocity, and obliquidy from orbit for equator inclination
+    //--------------------------------------------orbit - notes: use tropical orbit, mean orbital velocity, and obliquidy from orbit for equator inclination - for moons, use inclination from host planet equator
     
     var orbital_length: Quantity?,
         perigee: Quantity?,
@@ -478,11 +478,11 @@ class Body {
         
         if (defaults.bool(forKey: "useImperial")) {
             if velocity != nil {
-                ret.append(("Average Velocity", toScientificNotation(value: velocity!.converted(LengthUnit.mile).rounded(6).amount), " mi/h"))
+                ret.append(("Average Velocity", toScientificNotation(value: velocity!.converted(LengthUnit.mile).rounded(6).amount), " mi/s"))
             }
         } else {
             if velocity != nil {
-                ret.append(("Average Velocity", toScientificNotation(value: velocity!.converted(LengthUnit.kilometer).rounded(6).amount), " km/h"))
+                ret.append(("Average Velocity", toScientificNotation(value: velocity!.converted(LengthUnit.kilometer).rounded(6).amount), " km/s"))
             }
         }
         

@@ -176,7 +176,7 @@
 		84297BEF1EC8F4BE003604C7 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		84297BF11EC8F4D6003604C7 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		8431B7FD1EDFB4930068D596 /* Visibility.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Visibility.xib; sourceTree = "<group>"; };
-		8431B7FF1EDFB55E0068D596 /* VisibilityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisibilityViewController.swift; sourceTree = "<group>"; };
+		8431B7FF1EDFB55E0068D596 /* VisibilityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VisibilityViewController.swift; path = "../Occupy Mars/VisibilityViewController.swift"; sourceTree = "<group>"; };
 		843E07A61E8F198900B4EF26 /* amaltheamap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = amaltheamap.jpg; path = Assets.xcassets/jupiter/amalthea/amaltheamap.imageset/amaltheamap.jpg; sourceTree = "<group>"; };
 		843E07AA1E8F1EEC00B4EF26 /* deimosnormalmap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = deimosnormalmap.jpg; path = Assets.xcassets/mars/demios/deimosnormalmap.imageset/deimosnormalmap.jpg; sourceTree = "<group>"; };
 		8488D4211E54EBCF009AD9D8 /* AreaUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaUnit.swift; sourceTree = "<group>"; };
@@ -338,6 +338,7 @@
 		840FEFB81EDE3D570005B69E /* tonight */ = {
 			isa = PBXGroup;
 			children = (
+				8431B7FF1EDFB55E0068D596 /* VisibilityViewController.swift */,
 				840FEFB91EDE3D570005B69E /* TodayViewController.swift */,
 				840FEFBB1EDE3D570005B69E /* MainInterface.storyboard */,
 				8431B7FD1EDFB4930068D596 /* Visibility.xib */,
@@ -615,7 +616,6 @@
 				C5CD59BF1DD91E4F00ACB8EA /* GlobeViewController.swift */,
 				C5AEC3F81DCE77FA00992AEB /* MediaAboutViewController.swift */,
 				C5AEC3F21DCE77C500992AEB /* MoonAboutViewController.swift */,
-				8431B7FF1EDFB55E0068D596 /* VisibilityViewController.swift */,
 			);
 			name = planets;
 			sourceTree = "<group>";
@@ -1203,6 +1203,7 @@
 				C54F92971EF087D900B5832D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C5941BCB1DBBFD940057A46A /* Build configuration list for PBXProject "Occupy Mars" */ = {
 			isa = XCConfigurationList;
