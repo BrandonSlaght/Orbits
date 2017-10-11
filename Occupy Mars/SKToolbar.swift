@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 // helpers which often used
 private let bundle = Bundle(for: SKPhotoBrowser.self)
@@ -57,13 +56,13 @@ class SKToolbar: UIToolbar {
 
 private extension SKToolbar {
     func setupApperance() {
-        backgroundColor = UIColor.clear
+        backgroundColor = .clear
         clipsToBounds = true
         isTranslucent = true
         setBackgroundImage(UIImage(), forToolbarPosition: .any, barMetrics: .default)
         
         // toolbar
-        if !SKPhotoBrowserOptions.displayToolbar {
+        if !(browser?.showToolBar)! {
             isHidden = true
         }
     }
@@ -109,11 +108,11 @@ private extension SKToolbar {
     func setupCounterLabel() {
         toolCounterLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 95, height: 40))
         toolCounterLabel.textAlignment = .center
-        toolCounterLabel.backgroundColor = UIColor.clear
-        toolCounterLabel.font  = UIFont(name: "Helvetica", size: 16.0)
-        toolCounterLabel.textColor = UIColor.white
-        toolCounterLabel.shadowColor = UIColor.black
+        toolCounterLabel.backgroundColor = .clear
+        toolCounterLabel.shadowColor = SKToolbarOptions.textShadowColor
         toolCounterLabel.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        toolCounterLabel.font = SKToolbarOptions.font
+        toolCounterLabel.textColor = SKToolbarOptions.textColor
         toolCounterButton = UIBarButtonItem(customView: toolCounterLabel)
     }
     
@@ -123,19 +122,18 @@ private extension SKToolbar {
     }
 }
 
-
 class SKToolbarButton: UIButton {
     let insets: UIEdgeInsets = UIEdgeInsets(top: 13.25, left: 17.25, bottom: 13.25, right: 17.25)
     
     func setup(_ imageName: String) {
-        backgroundColor = UIColor.clear
+        backgroundColor = .clear
         imageEdgeInsets = insets
         translatesAutoresizingMaskIntoConstraints = true
         autoresizingMask = [.flexibleBottomMargin, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin]
         contentMode = .center
         
         let image = UIImage(named: "SKPhotoBrowser.bundle/images/\(imageName)",
-                            in: bundle, compatibleWith: nil) ?? UIImage()
+            in: bundle, compatibleWith: nil) ?? UIImage()
         setImage(image, for: UIControlState())
     }
 }
@@ -163,3 +161,4 @@ class SKNextButton: SKToolbarButton {
         setup(imageName)
     }
 }
+

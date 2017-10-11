@@ -92,8 +92,6 @@ class MediaAboutViewController: UIViewController, UICollectionViewDelegate, UICo
         let originImage = cell.image.image! // some image for baseImage
         
         let browser = SKPhotoBrowser(originImage: originImage, photos: images, animatedFromView: cell)
-        //SKPhotoBrowserOptions.displayHorizontalScrollIndicator = true
-        //SKPhotoBrowserOptions.displayVerticalScrollIndicator = true
         SKPhotoBrowserOptions.bounceAnimation = true
         browser.initializePageIndex(indexPath.row)
         //browser.navigationItem.title = "test"

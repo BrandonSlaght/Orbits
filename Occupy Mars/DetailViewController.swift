@@ -118,22 +118,22 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         tabs.removeAllSegments()
         
         if body.images.count > 0 || body.videos.count > 0 {
-            tabs.insertSegment(withTitle: "Media", at: 0, animated: true)
+            tabs.insertSegment(withTitle: "Media", at: 0, animated: false)
         }
         
         if body.rings.count > 0 {
-            tabs.insertSegment(withTitle: "Rings", at: 0, animated: true)
+            tabs.insertSegment(withTitle: "Rings", at: 0, animated: false)
         }
         
         if body.moons.count > 0 {
-            tabs.insertSegment(withTitle: "Moons", at: 0, animated: true)
+            tabs.insertSegment(withTitle: "Moons", at: 0, animated: false)
         }
         
         if body.hasDetails {
-            tabs.insertSegment(withTitle: "Details", at: 0, animated: true)
+            tabs.insertSegment(withTitle: "Details", at: 0, animated: false)
         }
         
-        tabs.insertSegment(withTitle: "About", at: 0, animated: true)
+        tabs.insertSegment(withTitle: "About", at: 0, animated: false)
         tabs.selectedSegmentIndex = 0
         
         if tabs.numberOfSegments < 2 {
@@ -173,8 +173,26 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         globeButton.addTarget(self, action: #selector(globeSegue), for: .touchUpInside)
         
-        extraPadding = (navigationController?.navigationBar.frame.height)! + statusBarHeight()
+        if #available(iOS 11, *) {
+            extraPadding = 0
+        } else {
+            extraPadding = (navigationController?.navigationBar.frame.height)! + statusBarHeight()
+        }
+
         moveTagToBack(ofNav: self.navigationController!)
+        
+        //parallax
+//        let verticalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
+//        verticalMotionEffect.minimumRelativeValue = -50
+//        verticalMotionEffect.maximumRelativeValue = 50
+//        
+//        let horizontalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
+//        horizontalMotionEffect.minimumRelativeValue = -50
+//        horizontalMotionEffect.maximumRelativeValue = 50
+//        
+//        let group = UIMotionEffectGroup()
+//        group.motionEffects = [horizontalMotionEffect, verticalMotionEffect]
+//        self.view.addMotionEffect(group)
     }
     
     //stub methods to stop the gestures from going to the view.
@@ -183,7 +201,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     //func panDetected(sender: UIPanGestureRecognizer) {}
     
-    func hide(_ sender: UITapGestureRecognizer) {
+    @objc func hide(_ sender: UITapGestureRecognizer) {
         BTBalloon.sharedInstance().hide()
     }
     
@@ -283,7 +301,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         return min(statusBarSize.width, statusBarSize.height)
     }
     
-    func globeSegue(){
+    @objc func globeSegue(){
         let globe = self.storyboard?.instantiateViewController(withIdentifier: "globeView") as? GlobeViewController
         globe?.body = body
         self.navigationController?.pushViewController(globe!, animated: true)

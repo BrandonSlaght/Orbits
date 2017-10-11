@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 @objc public protocol SKPhotoBrowserAnimatorDelegate {
     func willPresent(_ browser: SKPhotoBrowser)
     func willDismiss(_ browser: SKPhotoBrowser)
@@ -61,7 +60,7 @@ class SKAnimator: NSObject, SKPhotoBrowserAnimatorDelegate {
         resizableImageView!.clipsToBounds = true
         resizableImageView!.contentMode = photo.contentMode
         if sender.layer.cornerRadius != 0 {
-            _ = (animationDuration * Double(animationDamping))
+            //let duration = (animationDuration * Double(animationDamping))
             resizableImageView!.layer.masksToBounds = true
             //resizableImageView!.addCornerRadiusAnimation(sender.layer.cornerRadius, to: 0, duration: duration)
         }
@@ -75,9 +74,9 @@ class SKAnimator: NSObject, SKPhotoBrowserAnimatorDelegate {
             let image = browser.photoAtIndex(browser.currentPageIndex).underlyingImage,
             let scrollView = browser.pageDisplayedAtIndex(browser.currentPageIndex) else {
                 
-            senderViewForAnimation?.isHidden = false
-            browser.dismissPhotoBrowser(animated: false)
-            return
+                senderViewForAnimation?.isHidden = false
+                browser.dismissPhotoBrowser(animated: false)
+                return
         }
         
         senderViewForAnimation = sender
@@ -97,14 +96,14 @@ class SKAnimator: NSObject, SKPhotoBrowserAnimatorDelegate {
             width: scrollFrame.width,
             height: scrollFrame.height)
         
-//        resizableImageView.image = scrollView.photo?.underlyingImage?.rotateImageByOrientation()
+        //        resizableImageView.image = scrollView.photo?.underlyingImage?.rotateImageByOrientation()
         resizableImageView!.image = image//.rotateImageByOrientation()
         resizableImageView!.frame = frame
         resizableImageView!.alpha = 1.0
         resizableImageView!.clipsToBounds = true
         resizableImageView!.contentMode = photo.contentMode
-        if let view = senderViewForAnimation , view.layer.cornerRadius != 0 {
-            _ = (animationDuration * Double(animationDamping))
+        if let view = senderViewForAnimation, view.layer.cornerRadius != 0 {
+            //let duration = (animationDuration * Double(animationDamping))
             resizableImageView!.layer.masksToBounds = true
             //resizableImageView!.addCornerRadiusAnimation(0, to: view.layer.cornerRadius, duration: duration)
         }
@@ -140,7 +139,7 @@ private extension SKAnimator {
 }
 
 private extension SKAnimator {
-    func presentAnimation(_ browser: SKPhotoBrowser, completion: ((Void) -> Void)? = nil) {
+    func presentAnimation(_ browser: SKPhotoBrowser, completion: (() -> Void)? = nil) {
         browser.view.isHidden = true
         browser.view.alpha = 0.0
         
@@ -155,17 +154,17 @@ private extension SKAnimator {
                 browser.backgroundView.alpha = 1.0
                 
                 self.resizableImageView?.frame = self.finalImageViewFrame
-            },
-            completion: { (Bool) -> Void in
+        },
+            completion: { (_) -> Void in
                 browser.view.isHidden = false
                 browser.view.alpha = 1.0
                 browser.backgroundView.isHidden = true
                 
                 self.resizableImageView?.alpha = 0.0
-            })
+        })
     }
     
-    func dismissAnimation(_ browser: SKPhotoBrowser, completion: ((Void) -> Void)? = nil) {
+    func dismissAnimation(_ browser: SKPhotoBrowser, completion: (() -> Void)? = nil) {
         UIView.animate(
             withDuration: animationDuration,
             delay:0,
@@ -176,12 +175,12 @@ private extension SKAnimator {
                 browser.backgroundView.alpha = 0.0
                 
                 self.resizableImageView?.layer.frame = self.senderViewOriginalFrame
-            },
-            completion: { (Bool) -> () in
+        },
+            completion: { (_) -> Void in
                 browser.dismissPhotoBrowser(animated: true) {
                     self.resizableImageView?.removeFromSuperview()
                 }
-            })
+        })
     }
 }
 

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 class SKPagingScrollView: UIScrollView {
     let pageIndexTagOffset: Int = 1000
@@ -16,6 +15,7 @@ class SKPagingScrollView: UIScrollView {
     fileprivate var recycledPages = [SKZoomingScrollView]()
     
     fileprivate weak var browser: SKPhotoBrowser?
+    
     var numberOfPhotos: Int {
         return browser?.photos.count ?? 0
     }
@@ -23,7 +23,6 @@ class SKPagingScrollView: UIScrollView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -119,12 +118,12 @@ class SKPagingScrollView: UIScrollView {
         let lastIndex: Int = getLastIndex()
         
         visiblePages
-            .filter({ $0.tag - pageIndexTagOffset < firstIndex ||  $0.tag - pageIndexTagOffset < lastIndex })
+            .filter({ $0.tag - pageIndexTagOffset < firstIndex ||  $0.tag - pageIndexTagOffset > lastIndex })
             .forEach { page in
                 recycledPages.append(page)
                 page.prepareForReuse()
                 page.removeFromSuperview()
-            }
+        }
         
         let visibleSet: Set<SKZoomingScrollView> = Set(visiblePages)
         let visibleSetWithoutRecycled: Set<SKZoomingScrollView> = visibleSet.subtracting(recycledPages)
@@ -167,19 +166,15 @@ class SKPagingScrollView: UIScrollView {
     }
     
     func pageDisplayedAtIndex(_ index: Int) -> SKZoomingScrollView? {
-        for page in visiblePages {
-            if page.tag - pageIndexTagOffset == index {
-                return page
-            }
+        for page in visiblePages where page.tag - pageIndexTagOffset == index {
+            return page
         }
         return nil
     }
     
     func pageDisplayingAtPhoto(_ photo: SKPhotoProtocol) -> SKZoomingScrollView? {
-        for page in visiblePages {
-            if page.photo === photo {
-                return page
-            }
+        for page in visiblePages where page.photo === photo {
+            return page
         }
         return nil
     }
@@ -190,7 +185,7 @@ class SKPagingScrollView: UIScrollView {
             .filter({ $0.captionView != nil })
             .forEach {
                 captionViews.insert($0.captionView)
-            }
+        }
         return captionViews
     }
 }
@@ -198,13 +193,13 @@ class SKPagingScrollView: UIScrollView {
 private extension SKPagingScrollView {
     func frameForPageAtIndex(_ index: Int) -> CGRect {
         var pageFrame = bounds
-        pageFrame.size.width -= (2 * 10)
+        pageFrame.size.width -= (2 * sideMargin)
         pageFrame.origin.x = (bounds.size.width * CGFloat(index)) + sideMargin
         return pageFrame
     }
     
     func createCaptionView(_ index: Int) -> SKCaptionView? {
-        guard let photo = browser?.photoAtIndex(index) , photo.caption != nil else {
+        guard let photo = browser?.photoAtIndex(index), photo.caption != nil else {
             return nil
         }
         return SKCaptionView(photo: photo)
@@ -232,8 +227,3 @@ private extension SKPagingScrollView {
         return lastIndex
     }
 }
-
-
-
-
-

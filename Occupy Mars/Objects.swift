@@ -2482,8 +2482,8 @@ class Objects {
                        model: nil,
                        normalmap: nil)
         
-        Triton.geology(mass: 21400000000000.teragram(),
-                         volume: 10384000000.kilometer(),
+        Triton.geology(mass: 21400000.exogram(),
+                         volume: 10384000.megameter(),
                          equatorial: 1353.4.kilometer(),
                          density: 2061.kilogram(),
                          gravity: 0.779.meter(),
@@ -2566,7 +2566,7 @@ class Objects {
                          geographic_height_variance: nil)
         
         Halimede.orbitals(orbital_length: 1879.08.day(),
-                          perigee: 16611000000.kilometer(),
+                          perigee: 16611000.megameter(),
                           apogee: nil,
                           velocity: nil,
                           inclination: 112.712,
@@ -2681,7 +2681,7 @@ class Objects {
                    nasa: "http://solarsystem.nasa.gov/planets/neso")
         
         
-        Neso.geology(mass: 200000000000.gigagram(),
+        Neso.geology(mass: 200000000.teragram(),
                      volume: nil,
                      equatorial: 30.kilometer(),
                      density: 1500.kilogram(),
@@ -3146,7 +3146,7 @@ class Objects {
                        total_mass: nil)
         
         Sun.colors(background: "sunsurface.jpg",
-                   color1: "6C1605",
+                   color1: "CA9506",
                    color2: "F9B243")
         
         Sun.display(texture: "sunmap.png",

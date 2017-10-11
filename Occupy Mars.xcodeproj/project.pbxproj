@@ -10,7 +10,6 @@
 		840FEFB71EDE3D570005B69E /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840FEFB61EDE3D570005B69E /* NotificationCenter.framework */; };
 		840FEFBA1EDE3D570005B69E /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840FEFB91EDE3D570005B69E /* TodayViewController.swift */; };
 		840FEFBD1EDE3D570005B69E /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 840FEFBB1EDE3D570005B69E /* MainInterface.storyboard */; };
-		840FEFC11EDE3D570005B69E /* tonight.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 840FEFB41EDE3D560005B69E /* tonight.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8427FBA31E8C137600536BAB /* status.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8427FBA21E8C137400536BAB /* status.txt */; };
 		84297BEA1EC6A314003604C7 /* Body.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84297BE91EC6A314003604C7 /* Body.swift */; };
 		84297BEE1EC8F4AA003604C7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84297BED1EC8F4AA003604C7 /* Extensions.swift */; };
@@ -131,28 +130,7 @@
 		C5F8AA651DCA70330077F137 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F8AA641DCA70330077F137 /* AboutViewController.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		840FEFBF1EDE3D570005B69E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C5941BC81DBBFD940057A46A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 840FEFB31EDE3D560005B69E;
-			remoteInfo = tonight;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
-		840FEFC51EDE3D570005B69E /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				840FEFC11EDE3D570005B69E /* tonight.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C54F928E1EF087D900B5832D /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -735,12 +713,10 @@
 				C5941BCC1DBBFD940057A46A /* Sources */,
 				C5941BCD1DBBFD940057A46A /* Frameworks */,
 				C5941BCE1DBBFD940057A46A /* Resources */,
-				840FEFC51EDE3D570005B69E /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				840FEFC01EDE3D570005B69E /* PBXTargetDependency */,
 			);
 			name = "Occupy Mars";
 			productName = "Occupy Mars";
@@ -760,6 +736,7 @@
 					840FEFB31EDE3D560005B69E = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 98PHYR992B;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					C54F928F1EF087D900B5832D = {
@@ -770,7 +747,7 @@
 					C5941BCF1DBBFD940057A46A = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 98PHYR992B;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -956,14 +933,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		840FEFC01EDE3D570005B69E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 840FEFB31EDE3D560005B69E /* tonight */;
-			targetProxy = 840FEFBF1EDE3D570005B69E /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
 		840FEFBB1EDE3D570005B69E /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -1005,7 +974,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1021,7 +991,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = orbitals.tonight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -1146,7 +1117,6 @@
 		C5941BE71DBBFD940057A46A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1159,7 +1129,8 @@
 				SWIFT_INCLUDE_PATHS = "${SRCROOT}/sextant/**";
 				SWIFT_OBJC_BRIDGING_HEADER = "Occupy Mars/Occupy Mars-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1167,7 +1138,6 @@
 		C5941BE81DBBFD940057A46A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1179,7 +1149,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INCLUDE_PATHS = "${SRCROOT}/sextant/**";
 				SWIFT_OBJC_BRIDGING_HEADER = "Occupy Mars/Occupy Mars-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

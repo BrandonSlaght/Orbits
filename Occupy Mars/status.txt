@@ -56,9 +56,11 @@ DONE - fixed intro page rotation on iPad
 DONE - fixed constraints in the intro page view for the last page
 DONE - fixed main table view background not getting proper constraints
 DONE - fixed average orbital velocity being per hour instead of per second.
+DONE - URGENT - test scenekits in iOS 11
+DONE - fix constraints not always applying in details
+DONE - update SKphotobrowser to latest
 ---------------------------------------------------------------------------------------------------------------------
 URGENT - Handle ipad resizing in split screen
-URGENT - test scenekits in iOS 11
 Fix scrolling in the globe view - when double tapping or tapping and holding
 Details of Moons
 Media of moons
@@ -71,7 +73,6 @@ EZ - better iPad support for text on the intro screen
 do visibility
 units inline in text to enable conversion
 EZ - pronunciations
-fix constraints not always applying in details
 make the sticky tab bar be animated and blurry and also make the navbar blurry
 atmosphere details section
 make modal tooltips blurry
@@ -90,6 +91,7 @@ start sceneviews in new threads
 make website with about and changelog, possibly from template
 the app delegate resume method
 when there is an extended status bar because of a call, the tab bar will not be planed properly and when the call ends, the blur view in the background of the main planey list will be offset and not cover the whole screen
+3d touch to share from media view
 ---------------------------------------------------------------------------------------------------------------------
 
 
@@ -97,15 +99,15 @@ CHANGELOG:
 ---------------------------------------------------------------------------------------------------------------------
 1.2:
 Fixed some of the crashes in the globe view controller
-added floating tabs
-added tooltip popups
-added settings to change between metric and simplified units
-added oberon partial map
-added epimetheus model
-added sun
-reduced app size by 100 mb
-minor text fixes
-ui improvements
+Added floating tabs
+Added tooltip popups
+Added settings to change between metric and simplified units
+Added oberon partial map
+Added epimetheus model
+Added sun
+Reduced app size by 100 mb
+Minor text fixes
+UI improvements
 
 1.2.1:
 Fixed a possible crash in the globe view
@@ -118,3 +120,14 @@ Fixed performance issues when scrolling lists of moons and planets
 Added a 'What's New' dialogue
 Added details to moons of Earth, Mars, Haumea, Makemake, and Eris
 Spotlight support! You can now search planets and moons from the app directly in Spotlight
+
+1.3
+Added details for Uranus's moons
+Added pronunciations of planets and moons
+Added support for iOS 11 and iPhone X
+Added iPad support
+Fixed layout issues
+Added model for Saturn's moon Phobos
+Improved performance and appearance of 3d views
+Fixed average orbital velocity being per hour instead of per second
+Minor text fixes

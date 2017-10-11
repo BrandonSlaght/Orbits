@@ -76,12 +76,12 @@ class DetailsAboutViewController: AboutViewController, UITableViewDataSource, UI
         let font:UIFont? = UIFont(name: fontName, size: CGFloat(size))
         let fontSuper:UIFont? = UIFont(name: fontName, size: CGFloat(size/2) + 2)
         let copy = string.replacingOccurrences(of: "^", with: "")
-        let attString:NSMutableAttributedString = NSMutableAttributedString(string: copy, attributes: [NSFontAttributeName:font!])
+        let attString:NSMutableAttributedString = NSMutableAttributedString(string: copy, attributes: [NSAttributedStringKey.font:font!])
         
         if let let_index = string.characters.index(of: Character("^")) {
             let pos = copy.characters.distance(from: copy.startIndex, to: let_index)
             let length = copy.characters.distance(from: let_index, to: copy.endIndex)
-            attString.setAttributes([NSFontAttributeName:fontSuper!,NSBaselineOffsetAttributeName:10], range: NSRange(location: pos, length: length))
+            attString.setAttributes([NSAttributedStringKey.font:fontSuper!,NSAttributedStringKey.baselineOffset:10], range: NSRange(location: pos, length: length))
             return attString;
         } else {
             return NSAttributedString(string: string)
@@ -125,7 +125,7 @@ class DetailsAboutViewController: AboutViewController, UITableViewDataSource, UI
         if indexPath.row % 2 == 1 {
             cell.backgroundColor = UIColor.clear
         } else {
-            cell.backgroundColor = UIColor(colorLiteralRed: 1, green: 1, blue: 1, alpha: 0.1)
+            cell.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.1)
         }
         cell.selectionStyle = .none
         return cell
@@ -276,73 +276,73 @@ class DetailsAboutViewController: AboutViewController, UITableViewDataSource, UI
         }
     }
     
-    func addGravity(_ sender: UITapGestureRecognizer) {
+    @objc func addGravity(_ sender: UITapGestureRecognizer) {
         BTBalloon.sharedInstance().show(withTitle: "The speed you would accelerate in free fall on the surface of the planet.",
                                         image: nil,
                                         anchorTo: self.view.viewWithTag(5)!)
     }
     
-    func addEscapeVelocity(_ sender: UITapGestureRecognizer) {
+    @objc func addEscapeVelocity(_ sender: UITapGestureRecognizer) {
         BTBalloon.sharedInstance().show(withTitle: "The minimum speed you need to be traveling to completely escape the planet's gravitational influence.",
                                         image: nil,
                                         anchorTo: self.view.viewWithTag(6)!)
     }
     
-    func addIrradiance(_ sender: UITapGestureRecognizer) {
+    @objc func addIrradiance(_ sender: UITapGestureRecognizer) {
         BTBalloon.sharedInstance().show(withTitle: "How much energy the planet recieves from the Sun, in watts.  A perfect solar panel would be able to produce this much energy per square meter of coverage.",
                                         image: nil,
                                         anchorTo: self.view.viewWithTag(7)!)
     }
     
-    func addHeightVariance(_ sender: UITapGestureRecognizer) {
+    @objc func addHeightVariance(_ sender: UITapGestureRecognizer) {
         BTBalloon.sharedInstance().show(withTitle: "The difference between the highest and lowest points on the planet.  On Earth, this would be Mt. Everest and the Mariana Trench",
                                         image: nil,
                                         anchorTo: self.view.viewWithTag(8)!)
     }
     
-    func addAverageVelocity(_ sender: UITapGestureRecognizer) {
+    @objc func addAverageVelocity(_ sender: UITapGestureRecognizer) {
         BTBalloon.sharedInstance().show(withTitle: "The average speed that the planet moves around the Sun.  The velovity isn't constant because planets move faster when they are closer to the Sun.",
                                         image: nil,
                                         anchorTo: self.view.viewWithTag(12)!)
     }
     
-    func addPerigee(_ sender: UITapGestureRecognizer) {
+    @objc func addPerigee(_ sender: UITapGestureRecognizer) {
         BTBalloon.sharedInstance().show(withTitle: "The closest a moon gets to the planet it orbits.",
                                         image: nil,
                                         anchorTo: self.view.viewWithTag(13)!)
     }
     
-    func addPerihilion(_ sender: UITapGestureRecognizer) {
+    @objc func addPerihilion(_ sender: UITapGestureRecognizer) {
         BTBalloon.sharedInstance().show(withTitle: "The closest the planets comes to the Sun in its orbit.",
                                         image: nil,
                                         anchorTo: self.view.viewWithTag(14)!)
     }
     
-    func addApogee(_ sender: UITapGestureRecognizer) {
+    @objc func addApogee(_ sender: UITapGestureRecognizer) {
         BTBalloon.sharedInstance().show(withTitle: "The farthest a moon gets from the planet it orbits.",
                                         image: nil,
                                         anchorTo: self.view.viewWithTag(15)!)
     }
     
-    func addAphelion(_ sender: UITapGestureRecognizer) {
+    @objc func addAphelion(_ sender: UITapGestureRecognizer) {
         BTBalloon.sharedInstance().show(withTitle: "The farthest a planet gets from the Sun in its orbit.",
                                         image: nil,
                                         anchorTo: self.view.viewWithTag(16)!)
     }
     
-    func addOrbitalTilt(_ sender: UITapGestureRecognizer) {
+    @objc func addOrbitalTilt(_ sender: UITapGestureRecognizer) {
         BTBalloon.sharedInstance().show(withTitle: "How many degrees off the orbital plane the planet orbits.  The orbital plane is set equal to Earth's orbit.",
                                         image: nil,
                                         anchorTo: self.view.viewWithTag(17)!)
     }
     
-    func addEccentricity(_ sender: UITapGestureRecognizer) {
+    @objc func addEccentricity(_ sender: UITapGestureRecognizer) {
         BTBalloon.sharedInstance().show(withTitle: "The amount by which the planet's orbit deviates from a perfect circle.",
                                         image: nil,
                                         anchorTo: self.view.viewWithTag(18)!)
     }
     
-    func addEquatorialTilt(_ sender: UITapGestureRecognizer) {
+    @objc func addEquatorialTilt(_ sender: UITapGestureRecognizer) {
         BTBalloon.sharedInstance().show(withTitle: "How much the poles of the planet deviate from zero.  Significant deviations cause seasonal cycles on planets.",
                                         image: nil,
                                         anchorTo: self.view.viewWithTag(19)!)

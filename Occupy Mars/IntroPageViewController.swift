@@ -33,7 +33,7 @@ class IntroPageViewController: UIPageViewController {
         player!.volume = 0
         playerLayer = AVPlayerLayer(player: player)
         playerLayer?.frame = self.view.frame //.layer.bounds
-        playerLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+        playerLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
         
         self.view.layer.insertSublayer(playerLayer!, at: 0)
         NotificationCenter.default.addObserver(self, selector: #selector(IntroPageViewController.playerItemDidReachEnd), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player!.currentItem)
@@ -51,30 +51,30 @@ class IntroPageViewController: UIPageViewController {
             name: NSNotification.Name.UIApplicationWillResignActive,
             object: nil)
         
-        //parallax
-        let verticalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
-        verticalMotionEffect.minimumRelativeValue = -50
-        verticalMotionEffect.maximumRelativeValue = 50
-        
-        let horizontalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
-        horizontalMotionEffect.minimumRelativeValue = -50
-        horizontalMotionEffect.maximumRelativeValue = 50
-        
-        let group = UIMotionEffectGroup()
-        group.motionEffects = [horizontalMotionEffect, verticalMotionEffect]
-        self.view.addMotionEffect(group)
+//        //parallax
+//        let verticalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
+//        verticalMotionEffect.minimumRelativeValue = -50
+//        verticalMotionEffect.maximumRelativeValue = 50
+//        
+//        let horizontalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
+//        horizontalMotionEffect.minimumRelativeValue = -50
+//        horizontalMotionEffect.maximumRelativeValue = 50
+//        
+//        let group = UIMotionEffectGroup()
+//        group.motionEffects = [horizontalMotionEffect, verticalMotionEffect]
+//        self.view.addMotionEffect(group)
     }
     
-    func playerItemDidReachEnd() {
+    @objc func playerItemDidReachEnd() {
         player!.seek(to: kCMTimeZero)
     }
     
-    func applicationDidBecomeActive() {
+    @objc func applicationDidBecomeActive() {
         player!.seek(to: time, toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero)
         player?.play()
     }
     
-    func applicationWillResignActive() {
+    @objc func applicationWillResignActive() {
         player?.pause()
         time = (player?.currentTime())!
     }

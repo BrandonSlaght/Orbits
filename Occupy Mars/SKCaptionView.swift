@@ -7,26 +7,6 @@
 //
 
 import UIKit
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
-}
-
-fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l > r
-  default:
-    return rhs < lhs
-  }
-}
-
 
 open class SKCaptionView: UIView {
     fileprivate var photo: SKPhotoProtocol?
@@ -49,10 +29,7 @@ open class SKCaptionView: UIView {
     }
     
     open override func sizeThatFits(_ size: CGSize) -> CGSize {
-        guard let text = photoLabel.text else {
-            return CGSize.zero
-        }
-        guard photoLabel.text?.characters.count > 0 else {
+        guard let text = photoLabel.text, text.characters.count > 0 else {
             return CGSize.zero
         }
         
@@ -60,7 +37,7 @@ open class SKCaptionView: UIView {
         let width: CGFloat = size.width - photoLabelPadding * 2
         let height: CGFloat = photoLabel.font.lineHeight * CGFloat(photoLabel.numberOfLines)
         
-        let attributedText = NSAttributedString(string: text, attributes: [NSFontAttributeName: font])
+        let attributedText = NSAttributedString(string: text, attributes: [NSAttributedStringKey.font: font])
         let textSize = attributedText.boundingRect(with: CGSize(width: width, height: height), options: .usesLineFragmentOrigin, context: nil).size
         
         return CGSize(width: textSize.width, height: textSize.height + photoLabelPadding * 2)
@@ -80,32 +57,15 @@ private extension SKCaptionView {
         photoLabel = UILabel(frame: CGRect(x: photoLabelPadding, y: 0, width: bounds.size.width - (photoLabelPadding * 2), height: bounds.size.height))
         photoLabel.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         photoLabel.isOpaque = false
-        photoLabel.backgroundColor = UIColor.clear
-        photoLabel.textColor = UIColor.white
-        photoLabel.textAlignment = .center
-        photoLabel.lineBreakMode = .byTruncatingTail
-        photoLabel.numberOfLines = 5
+        photoLabel.backgroundColor = .clear
+        photoLabel.textColor = SKCaptionOptions.textColor
+        photoLabel.textAlignment = SKCaptionOptions.textAlignment
+        photoLabel.lineBreakMode = SKCaptionOptions.lineBreakMode
+        photoLabel.numberOfLines = SKCaptionOptions.numberOfLine
+        photoLabel.font = SKCaptionOptions.font
         photoLabel.shadowColor = UIColor(white: 0.0, alpha: 0.9)
         photoLabel.shadowOffset = CGSize(width: 0.0, height: 1.0)
-        photoLabel.font = UIFont.systemFont(ofSize: 17.0)
-        
-        // Create a shadow
-        let myShadow = NSShadow()
-        myShadow.shadowBlurRadius = 2
-        myShadow.shadowOffset = CGSize(width: 1, height: 1)
-        myShadow.shadowColor = UIColor.black
-        
-        // Create an attribute from the shadow
-        let myAttribute = [ NSShadowAttributeName: myShadow ]
-        
-        // Add the attribute to the string
-        let myAttrString = NSAttributedString(string: (photo?.caption)!, attributes: myAttribute)
-        
-        // set the attributed text on a label
-        photoLabel.attributedText = myAttrString
-        
-        //photoLabel.text = photo?.caption
+        photoLabel.text = photo?.caption
         addSubview(photoLabel)
     }
 }
-

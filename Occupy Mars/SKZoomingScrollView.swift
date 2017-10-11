@@ -13,6 +13,9 @@ open class SKZoomingScrollView: UIScrollView {
     var photo: SKPhotoProtocol! {
         didSet {
             photoImageView.image = nil
+            if photo != nil && photo.underlyingImage != nil {
+                displayImage(complete: true)
+            }
             if photo != nil {
                 displayImage(complete: false)
             }
@@ -48,7 +51,7 @@ open class SKZoomingScrollView: UIScrollView {
         // tap
         tapView = SKDetectingView(frame: bounds)
         tapView.delegate = self
-        tapView.backgroundColor = UIColor.clear
+        tapView.backgroundColor = .clear
         tapView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         addSubview(tapView)
         
@@ -56,7 +59,7 @@ open class SKZoomingScrollView: UIScrollView {
         photoImageView = SKDetectingImageView(frame: frame)
         photoImageView.delegate = self
         photoImageView.contentMode = .bottom
-        photoImageView.backgroundColor = UIColor.clear
+        photoImageView.backgroundColor = .clear
         addSubview(photoImageView)
         
         // indicator
@@ -64,10 +67,10 @@ open class SKZoomingScrollView: UIScrollView {
         addSubview(indicatorView)
         
         // self
-        backgroundColor = UIColor.clear
+        backgroundColor = .clear
         delegate = self
-        showsHorizontalScrollIndicator = false
-        showsVerticalScrollIndicator = false
+        showsHorizontalScrollIndicator = SKPhotoBrowserOptions.displayHorizontalScrollIndicator
+        showsVerticalScrollIndicator = SKPhotoBrowserOptions.displayVerticalScrollIndicator
         decelerationRate = UIScrollViewDecelerationRateFast
         autoresizingMask = [.flexibleWidth, .flexibleTopMargin, .flexibleBottomMargin, .flexibleRightMargin, .flexibleLeftMargin]
     }
@@ -136,7 +139,7 @@ open class SKZoomingScrollView: UIScrollView {
             // here if photoImageView.frame.width == deviceScreenWidth
             maxScale = 2.5
         }
-    
+        
         maximumZoomScale = maxScale
         minimumZoomScale = minScale
         zoomScale = minScale
@@ -145,11 +148,11 @@ open class SKZoomingScrollView: UIScrollView {
         // maximum zoom scale to 0.5
         // After changing this value, we still never use more
         /*
-        maxScale = maxScale / scale 
-        if maxScale < minScale {
-            maxScale = minScale * 2
-        }
-        */
+         maxScale = maxScale / scale
+         if maxScale < minScale {
+         maxScale = minScale * 2
+         }
+         */
         
         // reset position
         photoImageView.frame = CGRect(x: 0, y: 0, width: photoImageView.frame.size.width, height: photoImageView.frame.size.height)
@@ -160,7 +163,7 @@ open class SKZoomingScrollView: UIScrollView {
         photo = nil
         if captionView != nil {
             captionView.removeFromSuperview()
-            captionView = nil 
+            captionView = nil
         }
     }
     
@@ -181,22 +184,7 @@ open class SKZoomingScrollView: UIScrollView {
             indicatorView.stopAnimating()
         }
         
-        if let image = photo.underlyingImage {
-            
-            // performance slowed #145
- 
-            // create padding
-            // let width: CGFloat = image.size.width + SKPhotoBrowserOptions.imagePaddingX
-            // let height: CGFloat = image.size.height + SKPhotoBrowserOptions.imagePaddingY;
-            // UIGraphicsBeginImageContextWithOptions(CGSizeMake(width, height), false, 0.0);
-            // let context: CGContextRef = UIGraphicsGetCurrentContext()!;
-            // UIGraphicsPushContext(context);
-            // let origin: CGPoint = CGPointMake((width - image.size.width) / 2, (height - image.size.height) / 2);
-            // image.drawAtPoint(origin)
-            // UIGraphicsPopContext();
-            // let imageWithPadding = UIGraphicsGetImageFromCurrentImageContext();
-            // UIGraphicsEndImageContext();
-
+        if let image = photo.underlyingImage, photo != nil {
             // image
             photoImageView.image = image
             photoImageView.contentMode = photo.contentMode
@@ -231,11 +219,11 @@ open class SKZoomingScrollView: UIScrollView {
         } else {
             // zoom in
             // I think that the result should be the same after double touch or pinch
-           /* var newZoom: CGFloat = zoomScale * 3.13
-            if newZoom >= maximumZoomScale {
-                newZoom = maximumZoomScale
-            }
-            */
+            /* var newZoom: CGFloat = zoomScale * 3.13
+             if newZoom >= maximumZoomScale {
+             newZoom = maximumZoomScale
+             }
+             */
             let zoomRect = zoomRectForScrollViewWith(maximumZoomScale, touchPoint: touchPoint)
             zoom(to: zoomRect, animated: true)
         }
@@ -288,7 +276,6 @@ extension SKZoomingScrollView: SKDetectingViewDelegate {
     }
 }
 
-
 // MARK: - SKDetectingImageViewDelegate
 
 extension SKZoomingScrollView: SKDetectingImageViewDelegate {
@@ -339,3 +326,4 @@ private extension SKZoomingScrollView {
         return CGRect(x: x, y: y, width: w, height: h)
     }
 }
+

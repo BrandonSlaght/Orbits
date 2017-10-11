@@ -73,6 +73,43 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
         if UIDevice.current.userInterfaceIdiom == .pad {
             splitViewController?.preferredDisplayMode = .allVisible
         }
+        
+        //parallax
+//        let verticalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
+//        verticalMotionEffect.minimumRelativeValue = -50
+//        verticalMotionEffect.maximumRelativeValue = 50
+//        
+//        let horizontalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
+//        horizontalMotionEffect.minimumRelativeValue = -50
+//        horizontalMotionEffect.maximumRelativeValue = 50
+//        
+//        let group = UIMotionEffectGroup()
+//        group.motionEffects = [horizontalMotionEffect, verticalMotionEffect]
+//        tableView.backgroundView?.addMotionEffect(group)
+        
+//        var JD: Double
+//        var observer: ln_lnlat_posn = ln_lnlat_posn()
+//        var rst: ln_rst_time = ln_rst_time()
+//        var rise: ln_zonedate = ln_zonedate()
+//        var set: ln_zonedate = ln_zonedate()
+//        var transit: ln_zonedate = ln_zonedate()
+//        
+//        observer.lat = 55.92 /* 55.92 N */
+//        observer.lng = -3.18 /* 3.18 W */
+//        JD = ln_get_julian_from_sys();
+//        if (ln_get_mars_rst(JD, &observer, &rst) != 0) {
+//            print("Mars is circumpolar")
+//        } else {
+//            ln_get_local_date(rst.rise, &rise);
+//            ln_get_local_date(rst.transit, &transit);
+//            ln_get_local_date(rst.set, &set);
+//            print(rise.days);
+//            print(rise.hours);
+//            print(rise.minutes);
+//            print(rise.seconds);
+//            //print("Transit " + &transit);
+//            //print("Set " + &set);
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -296,7 +333,7 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
                     } else { //we are on an iPhone :(
                         if (newVC.body.name != ((splitViewController?.primaryViewController as? UINavigationController)?.topViewController as? DetailViewController)?.body.name) {
                             pushDetailViewToProperParent(viewController: newVC)
-                        } else if let checkVC = (splitViewController?.primaryViewController as? UINavigationController)?.topViewController as? PlanetListViewController {
+                        } else if ((splitViewController?.primaryViewController as? UINavigationController)?.topViewController as? PlanetListViewController) != nil {
                             pushDetailViewToProperParent(viewController: newVC)
                         }
                     }

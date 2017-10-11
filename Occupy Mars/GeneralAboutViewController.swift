@@ -18,6 +18,8 @@ class GeneralAboutViewController: AboutViewController {
         
         if let let_description = body.description {
             descriptionText.text = let_description
+            descriptionText.textContainerInset = UIEdgeInsets.zero
+            descriptionText.textContainer.lineFragmentPadding = 0
         }
         
         let touchWiki = UITapGestureRecognizer(target: self, action:#selector(self.openWiki))
@@ -36,15 +38,15 @@ class GeneralAboutViewController: AboutViewController {
         super.didReceiveMemoryWarning()
     }
     
-    func openWiki() {
+    @objc func openWiki() {
         if let let_wiki = body.wiki {
-            UIApplication.shared.openURL(URL(string: let_wiki)!)
+            UIApplication.shared.open(URL(string: let_wiki)!, options: [:])
         }
     }
     
-    func openNASA() {
+    @objc func openNASA() {
         if let let_nasa = body.nasa {
-            UIApplication.shared.openURL(URL(string: let_nasa)!)
+            UIApplication.shared.open(URL(string: let_nasa)!, options: [:])
         }
     }
 }

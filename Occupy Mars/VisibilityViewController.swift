@@ -27,25 +27,25 @@ class VisibilityViewController: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        var width = self.bounds.width
-        var height = self.bounds.height
+        //var width = self.bounds.width
+        //var height = self.bounds.height
         
         //0% width is 12:00AM, 100% width is 11:59PM
         //must schedule this to refresh at midnight
         
         //holy shit this is complicated, I need acceptance criteria
         
-        let today = Date()
+//        let today = Date()
         
-        let startOfToday = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: today)!
-        let startOfTomorrow = 
+//        let startOfToday = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: today)!
+//        let startOfTomorrow =
             
-            .timeIntervalSinceReferenceDate
-        Date().add
-        let endInterval = endDate.timeIntervalSinceReferenceDate
-        
-        let startInterval = Date().timeIntervalSinceReferenceDate
-        let endInterval = endDate.timeIntervalSinceReferenceDate
+//            .timeIntervalSinceReferenceDate
+//        Date().add
+//        let endInterval = endDate.timeIntervalSinceReferenceDate
+//        
+//        let startInterval = Date().timeIntervalSinceReferenceDate
+//        endInterval = endDate.timeIntervalSinceReferenceDate
         
         
         
