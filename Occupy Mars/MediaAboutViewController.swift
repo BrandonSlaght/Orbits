@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MediaAboutViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, CHTCollectionViewDelegateWaterfallLayout {
+class MediaAboutViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerPreviewingDelegate, CHTCollectionViewDelegateWaterfallLayout {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
@@ -28,6 +28,10 @@ class MediaAboutViewController: UIViewController, UICollectionViewDelegate, UICo
     override func viewDidLayoutSubviews() {
         collectionView.layoutIfNeeded()
         collectionViewHeight.constant = collectionView.contentSize.height
+        
+        guard traitCollection.forceTouchCapability == .available else { return }
+        print("have registered")
+        registerForPreviewing(with: self, sourceView: collectionView)
     }
     
     override func didReceiveMemoryWarning() {
@@ -73,6 +77,7 @@ class MediaAboutViewController: UIViewController, UICollectionViewDelegate, UICo
     
     //** Create a basic CollectionView Cell */
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         // Create the cell and return the cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MediaHolder
         cell.image.image = UIImage(named: body.images[indexPath.row].image)
@@ -96,5 +101,26 @@ class MediaAboutViewController: UIViewController, UICollectionViewDelegate, UICo
         browser.initializePageIndex(indexPath.row)
         //browser.navigationItem.title = "test"
         present(browser, animated: true, completion: {})
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let indexPath = collectionView?.indexPathForItem(at: location) else { return nil }
+        guard let cell = collectionView?.cellForItem(at: indexPath) else { return nil }
+        previewingContext.sourceRect = cell.frame
+        
+        guard let mediaHolderViewController = storyboard?.instantiateViewController(withIdentifier: "ImagePeekView") as? PeekViewController else {
+            return nil
+        }
+        
+        let image = images[indexPath.row]
+        print(mediaHolderViewController.imageObject)
+        print(image.underlyingImage)
+        mediaHolderViewController.imageObject = image.underlyingImage!
+        mediaHolderViewController.preferredContentSize = CGSize(width: image.underlyingImage.size.width, height: image.underlyingImage.size.height)
+        return mediaHolderViewController
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        
     }
 }

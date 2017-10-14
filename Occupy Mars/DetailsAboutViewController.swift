@@ -301,7 +301,7 @@ class DetailsAboutViewController: AboutViewController, UITableViewDataSource, UI
     }
     
     @objc func addAverageVelocity(_ sender: UITapGestureRecognizer) {
-        BTBalloon.sharedInstance().show(withTitle: "The average speed that the planet moves around the Sun.  The velovity isn't constant because planets move faster when they are closer to the Sun.",
+        BTBalloon.sharedInstance().show(withTitle: "The average speed that the planet moves around the Sun.  The velocity isn't constant because planets move faster when they are closer to the Sun.",
                                         image: nil,
                                         anchorTo: self.view.viewWithTag(12)!)
     }

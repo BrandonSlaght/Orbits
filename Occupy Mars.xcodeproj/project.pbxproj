@@ -127,6 +127,7 @@
 		C5CD59C01DD91E4F00ACB8EA /* GlobeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CD59BF1DD91E4F00ACB8EA /* GlobeViewController.swift */; };
 		C5CD59C31DD91F8600ACB8EA /* background.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C5CD59C21DD91F8600ACB8EA /* background.mp4 */; };
 		C5D515B81DE106400024638D /* InfoModalVewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D515B71DE106400024638D /* InfoModalVewController.swift */; };
+		C5F3A70F1F91F691001F7C56 /* PeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F3A70E1F91F691001F7C56 /* PeekViewController.swift */; };
 		C5F8AA651DCA70330077F137 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F8AA641DCA70330077F137 /* AboutViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -276,6 +277,7 @@
 		C5CD59BF1DD91E4F00ACB8EA /* GlobeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobeViewController.swift; sourceTree = "<group>"; };
 		C5CD59C21DD91F8600ACB8EA /* background.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = background.mp4; sourceTree = "<group>"; };
 		C5D515B71DE106400024638D /* InfoModalVewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoModalVewController.swift; sourceTree = "<group>"; };
+		C5F3A70E1F91F691001F7C56 /* PeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeekViewController.swift; sourceTree = "<group>"; };
 		C5F8AA641DCA70330077F137 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -639,6 +641,7 @@
 				C54A98FC1E032F8A009A8695 /* planets */,
 				C5AB79FB1DEC8EA10097C295 /* DataViewCellController.swift */,
 				C5C281BA1DDB91420036C7A0 /* MediaHolder.swift */,
+				C5F3A70E1F91F691001F7C56 /* PeekViewController.swift */,
 				C5991A3D1DD9738200A86F04 /* WaterfallLayout.swift */,
 			);
 			name = details;
@@ -871,6 +874,7 @@
 				8488D4391E54EBCF009AD9D8 /* VolumeUnit+Imperial.swift in Sources */,
 				8488D4341E54EBCF009AD9D8 /* MassUnit+Imperial.swift in Sources */,
 				84297BF01EC8F4BE003604C7 /* Globals.swift in Sources */,
+				C5F3A70F1F91F691001F7C56 /* PeekViewController.swift in Sources */,
 				C520FB451DFC928C004A0FE6 /* SKPagingScrollView.swift in Sources */,
 				C520FB3C1DFC928C004A0FE6 /* SKButtons.swift in Sources */,
 				C54A60E11EA14A74008012C6 /* BTBalloon.m in Sources */,

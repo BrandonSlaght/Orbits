@@ -15,8 +15,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "15"
             endingLineNumber = "15"
-            landmarkName = "IntroPageViewController"
-            landmarkType = "3">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -248,8 +248,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "95"
             endingLineNumber = "95"
-            landmarkName = "getViewControllers()"
-            landmarkType = "9">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -273,13 +273,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Occupy Mars/DetailsAboutViewController.swift"
-            timestampString = "501359421.279497"
+            timestampString = "529624745.076697"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "11"
             endingLineNumber = "11"
-            landmarkName = "DetailsAboutViewController"
-            landmarkType = "3">
+            landmarkName = "unknown"
+            landmarkType = "0">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -381,13 +381,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Occupy Mars/DetailsAboutViewController.swift"
-            timestampString = "503100914.511534"
+            timestampString = "529624745.078065"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "104"
             endingLineNumber = "104"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -397,13 +397,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Occupy Mars/DetailsAboutViewController.swift"
-            timestampString = "503100914.511534"
+            timestampString = "529624745.078528"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "22"
             endingLineNumber = "22"
-            landmarkName = "DetailsAboutViewController"
-            landmarkType = "3">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -413,13 +413,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Occupy Mars/DetailsAboutViewController.swift"
-            timestampString = "503100914.511534"
+            timestampString = "529624745.080495"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "98"
             endingLineNumber = "98"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -429,13 +429,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Occupy Mars/DetailsAboutViewController.swift"
-            timestampString = "503100914.511534"
+            timestampString = "529624745.08118"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "102"
             endingLineNumber = "102"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -445,13 +445,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Occupy Mars/DetailsAboutViewController.swift"
-            timestampString = "503100914.511534"
+            timestampString = "529624745.081983"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "94"
             endingLineNumber = "94"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -662,13 +662,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Occupy Mars/MediaAboutViewController.swift"
-            timestampString = "528008833.883017"
+            timestampString = "529662815.011707"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "collectionView(_:cellForItemAt:)"
-            landmarkType = "7">
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "MediaAboutViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -678,11 +678,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Occupy Mars/MediaAboutViewController.swift"
-            timestampString = "528008833.883403"
+            timestampString = "529662815.012202"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -860,11 +860,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Occupy Mars/PlanetListViewController.swift"
-            timestampString = "529386897.675548"
+            timestampString = "529624463.112956"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "366"
-            endingLineNumber = "366"
+            startingLineNumber = "372"
+            endingLineNumber = "372"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
             <Locations>
@@ -923,11 +923,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Occupy Mars/PlanetListViewController.swift"
-            timestampString = "529386897.675644"
+            timestampString = "529624463.119475"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "371"
-            endingLineNumber = "371"
+            startingLineNumber = "377"
+            endingLineNumber = "377"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -944,8 +944,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
             endingLineNumber = "34"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "applicationWillResignActive(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -976,8 +976,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "33"
             endingLineNumber = "33"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -987,7 +987,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Occupy Mars/PlanetListViewController.swift"
-            timestampString = "529386897.675734"
+            timestampString = "529624463.120109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "55"
@@ -1003,7 +1003,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Occupy Mars/PlanetListViewController.swift"
-            timestampString = "529386897.675777"
+            timestampString = "529624463.120551"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"
@@ -1019,7 +1019,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Occupy Mars/PlanetListViewController.swift"
-            timestampString = "529386897.675816"
+            timestampString = "529624463.120972"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "57"
@@ -1056,8 +1056,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "58"
             endingLineNumber = "58"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "application(_:continue:restorationHandler:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1067,11 +1067,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Occupy Mars/PlanetListViewController.swift"
-            timestampString = "529386897.675888"
+            timestampString = "529624463.121417"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "306"
-            endingLineNumber = "306"
+            startingLineNumber = "312"
+            endingLineNumber = "312"
             landmarkName = "restoreUserActivityState(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1083,11 +1083,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Occupy Mars/PlanetListViewController.swift"
-            timestampString = "529386897.675934"
+            timestampString = "529624463.122055"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "307"
-            endingLineNumber = "307"
+            startingLineNumber = "313"
+            endingLineNumber = "313"
             landmarkName = "restoreUserActivityState(_:)"
             landmarkType = "7">
          </BreakpointContent>
