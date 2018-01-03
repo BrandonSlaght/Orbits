@@ -4,6 +4,8 @@
 
 #import "BTBalloon.h"
 #import "BTBalloonArrow.h"
+#import "SexyTooltip.h"
+#import "POP.h"
 //#import "sextant/libnova/libnova.h"
 //#import "sextant/libnova/uranus.h"
 //

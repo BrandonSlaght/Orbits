@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if launchedBefore  {
             //self.window = UIWindow(frame: UIScreen.main.bounds)
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: "SplitView")
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "TabView")
             self.window?.rootViewController = initialViewController
             self.window?.makeKeyAndVisible()
         }
@@ -51,8 +51,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+        
+        let tabBarViewController = self.window!.rootViewController as! UITabBarController
+        print(tabBarViewController.viewControllers?.count ?? 0)
+        var splitViewController:UISplitViewController? = nil
+        for viewController in tabBarViewController.viewControllers! {
+            if viewController.title == "SplitView" {
+                splitViewController = viewController as? UISplitViewController
+            }
+        }
+        
+        let navigationController = splitViewController!.viewControllers[splitViewController!.viewControllers.count-1] as! UINavigationController
+        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController!.displayModeButtonItem
+        //splitViewController!.delegate = self
 
-        if let splitViewController = window?.rootViewController as? UISplitViewController {
+        if let splitViewController = splitViewController {//window?.rootViewController as? UISplitViewController {
             let primaryViewController = splitViewController.primaryViewController as! UINavigationController
             let listViewController = primaryViewController.viewControllers[0] as! PlanetListViewController
             listViewController.restoreUserActivityState(userActivity)

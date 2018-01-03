@@ -31,6 +31,11 @@ extension UISplitViewController {
     
     func toggleMasterView() {
         let barButtonItem = self.displayModeButtonItem
+        
+        //something here to hide bottom bar
+        
+        
+        
         UIApplication.shared.sendAction(barButtonItem.action!, to: barButtonItem.target, from: nil, for: nil)
     }
 }

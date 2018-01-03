@@ -116,11 +116,10 @@ class MediaAboutViewController: UIViewController, UICollectionViewDelegate, UICo
         print(mediaHolderViewController.imageObject)
         print(image.underlyingImage)
         mediaHolderViewController.imageObject = image.underlyingImage!
-        mediaHolderViewController.preferredContentSize = CGSize(width: image.underlyingImage.size.width, height: image.underlyingImage.size.height)
+        mediaHolderViewController.imageTitle = image.caption
+        mediaHolderViewController.preferredContentSize = CGSize(width: 0.0, height: 0.0)
         return mediaHolderViewController
     }
     
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        
-    }
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {}
 }

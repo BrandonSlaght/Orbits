@@ -13,10 +13,38 @@ class PeekViewController: UIViewController {
     @IBOutlet weak var imageHolder: UIImageView!
     
     var imageObject = UIImage()
+    var imageTitle = ""
     
     //func PeekViewController() {}
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         imageHolder.image = imageObject
+        imageHolder.sizeToFit()
+        view.sizeToFit()
+    }
+    
+    override var previewActionItems: [UIPreviewActionItem] {
+        let saveAction = UIPreviewAction(title: "Save", style: .default) { (action: UIPreviewAction, vc: UIViewController) -> Void in
+            UIImageWriteToSavedPhotosAlbum(self.imageObject, nil, nil, nil);
+        }
+        
+        let shareAction = UIPreviewAction(title: "Share", style: .default) { (action: UIPreviewAction, vc: UIViewController) -> Void in
+            
+            // image to share
+            let image = self.imageObject
+            
+            // set up activity view controller
+            //let imageToShare = [ image ]
+            let activityViewController = UIActivityViewController(activityItems: [(image), self.imageTitle], applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+            
+            // present the view controller
+            UIApplication.shared.delegate?.window??.rootViewController?.present(activityViewController, animated: true, completion: nil)
+        }
+        
+        //let actionGroup = UIPreviewActionGroup(title: "Group...", style: .default, actions: [regularAction, destructiveAction])
+        
+        return [saveAction, shareAction]
     }
 }

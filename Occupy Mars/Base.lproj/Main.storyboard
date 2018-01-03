@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13528" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EI3-eX-e9c">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EI3-eX-e9c">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13526"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,7 +22,7 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="EI3-eX-e9c" customClass="IntroPageViewController" customModule="Occupy_Mars" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vK8-Ce-SJ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="308" y="-8"/>
+            <point key="canvasLocation" x="-700" y="-10"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="wai-85-vlt">
@@ -71,7 +72,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AAb-vt-ixO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="308" y="684"/>
+            <point key="canvasLocation" x="-700" y="681"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Gmy-gV-q04">
@@ -121,7 +122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kVV-UG-IIz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-327" y="684"/>
+            <point key="canvasLocation" x="-1455" y="681"/>
         </scene>
         <!--Planet Reference-->
         <scene sceneID="SGl-Wv-9W5">
@@ -140,7 +141,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" sceneName="PlanetScene" autoenablesDefaultLighting="YES" translatesAutoresizingMaskIntoConstraints="NO" id="byj-MS-oJQ">
-                                            <rect key="frame" x="16" y="12" width="200" height="183.33333333333334"/>
+                                            <rect key="frame" x="16" y="11" width="200" height="183.33333333333334"/>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="200" id="AaX-ah-nl5"/>
@@ -148,7 +149,7 @@
                                             </constraints>
                                         </sceneKitView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="Exj-Ue-IdQ">
-                                            <rect key="frame" x="279" y="21.999999999999996" width="80" height="61.666666666666657"/>
+                                            <rect key="frame" x="279" y="20.999999999999996" width="80" height="61.666666666666657"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dgx-zh-qFl">
                                                     <rect key="frame" x="0.0" y="0.0" width="80" height="38"/>
@@ -245,8 +246,8 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v 1.2.2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7O2-Oh-hSc">
-                                        <rect key="frame" x="117.33333333333336" y="44.333333333333314" width="48.666666666666671" height="20.333333333333329"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v 1.3.1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7O2-Oh-hSc">
+                                        <rect key="frame" x="118.66666666666666" y="44.333333333333314" width="46" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -331,7 +332,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1J-Ti-1Z4">
-                                <rect key="frame" x="-4" y="88" width="383" height="690"/>
+                                <rect key="frame" x="-4" y="88" width="383" height="641"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mYK-s6-dM8">
                                         <rect key="frame" x="0.0" y="0.0" width="383" height="1465"/>
@@ -432,12 +433,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QSQ-sq-vaS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4670" y="681"/>
+            <point key="canvasLocation" x="4669.6000000000004" y="680.54187192118229"/>
         </scene>
         <!--Globe View Controller-->
         <scene sceneID="Nde-kZ-d4N">
             <objects>
-                <viewController storyboardIdentifier="globeView" id="LxB-TC-tsO" customClass="GlobeViewController" customModule="Occupy_Mars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="globeView" hidesBottomBarWhenPushed="YES" id="LxB-TC-tsO" customClass="GlobeViewController" customModule="Occupy_Mars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qzQ-bi-6na"/>
                         <viewControllerLayoutGuide type="bottom" id="tqg-B4-F6e"/>
@@ -451,14 +452,14 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </sceneKitView>
                             <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sw9-rc-yPL">
-                                <rect key="frame" x="10" y="738" width="30" height="30"/>
+                                <rect key="frame" x="10" y="689" width="30" height="30"/>
                                 <state key="normal" image="icon-reset"/>
                                 <connections>
                                     <action selector="press:" destination="LxB-TC-tsO" eventType="touchUpInside" id="7vj-BU-YRj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="42h-g5-DiV">
-                                <rect key="frame" x="335" y="738" width="30" height="30"/>
+                                <rect key="frame" x="335" y="689" width="30" height="30"/>
                                 <state key="normal" image="icon-rotation-on"/>
                                 <connections>
                                     <action selector="stopRotation:" destination="LxB-TC-tsO" eventType="touchUpInside" id="4TT-ux-GcS"/>
@@ -478,6 +479,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9cl-pY-xTc"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="globe" destination="2Od-lC-Eja" id="c7G-HC-k0u"/>
                         <outlet property="reset" destination="Sw9-rc-yPL" id="ltz-EJ-Bnj"/>
@@ -539,7 +541,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AiY-Ma-P3u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4897" y="1404"/>
+            <point key="canvasLocation" x="5239.1999999999998" y="1403.9408866995075"/>
         </scene>
         <!--Peek View Controller-->
         <scene sceneID="saK-2r-Lo7">
@@ -553,12 +555,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Oh-7O-gW5">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Oh-7O-gW5">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5Oh-7O-gW5" firstAttribute="leading" secondItem="dF0-5S-awW" secondAttribute="leading" id="Eua-oY-1tB"/>
+                            <constraint firstAttribute="trailing" secondItem="5Oh-7O-gW5" secondAttribute="trailing" id="Fhg-nQ-075"/>
+                            <constraint firstItem="5Oh-7O-gW5" firstAttribute="top" secondItem="dF0-5S-awW" secondAttribute="top" id="dOo-f6-Axs"/>
+                            <constraint firstAttribute="bottom" secondItem="5Oh-7O-gW5" secondAttribute="bottom" id="pRE-X7-yU6"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="imageHolder" destination="5Oh-7O-gW5" id="1dD-tQ-eFE"/>
@@ -611,7 +618,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="HRL-Og-G9C" kind="showDetail" id="aZB-iq-tfG"/>
+                                    <segue destination="Hgi-N0-dIO" kind="show" id="RoW-yt-1l1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -629,12 +636,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AnX-Fd-A2c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="943" y="684"/>
+            <point key="canvasLocation" x="36" y="681"/>
         </scene>
-        <!--Split View Controller-->
+        <!--Planets-->
         <scene sceneID="aR4-iG-2Wl">
             <objects>
                 <splitViewController storyboardIdentifier="SplitView" id="HRL-Og-G9C" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Planets" image="icon-planet-filled-small" selectedImage="icon-planet-filled-small" id="ACJ-Yi-RPA"/>
                     <connections>
                         <segue destination="1b7-hp-oWL" kind="relationship" relationship="masterViewController" id="1ze-Um-D0f"/>
                         <segue destination="KEg-9l-Zwd" kind="relationship" relationship="detailViewController" id="qrT-QF-VWH"/>
@@ -642,7 +650,93 @@
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EIv-Is-YSa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1692" y="683"/>
+            <point key="canvasLocation" x="1686" y="681"/>
+        </scene>
+        <!--Night Sky-->
+        <scene sceneID="ql8-Tt-JLu">
+            <objects>
+                <viewController id="eGF-vt-BJ3" customClass="FlatSkyViewController" customModule="Occupy_Mars" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="svh-MV-sq0"/>
+                        <viewControllerLayoutGuide type="bottom" id="oDw-g1-d14"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fVQ-x8-RBb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h5e-0k-u26">
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <subviews>
+                                    <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EVZ-nr-3fJ">
+                                        <rect key="frame" x="-60" y="73.333333333333371" width="495" height="495"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="EVZ-nr-3fJ" secondAttribute="height" multiplier="1:1" id="FYW-ou-Q2E"/>
+                                        </constraints>
+                                    </sceneKitView>
+                                    <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-tempStarChart" translatesAutoresizingMaskIntoConstraints="NO" id="WlO-KS-bZi">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="EVZ-nr-3fJ" firstAttribute="centerY" secondItem="h5e-0k-u26" secondAttribute="centerY" id="07f-dK-oZN"/>
+                                    <constraint firstItem="WlO-KS-bZi" firstAttribute="centerY" secondItem="h5e-0k-u26" secondAttribute="centerY" id="5eD-az-Nmc"/>
+                                    <constraint firstAttribute="trailing" secondItem="WlO-KS-bZi" secondAttribute="trailing" id="B8x-C4-3BQ"/>
+                                    <constraint firstItem="WlO-KS-bZi" firstAttribute="leading" secondItem="h5e-0k-u26" secondAttribute="leading" id="Cay-kF-POh"/>
+                                    <constraint firstItem="EVZ-nr-3fJ" firstAttribute="leading" secondItem="h5e-0k-u26" secondAttribute="leading" constant="-60" id="Lnu-nw-Lxz"/>
+                                    <constraint firstItem="WlO-KS-bZi" firstAttribute="centerX" secondItem="h5e-0k-u26" secondAttribute="centerX" id="PXF-0S-0Z8"/>
+                                    <constraint firstAttribute="trailing" secondItem="EVZ-nr-3fJ" secondAttribute="trailing" constant="-60" id="as3-fa-H1R"/>
+                                    <constraint firstAttribute="bottom" secondItem="WlO-KS-bZi" secondAttribute="bottom" id="b8x-5X-qS2"/>
+                                    <constraint firstItem="WlO-KS-bZi" firstAttribute="top" secondItem="h5e-0k-u26" secondAttribute="top" id="w4R-Lz-tOP"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="h5e-0k-u26" firstAttribute="top" secondItem="svh-MV-sq0" secondAttribute="bottom" id="MJB-4e-w6p"/>
+                            <constraint firstAttribute="trailing" secondItem="h5e-0k-u26" secondAttribute="trailing" id="VlD-ty-W7J"/>
+                            <constraint firstItem="h5e-0k-u26" firstAttribute="leading" secondItem="fVQ-x8-RBb" secondAttribute="leading" id="Xlm-98-mFI"/>
+                            <constraint firstItem="oDw-g1-d14" firstAttribute="top" secondItem="h5e-0k-u26" secondAttribute="bottom" id="oiB-ah-IOt"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Night Sky" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="vK3-r0-TiS"/>
+                    <connections>
+                        <outlet property="compass" destination="h5e-0k-u26" id="wcI-i4-8TN"/>
+                        <outlet property="skybox" destination="EVZ-nr-3fJ" id="N3q-8o-xQe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dZy-Ka-6Ci" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2478" y="1404"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="vbW-54-05s">
+            <objects>
+                <tabBarController storyboardIdentifier="TabView" id="Hgi-N0-dIO" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lN4-sz-F8o">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.38039215686274508" green="0.38039215686274508" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" red="0.66679885786802029" green="0.66679885786802029" blue="0.66679885786802029" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBar>
+                    <connections>
+                        <segue destination="HRL-Og-G9C" kind="relationship" relationship="viewControllers" id="Ln8-Gt-b7M"/>
+                        <segue destination="8eP-bX-K71" kind="relationship" relationship="viewControllers" id="MiB-nd-AZm"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E2k-gM-xNY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="830" y="681"/>
         </scene>
         <!--Planets-->
         <scene sceneID="iAr-ak-rMK">
@@ -792,7 +886,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2H3-Mz-83I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3614" y="1404"/>
+            <point key="canvasLocation" x="3956" y="1403.9408866995075"/>
         </scene>
         <!--General About View Controller-->
         <scene sceneID="Ugl-sa-Zgv">
@@ -866,7 +960,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PHH-uP-j8X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2969" y="1404"/>
+            <point key="canvasLocation" x="3311.1999999999998" y="1403.9408866995075"/>
         </scene>
         <!--Moon Test View Controller-->
         <scene sceneID="Cfc-4E-osO">
@@ -959,7 +1053,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r1U-mi-y4G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4254" y="1404"/>
+            <point key="canvasLocation" x="4596" y="1403.9408866995075"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bdd-tD-dlK">
@@ -983,6 +1077,29 @@
             </objects>
             <point key="canvasLocation" x="3940" y="681.40929535232385"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cLb-8v-URx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8eP-bX-K71" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="history" id="ecm-Gy-qYP"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="drf-4N-2jS">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.3803921569" green="0.3803921569" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="eGF-vt-BJ3" kind="relationship" relationship="rootViewController" id="z4Y-i8-Tit"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tpL-L3-cZp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1684.8" y="1403.9408866995075"/>
+        </scene>
     </scenes>
     <resources>
         <image name="icon-jupiter" width="266" height="266"/>
@@ -991,12 +1108,13 @@
         <image name="icon-reset" width="30" height="30"/>
         <image name="icon-rotation-on" width="30" height="30"/>
         <image name="icon-satelite" width="266" height="266"/>
+        <image name="icon-tempStarChart" width="1500" height="1500"/>
         <image name="logo-github" width="40" height="40"/>
         <image name="logo-nasa" width="336" height="287"/>
         <image name="logo-web" width="40" height="40"/>
         <image name="logo-wikipedia" width="341" height="341"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uy9-4G-SSX"/>
+        <segue reference="qrT-QF-VWH"/>
     </inferredMetricsTieBreakers>
 </document>

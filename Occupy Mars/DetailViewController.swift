@@ -38,6 +38,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     var navigationBarOriginalOffset : CGFloat?
     var extraPadding: CGFloat!
     var barColor: UIColor!
+    var tabColor: UIColor!
     var transitioning = false
     
     func cycleFromViewController(oldViewController: UIViewController, toViewController newViewController: UIViewController) {
@@ -193,6 +194,15 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
 //        let group = UIMotionEffectGroup()
 //        group.motionEffects = [horizontalMotionEffect, verticalMotionEffect]
 //        self.view.addMotionEffect(group)
+        
+        
+        if #available(iOS 11.0, *) {
+            navigationController?.navigationBar.prefersLargeTitles = false
+            self.navigationItem.largeTitleDisplayMode = .never
+
+            //navigationController?.navigationBar.largeTitleTextAttributes =  [NSAttributedStringKey.foregroundColor: UIColor.white]
+        }
+        
     }
     
     //stub methods to stop the gestures from going to the view.
@@ -211,8 +221,11 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         moveTagToBack(ofNav: self.navigationController!)
         
         barColor = navigationController?.navigationBar.barTintColor
+        tabColor = tabBarController?.tabBar.barTintColor
+
 
         if let let_color = body.color1 {
+            tabBarController?.tabBar.barTintColor = let_color
             //we are on an iPad and don't have to do anything fucked up
             if splitViewController?.secondaryViewController != nil {
                 navigationController?.navigationBar.barTintColor = let_color
@@ -221,6 +234,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             }
         } else {
             let gray = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
+            tabBarController?.tabBar.barTintColor = gray
             if splitViewController?.secondaryViewController != nil {
                 navigationController?.navigationBar.barTintColor = gray
             } else {
@@ -304,11 +318,13 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     @objc func globeSegue(){
         let globe = self.storyboard?.instantiateViewController(withIdentifier: "globeView") as? GlobeViewController
         globe?.body = body
-        self.navigationController?.pushViewController(globe!, animated: true)
+        self.splitViewController?.toggleMasterView()
+
+        if self.splitViewController?.secondaryViewController == nil {
+            globe!.hidesBottomBarWhenPushed = true
+        }
         
-        //if self.splitViewController?.secondaryViewController != nil {
-            self.splitViewController?.toggleMasterView()
-        //}
+        self.navigationController?.pushViewController(globe!, animated: true)
         
         BTBalloon.sharedInstance().hide()
     }

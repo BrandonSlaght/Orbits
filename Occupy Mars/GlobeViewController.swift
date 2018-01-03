@@ -70,7 +70,7 @@ class GlobeViewController: UIViewController {
 //            globe.pointOfView?.addChildNode(skynode)
 //            
             
-            //globe.scene?.background.contents = UIImage(named: "sky.jpg")
+            globe.scene?.background.contents = UIImage(named: "sky.jpg")
             //globe.scene?.rootNode.childNodes.first.
             //let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.panDetected(sender:)));
             //globe.addGestureRecognizer(panGesture);
@@ -125,6 +125,8 @@ class GlobeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
+        tabBarController?.tabBar.isHidden = true
+        
         var navBar: UINavigationBar
         if splitViewController?.secondaryViewController != nil {
             navBar = (navigationController?.navigationBar)!
@@ -166,6 +168,8 @@ class GlobeViewController: UIViewController {
 //        }
         //if self.splitViewController?.secondaryViewController != nil {
         print ("here in view did dissapear")
+        tabBarController?.tabBar.isHidden = false
+
         split.toggleMasterView()
         //}
     }
@@ -192,14 +196,14 @@ class GlobeViewController: UIViewController {
         globe.scene?.rootNode.childNode(withName: "planet", recursively: true)?.resumeAnimation(forKey: "spin around")
     }
     
-    func panDetected(sender: UIPanGestureRecognizer) {
-        stopMotion()
-        var i = 0
-        for gesture in globe.gestureRecognizers! {
-            print(i)
-            i += 1
-            print(gesture.isEnabled)
-        }
+//    func panDetected(sender: UIPanGestureRecognizer) {
+//        stopMotion()
+//        var i = 0
+//        for gesture in globe.gestureRecognizers! {
+//            print(i)
+//            i += 1
+//            print(gesture.isEnabled)
+//        }
         //if lastOrtho != ortho {
             //lastWidthRatio *= Float(lastOrtho/Ortho)
             //lastHeightRatio *= Float(lastOrtho/ortho)
@@ -220,10 +224,10 @@ class GlobeViewController: UIViewController {
 //            lastWidthRatio = widthRatio
 //            lastHeightRatio = heightRatio
 //        }
-    }
+//    }
     
-    func pinchDetected(sender: UIPinchGestureRecognizer) {
-        stopMotion()
+//    func pinchDetected(sender: UIPinchGestureRecognizer) {
+//        stopMotion()
 
 //        let pinchVelocity = Double.init(sender.velocity)
 //        
@@ -245,5 +249,5 @@ class GlobeViewController: UIViewController {
 //            //lastHeightRatio *= Float(ortho)
 //        }
         
-    } //http://stackoverflow.com/questions/33967838/scncamera-limit-arcball-rotation
+//    } //http://stackoverflow.com/questions/33967838/scncamera-limit-arcball-rotation
 }

@@ -59,20 +59,16 @@ DONE - fixed average orbital velocity being per hour instead of per second.
 DONE - URGENT - test scenekits in iOS 11
 DONE - fix constraints not always applying in details
 DONE - update SKphotobrowser to latest
+DONE - change sun background color
+DONE - make website with about and changelog, possibly from template
+NOT NEEDED - Handle ipad resizing in split screen - app will not force itself to resize
 ---------------------------------------------------------------------------------------------------------------------
-URGENT - Handle ipad resizing in split screen
 Fix scrolling in the globe view - when double tapping or tapping and holding
-Details of Moons
-Media of moons
-EZ - Mimas model - saturn
-colors and backgrounds of moons
 fix globes glitching out when slightly sliding finger from left and sliding it back
 EZ - update texture and model sources
 EZ - fix the alignment and constraints on the video intro screen
 EZ - better iPad support for text on the intro screen
-do visibility
 units inline in text to enable conversion
-EZ - pronunciations
 make the sticky tab bar be animated and blurry and also make the navbar blurry
 atmosphere details section
 make modal tooltips blurry
@@ -85,13 +81,26 @@ widget for visibility
 pictures for spotlight
 core siri support
 fix shitty navbar color transitions
-change sun background color
 touchable icons highlight version
 start sceneviews in new threads
-make website with about and changelog, possibly from template
 the app delegate resume method
-when there is an extended status bar because of a call, the tab bar will not be planed properly and when the call ends, the blur view in the background of the main planey list will be offset and not cover the whole screen
+when there is an extended status bar because of a call, the tab bar will not be planed properly and when the call ends, the blur view in the background of the main planet list will be offset and not cover the whole screen
+handle settings changes in app:  text size, reduce motion, and 3d touch
+3d skyview
+news tab
+
+
+BEFORE NEXT RELEASE:
+---------------------------------------------------------------------------------------------------------------------
 3d touch to share from media view
+Details of Moons
+Media of moons
+EZ - pronunciations
+do visibility
+EZ - Mimas model - saturn
+colors and backgrounds of moons
+finish 2d sky view and bugs
+remove BTBalloon
 ---------------------------------------------------------------------------------------------------------------------
 
 

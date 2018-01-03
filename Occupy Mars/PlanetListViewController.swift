@@ -10,7 +10,6 @@ import UIKit
 import CoreSpotlight
 import MobileCoreServices
 import SceneKit
-import CLibnova
 
 class PlanetListViewController: UITableViewController, UISplitViewControllerDelegate {
     
@@ -23,6 +22,7 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
     var selectedIndex : Int?
     var selectedMoon : Int?
     var collapseSplitView = true
+    let sextant = Sextant()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +49,17 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
         
         print("here in planet list view did load")
         
+        if #available(iOS 11.0, *) {
+            navigationController?.navigationBar.prefersLargeTitles = true
+            navigationController?.navigationBar.largeTitleTextAttributes =  [NSAttributedStringKey.foregroundColor: UIColor.white]
+        }
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            splitViewController?.preferredDisplayMode = .allVisible
+        }
+        
+        sextant.setCallbackFunction(locationUpdatedCallback)
+
         //addBlurEffect(toNav: self.navigationController!)
         
         //navigationController?.navigationItem.
@@ -70,10 +81,6 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
 //        self.navigationController?.navigationBar.insertSubview(blurEffectView, at: 0)
         //self.navigationController?.navigationBar.sendSubview(toBack: blurEffectView)
         
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            splitViewController?.preferredDisplayMode = .allVisible
-        }
-        
         //parallax
 //        let verticalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
 //        verticalMotionEffect.minimumRelativeValue = -50
@@ -87,29 +94,6 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
 //        group.motionEffects = [horizontalMotionEffect, verticalMotionEffect]
 //        tableView.backgroundView?.addMotionEffect(group)
         
-//        var JD: Double
-//        var observer: ln_lnlat_posn = ln_lnlat_posn()
-//        var rst: ln_rst_time = ln_rst_time()
-//        var rise: ln_zonedate = ln_zonedate()
-//        var set: ln_zonedate = ln_zonedate()
-//        var transit: ln_zonedate = ln_zonedate()
-//        
-//        observer.lat = 55.92 /* 55.92 N */
-//        observer.lng = -3.18 /* 3.18 W */
-//        JD = ln_get_julian_from_sys();
-//        if (ln_get_mars_rst(JD, &observer, &rst) != 0) {
-//            print("Mars is circumpolar")
-//        } else {
-//            ln_get_local_date(rst.rise, &rise);
-//            ln_get_local_date(rst.transit, &transit);
-//            ln_get_local_date(rst.set, &set);
-//            print(rise.days);
-//            print(rise.hours);
-//            print(rise.minutes);
-//            print(rise.seconds);
-//            //print("Transit " + &transit);
-//            //print("Set " + &set);
-//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -127,7 +111,8 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
         //let effectView = self.navigationController?.navigationBar.viewWithTag(10)
         //self.navigationController?.navigationBar.sendSubview(toBack: effectView!)
         
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
+        navigationController?.navigationBar.barTintColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
+        tabBarController?.tabBar.barTintColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
         
         let thisVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
         let thisVersionInt = Int(thisVersion.replacingOccurrences(of: ".", with: ""))
@@ -189,25 +174,16 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
         return Class.count
     }
     
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let subviews = cell.subviews
-        let classification = Class.allValues[indexPath.section]
-        if indexPath.row == (objects[classification]?.count)! - 1 && subviews.count >= 3 {
-            for subview in subviews {
-                if subview != cell.contentView {
-                    //print("removing last table separator in section")
-                    //subview.removeFromSuperview()
-                }
-            }
-        }
-    }
-//    
-//    func changeDetailNavColor(to color: UIColor) {
-//        print("in changing color method")
-//        if let let_detail = self.splitViewController?.secondaryViewController {
-//            let_detail.navigationController?.navigationBar.barTintColor = color
-//        } else {
-//            self.navigationController?.navigationBar.barTintColor = color
+//    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        let subviews = cell.subviews
+//        let classification = Class.allValues[indexPath.section]
+//        if indexPath.row == (objects[classification]?.count)! - 1 && subviews.count >= 3 {
+//            for subview in subviews {
+//                if subview != cell.contentView {
+//                    //print("removing last table separator in section")
+//                    //subview.removeFromSuperview()
+//                }
+//            }
 //        }
 //    }
     
@@ -365,40 +341,9 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
                 detail?.body = objects[classification]![indexPath.row]
             }
         }
-        
-//        if (segue.identifier == "planetSegue") {//|| segue.identifier == "showDetails") {
-//            let detail = segue.destination as! UINavigationController
-//            let view = detail.topViewController as! DetailViewController
-//            
-//        }
-//        
-//        if let let_nav = self.navigationController {
-//            let_nav.navigationBar.backgroundColor = getRandomColor()
-//        }
-//        if (segue.identifier == "planetSegue") {//|| segue.identifier == "showDetails") {
-//            let detail = segue.destination as! PlanetDetailViewController
-//            if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
-//                let classification = Class.allValues[indexPath.section]
-//                detail.planet = objects[classification]![indexPath.row]
-////            } else {
-////                if let let_group = selectedGroup, let let_index = selectedIndex {
-////                    if let let_moon = selectedMoon {
-////                        let moonDetail = segue.destination as! MoonDetailViewController
-////                        let classification = Class.allValues[let_group]
-////                        moonDetail.moon = objects[classification]![let_index].moons[let_moon]
-////                    } else {
-////                        let classification = Class.allValues[let_group]
-////                        detail.planet = objects[classification]![let_index]
-////                    }
-////                }
-////            } else if let cell = sender as? IndexPath{
-////                print("detected segue")
-////                let tableCell = self.tableView.cellForRow(at: cell)
-////                let indexPath = self.tableView.indexPath(for: tableCell!)
-////                
-////                let classification = Class.allValues[(indexPath?.section)!]
-////                detail.planet = objects[classification]![(indexPath?.row)!]
-//            }
-//        }
+    }
+    
+    func locationUpdatedCallback() {
+        print("made callback")
     }
 }
