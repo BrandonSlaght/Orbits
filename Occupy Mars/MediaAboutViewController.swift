@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MediaAboutViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerPreviewingDelegate, CHTCollectionViewDelegateWaterfallLayout {
+class MediaAboutViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerPreviewingDelegate, UICollectionViewDragDelegate, CHTCollectionViewDelegateWaterfallLayout {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
@@ -21,6 +21,15 @@ class MediaAboutViewController: UIViewController, UICollectionViewDelegate, UICo
         super.viewDidLoad()
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
+
+        if #available(iOS 11.0, *) {
+            self.collectionView.dragDelegate = self
+        }
+        
+//        if #available(iOS 11.0, *) {
+//            self.collectionView.dragInteractionEnabled = true
+//        }
+        
         setupCollectionView()
         registerNibs()
     }
@@ -94,12 +103,11 @@ class MediaAboutViewController: UIViewController, UICollectionViewDelegate, UICo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! MediaHolder
-        let originImage = cell.image.image! // some image for baseImage
+        let originImage = cell.image.image!
         
         let browser = SKPhotoBrowser(originImage: originImage, photos: images, animatedFromView: cell)
         SKPhotoBrowserOptions.bounceAnimation = true
         browser.initializePageIndex(indexPath.row)
-        //browser.navigationItem.title = "test"
         present(browser, animated: true, completion: {})
     }
     
@@ -121,5 +129,31 @@ class MediaAboutViewController: UIViewController, UICollectionViewDelegate, UICo
         return mediaHolderViewController
     }
     
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {}
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        
+        let location = CGPoint(x: previewingContext.sourceRect.midX, y: previewingContext.sourceRect.midY)
+        let indexPath = collectionView?.indexPathForItem(at: location)
+        let cell = collectionView?.cellForItem(at: indexPath!) as! MediaHolder
+        let originImage = cell.image.image!
+        
+        let browser = SKPhotoBrowser(originImage: originImage, photos: images, animatedFromView: cell)
+        SKPhotoBrowserOptions.bounceAnimation = true
+        browser.initializePageIndex((indexPath?.row)!)
+        present(browser, animated: true, completion: {})
+    }
+    
+    @available(iOS 11.0, *)
+    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        print("dragging")
+        let item = self.images[indexPath.row].underlyingImage
+        let itemProvider = NSItemProvider(object: item!)
+        let dragItem = UIDragItem(itemProvider: itemProvider)
+        dragItem.localObject = item
+        return [dragItem]
+    }
+    
+    @available(iOS 11.0, *)
+    func collectionView(_ collectionView: UICollectionView, itemsForAddingTo session: UIDragSession, at indexPath: IndexPath, point: CGPoint) -> [UIDragItem] {
+        return self.collectionView(collectionView, itemsForBeginning: session, at: indexPath)
+    }
 }

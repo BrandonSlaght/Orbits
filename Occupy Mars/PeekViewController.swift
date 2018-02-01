@@ -11,6 +11,7 @@ import Foundation
 class PeekViewController: UIViewController {
     
     @IBOutlet weak var imageHolder: UIImageView!
+    @IBOutlet weak var imageHolderHeight: NSLayoutConstraint!
     
     var imageObject = UIImage()
     var imageTitle = ""
@@ -21,7 +22,10 @@ class PeekViewController: UIViewController {
         super.viewDidLoad()
         imageHolder.image = imageObject
         imageHolder.sizeToFit()
-        view.sizeToFit()
+        if let image = imageHolder.image {
+            self.preferredContentSize = CGSize(width: image.size.width, height: image.size.height)
+        }
+        
     }
     
     override var previewActionItems: [UIPreviewActionItem] {

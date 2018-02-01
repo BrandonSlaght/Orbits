@@ -94,84 +94,97 @@ class GlobeViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
+        //navigationController?.presentTransparentNavigationBar()
+        
+        globe.pointOfView?.position = SCNVector3(0.0, 0.0, 5.0)
         globe.pointOfView?.position.z = 5
         globe.pointOfView?.camera?.motionBlurIntensity = 1.0
         globe.pointOfView?.camera?.wantsHDR = true
         globe.pointOfView?.camera?.bloomIntensity = 1.0
         
+        camera = globe.pointOfView?.clone()
+        
         let skyBox = SCNSphere(radius: 15)
         skyBox.segmentCount = 80
         
-        let sky = SCNMaterial()
-        sky.diffuse.contents = UIImage(named: "sky.jpg")!
-        sky.diffuse.mipFilter = SCNFilterMode.linear
-        sky.isDoubleSided = true
-        
-        skyBox.materials = [sky]
-        let skyNode = SCNNode(geometry: skyBox)
-        skyNode.name = "skyBox"
-        skyNode.position = SCNVector3(0, 0, 0)
-        globe.pointOfView?.addChildNode(skyNode)
+//        let sky = SCNMaterial()
+//        sky.diffuse.contents = UIImage(named: "sky.jpg")!
+//        sky.diffuse.mipFilter = SCNFilterMode.linear
+//        sky.isDoubleSided = true
+//        
+//        skyBox.materials = [sky]
+//        let skyNode = SCNNode(geometry: skyBox)
+//        skyNode.name = "skyBox"
+//        skyNode.position = SCNVector3(0, 0, 0)
+//        globe.pointOfView?.addChildNode(skyNode)
 
-        camera = SCNNode()
-        camera.camera = SCNCamera()
-        camera.position = SCNVector3(0.0, 0.0, 5.0)
-        camera.name = "default camera"
-        camera.position.z = 5
-        camera.camera?.motionBlurIntensity = 1.0
-        camera.camera?.wantsHDR = true
-        camera.camera?.bloomIntensity = 1.0
+//        camera = SCNNode()
+//        camera.camera = SCNCamera()
+//        camera.position = SCNVector3(0.0, 0.0, 5.0)
+//        camera.name = "default camera"
+//        camera.position.z = 5
+//        camera.camera?.motionBlurIntensity = 1.0
+//        camera.camera?.wantsHDR = true
+//        camera.camera?.bloomIntensity = 1.0
+//
+//        globe.pointOfView? = camera.clone()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
-        tabBarController?.tabBar.isHidden = true
+        //tabBarController?.tabBar.isHidden = true
         
-        var navBar: UINavigationBar
-        if splitViewController?.secondaryViewController != nil {
-            navBar = (navigationController?.navigationBar)!
+        //var navBar: UINavigationBar
+        //if splitViewController?.secondaryViewController != nil {
+            //navBar = (navigationController?.navigationBar)!
 
             //navigationController?.navigationBar.barTintColor = UIColor.clear
-        } else {
-            navBar = (self.splitViewController?.primaryViewController as! UINavigationController).navigationBar
-        }
+        //} else {
+            //navBar = (self.splitViewController?.primaryViewController as! UINavigationController).navigationBar
+        //}
         //barColor = navBar.barTintColor
-        barImage = navBar.shadowImage
-        barBackground = navBar.backgroundImage(for: UIBarMetrics.default)
-        navBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navBar.shadowImage = UIImage()
+        //barImage = navBar.shadowImage
+        //barBackground = navBar.backgroundImage(for: .default)
+        //barBackground = navBar.backgroundImage(for: .any, barMetrics: .default)
+        //navBar.setBackgroundImage(UIImage(), for: .default)
+        //navBar.barTintColor = UIColor(patternImage: UIImage())
+        //navBar.shadowImage = UIImage()
+        //navBar.backgroundColor = .clear
+        //self.navigationController?.view.backgroundColor = .clear
         //navBar.isTranslucent = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         
-        var navBar: UINavigationBar
-        if splitViewController?.secondaryViewController != nil {
-            navBar = (navigationController?.navigationBar)!
+        //var navBar: UINavigationBar
+        //if splitViewController?.secondaryViewController != nil {
+            //navBar = (navigationController?.navigationBar)!
             
             //navigationController?.navigationBar.barTintColor = UIColor.clear
-        } else {
-            navBar = (self.splitViewController?.primaryViewController as! UINavigationController).navigationBar
-        }
+        //} else {
+            //navBar = (self.splitViewController?.primaryViewController as! UINavigationController).navigationBar
+        //}
 
         //navBar.barTintColor = barColor
-        navBar.shadowImage = barImage
-        navBar.setBackgroundImage(barBackground, for: UIBarMetrics.default)
+        //navBar.shadowImage = barImage
+        //navBar.backgroundColor = .red
+        //navBar.setBackgroundImage(barBackground, for: .default)
+        
+        //navBar.setBackgroundImage(barBackground, for: .any, barMetrics: .default)
         //navBar.isTranslucent = false
+        //navigationController?.hideTransparentNavigationBar()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-//        if UIDevice.current.userInterfaceIdiom == .pad {
-//            print(self.splitViewController?.primaryColumnWidth ?? "ERROR UNWRAPPING COLUMN WIDTH")
-//            self.splitViewController?.maximumPrimaryColumnWidth = primaryWidth + 1
-//            self.splitViewController?.minimumPrimaryColumnWidth = primaryWidth
-//        }
         //if self.splitViewController?.secondaryViewController != nil {
         print ("here in view did dissapear")
-        tabBarController?.tabBar.isHidden = false
+        //tabBarController?.tabBar.isHidden = false
 
         split.toggleMasterView()
         //}
+        
+        //navigationController?.hideTransparentNavigationBar()
     }
     
     override func didReceiveMemoryWarning() {

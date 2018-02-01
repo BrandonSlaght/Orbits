@@ -48,18 +48,19 @@ class FlatSkyViewController: UIViewController, CLLocationManagerDelegate {
         compass.addSubview(uranusView)
         
         //add tooltips to planets
-        tooltip = SexyTooltip.init(attributedString: NSAttributedString.init(string: "Uranus but this is also a super long string"))
+        let viewNib = UINib(nibName: "PlanetTooltip", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? PlanetTooltipController
+        viewNib?.layoutSubviews()
+        viewNib?.sizeToFit()
+        viewNib?.layoutSubviews()
+        tooltip = SexyTooltip.init(contentView: viewNib)
         tooltip.hasShadow = true
         tooltip.color = UIColor.darkGray
-        //tooltip.sizeToFit()
         self.view.addSubview(tooltip)
-        //tooltip.present
-        tooltip.present(from: uranusView, in: self.view)//, containedBy: self.view)
+        tooltip.present(from: uranusView, in: self.view)
         
-//        BTBalloon.sharedInstance().show(withTitle: "The amount by which the planet's orbit deviates from a perfect circle.",
-//                                        image: nil,
-//                                        anchorTo: uranusView)
-        
+        //add gesture recognizers to tooltip
+        let gestureRec = UITapGestureRecognizer(target: self, action:  #selector (self.segueToPlanetView (_:)))
+    
         //add skybox
         let skyboxScene = SCNScene()
         let skyBox = SCNSphere(radius: 1)
@@ -87,6 +88,17 @@ class FlatSkyViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidAppear(_ animated: Bool) {
         //changeTabBar
         tabBarController?.tabBar.barTintColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
+    }
+    
+    func segueToPlanetView(_ sender:UITapGestureRecognizer){
+        performSegue(withIdentifier: "planetSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "planetSegue", let destination = segue.destination as? UINavigationController {
+            let detail = destination.topViewController as? DetailViewController
+            //detail?.body = Objects.objects[classification]![indexPath.row]
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {

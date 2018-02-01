@@ -415,7 +415,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="y1J-Ti-1Z4" secondAttribute="trailing" constant="-20" id="pb2-C4-OjR"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="jLP-Gh-zd6">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="jLP-Gh-zd6">
                         <barButtonItem key="backBarButtonItem" id="c0g-ZV-9aR"/>
                     </navigationItem>
                     <connections>
@@ -556,15 +556,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Oh-7O-gW5">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="-2" y="-2" width="379" height="816"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="5Oh-7O-gW5" firstAttribute="leading" secondItem="dF0-5S-awW" secondAttribute="leading" id="Eua-oY-1tB"/>
-                            <constraint firstAttribute="trailing" secondItem="5Oh-7O-gW5" secondAttribute="trailing" id="Fhg-nQ-075"/>
-                            <constraint firstItem="5Oh-7O-gW5" firstAttribute="top" secondItem="dF0-5S-awW" secondAttribute="top" id="dOo-f6-Axs"/>
-                            <constraint firstAttribute="bottom" secondItem="5Oh-7O-gW5" secondAttribute="bottom" id="pRE-X7-yU6"/>
+                            <constraint firstItem="5Oh-7O-gW5" firstAttribute="top" secondItem="dF0-5S-awW" secondAttribute="top" constant="-2" id="AxU-jx-ogj"/>
+                            <constraint firstItem="5Oh-7O-gW5" firstAttribute="leading" secondItem="dF0-5S-awW" secondAttribute="leading" constant="-2" id="Eua-oY-1tB"/>
+                            <constraint firstAttribute="trailing" secondItem="5Oh-7O-gW5" secondAttribute="trailing" constant="-2" id="Fhg-nQ-075"/>
+                            <constraint firstAttribute="bottom" secondItem="5Oh-7O-gW5" secondAttribute="bottom" constant="-2" id="dcV-Y1-1dj"/>
                         </constraints>
                     </view>
                     <connections>
@@ -700,7 +700,11 @@
                             <constraint firstItem="oDw-g1-d14" firstAttribute="top" secondItem="h5e-0k-u26" secondAttribute="bottom" id="oiB-ah-IOt"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Night Sky" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="vK3-r0-TiS"/>
+                    <navigationItem key="navigationItem" title="Night Sky" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="vK3-r0-TiS">
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="IrV-HY-qnp">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="compass" destination="h5e-0k-u26" id="wcI-i4-8TN"/>
                         <outlet property="skybox" destination="EVZ-nr-3fJ" id="N3q-8o-xQe"/>
@@ -744,8 +748,8 @@
                 <navigationController storyboardIdentifier="MainListView" id="1b7-hp-oWL" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Planets" image="icon-planet-filled-small" id="WFc-Zq-VBZ"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" multipleTouchEnabled="YES" contentMode="scaleToFill" id="DN8-R1-epU">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                    <navigationBar key="navigationBar" multipleTouchEnabled="YES" contentMode="scaleToFill" largeTitles="YES" id="DN8-R1-epU">
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -991,22 +995,22 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MoonCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="MoonCell" rowHeight="221" id="exl-5r-9Qy" customClass="BodyCell" customModule="Occupy_Mars" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="221"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="exl-5r-9Qy" id="3qW-gS-9Kt">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="exl-5r-9Qy" id="3qW-gS-9Kt">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="220.66666666666666"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" sceneName="PlanetScene" autoenablesDefaultLighting="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fyE-A0-6Xh" userLabel="Scene View">
-                                                    <rect key="frame" x="8" y="8" width="200" height="183"/>
+                                                <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" sceneName="PlanetScene" autoenablesDefaultLighting="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fyE-A0-6Xh" userLabel="Scene View">
+                                                    <rect key="frame" x="8" y="11" width="200" height="183"/>
                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="200" id="EdU-V9-Otb"/>
                                                         <constraint firstAttribute="height" constant="183" id="oXf-uI-gAk" userLabel="Height Constraint"/>
                                                     </constraints>
                                                 </sceneKitView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="86Q-qX-UnW">
-                                                    <rect key="frame" x="287" y="18" width="80" height="38"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="86Q-qX-UnW">
+                                                    <rect key="frame" x="287" y="21" width="80" height="38"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gk7-4P-vm5">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gk7-4P-vm5">
                                                             <rect key="frame" x="0.0" y="0.0" width="80" height="38"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="32"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1017,7 +1021,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="fyE-A0-6Xh" secondAttribute="bottom" id="3Bw-27-sju"/>
+                                                <constraint firstItem="fyE-A0-6Xh" firstAttribute="bottom" secondItem="3qW-gS-9Kt" secondAttribute="bottomMargin" priority="999" id="3Bw-27-sju"/>
                                                 <constraint firstItem="86Q-qX-UnW" firstAttribute="top" secondItem="3qW-gS-9Kt" secondAttribute="topMargin" constant="10" id="fmQ-YQ-by4"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="86Q-qX-UnW" secondAttribute="trailing" id="iRE-fI-amE"/>
                                                 <constraint firstItem="fyE-A0-6Xh" firstAttribute="top" secondItem="3qW-gS-9Kt" secondAttribute="topMargin" id="kIy-04-p12"/>
@@ -1061,7 +1065,7 @@
                 <navigationController storyboardIdentifier="PlanetDetail" id="KEg-9l-Zwd" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="4w8-xF-izd">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <textAttributes key="titleTextAttributes">
@@ -1115,6 +1119,6 @@
         <image name="logo-wikipedia" width="341" height="341"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qrT-QF-VWH"/>
+        <segue reference="uy9-4G-SSX"/>
     </inferredMetricsTieBreakers>
 </document>

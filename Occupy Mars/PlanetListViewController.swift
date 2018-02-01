@@ -50,6 +50,7 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
         print("here in planet list view did load")
         
         if #available(iOS 11.0, *) {
+            self.navigationItem.largeTitleDisplayMode = .automatic
             navigationController?.navigationBar.prefersLargeTitles = true
             navigationController?.navigationBar.largeTitleTextAttributes =  [NSAttributedStringKey.foregroundColor: UIColor.white]
         }
@@ -99,20 +100,34 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear")
         //moveTagToBack(ofNav: self.navigationController!)
+        animateNav()
+        //navigationController?.navigationBar.barTintColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
+        //navigationController?.navigationItem.titleView?.backgroundColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
+        //print(navigationController?.view)
+        //print(navigationController?.view.subviews)
+        //for subview in (navigationController?.navigationBar.subviews)! {
+            //let stringFromClass = NSStringFromClass(subview.classForCoder)
+            //print(stringFromClass)
+            //if (stringFromClass.contains("UINavigationBarLargeTitleView") || stringFromClass.contains("UIBarBackground")) {
+                //print("found subview")
+                //subview.backgroundColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
+                //subview.alpha = 0.85
+                //subview.isHidden = false
+            //}
+        //}
+        //navigationController?.navigationBar.alpha = 0.85
+        //navigationController?.navigationBar.backgroundColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         print("ViewDidAppear")
-        
-        
         
         //moveTagToBack(ofNav: self.navigationController!)
 
         //let effectView = self.navigationController?.navigationBar.viewWithTag(10)
         //self.navigationController?.navigationBar.sendSubview(toBack: effectView!)
         
-        navigationController?.navigationBar.barTintColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
-        tabBarController?.tabBar.barTintColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
+        setNavColors()
         
         let thisVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
         let thisVersionInt = Int(thisVersion.replacingOccurrences(of: ".", with: ""))
@@ -174,19 +189,6 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
         return Class.count
     }
     
-//    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        let subviews = cell.subviews
-//        let classification = Class.allValues[indexPath.section]
-//        if indexPath.row == (objects[classification]?.count)! - 1 && subviews.count >= 3 {
-//            for subview in subviews {
-//                if subview != cell.contentView {
-//                    //print("removing last table separator in section")
-//                    //subview.removeFromSuperview()
-//                }
-//            }
-//        }
-//    }
-    
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         BTBalloon.sharedInstance().hide()
     }
@@ -209,66 +211,6 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
 //            header.sendSubview(toBack: blurEffectView)
 //            header.backgroundView?.backgroundColor = UIColor.clear
 //        }
-    }
-    
-    func setupSearchableContent() {
-        var searchableItems = [CSSearchableItem]()
-        
-        for group in objects {
-            var i = 0
-            for planet in group.value {
-                let searchableItemAttributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
-                searchableItemAttributeSet.title = planet.name
-                searchableItemAttributeSet.displayName = planet.name
-                searchableItemAttributeSet.kind = planet.classification.rawValue
-//                let imagePathParts = movie["Image"]!.componentsSeparatedByString(".")
-//                searchableItemAttributeSet.thumbnailURL = NSBundle.mainBundle().URLForResource(imagePathParts[0], withExtension: imagePathParts[1])
-            
-                if let let_description = planet.description {
-                    searchableItemAttributeSet.contentDescription = let_description
-                }
-                var keywords = [String]()
-                keywords.append(planet.name)
-                keywords.append(planet.classification.rawValue)
-                keywords.append(planet.type.rawValue)
-                searchableItemAttributeSet.keywords = keywords
-                
-                let searchableItem = CSSearchableItem(uniqueIdentifier: "orbitals.group-\(group.key.rawValue).planet-\(i)", domainIdentifier: "planet", attributeSet: searchableItemAttributeSet)
-                
-                searchableItems.append(searchableItem)
-                
-                var j = 0
-                for moons in planet.moons {
-                    let searchableItemAttributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
-                    searchableItemAttributeSet.title = moons.name
-                    searchableItemAttributeSet.displayName = moons.name
-                    searchableItemAttributeSet.kind = "Moon"
-                    //                let imagePathParts = movie["Image"]!.componentsSeparatedByString(".")
-                    //                searchableItemAttributeSet.thumbnailURL = NSBundle.mainBundle().URLForResource(imagePathParts[0], withExtension: imagePathParts[1])
-                
-                    if let let_description = moons.description {
-                        searchableItemAttributeSet.contentDescription = let_description
-                    }
-                    var keywords = [String]()
-                    keywords.append(moons.name)
-                    keywords.append("moon")
-                    keywords.append(planet.name)
-                    searchableItemAttributeSet.keywords = keywords
-                
-                    let searchableItem = CSSearchableItem(uniqueIdentifier: "orbitals.group-\(group.key.rawValue).planet-\(i).moon-\(j)", domainIdentifier: "moon", attributeSet: searchableItemAttributeSet)
-                
-                    searchableItems.append(searchableItem)
-                    j += 1
-                }
-                i += 1
-            }
-        }
-        
-        CSSearchableIndex.default().indexSearchableItems(searchableItems) { (error) -> Void in
-            if error != nil {
-                print(error?.localizedDescription ?? "error indexing")
-            }
-        }
     }
     
     override func restoreUserActivityState(_ activity: NSUserActivity) {
@@ -319,18 +261,6 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
         }
     }
     
-    func pushDetailViewToProperParent(viewController: UIViewController) {
-        if splitViewController?.secondaryViewController != nil {
-            (self.splitViewController?.secondaryViewController as! UINavigationController).pushViewController(viewController, animated: true)
-        } else { //we are on an iPhone :(
-            (self.splitViewController?.primaryViewController as! UINavigationController).pushViewController(viewController, animated: true)
-        }
-    }
-    
-    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
-        return collapseSplitView
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         collapseSplitView = false
         
@@ -343,7 +273,94 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
         }
     }
     
+    func setupSearchableContent() {
+        var searchableItems = [CSSearchableItem]()
+        
+        for group in objects {
+            var i = 0
+            for planet in group.value {
+                let searchableItemAttributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
+                searchableItemAttributeSet.title = planet.name
+                searchableItemAttributeSet.displayName = planet.name
+                searchableItemAttributeSet.kind = planet.classification.rawValue
+                //                let imagePathParts = movie["Image"]!.componentsSeparatedByString(".")
+                //                searchableItemAttributeSet.thumbnailURL = NSBundle.mainBundle().URLForResource(imagePathParts[0], withExtension: imagePathParts[1])
+                
+                if let let_description = planet.description {
+                    searchableItemAttributeSet.contentDescription = let_description
+                }
+                var keywords = [String]()
+                keywords.append(planet.name)
+                keywords.append(planet.classification.rawValue)
+                keywords.append(planet.type.rawValue)
+                searchableItemAttributeSet.keywords = keywords
+                
+                let searchableItem = CSSearchableItem(uniqueIdentifier: "orbitals.group-\(group.key.rawValue).planet-\(i)", domainIdentifier: "planet", attributeSet: searchableItemAttributeSet)
+                
+                searchableItems.append(searchableItem)
+                
+                var j = 0
+                for moons in planet.moons {
+                    let searchableItemAttributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
+                    searchableItemAttributeSet.title = moons.name
+                    searchableItemAttributeSet.displayName = moons.name
+                    searchableItemAttributeSet.kind = "Moon"
+                    //                let imagePathParts = movie["Image"]!.componentsSeparatedByString(".")
+                    //                searchableItemAttributeSet.thumbnailURL = NSBundle.mainBundle().URLForResource(imagePathParts[0], withExtension: imagePathParts[1])
+                    
+                    if let let_description = moons.description {
+                        searchableItemAttributeSet.contentDescription = let_description
+                    }
+                    var keywords = [String]()
+                    keywords.append(moons.name)
+                    keywords.append("moon")
+                    keywords.append(planet.name)
+                    searchableItemAttributeSet.keywords = keywords
+                    
+                    let searchableItem = CSSearchableItem(uniqueIdentifier: "orbitals.group-\(group.key.rawValue).planet-\(i).moon-\(j)", domainIdentifier: "moon", attributeSet: searchableItemAttributeSet)
+                    
+                    searchableItems.append(searchableItem)
+                    j += 1
+                }
+                i += 1
+            }
+        }
+        
+        CSSearchableIndex.default().indexSearchableItems(searchableItems) { (error) -> Void in
+            if error != nil {
+                print(error?.localizedDescription ?? "error indexing")
+            }
+        }
+    }
+    
+    func pushDetailViewToProperParent(viewController: UIViewController) {
+        if splitViewController?.secondaryViewController != nil {
+            (self.splitViewController?.secondaryViewController as! UINavigationController).pushViewController(viewController, animated: true)
+        } else { //we are on an iPhone :(
+            (self.splitViewController?.primaryViewController as! UINavigationController).pushViewController(viewController, animated: true)
+        }
+    }
+    
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        return collapseSplitView
+    }
+    
     func locationUpdatedCallback() {
         print("made callback")
+    }
+    
+    func animateNav() {
+        guard let coordinator = self.transitionCoordinator else {
+            return
+        }
+        
+        coordinator.animate(alongsideTransition: {
+            [weak self] context in self?.setNavColors()
+        }, completion: nil)
+    }
+    
+    func setNavColors() {
+        navigationController?.navigationBar.barTintColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
+        tabBarController?.tabBar.barTintColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
     }
 }

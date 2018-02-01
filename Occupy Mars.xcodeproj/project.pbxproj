@@ -136,6 +136,8 @@
 		C5941BE21DBBFD940057A46A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5941BE01DBBFD940057A46A /* LaunchScreen.storyboard */; };
 		C5941BEA1DBBFEA40057A46A /* IntroPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5941BE91DBBFEA40057A46A /* IntroPageViewController.swift */; };
 		C5991A3E1DD9738200A86F04 /* WaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5991A3D1DD9738200A86F04 /* WaterfallLayout.swift */; };
+		C5A8D40A1FFDD36B0015AE81 /* PlanetTooltip.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5A8D4091FFDD36B0015AE81 /* PlanetTooltip.xib */; };
+		C5A8D40C1FFDF1530015AE81 /* PlanetTooltipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A8D40B1FFDF1530015AE81 /* PlanetTooltipController.swift */; };
 		C5AB79FA1DEC8D310097C295 /* DataViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5AB79F91DEC8D310097C295 /* DataViewCell.xib */; };
 		C5AB79FC1DEC8EA10097C295 /* DataViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AB79FB1DEC8EA10097C295 /* DataViewCellController.swift */; };
 		C5AEC3EE1DCE5CB200992AEB /* texture sources.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C5AEC3ED1DCE5CB200992AEB /* texture sources.rtf */; };
@@ -357,6 +359,8 @@
 		C5941BE31DBBFD940057A46A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5941BE91DBBFEA40057A46A /* IntroPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroPageViewController.swift; sourceTree = "<group>"; };
 		C5991A3D1DD9738200A86F04 /* WaterfallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterfallLayout.swift; sourceTree = "<group>"; };
+		C5A8D4091FFDD36B0015AE81 /* PlanetTooltip.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanetTooltip.xib; sourceTree = "<group>"; };
+		C5A8D40B1FFDF1530015AE81 /* PlanetTooltipController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetTooltipController.swift; sourceTree = "<group>"; };
 		C5AB79F91DEC8D310097C295 /* DataViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataViewCell.xib; sourceTree = "<group>"; };
 		C5AB79FB1DEC8EA10097C295 /* DataViewCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataViewCellController.swift; sourceTree = "<group>"; };
 		C5AEC3ED1DCE5CB200992AEB /* texture sources.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "texture sources.rtf"; sourceTree = "<group>"; };
@@ -605,6 +609,7 @@
 				C5941BE01DBBFD940057A46A /* LaunchScreen.storyboard */,
 				C5941BDB1DBBFD940057A46A /* Main.storyboard */,
 				C5C281BF1DDB94B60036C7A0 /* MediaViewCell.xib */,
+				C5A8D4091FFDD36B0015AE81 /* PlanetTooltip.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -865,6 +870,7 @@
 			isa = PBXGroup;
 			children = (
 				C5D349151FF334DA0074769E /* FlatSkyViewController.swift */,
+				C5A8D40B1FFDF1530015AE81 /* PlanetTooltipController.swift */,
 			);
 			name = sky;
 			sourceTree = "<group>";
@@ -1003,6 +1009,7 @@
 				C5941BE21DBBFD940057A46A /* LaunchScreen.storyboard in Resources */,
 				C5AEC3EE1DCE5CB200992AEB /* texture sources.rtf in Resources */,
 				C54F06131FFC3939004BCC40 /* pop-tvos-Info.plist in Resources */,
+				C5A8D40A1FFDD36B0015AE81 /* PlanetTooltip.xib in Resources */,
 				C566DEDC1E887FC0001EC3FE /* larissa.dae in Resources */,
 				C54958411EBFF6DF00153998 /* epimetheusmap.jpg in Resources */,
 				C54958781EBFF7CF00153998 /* proteusmap - thumbnail.jpg in Resources */,
@@ -1137,6 +1144,7 @@
 				C5AEC3FB1DCE7BDE00992AEB /* AboutTableViewController.swift in Sources */,
 				C581B9801FFB4B440076224F /* SexyTooltip.m in Sources */,
 				C5D349161FF334DA0074769E /* FlatSkyViewController.swift in Sources */,
+				C5A8D40C1FFDF1530015AE81 /* PlanetTooltipController.swift in Sources */,
 				C54F06001FFC3939004BCC40 /* POPAnimationRuntime.mm in Sources */,
 				C54F05FF1FFC3939004BCC40 /* POPBasicAnimation.mm in Sources */,
 				84FFCB2F1EB70E47001DE7B7 /* Cartographer.swift in Sources */,

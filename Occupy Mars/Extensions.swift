@@ -39,3 +39,20 @@ extension UISplitViewController {
         UIApplication.shared.sendAction(barButtonItem.action!, to: barButtonItem.target, from: nil, for: nil)
     }
 }
+
+extension UINavigationController {
+    
+    public func presentTransparentNavigationBar() {
+        navigationBar.setBackgroundImage(UIImage(), for:.default)
+        navigationBar.isTranslucent = true
+        navigationBar.shadowImage = UIImage()
+        setNavigationBarHidden(false, animated:true)
+    }
+    
+    public func hideTransparentNavigationBar() {
+        setNavigationBarHidden(true, animated:false)
+        navigationBar.setBackgroundImage(UINavigationBar.appearance().backgroundImage(for: UIBarMetrics.default), for:.default)
+        navigationBar.isTranslucent = UINavigationBar.appearance().isTranslucent
+        navigationBar.shadowImage = UINavigationBar.appearance().shadowImage
+    }
+}

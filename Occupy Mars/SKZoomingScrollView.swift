@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class SKZoomingScrollView: UIScrollView {
+open class SKZoomingScrollView: UIScrollView, UIDragInteractionDelegate {
     var captionView: SKCaptionView!
     var photo: SKPhotoProtocol! {
         didSet {
@@ -199,8 +199,30 @@ open class SKZoomingScrollView: UIScrollView {
             contentSize = photoImageViewFrame.size
             
             setMaxMinZoomScalesForCurrentBounds()
+            
+            //add drag capabilities
+            if #available(iOS 11.0, *) {
+                let dragInteraction = UIDragInteraction(delegate: self)
+                photoImageView.addInteraction(dragInteraction)
+            }
         }
+        
         setNeedsLayout()
+    }
+    
+    // MARK: - drag delegate handlers
+    @available(iOS 11.0, *)
+    open func dragInteraction(_ interaction: UIDragInteraction, itemsForBeginning session: UIDragSession) -> [UIDragItem] {
+        guard let image = photoImageView.image else { return [] }
+        let provider = NSItemProvider(object: image)
+        let item = UIDragItem(itemProvider: provider)
+        item.localObject = image
+        return [item]
+    }
+    
+    @objc(dragInteraction:itemsForAddingToSession:withTouchAtPoint:) @available(iOS 11.0, *)
+    open func dragInteraction(_ interaction: UIDragInteraction, itemsForAddingTo session: UIDragSession, withTouchAt point: CGPoint) -> [UIDragItem] {
+        return self.dragInteraction(interaction, itemsForBeginning: session)
     }
     
     open func displayImageFailure() {

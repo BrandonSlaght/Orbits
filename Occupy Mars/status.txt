@@ -18,7 +18,7 @@ DONE - test memory on weaker devices
 ---------------------------------------------------------------------------------------------------------------------
 
 
-TODO IN FUTURE
+TODO IN FUTURE:
 ---------------------------------------------------------------------------------------------------------------------
 DONE - colors and backgrounds of planets
 DONE - use multiplication symbol rather than an x for scientific notation
@@ -75,12 +75,11 @@ make modal tooltips blurry
 make modal tooltips fade between each other rather than transition abruptly
 fix audio being paused on first launch from the media player
 add paralax effect to the media player and also maybe the other views with backgrounds
-fix bug where tab bar dissapears
+add back transparent top and bottom bars
 localize
 widget for visibility
 pictures for spotlight
 core siri support
-fix shitty navbar color transitions
 touchable icons highlight version
 start sceneviews in new threads
 the app delegate resume method
@@ -92,15 +91,18 @@ news tab
 
 BEFORE NEXT RELEASE:
 ---------------------------------------------------------------------------------------------------------------------
-3d touch to share from media view
+DONE - 3d touch to share from media view
+DONE - drag and drop
+DONE - fix scenekit partial transition bug!!!
 Details of Moons
 Media of moons
 EZ - pronunciations
 do visibility
 EZ - Mimas model - saturn
 colors and backgrounds of moons
-finish 2d sky view and bugs
 remove BTBalloon
+navbar transition bugs
+finish 2d sky view and bugs
 ---------------------------------------------------------------------------------------------------------------------
 
 
@@ -140,3 +142,8 @@ Added model for Saturn's moon Phobos
 Improved performance and appearance of 3d views
 Fixed average orbital velocity being per hour instead of per second
 Minor text fixes
+
+2.0
+Added force touch functionality to images
+Interface improvements
+Added drag and drop functionality for images
