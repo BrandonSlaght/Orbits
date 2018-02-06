@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftAA
 
 class Planet : Body {
     
@@ -22,14 +23,7 @@ class Planet : Body {
     
     //--------------------------------------------orbital elements
     
-    var a: Double?, //Mean distance, or semi-major axis
-        e: Double?, //Eccentricity
-        T: Double?, //Time at perihelion
-        i: Double?, //Inclination, i.e. the "tilt" of the orbit relative to the ecliptic.  The inclination varies from 0 to 180 degrees. If the inclination is larger than 90 degrees, the planet is in a retrogade orbit, i.e. it moves "backwards".
-        N: Double?, //Longitude of Ascending Node. This is the angle, along the ecliptic, from the Vernal Point to the Ascending Node, which is the intersection between the orbit and the ecliptic, where the planet moves from south of to north of the ecliptic, i.e. from negative to positive latitudes.
-        w: Double?,  //The angle from the Ascending node to the Perihelion, along the orbit.
-        m: Double?, //Solar mass of the planet
-        M1: Double? //mean anomaly
+    var aa: SwiftAA.Planet?
     
     //--------------------------------------------initializers
     
@@ -40,6 +34,10 @@ class Planet : Body {
         self.type = type
         self.classification = classification
         super.init(name: name, position: position)
+    }
+    
+    func aa(planet: SwiftAA.Planet) {
+        self.aa = planet
     }
     
     func orbitals(year_length: Quantity?,

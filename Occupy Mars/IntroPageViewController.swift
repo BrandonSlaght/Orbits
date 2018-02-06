@@ -26,6 +26,13 @@ class IntroPageViewController: UIPageViewController {
                                completion: nil)
         }
         
+        do{
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch let error as NSError {
+            print(error)
+        }
+        
         let path = Bundle.main.path(forResource: "background", ofType: "mp4")
         player = AVPlayer(url: URL(fileURLWithPath: path!))
         player!.actionAtItemEnd = AVPlayerActionAtItemEnd.none;

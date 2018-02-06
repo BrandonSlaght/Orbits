@@ -10,6 +10,7 @@ import UIKit
 import CoreSpotlight
 import MobileCoreServices
 import SceneKit
+import SwiftAA
 
 class PlanetListViewController: UITableViewController, UISplitViewControllerDelegate {
     
@@ -177,6 +178,17 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
         }
         if (planet.getScene(size: Size.small) == nil) {
             cell.heightConstraint.constant = 90
+        }
+        if let location = sextant.location, let aaPlanet = planet.aa {
+            let coords = GeographicCoordinates.init(location)
+            let rstTimes = aaPlanet.riseTransitSetTimes(for: coords)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "h:mm a"
+            
+            cell.rises.text = dateFormatter.string(from: rstTimes.riseTime!.date)
+            cell.sets.text = dateFormatter.string(from: rstTimes.setTime!.date)
+            //cell.rises.text = String(describing: rstTimes.riseTime!.date.hour.description) + ":" + String(describing: rstTimes.riseTime!.date.minute.description)
+            //cell.sets.text = String(describing: rstTimes.setTime!.date.hour.description) + ":" + String(describing: rstTimes.setTime!.date.minute.description)
         }
         return cell
     }
@@ -346,6 +358,7 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
     }
     
     func locationUpdatedCallback() {
+        self.tableView.reloadData()
         print("made callback")
     }
     

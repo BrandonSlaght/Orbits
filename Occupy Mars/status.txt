@@ -73,7 +73,6 @@ make the sticky tab bar be animated and blurry and also make the navbar blurry
 atmosphere details section
 make modal tooltips blurry
 make modal tooltips fade between each other rather than transition abruptly
-fix audio being paused on first launch from the media player
 add paralax effect to the media player and also maybe the other views with backgrounds
 add back transparent top and bottom bars
 localize
@@ -94,6 +93,7 @@ BEFORE NEXT RELEASE:
 DONE - 3d touch to share from media view
 DONE - drag and drop
 DONE - fix scenekit partial transition bug!!!
+DONE - fix audio being paused on first launch from the media player
 Details of Moons
 Media of moons
 EZ - pronunciations
@@ -147,3 +147,4 @@ Minor text fixes
 Added force touch functionality to images
 Interface improvements
 Added drag and drop functionality for images
+Fixed an issue where active audio would be paused on first lanch of the app

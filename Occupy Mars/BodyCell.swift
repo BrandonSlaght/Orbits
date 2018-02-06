@@ -14,6 +14,8 @@ class BodyCell: UITableViewCell {
     @IBOutlet var name: UILabel!
     @IBOutlet var classification: UILabel!
     @IBOutlet weak var sceneView: SCNView!
+    @IBOutlet weak var sets: UILabel!
+    @IBOutlet weak var rises: UILabel!
     
 //    func updateLabels() {
 //        let bodyFont = UIFont.preferredFontForTextStyle(style: UIFontTextStyle.body)
@@ -35,7 +37,7 @@ class BodyCell: UITableViewCell {
         }
         for subview in superview.subviews {
             if String(describing: type(of: subview)).hasSuffix("SeparatorView") {
-                subview.isHidden = false
+                //subview.isHidden = false
             }
         }
     }

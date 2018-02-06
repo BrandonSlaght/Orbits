@@ -850,6 +850,7 @@
 		C5D349171FF338A60074769E /* reference */ = {
 			isa = PBXGroup;
 			children = (
+				C5D515B71DE106400024638D /* InfoModalVewController.swift */,
 				C58DEB8E1DC6B50400E6C1F3 /* BodyCell.swift */,
 				C5C24C7E1DC685F50028FAF5 /* PlanetListViewController.swift */,
 				C5AEC3EF1DCE775100992AEB /* details */,
@@ -860,7 +861,6 @@
 		C5D349181FF338C80074769E /* intro */ = {
 			isa = PBXGroup;
 			children = (
-				C5D515B71DE106400024638D /* InfoModalVewController.swift */,
 				C5941BE91DBBFEA40057A46A /* IntroPageViewController.swift */,
 			);
 			name = intro;
