@@ -9,7 +9,8 @@
 import UIKit
 import NotificationCenter
 
-class TodayViewController: UIViewController, NCWidgetProviding {
+class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var basicDataStackView: UIStackView!
     
     @IBOutlet weak var sunsetLabel: UILabel!
     @IBOutlet weak var sunriseLabel: UILabel!
@@ -25,10 +26,31 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var dayLengthLabel: UILabel!
     @IBOutlet weak var sunAngleLabel: UILabel!
     
+    @IBOutlet weak var visibilityTableView: UITableView!
+    @IBOutlet weak var visibilityTableViewHeightConstraint: NSLayoutConstraint!
+    
+    var objects: [Body] = []
+    var sextant: Sextant!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        preferredContentSize = CGSize(width: 0, height: 100)
+        
+        var allObjects = Objects.planets()
+        objects = allObjects[Class.Major]!
+        objects.append(allObjects[Class.Other]![0])
+        objects.append(allObjects[Class.Major]![2].moons[0])
+        
+        preferredContentSize = CGSize(width: 0, height: basicDataStackView.bounds.size.height)
         extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+        
+        visibilityTableView.delegate = self
+        visibilityTableView.dataSource = self
+        
+        visibilityTableView.separatorEffect = UIVibrancyEffect(blurEffect: UIBlurEffect(style: .dark))
+        visibilityTableView.estimatedRowHeight = 75
+        visibilityTableView.rowHeight = UITableViewAutomaticDimension
+        
+        print("finished setup")
     }
     
     override func didReceiveMemoryWarning() {
@@ -42,14 +64,66 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
         
-        completionHandler(NCUpdateResult.newData)
+
+        //completionHandler(loadData())
+        //completionHandler(NCUpdateResult.newData)
+    }
+    
+//    func loadData() -> NCUpdateResult{
+//        sextant = Sextant()
+//        //sextant.setCallbackFunction(loadVisibilityData())
+//        loadWeatherData()
+//
+//
+//    }
+    
+    func loadVisibilityData() {
+        
+    }
+    
+    func loadWeatherData() {
+        
     }
     
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
+        print(basicDataStackView.bounds.size.height)
+        print(view.bounds.size.height)
         if activeDisplayMode == .expanded {
-            preferredContentSize = CGSize(width: 0, height: 425)
+            preferredContentSize = CGSize(width: 0, height: 600)
         } else {
-            preferredContentSize = CGSize(width: 0, height: 100)
+            preferredContentSize = CGSize(width: 0, height: basicDataStackView.bounds.size.height)
         }
     }
+    
+    override func viewDidLayoutSubviews() {
+        visibilityTableView.layoutIfNeeded()
+        visibilityTableViewHeightConstraint.constant = visibilityTableView.contentSize.height
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return Objects.itemsInSection(section)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PlanetsVisibleTonightCell", for: indexPath) as! VisibilityCell
+        let classification = Class.allValues[indexPath.section]
+        let planet = objects[indexPath.row]
+        cell.name?.text = planet.name
+
+        //set image
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let index = indexPath.row
+        //let detail = self.storyboard?.instantiateViewController(withIdentifier: "detailViewController") as? DetailViewController
+        //detail?.body = body.moons[index]
+        //self.navigationController?.pushViewController(detail!, animated: true)
+    }
+
 }

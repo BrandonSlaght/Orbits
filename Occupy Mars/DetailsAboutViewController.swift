@@ -78,9 +78,9 @@ class DetailsAboutViewController: AboutViewController, UITableViewDataSource, UI
         let copy = string.replacingOccurrences(of: "^", with: "")
         let attString:NSMutableAttributedString = NSMutableAttributedString(string: copy, attributes: [NSAttributedStringKey.font:font!])
         
-        if let let_index = string.characters.index(of: Character("^")) {
-            let pos = copy.characters.distance(from: copy.startIndex, to: let_index)
-            let length = copy.characters.distance(from: let_index, to: copy.endIndex)
+        if let let_index = string.index(of: Character("^")) {
+            let pos = copy.distance(from: copy.startIndex, to: let_index)
+            let length = copy.distance(from: let_index, to: copy.endIndex)
             attString.setAttributes([NSAttributedStringKey.font:fontSuper!,NSAttributedStringKey.baselineOffset:10], range: NSRange(location: pos, length: length))
             return attString;
         } else {

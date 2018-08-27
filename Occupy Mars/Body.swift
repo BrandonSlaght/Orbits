@@ -207,7 +207,7 @@ class Body {
             cString.remove(at: cString.startIndex)
         }
         
-        if ((cString.characters.count) != 6) {
+        if ((cString.count) != 6) {
             return UIColor.gray
         }
         
@@ -238,7 +238,7 @@ class Body {
         if let let_model = model {
             let tempScene: SCNScene
             if (size == Size.small) {
-                tempScene = SCNScene(named: String(let_model.characters.dropLast(4)) + " - thumbnail.dae")!
+                tempScene = SCNScene(named: String(let_model.dropLast(4)) + " - thumbnail.dae")!
             } else {
                 tempScene = SCNScene(named: let_model)!
             }
@@ -275,7 +275,7 @@ class Body {
             let material = SCNMaterial()
             
             if size == Size.small {
-                material.diffuse.contents = UIImage(named: String(let_texture.characters.dropLast(4)) + " - thumbnail.jpg")!
+                material.diffuse.contents = UIImage(named: String(let_texture.dropLast(4)) + " - thumbnail.jpg")!
             } else {
                 material.diffuse.contents = resizeImage(UIImage(named: let_texture)!, newHeight: CGFloat(size.rawValue))
             }

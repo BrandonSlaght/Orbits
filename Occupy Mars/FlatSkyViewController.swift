@@ -15,11 +15,16 @@ class FlatSkyViewController: UIViewController, CLLocationManagerDelegate {
     var locationManager: CLLocationManager!
     var uranusView: SCNView!
     var tooltip: SexyTooltip!
+    var hasUpdatedHeading = false
     @IBOutlet weak var compass: UIView!
     @IBOutlet weak var skybox: SCNView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //update compass
+        locationManager = (tabBarController as! TabBarViewController).locationManager.locationManager
+        locationManager.delegate = self
         
         //set up background
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
@@ -59,7 +64,7 @@ class FlatSkyViewController: UIViewController, CLLocationManagerDelegate {
         tooltip.present(from: uranusView, in: self.view)
         
         //add gesture recognizers to tooltip
-        let gestureRec = UITapGestureRecognizer(target: self, action:  #selector (self.segueToPlanetView (_:)))
+        //let gestureRec = UITapGestureRecognizer(target: self, action:  #selector (self.segueToPlanetView (_:)))
     
         //add skybox
         let skyboxScene = SCNScene()
@@ -73,20 +78,12 @@ class FlatSkyViewController: UIViewController, CLLocationManagerDelegate {
         
         skyBox.materials = [sky]
         let skyNode = SCNNode(geometry: skyBox)
-        //skyNode.position = SCNVector3(0, 0, 0)
         skyboxScene.rootNode.addChildNode(skyNode)
         skybox.antialiasingMode = .multisampling4X
         skybox.scene = skyboxScene
-        //skybox.pointOfView?.position.z = 5
-        
-        //update compass
-        locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.startUpdatingHeading()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //changeTabBar
         tabBarController?.tabBar.barTintColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
     }
     
@@ -103,18 +100,27 @@ class FlatSkyViewController: UIViewController, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
         //print(newHeading.magneticHeading)
-        UIView.animate(withDuration: 0.5) {
-            self.compass.transform = CGAffineTransform(rotationAngle: -CGFloat(newHeading.trueHeading * Double.pi / 180))
-                
-            //rotate all the planets the opposite direction
-            self.uranusView.transform = CGAffineTransform(rotationAngle: CGFloat(newHeading.trueHeading * Double.pi / 180))
-            //tooltip.present(from: CGPoint(x: uranusView.bounds.size.width*0.5, y: uranusView.bounds.size.height*0.5 - 25), in: uranusView, containedBy: self.view)
-            //re-align the tooltip
-            
-            self.tooltip.present(from: CGPoint(x: self.compass.convert(self.uranusView.frame, to: self.view).midX, y: self.compass.convert(self.uranusView.frame, to: self.view).midY - 25), in: self.view, animated: false)
-            //print("x: " + String(describing: self.compass.convert(self.uranusView.bounds, to: self.view).midX))
-            //print("y: " + String(describing: self.compass.convert(self.uranusView.bounds, to: self.view).midY))
-            //self.tooltip.positionTooltip(for: SexyTooltipArrowDirection.down, aroundRect: self.uranusView.frame, in: self.view, force: false)
+        if(!hasUpdatedHeading) {
+            self.directlyUpdateHeading(manager, didUpdateHeading: newHeading)
+            hasUpdatedHeading = true
+        } else {
+            UIView.animate(withDuration: 0.25) {
+                self.directlyUpdateHeading(manager, didUpdateHeading: newHeading)
+            }
         }
+    }
+    
+    func directlyUpdateHeading(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
+        self.compass.transform = CGAffineTransform(rotationAngle: -CGFloat(newHeading.trueHeading * Double.pi / 180))
+        
+        //rotate all the planets the opposite direction
+        self.uranusView.transform = CGAffineTransform(rotationAngle: CGFloat(newHeading.trueHeading * Double.pi / 180))
+        //tooltip.present(from: CGPoint(x: uranusView.bounds.size.width*0.5, y: uranusView.bounds.size.height*0.5 - 25), in: uranusView, containedBy: self.view)
+        
+        //re-align the tooltip
+        self.tooltip.present(from: CGPoint(x: self.compass.convert(self.uranusView.frame, to: self.view).midX, y: self.compass.convert(self.uranusView.frame, to: self.view).midY - 25), in: self.view, animated: false)
+        //print("x: " + String(describing: self.compass.convert(self.uranusView.bounds, to: self.view).midX))
+        //print("y: " + String(describing: self.compass.convert(self.uranusView.bounds, to: self.view).midY))
+        //self.tooltip.positionTooltip(for: SexyTooltipArrowDirection.down, aroundRect: self.uranusView.frame, in: self.view, force: false)
     }
 }

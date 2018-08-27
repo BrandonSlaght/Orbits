@@ -29,7 +29,7 @@ class Sextant: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let locationObj = locations.last else{
+        guard let locationObj = locations.last else {
             print("location not found!")
             return
         }
@@ -48,6 +48,7 @@ class Sextant: NSObject, CLLocationManagerDelegate {
             if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
                 if CLLocationManager.isRangingAvailable() {
                     manager.requestLocation()
+                    manager.startUpdatingHeading()
                 }
             }
         }

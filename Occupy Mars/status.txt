@@ -148,3 +148,4 @@ Added force touch functionality to images
 Interface improvements
 Added drag and drop functionality for images
 Fixed an issue where active audio would be paused on first lanch of the app
+Minor text fixes

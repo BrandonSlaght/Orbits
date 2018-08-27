@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension Int {
     var degreesToRadians: Double {
@@ -33,8 +34,6 @@ extension UISplitViewController {
         let barButtonItem = self.displayModeButtonItem
         
         //something here to hide bottom bar
-        
-        
         
         UIApplication.shared.sendAction(barButtonItem.action!, to: barButtonItem.target, from: nil, for: nil)
     }

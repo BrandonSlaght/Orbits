@@ -23,10 +23,13 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
     var selectedIndex : Int?
     var selectedMoon : Int?
     var collapseSplitView = true
-    let sextant = Sextant()
+    var sextant: Sextant!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        sextant = (tabBarController as! TabBarViewController).locationManager
+        
         tableView.delegate = self
         splitViewController?.delegate = self
         
@@ -182,13 +185,11 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
         if let location = sextant.location, let aaPlanet = planet.aa {
             let coords = GeographicCoordinates.init(location)
             let rstTimes = aaPlanet.riseTransitSetTimes(for: coords)
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "h:mm a"
             
-            cell.rises.text = dateFormatter.string(from: rstTimes.riseTime!.date)
-            cell.sets.text = dateFormatter.string(from: rstTimes.setTime!.date)
-            //cell.rises.text = String(describing: rstTimes.riseTime!.date.hour.description) + ":" + String(describing: rstTimes.riseTime!.date.minute.description)
-            //cell.sets.text = String(describing: rstTimes.setTime!.date.hour.description) + ":" + String(describing: rstTimes.setTime!.date.minute.description)
+            cell.setRSTTimes(rise: rstTimes.riseTime?.date, set: rstTimes.setTime?.date)
+            
+        } else {
+            cell.clearRSTTimes()
         }
         return cell
     }

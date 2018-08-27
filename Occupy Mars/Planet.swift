@@ -23,7 +23,7 @@ class Planet : Body {
     
     //--------------------------------------------orbital elements
     
-    var aa: SwiftAA.Planet?
+    var aa: SwiftAA.CelestialBody?
     
     //--------------------------------------------initializers
     
@@ -36,7 +36,7 @@ class Planet : Body {
         super.init(name: name, position: position)
     }
     
-    func aa(planet: SwiftAA.Planet) {
+    func aa(planet: SwiftAA.CelestialBody) {
         self.aa = planet
     }
     
