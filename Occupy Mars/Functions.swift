@@ -29,37 +29,49 @@ func getBlurViewWithBackground(frame: CGRect, background: String) -> UIView {
 
 func moveTagToBack(ofNav bar:UINavigationController) {
     if let blurView = bar.navigationBar.viewWithTag(11) {
-        bar.navigationBar.sendSubview(toBack: blurView)
+        bar.navigationBar.sendSubviewToBack(blurView)
     }
 }
 
-func addBlurEffect(toNav bar:UINavigationController) {
-    // Add blur view
-    //guard let view = bar else { return }
+func setupParallaxEffect(parentView: UIView) -> UIView {
+    //let wrapperview = UIView()
     
-    if (bar.navigationBar.viewWithTag(10) != nil) {
-        print("View already has blur")
-        return
-    }
+    var bounds = parentView.bounds
+    bounds.origin.x -= 50
+    bounds.origin.y -= 50
+    bounds.size.height += 100
+    bounds.size.width += 100
+    parentView.bounds = bounds
     
-    //This will let visualEffectView to work perfectly
-    //if let navBar = bar.navigationBar as? UINavigationBar{
-        bar.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        bar.navigationBar.shadowImage = UIImage()
-    //}
+    var frame = parentView.frame
+    frame.origin.x -= 50
+    frame.origin.y -= 50
+    frame.size.height += 100
+    frame.size.width += 100
+    parentView.frame = frame
     
-    var bounds = bar.navigationBar.bounds
-    bounds = bounds.offsetBy(dx: 0.0, dy: -20.0)
-    bounds.size.height = bounds.height + 20.0
+    //parentView.clipsToBounds = false
+    //wrapperview.clipsToBounds = false
     
-    let blurEffect = UIBlurEffect(style: .regular)
-    let visualEffectView = UIVisualEffectView(effect: blurEffect)
+    //parentView.frame = frame
+    //wrapperview.layer.insertSublayer(playerLayer!, at: 0)
+    parentView.addMotionEffect(getMotionEffectGroup())
+    //self.view.addSubview(wrapperview)
+    //self.view.sendSubviewToBack(wrapperview)
     
-    visualEffectView.isUserInteractionEnabled = false
-    visualEffectView.frame = bounds
-    visualEffectView.tag = 11
-    visualEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-    bar.navigationBar.insertSubview(visualEffectView, at: 0)
+    return parentView
+}
+
+func getMotionEffectGroup() -> UIMotionEffectGroup {
+    let verticalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
+    verticalMotionEffect.minimumRelativeValue = -50
+    verticalMotionEffect.maximumRelativeValue = 50
     
-    bar.navigationBar.sendSubview(toBack: visualEffectView)
+    let horizontalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
+    horizontalMotionEffect.minimumRelativeValue = -50
+    horizontalMotionEffect.maximumRelativeValue = 50
+    
+    let group = UIMotionEffectGroup()
+    group.motionEffects = [horizontalMotionEffect, verticalMotionEffect]
+    return group
 }

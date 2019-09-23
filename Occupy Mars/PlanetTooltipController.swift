@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftAA
 
 class PlanetTooltipController: UIView {
     
@@ -15,9 +16,16 @@ class PlanetTooltipController: UIView {
     @IBOutlet weak var arrowViewWidth: NSLayoutConstraint!
     @IBOutlet weak var arrowViewHeight: NSLayoutConstraint!
     
+    @IBOutlet weak var planetLabel: UILabel!
+    @IBOutlet weak var rises: UILabel!
+    @IBOutlet weak var sets: UILabel!
+    @IBOutlet weak var altitude: UILabel!
+    @IBOutlet weak var azimuth: UILabel!
+    
+    var planet: Planet?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
     
     override func layoutSubviews() {
@@ -35,8 +43,13 @@ class PlanetTooltipController: UIView {
         //arrowView.layoutSubviews()
         //set width now that we have the width
         let availableTooltipWidth = self.wrapStackView.frame.size.width
-        self.frame.size.width = availableTooltipWidth;
+        self.frame.size.width = availableTooltipWidth
         
         super.layoutSubviews()
+    }
+    
+    func setPlanet(planet: Planet) {
+        planetLabel.text = planet.name
+        self.planet = planet
     }
 }

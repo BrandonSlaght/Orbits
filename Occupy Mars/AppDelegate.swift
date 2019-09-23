@@ -13,13 +13,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        UIApplication.shared.statusBarStyle = .lightContent
+        //UIApplication.shared.statusBarStyle = .lightContent
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         if launchedBefore  {
-            //self.window = UIWindow(frame: UIScreen.main.bounds)
+            self.window = UIWindow(frame: UIScreen.main.bounds)
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let initialViewController = storyboard.instantiateViewController(withIdentifier: "TabView")
             self.window?.rootViewController = initialViewController
@@ -50,9 +49,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         
-        let tabBarViewController = self.window!.rootViewController as! UITabBarController
+        var tabBarViewController: UITabBarController
+        var optTabBarViewController: UITabBarController? = nil
+        if let let_tabBarViewController = self.window!.rootViewController as? UITabBarController {
+            optTabBarViewController = let_tabBarViewController
+        }
+        if let let_introPageViewController = self.window!.rootViewController as? IntroPageViewController {
+            optTabBarViewController = let_introPageViewController.children[0] as? UITabBarController
+        }
+        if(optTabBarViewController == nil) {
+            return false
+        } else {
+            tabBarViewController = optTabBarViewController!
+        }
+        
         print(tabBarViewController.viewControllers?.count ?? 0)
         var splitViewController:UISplitViewController? = nil
         for viewController in tabBarViewController.viewControllers! {
@@ -71,7 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             listViewController.restoreUserActivityState(userActivity)
         } else { //it is the first time we launched
             let introPageViewController = window?.rootViewController as? IntroPageViewController
-            let splitViewController = introPageViewController?.childViewControllers[0] as? UISplitViewController
+            let splitViewController = introPageViewController?.children[0] as? UISplitViewController
             let primaryViewController = splitViewController?.primaryViewController as? UINavigationController
             let listViewController = primaryViewController?.viewControllers[0] as! PlanetListViewController
             listViewController.restoreUserActivityState(userActivity)
@@ -80,4 +92,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 }
-

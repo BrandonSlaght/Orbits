@@ -33,7 +33,7 @@ public struct SKPhotoBrowserOptions {
     public static var backgroundColor: UIColor = .black
     
     public static var indicatorColor: UIColor = UIColor.white
-    public static var indicatorStyle: UIActivityIndicatorViewStyle = .whiteLarge
+    public static var indicatorStyle: UIActivityIndicatorView.Style = UIActivityIndicatorView.Style.large
     
     public static var toolbarTextShadowColor: UIColor = .darkText
     

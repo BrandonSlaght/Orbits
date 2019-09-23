@@ -134,7 +134,7 @@ class SKToolbarButton: UIButton {
         
         let image = UIImage(named: "SKPhotoBrowser.bundle/images/\(imageName)",
             in: bundle, compatibleWith: nil) ?? UIImage()
-        setImage(image, for: UIControlState())
+        setImage(image, for: UIControl.State())
     }
 }
 

@@ -22,9 +22,7 @@ class MediaAboutViewController: UIViewController, UICollectionViewDelegate, UICo
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
 
-        if #available(iOS 11.0, *) {
-            self.collectionView.dragDelegate = self
-        }
+        self.collectionView.dragDelegate = self
         
 //        if #available(iOS 11.0, *) {
 //            self.collectionView.dragInteractionEnabled = true
@@ -39,7 +37,6 @@ class MediaAboutViewController: UIViewController, UICollectionViewDelegate, UICo
         collectionViewHeight.constant = collectionView.contentSize.height
         
         guard traitCollection.forceTouchCapability == .available else { return }
-        print("have registered")
         registerForPreviewing(with: self, sourceView: collectionView)
     }
     
@@ -60,7 +57,7 @@ class MediaAboutViewController: UIViewController, UICollectionViewDelegate, UICo
             layout.columnCount = 1
         }
         // Collection view attributes
-        self.collectionView.autoresizingMask = [UIViewAutoresizing.flexibleHeight, UIViewAutoresizing.flexibleWidth]
+        self.collectionView.autoresizingMask = [UIView.AutoresizingMask.flexibleHeight, UIView.AutoresizingMask.flexibleWidth]
         self.collectionView.alwaysBounceVertical = true
         // Add the waterfall layout to your collection view
         self.collectionView.collectionViewLayout = layout
@@ -121,8 +118,6 @@ class MediaAboutViewController: UIViewController, UICollectionViewDelegate, UICo
         }
         
         let image = images[indexPath.row]
-        print(mediaHolderViewController.imageObject)
-        print(image.underlyingImage)
         mediaHolderViewController.imageObject = image.underlyingImage!
         mediaHolderViewController.imageTitle = image.caption
         mediaHolderViewController.preferredContentSize = CGSize(width: 0.0, height: 0.0)
@@ -144,7 +139,6 @@ class MediaAboutViewController: UIViewController, UICollectionViewDelegate, UICo
     
     @available(iOS 11.0, *)
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
-        print("dragging")
         let item = self.images[indexPath.row].underlyingImage
         let itemProvider = NSItemProvider(object: item!)
         let dragItem = UIDragItem(itemProvider: itemProvider)

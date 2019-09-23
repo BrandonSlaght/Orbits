@@ -76,12 +76,12 @@ class DetailsAboutViewController: AboutViewController, UITableViewDataSource, UI
         let font:UIFont? = UIFont(name: fontName, size: CGFloat(size))
         let fontSuper:UIFont? = UIFont(name: fontName, size: CGFloat(size/2) + 2)
         let copy = string.replacingOccurrences(of: "^", with: "")
-        let attString:NSMutableAttributedString = NSMutableAttributedString(string: copy, attributes: [NSAttributedStringKey.font:font!])
+        let attString:NSMutableAttributedString = NSMutableAttributedString(string: copy, attributes: [NSAttributedString.Key.font:font!])
         
-        if let let_index = string.index(of: Character("^")) {
+        if let let_index = string.firstIndex(of: Character("^")) {
             let pos = copy.distance(from: copy.startIndex, to: let_index)
             let length = copy.distance(from: let_index, to: copy.endIndex)
-            attString.setAttributes([NSAttributedStringKey.font:fontSuper!,NSAttributedStringKey.baselineOffset:10], range: NSRange(location: pos, length: length))
+            attString.setAttributes([NSAttributedString.Key.font:fontSuper!,NSAttributedString.Key.baselineOffset:10], range: NSRange(location: pos, length: length))
             return attString;
         } else {
             return NSAttributedString(string: string)

@@ -35,7 +35,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var allObjects = Objects.planets()
+        var allObjects = Objects.solarSystem()
         objects = allObjects[Class.Major]!
         objects.append(allObjects[Class.Other]![0])
         objects.append(allObjects[Class.Major]![2].moons[0])
@@ -48,9 +48,8 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         
         visibilityTableView.separatorEffect = UIVibrancyEffect(blurEffect: UIBlurEffect(style: .dark))
         visibilityTableView.estimatedRowHeight = 75
-        visibilityTableView.rowHeight = UITableViewAutomaticDimension
+        visibilityTableView.rowHeight = UITableView.automaticDimension
         
-        print("finished setup")
     }
     
     override func didReceiveMemoryWarning() {
@@ -86,8 +85,6 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     }
     
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
-        print(basicDataStackView.bounds.size.height)
-        print(view.bounds.size.height)
         if activeDisplayMode == .expanded {
             preferredContentSize = CGSize(width: 0, height: 600)
         } else {
@@ -110,7 +107,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlanetsVisibleTonightCell", for: indexPath) as! VisibilityCell
-        let classification = Class.allValues[indexPath.section]
+        //let classification = Class.allValues[indexPath.section]
         let planet = objects[indexPath.row]
         cell.name?.text = planet.name
 
@@ -120,7 +117,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let index = indexPath.row
+        //let index = indexPath.row
         //let detail = self.storyboard?.instantiateViewController(withIdentifier: "detailViewController") as? DetailViewController
         //detail?.body = body.moons[index]
         //self.navigationController?.pushViewController(detail!, animated: true)

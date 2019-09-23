@@ -86,6 +86,7 @@ when there is an extended status bar because of a call, the tab bar will not be 
 handle settings changes in app:  text size, reduce motion, and 3d touch
 3d skyview
 news tab
+localization
 
 
 BEFORE NEXT RELEASE:
@@ -97,7 +98,7 @@ DONE - fix audio being paused on first launch from the media player
 Details of Moons
 Media of moons
 EZ - pronunciations
-do visibility
+DONE - do visibility
 EZ - Mimas model - saturn
 colors and backgrounds of moons
 remove BTBalloon

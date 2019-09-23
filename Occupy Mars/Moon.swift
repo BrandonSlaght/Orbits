@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Moon : Body{
+class Moon : Body {
     
     //--------------------------------------------initializers
     

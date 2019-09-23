@@ -13,6 +13,7 @@ enum Type : String {
     case Gas = "Gas Giant"
     case Ice = "Ice Giant"
     case Star = "Star"
+    case Moon = "Rocky Moon"
 }
 
 enum Class : String {
@@ -25,6 +26,7 @@ enum Class : String {
 }
 
 enum Size : Int {
+    case micro = 50
     case small = 200
     case medium = 400
     case large = 1200

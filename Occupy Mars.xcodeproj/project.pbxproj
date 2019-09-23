@@ -33,7 +33,6 @@
 		84BCC3231EA498E3008DF21B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84BCC3221EA498E3008DF21B /* Settings.bundle */; };
 		84E044491E37D9FE00A6AAB4 /* phobos - transit.gif in Resources */ = {isa = PBXBuildFile; fileRef = 84E044481E37D9FE00A6AAB4 /* phobos - transit.gif */; };
 		84F2AAE11EDFDF7A00FFF898 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5941BDE1DBBFD940057A46A /* Assets.xcassets */; };
-		84FFCB2F1EB70E47001DE7B7 /* Cartographer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFCB2E1EB70E47001DE7B7 /* Cartographer.swift */; };
 		C515AE631DC91126009A498C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C515AE621DC91126009A498C /* DetailViewController.swift */; };
 		C520FB3B1DFC928C004A0FE6 /* SKAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C520FB281DFC928C004A0FE6 /* SKAnimator.swift */; };
 		C520FB3C1DFC928C004A0FE6 /* SKButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = C520FB291DFC928C004A0FE6 /* SKButtons.swift */; };
@@ -143,8 +142,9 @@
 		C5AEC3F51DCE77D500992AEB /* DetailsAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AEC3F41DCE77D500992AEB /* DetailsAboutViewController.swift */; };
 		C5AEC3F91DCE77FA00992AEB /* MediaAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AEC3F81DCE77FA00992AEB /* MediaAboutViewController.swift */; };
 		C5AEC3FB1DCE7BDE00992AEB /* AboutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AEC3FA1DCE7BDE00992AEB /* AboutTableViewController.swift */; };
-		C5B3271C210D4F820074DF34 /* SwiftAA.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C5BFF707210BFFD000C9E70A /* SwiftAA.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C5B3271D210D4FE70074DF34 /* tonight.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 840FEFB41EDE3D560005B69E /* tonight.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C5B3D45F23385A860008BB37 /* SwiftAA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5B3D45D233859A20008BB37 /* SwiftAA.framework */; };
+		C5B3D46023385A860008BB37 /* SwiftAA.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C5B3D45D233859A20008BB37 /* SwiftAA.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C5BFF6F4210BDC5D00C9E70A /* Objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C24C801DC68DA10028FAF5 /* Objects.swift */; };
 		C5BFF6F5210BDC6500C9E70A /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52458371DC578F1009F3374 /* Planet.swift */; };
 		C5BFF6F6210BDC6900C9E70A /* Moon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52458391DC5988D009F3374 /* Moon.swift */; };
@@ -153,8 +153,6 @@
 		C5BFF6F9210BDC7700C9E70A /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84297BF11EC8F4D6003604C7 /* Functions.swift */; };
 		C5BFF6FA210BDC7900C9E70A /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84297BEF1EC8F4BE003604C7 /* Globals.swift */; };
 		C5BFF6FB210BDC7D00C9E70A /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = C524583B1DC59E0B009F3374 /* Types.swift */; };
-		C5BFF708210BFFD000C9E70A /* SwiftAA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5BFF707210BFFD000C9E70A /* SwiftAA.framework */; };
-		C5BFF709210BFFD000C9E70A /* SwiftAA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5BFF707210BFFD000C9E70A /* SwiftAA.framework */; };
 		C5BFF70A210C011D00C9E70A /* AreaUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D4211E54EBCF009AD9D8 /* AreaUnit.swift */; };
 		C5BFF70B210C011D00C9E70A /* AreaUnit+Imperial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D4221E54EBCF009AD9D8 /* AreaUnit+Imperial.swift */; };
 		C5BFF70C210C011D00C9E70A /* EnergyUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488D4231E54EBCF009AD9D8 /* EnergyUnit.swift */; };
@@ -199,7 +197,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C5B3271C210D4F820074DF34 /* SwiftAA.framework in Embed Frameworks */,
+				C5B3D46023385A860008BB37 /* SwiftAA.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,7 +253,6 @@
 		8488D42D1E54EBCF009AD9D8 /* VolumeUnit+US.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VolumeUnit+US.swift"; sourceTree = "<group>"; };
 		84BCC3221EA498E3008DF21B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		84E044481E37D9FE00A6AAB4 /* phobos - transit.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "phobos - transit.gif"; sourceTree = "<group>"; };
-		84FFCB2E1EB70E47001DE7B7 /* Cartographer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cartographer.swift; sourceTree = "<group>"; };
 		C515AE621DC91126009A498C /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C520FB281DFC928C004A0FE6 /* SKAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKAnimator.swift; sourceTree = "<group>"; };
 		C520FB291DFC928C004A0FE6 /* SKButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKButtons.swift; sourceTree = "<group>"; };
@@ -412,7 +409,7 @@
 		C5AEC3F41DCE77D500992AEB /* DetailsAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsAboutViewController.swift; sourceTree = "<group>"; };
 		C5AEC3F81DCE77FA00992AEB /* MediaAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaAboutViewController.swift; sourceTree = "<group>"; };
 		C5AEC3FA1DCE7BDE00992AEB /* AboutTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutTableViewController.swift; sourceTree = "<group>"; };
-		C5BFF707210BFFD000C9E70A /* SwiftAA.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftAA.framework; sourceTree = "<group>"; };
+		C5B3D45D233859A20008BB37 /* SwiftAA.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftAA.framework; sourceTree = "<group>"; };
 		C5BFF717210C026700C9E70A /* VisibilityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisibilityCell.swift; sourceTree = "<group>"; };
 		C5C24C7E1DC685F50028FAF5 /* PlanetListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetListViewController.swift; sourceTree = "<group>"; };
 		C5C24C801DC68DA10028FAF5 /* Objects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Objects.swift; sourceTree = "<group>"; };
@@ -431,7 +428,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5BFF709210BFFD000C9E70A /* SwiftAA.framework in Frameworks */,
 				840FEFB71EDE3D570005B69E /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,7 +436,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5BFF708210BFFD000C9E70A /* SwiftAA.framework in Frameworks */,
+				C5B3D45F23385A860008BB37 /* SwiftAA.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +446,7 @@
 		840FEFB51EDE3D570005B69E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C5B3D45D233859A20008BB37 /* SwiftAA.framework */,
 				840FEFB61EDE3D570005B69E /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
@@ -480,9 +477,9 @@
 		84297BE81EC6A211003604C7 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				C5D349191FF338D10074769E /* sky */,
 				C5D349181FF338C80074769E /* intro */,
 				C5D349171FF338A60074769E /* reference */,
+				C5D349191FF338D10074769E /* sky */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -507,6 +504,7 @@
 				84297BED1EC8F4AA003604C7 /* Extensions.swift */,
 				84297BF11EC8F4D6003604C7 /* Functions.swift */,
 				84297BEF1EC8F4BE003604C7 /* Globals.swift */,
+				C524583B1DC59E0B009F3374 /* Types.swift */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -643,9 +641,9 @@
 		84E044421E37D4A500A6AAB4 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				C5AB79F91DEC8D310097C295 /* DataViewCell.xib */,
 				C5941BE01DBBFD940057A46A /* LaunchScreen.storyboard */,
 				C5941BDB1DBBFD940057A46A /* Main.storyboard */,
+				C5AB79F91DEC8D310097C295 /* DataViewCell.xib */,
 				C5C281BF1DDB94B60036C7A0 /* MediaViewCell.xib */,
 				C5A8D4091FFDD36B0015AE81 /* PlanetTooltip.xib */,
 			);
@@ -699,15 +697,10 @@
 		C52458361DC578BA009F3374 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				C5B3D46123385D310008BB37 /* data */,
 				84297BEC1EC8F461003604C7 /* utils */,
-				84297BE91EC6A314003604C7 /* Body.swift */,
-				84FFCB2E1EB70E47001DE7B7 /* Cartographer.swift */,
-				C52458391DC5988D009F3374 /* Moon.swift */,
-				C5C24C801DC68DA10028FAF5 /* Objects.swift */,
-				C52458371DC578F1009F3374 /* Planet.swift */,
 				C54A98F81E032ED3009A8695 /* Sextant.swift */,
 				C56AF8E0202E589D000AFC87 /* TabBarViewController.swift */,
-				C524583B1DC59E0B009F3374 /* Types.swift */,
 				C5AEC3ED1DCE5CB200992AEB /* texture sources.rtf */,
 				8427FBA21E8C137400536BAB /* status.txt */,
 			);
@@ -815,7 +808,6 @@
 		C5941BC71DBBFD940057A46A = {
 			isa = PBXGroup;
 			children = (
-				C5BFF707210BFFD000C9E70A /* SwiftAA.framework */,
 				84BCC3221EA498E3008DF21B /* Settings.bundle */,
 				C5941BD21DBBFD940057A46A /* Occupy Mars */,
 				840FEFB81EDE3D570005B69E /* tonight */,
@@ -858,6 +850,17 @@
 				C5991A3D1DD9738200A86F04 /* WaterfallLayout.swift */,
 			);
 			name = details;
+			sourceTree = "<group>";
+		};
+		C5B3D46123385D310008BB37 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				84297BE91EC6A314003604C7 /* Body.swift */,
+				C52458391DC5988D009F3374 /* Moon.swift */,
+				C5C24C801DC68DA10028FAF5 /* Objects.swift */,
+				C52458371DC578F1009F3374 /* Planet.swift */,
+			);
+			name = data;
 			sourceTree = "<group>";
 		};
 		C5CF53D81DFC7EC0008A6489 /* photo browser */ = {
@@ -961,26 +964,26 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Slaght, Brandon";
 				TargetAttributes = {
 					840FEFB31EDE3D560005B69E = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 98PHYR992B;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 					C5941BCF1DBBFD940057A46A = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 98PHYR992B;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
 			buildConfigurationList = C5941BCB1DBBFD940057A46A /* Build configuration list for PBXProject "Occupy Mars" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -1180,7 +1183,6 @@
 				C5A8D40C1FFDF1530015AE81 /* PlanetTooltipController.swift in Sources */,
 				C54F06001FFC3939004BCC40 /* POPAnimationRuntime.mm in Sources */,
 				C54F05FF1FFC3939004BCC40 /* POPBasicAnimation.mm in Sources */,
-				84FFCB2F1EB70E47001DE7B7 /* Cartographer.swift in Sources */,
 				C515AE631DC91126009A498C /* DetailViewController.swift in Sources */,
 				C54F06031FFC3939004BCC40 /* POPAnimator.mm in Sources */,
 				C5AEC3F31DCE77C500992AEB /* MoonAboutViewController.swift in Sources */,
@@ -1246,6 +1248,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(SRCROOT)/**",
+					"$(PROJECT_DIR)/Occupy\\ Mars",
 				);
 				INFOPLIST_FILE = tonight/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
@@ -1254,8 +1257,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1270,6 +1272,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(SRCROOT)/**",
+					"$(PROJECT_DIR)/Occupy\\ Mars",
 				);
 				INFOPLIST_FILE = tonight/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
@@ -1277,8 +1280,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = orbitals.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -1286,6 +1288,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1331,7 +1334,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1344,6 +1347,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1383,7 +1387,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1404,17 +1408,20 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(SRCROOT)/**",
+					"$(PROJECT_DIR)/Occupy\\ Mars",
+					"$(PROJECT_DIR)/Occupy\\ Mars",
+					"$(PROJECT_DIR)/Occupy\\ Mars",
+					"$(PROJECT_DIR)/Occupy\\ Mars",
 				);
 				INFOPLIST_FILE = "Occupy Mars/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = orbitals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INCLUDE_PATHS = "${SRCROOT}/sextant/**";
 				SWIFT_OBJC_BRIDGING_HEADER = "Occupy Mars/Occupy Mars-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1431,16 +1438,19 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(SRCROOT)/**",
+					"$(PROJECT_DIR)/Occupy\\ Mars",
+					"$(PROJECT_DIR)/Occupy\\ Mars",
+					"$(PROJECT_DIR)/Occupy\\ Mars",
+					"$(PROJECT_DIR)/Occupy\\ Mars",
 				);
 				INFOPLIST_FILE = "Occupy Mars/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = orbitals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INCLUDE_PATHS = "${SRCROOT}/sextant/**";
 				SWIFT_OBJC_BRIDGING_HEADER = "Occupy Mars/Occupy Mars-Bridging-Header.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

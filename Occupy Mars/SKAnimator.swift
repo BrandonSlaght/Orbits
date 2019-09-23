@@ -148,7 +148,7 @@ private extension SKAnimator {
             delay: 0,
             usingSpringWithDamping:animationDamping,
             initialSpringVelocity:0,
-            options:UIViewAnimationOptions(),
+            options:UIView.AnimationOptions(),
             animations: {
                 browser.showButtons()
                 browser.backgroundView.alpha = 1.0
@@ -170,7 +170,7 @@ private extension SKAnimator {
             delay:0,
             usingSpringWithDamping:animationDamping,
             initialSpringVelocity:0,
-            options:UIViewAnimationOptions(),
+            options:UIView.AnimationOptions(),
             animations: {
                 browser.backgroundView.alpha = 0.0
                 

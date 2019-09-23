@@ -12,78 +12,19 @@ import AVFoundation
 class IntroPageViewController: UIPageViewController {
     
     var player: AVPlayer?
-    var time = kCMTimeZero
+    var time = CMTime.zero
     var playerLayer: AVPlayerLayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dataSource = self
-        if let firstViewController = introViewControllers.first {
-            setViewControllers([firstViewController],
-                               direction: .forward,
-                               animated: true,
-                               completion: nil)
-        }
-        
-        do{
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
-            try AVAudioSession.sharedInstance().setActive(true)
-        } catch let error as NSError {
-            print(error)
-        }
-        
-        let path = Bundle.main.path(forResource: "background", ofType: "mp4")
-        player = AVPlayer(url: URL(fileURLWithPath: path!))
-        player!.actionAtItemEnd = AVPlayerActionAtItemEnd.none;
-        player!.isMuted = true
-        player!.volume = 0
-        playerLayer = AVPlayerLayer(player: player)
-        playerLayer?.frame = self.view.frame //.layer.bounds
-        playerLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        
-        self.view.layer.insertSublayer(playerLayer!, at: 0)
-        NotificationCenter.default.addObserver(self, selector: #selector(IntroPageViewController.playerItemDidReachEnd), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player!.currentItem)
-        player!.seek(to: kCMTimeZero)
-        player!.play()
-        
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(IntroPageViewController.applicationDidBecomeActive),
-            name: NSNotification.Name.UIApplicationDidBecomeActive,
-            object: nil)
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(IntroPageViewController.applicationWillResignActive),
-            name: NSNotification.Name.UIApplicationWillResignActive,
-            object: nil)
-        
-//        //parallax
-//        let verticalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
-//        verticalMotionEffect.minimumRelativeValue = -50
-//        verticalMotionEffect.maximumRelativeValue = 50
-//        
-//        let horizontalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
-//        horizontalMotionEffect.minimumRelativeValue = -50
-//        horizontalMotionEffect.maximumRelativeValue = 50
-//        
-//        let group = UIMotionEffectGroup()
-//        group.motionEffects = [horizontalMotionEffect, verticalMotionEffect]
-//        self.view.addMotionEffect(group)
+        setupView()
+        setupPlayer()
+        setupParallaxEffect()
     }
     
     @objc func playerItemDidReachEnd() {
-        player!.seek(to: kCMTimeZero)
-    }
-    
-    @objc func applicationDidBecomeActive() {
-        player!.seek(to: time, toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero)
-        player?.play()
-    }
-    
-    @objc func applicationWillResignActive() {
-        player?.pause()
-        time = (player?.currentTime())!
+        player!.seek(to: CMTime.zero)
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -92,6 +33,60 @@ class IntroPageViewController: UIPageViewController {
         }, completion: { (UIViewControllerTransitionCoordinatorContext) -> Void in
         })
         super.viewWillTransition(to: size, with: coordinator)
+    }
+    
+    func setupView() {
+        dataSource = self
+        if let firstViewController = introViewControllers.first {
+            setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
+        }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category(rawValue: convertFromAVAudioSessionCategory(AVAudioSession.Category.ambient)))
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch let error as NSError {
+            print(error)
+        }
+    }
+    
+    func setupPlayer() {
+        let path = Bundle.main.path(forResource: "background", ofType: "mp4")
+        player = AVPlayer(url: URL(fileURLWithPath: path!))
+        player!.actionAtItemEnd = AVPlayer.ActionAtItemEnd.none;
+        player!.isMuted = true
+        player!.volume = 0
+        player!.seek(to: CMTime.zero)
+        player!.play()
+        playerLayer = AVPlayerLayer(player: player)
+        playerLayer?.videoGravity = .resizeAspectFill
+        NotificationCenter.default.addObserver(self, selector: #selector(IntroPageViewController.playerItemDidReachEnd), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player!.currentItem)
+    }
+    
+    func setupParallaxEffect() {
+        let wrapperview = UIView()
+        
+        var bounds = self.view.bounds
+        bounds.origin.x -= 50
+        bounds.origin.y -= 50
+        bounds.size.height += 100
+        bounds.size.width += 100
+        wrapperview.bounds = bounds
+        
+        var frame = self.view.frame
+        frame.origin.x -= 50
+        frame.origin.y -= 50
+        frame.size.height += 100
+        frame.size.width += 100
+        wrapperview.frame = frame
+        
+        self.view.clipsToBounds = false
+        wrapperview.clipsToBounds = false
+        
+        playerLayer?.frame = frame
+        wrapperview.layer.insertSublayer(playerLayer!, at: 0)
+        wrapperview.addMotionEffect(getMotionEffectGroup())
+        self.view.addSubview(wrapperview)
+        self.view.sendSubviewToBack(wrapperview)
     }
 }
 
@@ -106,7 +101,7 @@ func getViewControllers() -> [UIViewController] {
 extension IntroPageViewController: UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = introViewControllers.index(of: viewController) else {
+        guard let viewControllerIndex = introViewControllers.firstIndex(of: viewController) else {
             return nil
         }
         let previousIndex = viewControllerIndex - 1
@@ -120,7 +115,7 @@ extension IntroPageViewController: UIPageViewControllerDataSource {
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = introViewControllers.index(of: viewController) else {
+        guard let viewControllerIndex = introViewControllers.firstIndex(of: viewController) else {
             return nil
         }
         let nextIndex = viewControllerIndex + 1
@@ -140,9 +135,14 @@ extension IntroPageViewController: UIPageViewControllerDataSource {
     
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         guard let firstViewController = viewControllers?.first,
-            let firstViewControllerIndex = introViewControllers.index(of: firstViewController) else {
+            let firstViewControllerIndex = introViewControllers.firstIndex(of: firstViewController) else {
                 return 0
         }
         return firstViewControllerIndex
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVAudioSessionCategory(_ input: AVAudioSession.Category) -> String {
+	return input.rawValue
 }

@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
+   uuid = "494385BA-20BB-42DB-BDD6-B63C30B27488"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DCFC0C5A-05B9-43C8-ADB5-71C5880D5737"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Occupy Mars/Body.swift"
+            timestampString = "581554680.716457"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "436"
+            endingLineNumber = "436"
+            landmarkName = "generateOrbitalObjects()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

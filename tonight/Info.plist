@@ -28,12 +28,12 @@
 		<string>com.apple.widget-extension</string>
 	</dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Please giv</string>
+	<string>Orbits needs your location to provide rise and set times and star maps.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Please gib</string>
+	<string>Orbits needs your location to provide rise and set times and star maps.</string>
 	<key>NSLocationUsageDescription</key>
-	<string>Plz giv</string>
+	<string>Orbits needs your location to provide rise and set times and star maps.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Plz gib</string>
+	<string>Orbits needs your location to provide rise and set times and star maps.</string>
 </dict>
 </plist>

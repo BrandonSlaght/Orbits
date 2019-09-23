@@ -15,7 +15,7 @@ class MoonAboutViewController: AboutViewController, UITableViewDataSource, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = view.bounds
         
@@ -24,7 +24,7 @@ class MoonAboutViewController: AboutViewController, UITableViewDataSource, UITab
         
         tableView.separatorEffect = UIVibrancyEffect(blurEffect: blurView.effect as! UIBlurEffect)
         tableView.estimatedRowHeight = 200
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     override func viewDidLayoutSubviews() {
@@ -53,7 +53,6 @@ class MoonAboutViewController: AboutViewController, UITableViewDataSource, UITab
             cell.sceneView.preferredFramesPerSecond = 15
         }
         if (objects[indexPath.row].getScene(size: Size.small) == nil) {
-            print(objects[indexPath.row].name + "is nil modeled")
             cell.heightConstraint.constant = 60
         }
         return cell

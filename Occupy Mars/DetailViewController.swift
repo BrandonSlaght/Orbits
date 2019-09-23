@@ -44,8 +44,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     func cycleFromViewController(oldViewController: UIViewController, toViewController newViewController: UIViewController) {
         //transitioning = true
         newViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        oldViewController.willMove(toParentViewController: nil)
-        self.addChildViewController(newViewController)
+        oldViewController.willMove(toParent: nil)
+        self.addChild(newViewController)
         self.addSubview(subView: newViewController.view, toView:self.content!)
         newViewController.view.alpha = 0
         newViewController.view.setNeedsLayout()
@@ -59,8 +59,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
                                     },
                                    completion: { finished in
                                     oldViewController.view.removeFromSuperview()
-                                    oldViewController.removeFromParentViewController()
-                                    newViewController.didMove(toParentViewController: self)
+                                    oldViewController.removeFromParent()
+                                    newViewController.didMove(toParent: self)
                                     self.content.reloadInputViews()
                                     self.transitioning = false
                                     self.scrollViewDidScroll(self.scrollView)
@@ -82,8 +82,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         
         if body == nil {
-            body = Objects.planets()[Class.Major]?.first
-            print(body.name)
+            body = Objects.earth()
         }
         
         scrollView.delegate = self
@@ -95,7 +94,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         singleTap.addTarget(self, action: #selector(DetailViewController.hide(_:)))
         self.view.addGestureRecognizer(singleTap)
 
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = view.bounds
         blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -111,25 +110,21 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         self.view.addSubview(blurView)
         
         scrollView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 4)
-        scrollView.indicatorStyle = UIScrollViewIndicatorStyle.white
+        scrollView.indicatorStyle = UIScrollView.IndicatorStyle.white
         
         self.navigationItem.title = body.name
-        //addBlurEffect(toNav: self.navigationController!)
         
         tabs.removeAllSegments()
         
         if body.images.count > 0 || body.videos.count > 0 {
             tabs.insertSegment(withTitle: "Media", at: 0, animated: false)
         }
-        
         if body.rings.count > 0 {
             tabs.insertSegment(withTitle: "Rings", at: 0, animated: false)
         }
-        
         if body.moons.count > 0 {
             tabs.insertSegment(withTitle: "Moons", at: 0, animated: false)
         }
-        
         if body.hasDetails {
             tabs.insertSegment(withTitle: "Details", at: 0, animated: false)
         }
@@ -146,7 +141,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         if let vc = self.getDetailViewController(tabs.selectedSegmentIndex) {
             self.currentViewController = vc
             self.currentViewController!.view.translatesAutoresizingMaskIntoConstraints = false
-            self.addChildViewController(self.currentViewController!)
+            self.addChild(self.currentViewController!)
             self.addSubview(subView: self.currentViewController!.view, toView: self.content)
         }
         
@@ -164,33 +159,15 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             }
         }
         
-        insideView.bringSubview(toFront: tabHolder)
+        insideView.bringSubviewToFront(tabHolder)
         
         globeButton.addTarget(self, action: #selector(globeSegue), for: .touchUpInside)
         
-        if #available(iOS 11, *) {
-            extraPadding = 0
-            navigationController?.navigationBar.prefersLargeTitles = false
-            self.navigationItem.largeTitleDisplayMode = .never
-        } else {
-            extraPadding = (navigationController?.navigationBar.frame.height)! + statusBarHeight()
-        }
+        extraPadding = 0
+        navigationController?.navigationBar.prefersLargeTitles = false
+        self.navigationItem.largeTitleDisplayMode = .never
 
         moveTagToBack(ofNav: self.navigationController!)
-        
-        //parallax
-//        let verticalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
-//        verticalMotionEffect.minimumRelativeValue = -50
-//        verticalMotionEffect.maximumRelativeValue = 50
-//        
-//        let horizontalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
-//        horizontalMotionEffect.minimumRelativeValue = -50
-//        horizontalMotionEffect.maximumRelativeValue = 50
-//        
-//        let group = UIMotionEffectGroup()
-//        group.motionEffects = [horizontalMotionEffect, verticalMotionEffect]
-//        self.view.addMotionEffect(group)
-        
     }
     
     @objc func hide(_ sender: UITapGestureRecognizer) {
@@ -213,7 +190,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print("viewDidAppear")
         moveTagToBack(ofNav: self.navigationController!)
         tabBarController?.tabBar.isHidden = false
     }
@@ -325,8 +301,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    override func willMove(toParentViewController parent: UIViewController?) { // tricky part in iOS 10
+    override func willMove(toParent parent: UIViewController?) { // tricky part in iOS 10
         navigationController?.navigationBar.barTintColor = .red //previous color
-        super.willMove(toParentViewController: parent)
+        super.willMove(toParent: parent)
     }
 }

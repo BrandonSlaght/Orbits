@@ -10,7 +10,15 @@ class Sextant: NSObject, CLLocationManagerDelegate {
     
     var locationManager: CLLocationManager!
     var location: CLLocation?
-    var callback: (() -> Void)?
+    var heading: CLHeading?
+    
+    var locationInitializationCallback: (() -> Void)?
+    var locationContinuousCallback: (() -> Void)?
+    var headingInitializationCallback: (() -> Void)?
+    var headingContinuousCallback: (() -> Void)?
+    
+    var hasUpdatedLocation = false
+    var hasUpdatedHeading = false
     
     override init() {
         super.init()
@@ -20,8 +28,20 @@ class Sextant: NSObject, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
     
-    func setCallbackFunction(_ function: @escaping () -> Void) {
-        callback = function
+    func setLocationContinuousCallbackFunction(_ function: @escaping () -> Void) {
+        locationContinuousCallback = function
+    }
+    
+    func setLocationInitializationCallbackFunction(_ function: @escaping () -> Void) {
+        locationInitializationCallback = function
+    }
+    
+    func setHeadingContinuousCallbackFunction(_ function: @escaping () -> Void) {
+        headingContinuousCallback = function
+    }
+    
+    func setHeadingInitializationCallbackFunction(_ function: @escaping () -> Void) {
+        headingInitializationCallback = function
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -36,18 +56,50 @@ class Sextant: NSObject, CLLocationManagerDelegate {
         
         location = locationObj
         
-        let coord = locationObj.coordinate
-        print(coord.latitude)
-        print(coord.longitude)
+        if(!hasUpdatedLocation) {
+            if let let_callback = locationInitializationCallback {
+                let_callback()
+            }
+            hasUpdatedLocation = true
+        }
         
-        callback!()
+        if let let_callback = locationContinuousCallback {
+            let_callback()
+        }
     }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
+        
+        heading = newHeading
+        
+        if(!hasUpdatedHeading) {
+            if let let_callback = headingInitializationCallback {
+                let_callback()
+            }
+            hasUpdatedHeading = true
+        }
+        
+        if let let_callback = headingContinuousCallback {
+            let_callback()
+        }
+        
+        //if(!hasUpdatedHeading) {
+            //self.directlyUpdateHeading(manager, didUpdateHeading: newHeading)
+            //hasUpdatedHeading = true
+        //} else {
+            //UIView.animate(withDuration: 0.2) {
+            //    self.directlyUpdateHeading(manager, didUpdateHeading: newHeading)
+            //}
+        //}
+    }
+
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedAlways {
             if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
                 if CLLocationManager.isRangingAvailable() {
-                    manager.requestLocation()
+                    //manager.requestLocation()
+                    manager.startUpdatingLocation()
                     manager.startUpdatingHeading()
                 }
             }

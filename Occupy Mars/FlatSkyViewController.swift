@@ -11,23 +11,22 @@ import SceneKit
 
 import SwiftAA
 
-class FlatSkyViewController: UIViewController, CLLocationManagerDelegate {
-    var locationManager: CLLocationManager!
-    var uranusView: SCNView!
-    var tooltip: SexyTooltip!
-    var hasUpdatedHeading = false
+class FlatSkyViewController: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
     @IBOutlet weak var compass: UIView!
     @IBOutlet weak var skybox: SCNView!
+    var locationManager: CLLocationManager!
+    var sextant: Sextant!
+    var hasUpdatedHeading = false
+    var hasUpdatedLocation = false
+    var planetSceneBodyAndTooltipList = [(SCNView, Planet, SexyTooltip)]()
+    
+    var x = 250
+    var y = 250
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //update compass
-        locationManager = (tabBarController as! TabBarViewController).locationManager.locationManager
-        locationManager.delegate = self
-        
-        //set up background
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = view.bounds
         blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -35,38 +34,8 @@ class FlatSkyViewController: UIViewController, CLLocationManagerDelegate {
         blurView.isUserInteractionEnabled = false
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "milkyway.jpg")!)
         self.view.addSubview(blurView)
-        self.view.bringSubview(toFront: compass)
-        
-        //set up planets
-        let uranus = Uranus.init(julianDay: JulianDay.init(Date.init()))
-        print(uranus.riseTransitSetTimes(for: GeographicCoordinates.init(CLLocation.init(latitude: CLLocationDegrees.init(exactly: 41.4053756783647)!, longitude: CLLocationDegrees.init(exactly: -81.6643093985837)!))).setTime?.date)
-        print(uranus.equatorialCoordinates.makeHorizontalCoordinates(for: GeographicCoordinates.init(CLLocation.init(latitude: CLLocationDegrees.init(exactly: 41.4053756783647)!, longitude: CLLocationDegrees.init(exactly: -81.6643093985837)!)), at: JulianDay.init(Date.init())))
-        
-        //add planets to compass
-        let uranusObject = Objects.planets()[.Major]![6]
-        let uranusModel = uranusObject.getScene(size: .small)
-        uranusView = SCNView()
-        uranusView.scene = uranusModel
-        uranusView.backgroundColor = UIColor.clear
-        uranusView.frame = CGRect(x: 250, y: 250, width: 100, height: 100)
-        uranusView.antialiasingMode = .multisampling4X
-        compass.addSubview(uranusView)
-        
-        //add tooltips to planets
-        let viewNib = UINib(nibName: "PlanetTooltip", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? PlanetTooltipController
-        viewNib?.layoutSubviews()
-        viewNib?.sizeToFit()
-        viewNib?.layoutSubviews()
-        tooltip = SexyTooltip.init(contentView: viewNib)
-        tooltip.hasShadow = true
-        tooltip.color = UIColor.darkGray
-        self.view.addSubview(tooltip)
-        tooltip.present(from: uranusView, in: self.view)
-        
-        //add gesture recognizers to tooltip
-        //let gestureRec = UITapGestureRecognizer(target: self, action:  #selector (self.segueToPlanetView (_:)))
-    
-        //add skybox
+        self.view.bringSubviewToFront(compass)
+       
         let skyboxScene = SCNScene()
         let skyBox = SCNSphere(radius: 1)
         skyBox.segmentCount = 80
@@ -81,6 +50,15 @@ class FlatSkyViewController: UIViewController, CLLocationManagerDelegate {
         skyboxScene.rootNode.addChildNode(skyNode)
         skybox.antialiasingMode = .multisampling4X
         skybox.scene = skyboxScene
+        
+        sextant = (tabBarController as! TabBarViewController).locationManager
+        //sextant.setCallbackFunction({})
+        locationManager = sextant.locationManager
+        locationManager.delegate = self
+        locationManager.requestAlwaysAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
+        locationManager.startUpdatingHeading()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -92,20 +70,83 @@ class FlatSkyViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "planetSegue", let destination = segue.destination as? UINavigationController {
-            let detail = destination.topViewController as? DetailViewController
+        //if segue.identifier == "planetSegue", let destination = segue.destination as? UINavigationController {
+            //let detail = destination.topViewController as? DetailViewController
             //detail?.body = Objects.objects[classification]![indexPath.row]
+        //}
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else {
+            print("location not found!")
+            return
+        }
+        
+        print("in location manager")
+        
+        if(!hasUpdatedLocation) {
+            print("initializing location for the first time")
+            initializePlanetsAndScenes()
+            hasUpdatedLocation = true
+        }
+        
+        print("passed updating location")
+        
+        for planetTooltipTuple in planetSceneBodyAndTooltipList {
+            if let aaPlanet = planetTooltipTuple.1.aa {
+                let coords = GeographicCoordinates.init(location)
+                let rstTimes = aaPlanet.riseTransitSetTimes(for: coords)
+                
+                if let let_tooltip = planetTooltipTuple.2.contentView as? PlanetTooltipController {
+                    setRSTTimes(rise: rstTimes.riseTime?.date, set: rstTimes.setTime?.date, tooltip: let_tooltip)
+                    
+                }
+            }
         }
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
-        //print(newHeading.magneticHeading)
-        if(!hasUpdatedHeading) {
-            self.directlyUpdateHeading(manager, didUpdateHeading: newHeading)
-            hasUpdatedHeading = true
-        } else {
-            UIView.animate(withDuration: 0.25) {
-                self.directlyUpdateHeading(manager, didUpdateHeading: newHeading)
+    func initializePlanetsAndScenes() {
+        let mercury = Objects.mercury()
+        let venus = Objects.venus()
+        let mars = Objects.mars()
+        let jupiter = Objects.jupiter()
+        let saturn = Objects.saturn()
+        let uranus = Objects.uranus()
+        let neptune = Objects.neptune()
+        let sun = Objects.sun()
+        let moon = Objects.moon()
+        
+        buildPlanetAndTooltipModule(planet: mercury, selector: #selector(self.handleMercuryTap(rec:)))
+        buildPlanetAndTooltipModule(planet: venus, selector: #selector(self.handleVenusTap(rec:)))
+        buildPlanetAndTooltipModule(planet: mars, selector: #selector(self.handleMarsTap(rec:)))
+        buildPlanetAndTooltipModule(planet: jupiter, selector: #selector(self.handleJupiterTap(rec:)))
+        buildPlanetAndTooltipModule(planet: saturn, selector: #selector(self.handleSaturnTap(rec:)))
+        buildPlanetAndTooltipModule(planet: uranus, selector: #selector(self.handleUranusTap(rec:)))
+        buildPlanetAndTooltipModule(planet: neptune, selector: #selector(self.handleNeptuneTap(rec:)))
+        buildPlanetAndTooltipModule(planet: sun, selector: #selector(self.handleSunTap(rec:)))
+        buildPlanetAndTooltipModule(planet: moon, selector: #selector(self.handleMoonTap(rec:)))
+    }
+    
+    func setRSTTimes(rise: Date?, set: Date?, tooltip: PlanetTooltipController) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "h:mm a"
+        
+        let dateFormatterWithDay = DateFormatter()
+        dateFormatterWithDay.dateFormat = "h:mm a \n MMM d"
+        
+        if let riseTime = rise, let setTime = set {
+            
+            if ((riseTime.day != Date.init().day && riseTime.day != Date.init().day.advanced(by: 1))
+                || (setTime.day != Date.init().day && setTime.day != Date.init().day.advanced(by: 1))) {
+                tooltip.rises.text = dateFormatterWithDay.string(from: riseTime)
+                tooltip.sets.text = dateFormatterWithDay.string(from: setTime)
+                
+                tooltip.rises.numberOfLines = 2
+                tooltip.sets.numberOfLines = 2
+            } else {
+                tooltip.rises.text = dateFormatter.string(from: riseTime)
+                tooltip.sets.text = dateFormatter.string(from: setTime)
             }
         }
     }
@@ -113,14 +154,144 @@ class FlatSkyViewController: UIViewController, CLLocationManagerDelegate {
     func directlyUpdateHeading(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
         self.compass.transform = CGAffineTransform(rotationAngle: -CGFloat(newHeading.trueHeading * Double.pi / 180))
         
-        //rotate all the planets the opposite direction
-        self.uranusView.transform = CGAffineTransform(rotationAngle: CGFloat(newHeading.trueHeading * Double.pi / 180))
-        //tooltip.present(from: CGPoint(x: uranusView.bounds.size.width*0.5, y: uranusView.bounds.size.height*0.5 - 25), in: uranusView, containedBy: self.view)
+        for planetTooltipTuple in planetSceneBodyAndTooltipList {
+            //planetTooltipTuple.0.transform = CGAffineTransform(rotationAngle: CGFloat(newHeading.trueHeading * Double.pi / 180))
+            if(planetTooltipTuple.2.isShowing) {
+                planetTooltipTuple.2.present(from: CGPoint(x: self.compass.convert(planetTooltipTuple.0.frame, to: self.view).midX, y: self.compass.convert(planetTooltipTuple.0.frame, to: self.view).midY - 25), in: self.view, animated: false)
+            }
+        }
+    }
+    
+    func buildPlanetAndTooltipModule(planet: Planet, selector: Selector) {
+        let planetScene = buildTinyPlanetScene(planet: planet)
+        compass.addSubview(planetScene)
         
-        //re-align the tooltip
-        self.tooltip.present(from: CGPoint(x: self.compass.convert(self.uranusView.frame, to: self.view).midX, y: self.compass.convert(self.uranusView.frame, to: self.view).midY - 25), in: self.view, animated: false)
-        //print("x: " + String(describing: self.compass.convert(self.uranusView.bounds, to: self.view).midX))
-        //print("y: " + String(describing: self.compass.convert(self.uranusView.bounds, to: self.view).midY))
-        //self.tooltip.positionTooltip(for: SexyTooltipArrowDirection.down, aroundRect: self.uranusView.frame, in: self.view, force: false)
+        let viewNib = buildTooltipNib()
+        viewNib.setPlanet(planet: planet)
+        let tooltip = buildTooltip(viewNib: viewNib)
+        tooltip.dismiss()
+        self.view.addSubview(tooltip)
+        
+        let gestureRec = UITapGestureRecognizer(target: self, action: selector)
+        gestureRec.delegate = self
+        planetScene.addGestureRecognizer(gestureRec)
+        
+        planetSceneBodyAndTooltipList.append((planetScene, planet, tooltip))
+    }
+    
+    func buildTinyPlanetScene(planet: Planet) -> SCNView {
+        let model = planet.getScene(size: .micro)
+        let planetView = SCNView()
+        planetView.scene = model
+        planetView.backgroundColor = UIColor.clear
+        planetView.frame = CGRect(x: self.x, y: self.y, width: 50, height: 50)
+        planetView.antialiasingMode = .multisampling4X
+        planetView.preferredFramesPerSecond = 15
+        
+        if let let_celestialBody = planet.aa, let let_location = locationManager.location {
+            convertHorizontalCoordinatesToFrame(coordinates: let_celestialBody.equatorialCoordinates.makeHorizontalCoordinates(for: GeographicCoordinates.init(let_location), at: JulianDay.init(Date.init())))
+        }
+        
+        x = x - 35
+        y = y - 35
+        
+        return planetView
+    }
+    
+    func convertHorizontalCoordinatesToFrame(coordinates: HorizontalCoordinates) -> CGRect {
+        print(coordinates)
+        let x = 1 * sin(coordinates.altitude.inRadians.value) * cos(coordinates.azimuth.inRadians.value)
+        let y = 1 * sin(coordinates.altitude.inRadians.value) * sin(coordinates.azimuth.inRadians.value)
+        let z = 1 * cos(coordinates.altitude.inRadians.value)
+        print(x)
+        print(y)
+        print(z)
+        
+        return CGRect(x: 1, y: 1, width: 1, height: 1)
+    }
+    
+    func buildTooltipNib() -> PlanetTooltipController {
+        let viewNib = UINib(nibName: "PlanetTooltip", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! PlanetTooltipController
+        viewNib.layoutSubviews()
+        viewNib.sizeToFit()
+        viewNib.layoutSubviews()
+        return viewNib
+    }
+    
+    func buildTooltip(viewNib: PlanetTooltipController) -> SexyTooltip {
+        let tooltip = SexyTooltip.init(contentView: viewNib)!
+        tooltip.hasShadow = true
+        tooltip.hasShadow = true
+        tooltip.color = UIColor.darkGray
+        return tooltip
+    }
+    
+    @objc func handleMercuryTap(rec: UITapGestureRecognizer) {
+        handleTap(rec: rec, tupleIndex: 0)
+    }
+    @objc func handleVenusTap(rec: UITapGestureRecognizer) {
+        handleTap(rec: rec, tupleIndex: 1)
+    }
+    @objc func handleMarsTap(rec: UITapGestureRecognizer) {
+        handleTap(rec: rec, tupleIndex: 2)
+    }
+    @objc func handleJupiterTap(rec: UITapGestureRecognizer) {
+        handleTap(rec: rec, tupleIndex: 3)
+    }
+    @objc func handleSaturnTap(rec: UITapGestureRecognizer) {
+        handleTap(rec: rec, tupleIndex: 4)
+    }
+    @objc func handleUranusTap(rec: UITapGestureRecognizer) {
+        handleTap(rec: rec, tupleIndex: 5)
+    }
+    @objc func handleNeptuneTap(rec: UITapGestureRecognizer) {
+        handleTap(rec: rec, tupleIndex: 6)
+    }
+    @objc func handleSunTap(rec: UITapGestureRecognizer) {
+        handleTap(rec: rec, tupleIndex: 7)
+    }
+    @objc func handleMoonTap(rec: UITapGestureRecognizer) {
+        handleTap(rec: rec, tupleIndex: 8)
+    }
+    
+    
+    func handleTap(rec: UITapGestureRecognizer, tupleIndex: Int) {
+        print("handingTap1");
+        if rec.state == .ended {
+            print("handingTap1");
+            let tooltip = planetSceneBodyAndTooltipList[tupleIndex].2
+            let planetScene = planetSceneBodyAndTooltipList[tupleIndex].0
+            print(tooltip.isShowing)
+            print(tooltip.isHidden)
+            print(tooltip.isFocused)
+            for tuple in planetSceneBodyAndTooltipList {
+                print("handingTap3");
+                if tuple.2.isShowing {
+                    print("handingTap4");
+                    tooltip.cancelDismissTimer()
+                    tuple.2.dismiss()
+                }
+            }
+            print(tooltip.isShowing)
+            print(tooltip.isHidden)
+            print(tooltip.isFocused)
+            if !tooltip.isShowing {
+                print("handingTap5");
+                tooltip.cancelDismissTimer()
+                tooltip.present(from: planetScene, animated: true)//(from: CGPoint(x: self.compass.convert(planetScene.frame, to: self.view).midX, y: self.compass.convert(planetScene.frame, to: self.view).midY - 25), in: self.view, animated: false)
+            }
+            print(tooltip.isShowing)
+            print(tooltip.isHidden)
+            print(tooltip.isFocused)
+            print("-------")
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for tuple in planetSceneBodyAndTooltipList {
+            tuple.2.cancelDismissTimer()
+            tuple.2.dismiss()
+        }
+        super.touchesEnded(touches, with: event)
     }
 }

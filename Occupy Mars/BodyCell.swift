@@ -21,14 +21,6 @@ class BodyCell: UITableViewCell {
     @IBOutlet weak var rises: UILabel!
     @IBOutlet weak var RSTTimes: UIStackView!
     
-//    func updateLabels() {
-//        let bodyFont = UIFont.preferredFontForTextStyle(style: UIFontTextStyle.body)
-//        title.font = bodyFont
-//        let caption1Font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption1)
-//        detail1.font = caption1Font
-//        detail2.font = caption1Font
-//    }
-    
     override func prepareForReuse() {
         heightConstraint.constant = 183
     }
