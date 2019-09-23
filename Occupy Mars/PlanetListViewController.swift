@@ -35,18 +35,25 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
         background.contentMode = .scaleAspectFill
 
         tableView.backgroundView = setupParallaxEffect(parentView: background)
-        
-        //tableView.backgroundView = tableView.backgroundView!)
+
         
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        blurView.frame = background.frame
-        blurView.bounds = background.bounds
-        //blurView.frame = self.view.frame
-        //blurView.bounds = self.view.bounds
-        //tableView.addSubview(blurView)
-        //tableView.sendSubviewToBack(blurView)
+        
+
+        blurView.frame = self.view.frame
+        blurView.bounds = self.view.bounds
+
+        var bounds = blurView.bounds
+        bounds.size.height += 200
+        bounds.size.width += 200
+        blurView.bounds = bounds
+        
+        var frame = blurView.frame
+        frame.size.height += 200
+        frame.size.width += 200
+        blurView.frame = frame
         
         background.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
@@ -63,8 +70,19 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
         
         self.navigationItem.largeTitleDisplayMode = .automatic
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.largeTitleTextAttributes =  [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.barTintColor = UIColor.red
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .purple
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        
         if UIDevice.current.userInterfaceIdiom == .pad {
             splitViewController?.preferredDisplayMode = .allVisible
         }

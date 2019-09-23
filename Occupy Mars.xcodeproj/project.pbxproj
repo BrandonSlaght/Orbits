@@ -701,8 +701,6 @@
 				84297BEC1EC8F461003604C7 /* utils */,
 				C54A98F81E032ED3009A8695 /* Sextant.swift */,
 				C56AF8E0202E589D000AFC87 /* TabBarViewController.swift */,
-				C5AEC3ED1DCE5CB200992AEB /* texture sources.rtf */,
-				8427FBA21E8C137400536BAB /* status.txt */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -828,6 +826,8 @@
 		C5941BD21DBBFD940057A46A /* Occupy Mars */ = {
 			isa = PBXGroup;
 			children = (
+				C5AEC3ED1DCE5CB200992AEB /* texture sources.rtf */,
+				8427FBA21E8C137400536BAB /* status.txt */,
 				C52458361DC578BA009F3374 /* model */,
 				84E044421E37D4A500A6AAB4 /* view */,
 				84297BE81EC6A211003604C7 /* controller */,
@@ -1251,7 +1251,7 @@
 					"$(PROJECT_DIR)/Occupy\\ Mars",
 				);
 				INFOPLIST_FILE = tonight/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = orbitals.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1275,7 +1275,7 @@
 					"$(PROJECT_DIR)/Occupy\\ Mars",
 				);
 				INFOPLIST_FILE = tonight/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = orbitals.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -34,7 +34,6 @@ func moveTagToBack(ofNav bar:UINavigationController) {
 }
 
 func setupParallaxEffect(parentView: UIView) -> UIView {
-    //let wrapperview = UIView()
     
     var bounds = parentView.bounds
     bounds.origin.x -= 50
@@ -50,14 +49,7 @@ func setupParallaxEffect(parentView: UIView) -> UIView {
     frame.size.width += 100
     parentView.frame = frame
     
-    //parentView.clipsToBounds = false
-    //wrapperview.clipsToBounds = false
-    
-    //parentView.frame = frame
-    //wrapperview.layer.insertSublayer(playerLayer!, at: 0)
     parentView.addMotionEffect(getMotionEffectGroup())
-    //self.view.addSubview(wrapperview)
-    //self.view.sendSubviewToBack(wrapperview)
     
     return parentView
 }

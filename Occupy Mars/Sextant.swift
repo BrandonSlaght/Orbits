@@ -82,15 +82,6 @@ class Sextant: NSObject, CLLocationManagerDelegate {
         if let let_callback = headingContinuousCallback {
             let_callback()
         }
-        
-        //if(!hasUpdatedHeading) {
-            //self.directlyUpdateHeading(manager, didUpdateHeading: newHeading)
-            //hasUpdatedHeading = true
-        //} else {
-            //UIView.animate(withDuration: 0.2) {
-            //    self.directlyUpdateHeading(manager, didUpdateHeading: newHeading)
-            //}
-        //}
     }
 
     
@@ -98,7 +89,6 @@ class Sextant: NSObject, CLLocationManagerDelegate {
         if status == .authorizedAlways {
             if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
                 if CLLocationManager.isRangingAvailable() {
-                    //manager.requestLocation()
                     manager.startUpdatingLocation()
                     manager.startUpdatingHeading()
                 }
