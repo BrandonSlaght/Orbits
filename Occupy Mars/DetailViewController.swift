@@ -118,8 +118,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         if (navigationBarOriginalOffset == nil) {
             navigationBarOriginalOffset = tabHolder.frame.origin.y
         }
-        
-        animateNav()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -196,11 +194,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         } else {
             globeButton.isHidden = true
             sceneHeight.constant = 0
-            if let let_color = body.color1 {
-                tabHolder.backgroundColor = let_color
-            } else {
-                tabHolder.backgroundColor = barColor
-            }
+            adjustColor(to: body.color1, or: barColor)
         }
     }
     
@@ -228,17 +222,21 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         } else if (!transitioning) {
             if (navigationBarOriginalOffset! <= scrollView.contentOffset.y + extraPadding) {
                 tabHolder.frame.origin.y = scrollView.contentOffset.y + extraPadding
-                if let let_color = body.color1 {
-                    tabHolder.backgroundColor = let_color
-                } else {
-                    tabHolder.backgroundColor = UIColor.Orbits.SpaceGray
-                }
+                adjustColor(to: body.color1, or: UIColor.Orbits.SpaceGray)
             } else {
                 tabHolder.frame.origin.y = navigationBarOriginalOffset!
                 tabHolder.backgroundColor = UIColor.clear
             }
         }
         BTBalloon.sharedInstance().hide()
+    }
+    
+    func adjustColor(to color: UIColor?, or otherColor: UIColor) {
+        if let let_color = color {
+            tabHolder.backgroundColor = let_color
+        } else {
+            tabHolder.backgroundColor = otherColor
+        }
     }
     
     func statusBarHeight() -> CGFloat {
@@ -249,26 +247,12 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     @objc func globeSegue(){
         let globe = self.storyboard?.instantiateViewController(withIdentifier: "globeView") as? GlobeViewController
         globe?.body = body
-        self.splitViewController?.toggleMasterView()
-
-        if self.splitViewController?.secondaryViewController == nil {
-            globe!.hidesBottomBarWhenPushed = true
-        }
         
         self.navigationController?.pushViewController(globe!, animated: true)
         
         BTBalloon.sharedInstance().hide()
     }
     
-    func animateNav() {
-        guard let coordinator = self.transitionCoordinator else {
-            return
-        }
-        
-        coordinator.animate(alongsideTransition: {
-            [weak self] context in self?.setNavColors()
-            }, completion: nil)
-    }
     
     func setNavColors() {
         if let let_color = body.color1 {

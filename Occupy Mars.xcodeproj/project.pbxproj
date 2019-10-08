@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -141,7 +141,7 @@
 		C5AEC3F31DCE77C500992AEB /* MoonAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AEC3F21DCE77C500992AEB /* MoonAboutViewController.swift */; };
 		C5AEC3F51DCE77D500992AEB /* DetailsAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AEC3F41DCE77D500992AEB /* DetailsAboutViewController.swift */; };
 		C5AEC3F91DCE77FA00992AEB /* MediaAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AEC3F81DCE77FA00992AEB /* MediaAboutViewController.swift */; };
-		C5B3271D210D4FE70074DF34 /* tonight.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 840FEFB41EDE3D560005B69E /* tonight.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C5B3271D210D4FE70074DF34 /* tonight.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 840FEFB41EDE3D560005B69E /* tonight.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C5BFF6F4210BDC5D00C9E70A /* Objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C24C801DC68DA10028FAF5 /* Objects.swift */; };
 		C5BFF6F5210BDC6500C9E70A /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52458371DC578F1009F3374 /* Planet.swift */; };
 		C5BFF6F6210BDC6900C9E70A /* Moon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52458391DC5988D009F3374 /* Moon.swift */; };
@@ -420,6 +420,8 @@
 		C5CB310C234C378E009605E9 /* SwiftAA.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftAA.framework; sourceTree = "<group>"; };
 		C5CB3112234C38E8009605E9 /* Integrations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Integrations.swift; sourceTree = "<group>"; };
 		C5CB3115234C3906009605E9 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		C5CB3119234C3A83009605E9 /* Occupy Mars.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Occupy Mars.entitlements"; sourceTree = "<group>"; };
+		C5CB311A234C3A89009605E9 /* tonight.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tonight.entitlements; sourceTree = "<group>"; };
 		C5CD59BF1DD91E4F00ACB8EA /* GlobeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobeViewController.swift; sourceTree = "<group>"; };
 		C5CD59C21DD91F8600ACB8EA /* background.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = background.mp4; sourceTree = "<group>"; };
 		C5D349151FF334DA0074769E /* FlatSkyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatSkyViewController.swift; sourceTree = "<group>"; };
@@ -461,6 +463,7 @@
 		840FEFB81EDE3D570005B69E /* tonight */ = {
 			isa = PBXGroup;
 			children = (
+				C5CB311A234C3A89009605E9 /* tonight.entitlements */,
 				840FEFB91EDE3D570005B69E /* TodayViewController.swift */,
 				C5BFF717210C026700C9E70A /* VisibilityCell.swift */,
 				840FEFBB1EDE3D570005B69E /* MainInterface.storyboard */,
@@ -832,6 +835,7 @@
 		C5941BD21DBBFD940057A46A /* Occupy Mars */ = {
 			isa = PBXGroup;
 			children = (
+				C5CB3119234C3A83009605E9 /* Occupy Mars.entitlements */,
 				C5AEC3ED1DCE5CB200992AEB /* texture sources.rtf */,
 				8427FBA21E8C137400536BAB /* status.txt */,
 				C52458361DC578BA009F3374 /* model */,
@@ -1214,6 +1218,7 @@
 /* Begin PBXTargetDependency section */
 		C583D13F2053332A006D61DC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = 840FEFB31EDE3D560005B69E /* tonight */;
 			targetProxy = C583D13E2053332A006D61DC /* PBXContainerItemProxy */;
 		};
@@ -1253,6 +1258,7 @@
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_ENTITLEMENTS = tonight/tonight.entitlements;
 				DEVELOPMENT_TEAM = 98PHYR992B;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1262,10 +1268,15 @@
 				);
 				INFOPLIST_FILE = tonight/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = orbitals.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 5.0;
 			};
@@ -1277,6 +1288,7 @@
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_ENTITLEMENTS = tonight/tonight.entitlements;
 				DEVELOPMENT_TEAM = 98PHYR992B;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1286,10 +1298,15 @@
 				);
 				INFOPLIST_FILE = tonight/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = orbitals.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -1400,7 +1417,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1412,6 +1430,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Occupy Mars/Occupy Mars.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 98PHYR992B;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1425,9 +1444,13 @@
 				);
 				INFOPLIST_FILE = "Occupy Mars/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = orbitals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_INCLUDE_PATHS = "${SRCROOT}/sextant/**";
 				SWIFT_OBJC_BRIDGING_HEADER = "Occupy Mars/Occupy Mars-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1442,6 +1465,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Occupy Mars/Occupy Mars.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 98PHYR992B;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1455,9 +1479,13 @@
 				);
 				INFOPLIST_FILE = "Occupy Mars/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = orbitals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_INCLUDE_PATHS = "${SRCROOT}/sextant/**";
 				SWIFT_OBJC_BRIDGING_HEADER = "Occupy Mars/Occupy Mars-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
