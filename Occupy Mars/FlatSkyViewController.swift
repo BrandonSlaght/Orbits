@@ -62,7 +62,7 @@ class FlatSkyViewController: UIViewController, CLLocationManagerDelegate, UIGest
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        tabBarController?.tabBar.barTintColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
+        tabBarController?.tabBar.barTintColor = UIColor.Orbits.SpaceGray
     }
     
     func segueToPlanetView(_ sender:UITapGestureRecognizer){

@@ -34,4 +34,9 @@ extension UISplitViewController {
         let barButtonItem = self.displayModeButtonItem
         UIApplication.shared.sendAction(barButtonItem.action!, to: barButtonItem.target, from: nil, for: nil)
     }
+    
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        print("asking to collapse secondary view controller")
+        return true
+    }
 }

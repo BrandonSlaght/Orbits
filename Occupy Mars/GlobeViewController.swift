@@ -60,7 +60,7 @@ class GlobeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         globe.pointOfView?.position = SCNVector3(0.0, 0.0, 5.0)
         globe.pointOfView?.position.z = 5
-        globe.pointOfView?.camera?.motionBlurIntensity = 1.0
+        //globe.pointOfView?.camera?.motionBlurIntensity = 1.0
         //globe.pointOfView?.camera?.wantsHDR = true
         //globe.pointOfView?.camera?.bloomIntensity = 1.0
         

@@ -86,8 +86,9 @@ class Body {
     //--------------------------------------------media
     
     var images = [(image: String,
-                   caption: String)]()
-    var videos = [String]()
+                   caption: String)](),
+        videos = [String](),
+        thumbnail: String?
     
     //--------------------------------------------visuals
     
@@ -186,41 +187,20 @@ class Body {
         self.hasDetails = true
     }
     
-    func images(images: [(image: String, caption: String)]) {
+    func images(images: [(image: String, caption: String)], thumbnail: String?) {
         self.images = images
+        self.thumbnail = thumbnail
     }
-    
+        
     func colors(background: String?,
-                color1: String,
-                color2: String) {
+                color1: UIColor?,
+                color2: UIColor?) {
         self.background = background
-        self.color1 = hexStringToUIColor(hex: color1)
-        self.color2 = hexStringToUIColor(hex: color2)
+        self.color1 = color1
+        self.color2 = color2
     }
     
     //--------------------------------------------helpers
-    
-    func hexStringToUIColor (hex:String) -> UIColor {
-        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-        
-        if (cString.hasPrefix("#")) {
-            cString.remove(at: cString.startIndex)
-        }
-        
-        if ((cString.count) != 6) {
-            return UIColor.gray
-        }
-        
-        var rgbValue:UInt32 = 0
-        Scanner(string: cString).scanHexInt32(&rgbValue)
-        
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
-    }
     
     func resizeImage(_ image: UIImage, newHeight: CGFloat) -> UIImage {
         if newHeight > image.size.height {
@@ -248,6 +228,7 @@ class Body {
         return numberFormatter.string(from: value)!
     }
     
+    //REFACTOR
     func getScene(size: Size) -> SCNScene? {
         if(texture == nil && model == nil) {
             return nil

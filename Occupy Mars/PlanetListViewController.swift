@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import CoreSpotlight
-import MobileCoreServices
 import SceneKit
 import SwiftAA
 
@@ -19,73 +17,27 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
     }
     
     let objects = Objects.solarSystem()
+    var sextant: Sextant!
+
     var selectedGroup : Int?
     var selectedIndex : Int?
     var selectedMoon : Int?
-    var collapseSplitView = true
-    var sextant: Sextant!
+    
+    override func awakeFromNib() {
+        splitViewController?.delegate = self
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            splitViewController?.preferredDisplayMode = .allVisible
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
-        splitViewController?.delegate = self
-        
-        let background = UIImageView(image: UIImage(named: "milkyway.jpg")!)
-        background.contentMode = .scaleAspectFill
-
-        tableView.backgroundView = setupParallaxEffect(parentView: background)
-
-        
-        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
-        let blurView = UIVisualEffectView(effect: blurEffect)
-        blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
-
-        blurView.frame = self.view.frame
-        blurView.bounds = self.view.bounds
-
-        var bounds = blurView.bounds
-        bounds.size.height += 200
-        bounds.size.width += 200
-        blurView.bounds = bounds
-        
-        var frame = blurView.frame
-        frame.size.height += 200
-        frame.size.width += 200
-        blurView.frame = frame
-        
-        background.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
-        tableView.backgroundView!.addSubview(blurView)
-
-        tableView.backgroundView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        tableView.tableFooterView = UIView(frame: CGRect.zero)
-        tableView.separatorEffect = UIVibrancyEffect(blurEffect: UIBlurEffect(style: .dark))
-        tableView.estimatedRowHeight = 200
-        tableView.rowHeight = UITableView.automaticDimension
+        setupNavBar()
+        setupTableView()
 
         let appDefaults = [String:AnyObject]()
         UserDefaults.standard.register(defaults: appDefaults)
-        
-        self.navigationItem.largeTitleDisplayMode = .automatic
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.barTintColor = UIColor.red
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-    
-        let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = .purple
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.compactAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            splitViewController?.preferredDisplayMode = .allVisible
-        }
         
         sextant = (tabBarController as! TabBarViewController).locationManager
         //sextant.setCallbackFunction(locationUpdatedCallback)
@@ -98,25 +50,10 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
     
     override func viewDidAppear(_ animated: Bool) {
         setNavColors()
+        manageVersionUpdate()
         
-        let thisVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
-        let thisVersionInt = Int(thisVersion.replacingOccurrences(of: ".", with: ""))
-        
-        let lastLaunchedVersion = UserDefaults.standard.integer(forKey: "lastLaunchedVersion")
-        
-        //if we have been launched before and the current version has not been launched before
-        if (lastLaunchedVersion != 0 && lastLaunchedVersion < thisVersionInt!) {
-            let alert = UIAlertController(title: "What's New", message: Change.last, preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            setupSearchableContent()
-        }
-        
-        UserDefaults.standard.set(true, forKey: "launchedBefore")
-        UserDefaults.standard.set(thisVersionInt, forKey: "lastLaunchedVersion")
-        
-        let initialIndexPath = IndexPath(row: 0, section: 0)
-        self.tableView.selectRow(at: initialIndexPath, animated: true, scrollPosition:UITableView.ScrollPosition.none)
+        //let initialIndexPath = IndexPath(row: 0, section: 0)
+        //self.tableView.selectRow(at: initialIndexPath, animated: true, scrollPosition:UITableView.ScrollPosition.none)
     }
     
     override func didReceiveMemoryWarning() {
@@ -132,24 +69,13 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
         let classification = Class.allValues[indexPath.section]
         let planet = objects[classification]![indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlanetCell") as! BodyCell
-        cell.backgroundColor = UIColor.clear
         cell.name?.text = planet.name
         cell.classification?.text = planet.type.rawValue
-        if (cell.sceneView != nil) {
-            cell.sceneView.scene = planet.getScene(size: Size.small)
-            cell.sceneView.isPlaying = true
-            cell.sceneView.antialiasingMode = .multisampling4X
-            cell.sceneView.preferredFramesPerSecond = 30
-        }
-        if (cell.sceneView.scene == nil) {
-            cell.heightConstraint.constant = 90
-        }
+        setupCellScene(cell: cell, planet: planet)
         if let location = sextant.location, let aaPlanet = planet.aa {
             let coords = GeographicCoordinates.init(location)
             let rstTimes = aaPlanet.riseTransitSetTimes(for: coords)
-
             cell.setRSTTimes(rise: rstTimes.riseTime?.date, set: rstTimes.setTime?.date)
-
         } else {
             cell.clearRSTTimes()
         }
@@ -171,11 +97,11 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
-        header.contentView.backgroundColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
-        
+        header.contentView.backgroundColor = UIColor.Orbits.SpaceGray
         header.textLabel!.textColor = UIColor.white
     }
     
+    //REFACTOR
     override func restoreUserActivityState(_ activity: NSUserActivity) {
 //        if activity.activityType == CSSearchableItemActionType {
 //            if let userInfo = activity.userInfo {
@@ -225,8 +151,6 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        collapseSplitView = false
-        
         if segue.identifier == "planetSegue", let destination = segue.destination as? UINavigationController {
             if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
                 let classification = Class.allValues[indexPath.section]
@@ -236,64 +160,36 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
         }
     }
     
-    func setupSearchableContent() {
-        var searchableItems = [CSSearchableItem]()
+    func setupCellScene(cell: BodyCell, planet: Body) {
+        if (cell.sceneView != nil) {
+            cell.sceneView.scene = planet.getScene(size: Size.small)
+            cell.sceneView.isPlaying = true
+            cell.sceneView.antialiasingMode = .multisampling4X
+            cell.sceneView.preferredFramesPerSecond = 30
+        }
+        if (cell.sceneView.scene == nil) {
+            cell.heightConstraint.constant = 90
+        }
+    }
+    
+    func manageVersionUpdate() {
+        let currentVersionString = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+        let currentVersionNumber = Int(currentVersionString.replacingOccurrences(of: ".", with: ""))
+        let lastLaunchedVersion = UserDefaults.standard.integer(forKey: "lastLaunchedVersion")
 
-        for group in objects {
-            var i = 0
-            for planet in group.value {
-                let searchableItemAttributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
-                searchableItemAttributeSet.title = planet.name
-                searchableItemAttributeSet.displayName = planet.name
-                searchableItemAttributeSet.kind = planet.classification.rawValue
-                //                let imagePathParts = movie["Image"]!.componentsSeparatedByString(".")
-                //                searchableItemAttributeSet.thumbnailURL = NSBundle.mainBundle().URLForResource(imagePathParts[0], withExtension: imagePathParts[1])
-
-                if let let_description = planet.description {
-                    searchableItemAttributeSet.contentDescription = let_description
-                }
-                var keywords = [String]()
-                keywords.append(planet.name)
-                keywords.append(planet.classification.rawValue)
-                keywords.append(planet.type.rawValue)
-                searchableItemAttributeSet.keywords = keywords
-
-                let searchableItem = CSSearchableItem(uniqueIdentifier: "orbitals.group-\(group.key.rawValue).planet-\(i)", domainIdentifier: "planet", attributeSet: searchableItemAttributeSet)
-
-                searchableItems.append(searchableItem)
-
-                var j = 0
-                for moons in planet.moons {
-                    let searchableItemAttributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
-                    searchableItemAttributeSet.title = moons.name
-                    searchableItemAttributeSet.displayName = moons.name
-                    searchableItemAttributeSet.kind = "Moon"
-                    //                let imagePathParts = movie["Image"]!.componentsSeparatedByString(".")
-                    //                searchableItemAttributeSet.thumbnailURL = NSBundle.mainBundle().URLForResource(imagePathParts[0], withExtension: imagePathParts[1])
-
-                    if let let_description = moons.description {
-                        searchableItemAttributeSet.contentDescription = let_description
-                    }
-                    var keywords = [String]()
-                    keywords.append(moons.name)
-                    keywords.append("moon")
-                    keywords.append(planet.name)
-                    searchableItemAttributeSet.keywords = keywords
-
-                    let searchableItem = CSSearchableItem(uniqueIdentifier: "orbitals.group-\(group.key.rawValue).planet-\(i).moon-\(j)", domainIdentifier: "moon", attributeSet: searchableItemAttributeSet)
-
-                    searchableItems.append(searchableItem)
-                    j += 1
-                }
-                i += 1
-            }
+        //if we have been launched before and the current version has not been launched before
+        if (lastLaunchedVersion != 0 && lastLaunchedVersion < currentVersionNumber!) {
+            let alert = UIAlertController(title: "What's New", message: Change.last, preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            Integrations.setupSearchableContent()
+        }
+        if (lastLaunchedVersion == 0 || lastLaunchedVersion < currentVersionNumber!) {
+            Integrations.setupSearchableContent()
         }
 
-        CSSearchableIndex.default().indexSearchableItems(searchableItems) { (error) -> Void in
-            if error != nil {
-                print(error?.localizedDescription ?? "error indexing")
-            }
-        }
+        UserDefaults.standard.set(true, forKey: "launchedBefore")
+        UserDefaults.standard.set(currentVersionNumber, forKey: "lastLaunchedVersion")
     }
     
     func pushDetailViewToProperParent(viewController: UIViewController) {
@@ -305,7 +201,7 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
     }
     
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
-        return collapseSplitView
+        return true
     }
     
     func locationUpdatedCallback() {
@@ -323,8 +219,62 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
         }, completion: nil)
     }
     
+    func setupNavBar() {
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .purple
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     func setNavColors() {
-        navigationController?.navigationBar.barTintColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
-        tabBarController?.tabBar.barTintColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
+        navigationController?.navigationBar.barTintColor = UIColor.Orbits.SpaceGray
+        tabBarController?.tabBar.barTintColor = UIColor.Orbits.SpaceGray
+    }
+    
+    func setupTableView() {
+        tableView.delegate = self
+
+        setupBackgroundView()
+        setupBlurView()
+
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        tableView.separatorEffect = UIVibrancyEffect(blurEffect: UIBlurEffect(style: .dark))
+        tableView.estimatedRowHeight = 200
+        tableView.rowHeight = UITableView.automaticDimension
+    }
+    
+    func setupBackgroundView() {
+        let background = UIImageView(image: UIImage(named: "milkyway.jpg")!)
+        background.contentMode = .scaleAspectFill
+        background.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
+        tableView.backgroundView = setupParallaxEffect(parentView: background)
+        tableView.backgroundView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    }
+    
+    func setupBlurView() {
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
+        blurView.frame = self.view.frame
+        blurView.bounds = self.view.bounds
+
+        var bounds = blurView.bounds
+        bounds.size.height += 200
+        bounds.size.width += 200
+        blurView.bounds = bounds
+
+        var frame = blurView.frame
+        frame.size.height += 200
+        frame.size.width += 200
+        blurView.frame = frame
+
+        tableView.backgroundView!.addSubview(blurView)
     }
 }

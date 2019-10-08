@@ -8,13 +8,11 @@
 
 import UIKit
 
-class MediaAboutViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerPreviewingDelegate, UICollectionViewDragDelegate, CHTCollectionViewDelegateWaterfallLayout {
+class MediaAboutViewController: AboutViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerPreviewingDelegate, UICollectionViewDragDelegate, CHTCollectionViewDelegateWaterfallLayout {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
-    
-    var body: Body!
-    
+        
     var images = [SKPhoto]()
     
     override func viewDidLoad() {

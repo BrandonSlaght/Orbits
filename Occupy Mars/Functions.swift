@@ -21,6 +21,7 @@ func getBlurView(frame: CGRect) -> UIView {
 
 func getBlurViewWithBackground(frame: CGRect, background: String) -> UIView {
     let background = UIImageView(image: UIImage(named: background)!)
+    background.frame = frame
     background.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     background.contentMode = .scaleAspectFill
     background.addSubview(getBlurView(frame: frame))

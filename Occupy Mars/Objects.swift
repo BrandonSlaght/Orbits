@@ -60,7 +60,7 @@
 //              discovered: <#T##String?#>)
 
 
-
+//REFACTOR - and by that I mean "finish this file"
 import Foundation
 import UIKit
 import SwiftAA
@@ -115,13 +115,17 @@ class Objects {
                         ring_outer_ratio: nil)
         
         Mercury.images(images: [
-            ("mercury - hollows.jpg", "Hollows on the surface of Mercury as photographed by the Messenger spacecraft."),
-            ("mercury - brahms.jpg", "Brahm's crater on Mercury, with a peak at the center caused by the shock of the impact."),
-            ("mercury - horizon.jpg", "Mercury's horizon as seen by the Messenger spacecraft."),
-            ("mercury - pole.jpg", "The north pole of Mercury.  The craters here never see sunlight and harbor frozen water."),
-            ("mercury - transit.jpg", "Due to its orbital frequency and inclination, Mercury transists the sun far more often than Venus, an event which occurs every several years.")])
+                            ("mercury - hollows.jpg", "Hollows on the surface of Mercury as photographed by the Messenger spacecraft."),
+                            ("mercury - brahms.jpg", "Brahm's crater on Mercury, with a peak at the center caused by the shock of the impact."),
+                            ("mercury - horizon.jpg", "Mercury's horizon as seen by the Messenger spacecraft."),
+                            ("mercury - pole.jpg", "The north pole of Mercury.  The craters here never see sunlight and harbor frozen water."),
+                            ("mercury - transit.jpg", "Due to its orbital frequency and inclination, Mercury transists the sun far more often than Venus, an event which occurs every several years.")
+                        ],
+                        thumbnail: "mercury - thumbnail.jpg")
         
-        Mercury.colors(background: "mercurysurface.jpg", color1: "3C3C34" , color2: "CECECE")
+        Mercury.colors(background: "mercurysurface.jpg",
+                       color1: UIColor.Orbits.MercuryPrimary,
+                       color2: UIColor.Orbits.MercurySecondary)
         
         return Mercury
     }
@@ -175,15 +179,17 @@ class Objects {
                       ring_outer_ratio: nil)
         
         Venus.images(images: [
-            ("venus - clouds.jpg", "Although similar in size to Earth, Venus is shrouded by a thick heavy armosphere, which drives surface temeratures past 800 degrees F."),
-            ("venus - mountain.jpg", "The Mangellan probe made detailed 3d mappings of Venus using radar to see throught the clouds.  This 3km tall volcano is called Gula Mons."),
-            ("venus - transit.jpg", "The transit of Venus happens around twice a century."),
-            ("venus - venera13.jpg", "Soviet spacecraft were the first to reach the surface of Venus.  Venera 13 returned color images of the surface."),
-            ("venus - venera14.jpg", "Probes sent to the surface only last a few hours due to the harsh conditions.  Here Venera 14 takes another picture of the surface.")])
+                        ("venus - clouds.jpg", "Although similar in size to Earth, Venus is shrouded by a thick heavy armosphere, which drives surface temeratures past 800 degrees F."),
+                        ("venus - mountain.jpg", "The Mangellan probe made detailed 3d mappings of Venus using radar to see throught the clouds.  This 3km tall volcano is called Gula Mons."),
+                        ("venus - transit.jpg", "The transit of Venus happens around twice a century."),
+                        ("venus - venera13.jpg", "Soviet spacecraft were the first to reach the surface of Venus.  Venera 13 returned color images of the surface."),
+                        ("venus - venera14.jpg", "Probes sent to the surface only last a few hours due to the harsh conditions.  Here Venera 14 takes another picture of the surface.")
+                     ],
+                     thumbnail: nil)
         
         Venus.colors(background: "venussurface.jpg",
-                     color1: "774A36",
-                     color2: "F5BF7F")
+                     color1: UIColor.Orbits.VenusPrimary,
+                     color2: UIColor.Orbits.VenusSecondary)
         
         return Venus
     }
@@ -234,18 +240,20 @@ class Objects {
                       ring_outer_ratio: nil)
         
         Earth.images(images: [
-            ("earth - reef.jpg", "Earth is the only planet in the universe known to harbor life."),
-            ("earth - palau.jpg", "Around 71% of Earth's surface is covered by water.  It is one of several bodies in the solar system with water, but Earth is the only body with permenant liquid surface water."),
-            ("earth - lights.jpg", "Seen here are the northern lights, which appear when charged particles from the sun strike the armosphere."),
-            ("earth - lava.jpg", "Earth, along with the moons Io, Triton, and Enceladus, are the only geolocically active bodies in the solar system.  Earth's atmosphere is protected by a magnetosphere."),
-            ("earth - glacier.jpg", "Glaciers and ice caps account for around 2% of all water on Earth (or around 70% of all fresh water).  Ice caps reflect sunlight back into space."),
-            ("earth - falls.jpg", "Less than three percent of all the water on Earth is fresh water.  Fortunately, water that evaporates from the seas leaves behind its salt."),
-            ("earth - canyon.jpg", "The dynamic weather conditions shape Earth moreso than other planets.  Seen here is the Grand Canyon, formed by erosion over millions of years."),
-            ("earth - crater.jpg", "Although many small meteorites burn up in the atmosphere, occasionally a meteor will impact the ground.  The Meteor Crater in Arizona is a 560 feet deep and formed 50,000 years ago.")])
+                        ("earth - reef.jpg", "Earth is the only planet in the universe known to harbor life."),
+                        ("earth - palau.jpg", "Around 71% of Earth's surface is covered by water.  It is one of several bodies in the solar system with water, but Earth is the only body with permenant liquid surface water."),
+                        ("earth - lights.jpg", "Seen here are the northern lights, which appear when charged particles from the sun strike the armosphere."),
+                        ("earth - lava.jpg", "Earth, along with the moons Io, Triton, and Enceladus, are the only geolocically active bodies in the solar system.  Earth's atmosphere is protected by a magnetosphere."),
+                        ("earth - glacier.jpg", "Glaciers and ice caps account for around 2% of all water on Earth (or around 70% of all fresh water).  Ice caps reflect sunlight back into space."),
+                        ("earth - falls.jpg", "Less than three percent of all the water on Earth is fresh water.  Fortunately, water that evaporates from the seas leaves behind its salt."),
+                        ("earth - canyon.jpg", "The dynamic weather conditions shape Earth moreso than other planets.  Seen here is the Grand Canyon, formed by erosion over millions of years."),
+                        ("earth - crater.jpg", "Although many small meteorites burn up in the atmosphere, occasionally a meteor will impact the ground.  The Meteor Crater in Arizona is a 560 feet deep and formed 50,000 years ago.")
+                     ],
+                     thumbnail: nil)
         
         Earth.colors(background: "earthsurface.jpg",
-                     color1: "15334C",
-                     color2: "C4C4BB")
+                     color1: UIColor.Orbits.EarthPrimary,
+                     color2: UIColor.Orbits.EarthSecondary)
         
         let moon = Moon(name: "Moon",
                         position: "1")
@@ -280,11 +288,13 @@ class Objects {
                      normalmap: "moonnormalmap.jpg")
         
         moon.images(images: [
-            ("moon - phases.jpg", "The Moon enters different phases based on what direction we observe it from.  These phases form the lunar cycle, which lasts about 29.5 days."),
-            ("moon - rover.jpg","The Apollo 17 Lunar Rover being inspected by Astronaut Eugene A. Cernan."),
-            ("moon - flag.jpg","The Apollo 14 mission plants its flag on the moon."),
-            ("moon - earthrise.jpg","Earthrise from Lunar orbit."),
-            ("moon - eclipse.jpg", "Occasionally, the Moon will pass in front of the Sun from the Earth's perspective, causing a solar eclipse over parts of the world.")])
+                        ("moon - phases.jpg", "The Moon enters different phases based on what direction we observe it from.  These phases form the lunar cycle, which lasts about 29.5 days."),
+                        ("moon - rover.jpg","The Apollo 17 Lunar Rover being inspected by Astronaut Eugene A. Cernan."),
+                        ("moon - flag.jpg","The Apollo 14 mission plants its flag on the moon."),
+                        ("moon - earthrise.jpg","Earthrise from Lunar orbit."),
+                        ("moon - eclipse.jpg", "Occasionally, the Moon will pass in front of the Sun from the Earth's perspective, causing a solar eclipse over parts of the world.")
+                    ],
+                    thumbnail: nil)
         
         Earth.moons.append(moon)
         
@@ -339,16 +349,18 @@ class Objects {
                       ring_outer_ratio: nil)
          
          Mars.images(images: [
-             ("mars - olympus mons.jpg", "Measuring two and a half times the height of Everest and almost the size of France, Olympus Mons is the largest volcano in the solar system."),
-             ("mars - landscape.jpg","Images of the surface taken by the Pathfinder lander.  Pathfinder also delivered a small rover to the surface, named Sojourner."),
-             ("mars - pole.jpg", "The north pole of mars, with a large ice cap visible, composed mostly of CO2"),
-             ("mars - frosted dunes.jpg", "Sand dunes form on Mars and form patterns when they warm enough to thaw the CO2 permafrost underneath."),
-             ("mars - valles marineris.png", "The Valles Marines canyon measures almost four times the length and depth of the Grand Canyon, making it the largest valley in the solar system."),
-             ("mars - curiosity selfie.jpg", "Curiosity is the most recent rover to land on Mars; it has been in service since 2012.")])
+                         ("mars - olympus mons.jpg", "Measuring two and a half times the height of Everest and almost the size of France, Olympus Mons is the largest volcano in the solar system."),
+                         ("mars - landscape.jpg","Images of the surface taken by the Pathfinder lander.  Pathfinder also delivered a small rover to the surface, named Sojourner."),
+                         ("mars - pole.jpg", "The north pole of mars, with a large ice cap visible, composed mostly of CO2"),
+                         ("mars - frosted dunes.jpg", "Sand dunes form on Mars and form patterns when they warm enough to thaw the CO2 permafrost underneath."),
+                         ("mars - valles marineris.png", "The Valles Marines canyon measures almost four times the length and depth of the Grand Canyon, making it the largest valley in the solar system."),
+                         ("mars - curiosity selfie.jpg", "Curiosity is the most recent rover to land on Mars; it has been in service since 2012.")
+                     ],
+                     thumbnail: nil)
          
          Mars.colors(background: "marssurface.jpg",
-                     color1: "5B4436",
-                     color2: "B59087")
+                     color1: UIColor.Orbits.MarsPrimary,
+                     color2: UIColor.Orbits.MarsSecondary)
          
          let Phobos = Moon(name: "Phobos",
                            position: "1")
@@ -383,11 +395,13 @@ class Objects {
                         normalmap: nil)
          
          Phobos.images(images: [
-             ("phobos - monolith.jpg", "An apparent monolith on Phobos.  Although around 90 meters tall, it is likely just a boulder that fell from a nearby cliff."),
-             ("phobos - color.jpg", "Similar to the planet it orbits, Phobos has a red hue."),
-             //("phobos - moon transit.gif", "Phobos passing in front of Mars' other moon, Demios in real time, as seen by the Curiosity rover."),
-             ("phobos - transit.jpg", "Phobos is not large enough to create a total eclipse when viewed from Mars.  At most, it creates a partial eclipse as photographed here by the Curiosity rover."),
-             ("phobos - stickeny.jpg", "Stickeny crater was formed long ago by a massive impact with the surface. Limtoc crater is the smaller crater inside Stickeny.")])
+                         ("phobos - monolith.jpg", "An apparent monolith on Phobos.  Although around 90 meters tall, it is likely just a boulder that fell from a nearby cliff."),
+                         ("phobos - color.jpg", "Similar to the planet it orbits, Phobos has a red hue."),
+                         //("phobos - moon transit.gif", "Phobos passing in front of Mars' other moon, Demios in real time, as seen by the Curiosity rover."),
+                         ("phobos - transit.jpg", "Phobos is not large enough to create a total eclipse when viewed from Mars.  At most, it creates a partial eclipse as photographed here by the Curiosity rover."),
+                         ("phobos - stickeny.jpg", "Stickeny crater was formed long ago by a massive impact with the surface. Limtoc crater is the smaller crater inside Stickeny.")
+                       ],
+                       thumbnail: nil)
          
          Mars.moons.append(Phobos)
          
@@ -418,8 +432,10 @@ class Objects {
                      discovered: "August 12th, 1877")
          
          Deimos.images(images: [
-             ("deimos - surface.png", "Deimos's surface in detail from 30 km away, taken by the Viking 2 orbiter in a flyby."),
-             ("deimos - color.jpg", "The surface of Deimos is relatively smooth because when asteroids impact it, the ejected material escapes its orbit and thus doesn't impact the surface again.")])
+                         ("deimos - surface.png", "Deimos's surface in detail from 30 km away, taken by the Viking 2 orbiter in a flyby."),
+                         ("deimos - color.jpg", "The surface of Deimos is relatively smooth because when asteroids impact it, the ejected material escapes its orbit and thus doesn't impact the surface again.")
+                       ],
+                       thumbnail: nil)
          
          Deimos.display(texture: nil,
                         model: "deimos.dae",
@@ -470,12 +486,14 @@ class Objects {
                      discovered: "Ancient Times")
         
         Jupiter.images(images: [
-            ("jupiter - pole.jpg", "The southern pole of Jupiter, including the Great Red Spot.  Imaged by the Cassini orbiter."),
-            ("jupiter - io.jpg", "Jupiter has dozens of moons.  Here Io, a large, volcanically active moon, passes in front of Jupiter."),
-            ("jupiter - rings.jpg", "Jupiter has a small, barely visible ring system.  Here it's illuminated by the sun on the far side of Jupiter."),
-            ("jupiter - arora.jpg", "In 2016, the Hubble space telescope captured ultraviolet spectrum images of massive auroras on Jupiter's north pole."),
-            ("jupiter - impact.jpg", "Fragments of a comet impacted Jupiter in 2011."),
-            ("jupiter - spot.jpg", "The Great Red Spot on Jupiter is a massive anticyclone large enough to encircle two earth-sized planets.")])
+                        ("jupiter - pole.jpg", "The southern pole of Jupiter, including the Great Red Spot.  Imaged by the Cassini orbiter."),
+                        ("jupiter - io.jpg", "Jupiter has dozens of moons.  Here Io, a large, volcanically active moon, passes in front of Jupiter."),
+                        ("jupiter - rings.jpg", "Jupiter has a small, barely visible ring system.  Here it's illuminated by the sun on the far side of Jupiter."),
+                        ("jupiter - arora.jpg", "In 2016, the Hubble space telescope captured ultraviolet spectrum images of massive auroras on Jupiter's north pole."),
+                        ("jupiter - impact.jpg", "Fragments of a comet impacted Jupiter in 2011."),
+                        ("jupiter - spot.jpg", "The Great Red Spot on Jupiter is a massive anticyclone large enough to encircle two earth-sized planets.")
+                       ],
+                       thumbnail: nil)
         
         Jupiter.display(texture: "jupitermap.jpg",
                         model: nil,
@@ -486,8 +504,8 @@ class Objects {
             ring_outer_ratio: 3.92)
         
         Jupiter.colors(background: "jupitersurface.jpg",
-                       color1: "623D16",
-                       color2: "bf9366")
+                       color1: UIColor.Orbits.JupiterPrimary,
+                       color2: UIColor.Orbits.JupiterSecondary)
         
         let Metis = Moon(name: "Metis",
                          position: "1")
@@ -620,12 +638,14 @@ class Objects {
                  nasa: "http://solarsystem.nasa.gov/planets/io")
         
         Io.images(images: [
-            ("io - pele.jpg", "An eruption of Io's volcano Pele.  The fallout covers an area the size of Alaska."),
-            ("io - tohil.jpg", "Although not a volcano, Tohil Mons towers over 18,000 feet above Io's surface.  Questions remain over whether its origin is volcanic or not."),
-            ("io - tupan.jpg", "Tupan Patera is a volcanic depression around 47 miles across and surrounded by cliffs 3000 feet high.  Lava flows throughout the center of the crater."),
-            ("io - jupiter.jpg", "Io Passing in front of Jupiter.  Io is slightly larger than Earth's moon."),
-            ("io - tvashtar.jpg", "Tvashtar Catena is a chain of volcanic caulderas caught in the middle of an eruption during the Galeleo orbiter's flyby of Io in November 1999."),
-            ("io - volcano.jpg", "The Voyager 1 flyby of Io revealed an incredible sight: a volcanic plume expulsing matter over 100 miles above the moon's surface.")])
+                        ("io - pele.jpg", "An eruption of Io's volcano Pele.  The fallout covers an area the size of Alaska."),
+                        ("io - tohil.jpg", "Although not a volcano, Tohil Mons towers over 18,000 feet above Io's surface.  Questions remain over whether its origin is volcanic or not."),
+                        ("io - tupan.jpg", "Tupan Patera is a volcanic depression around 47 miles across and surrounded by cliffs 3000 feet high.  Lava flows throughout the center of the crater."),
+                        ("io - jupiter.jpg", "Io Passing in front of Jupiter.  Io is slightly larger than Earth's moon."),
+                        ("io - tvashtar.jpg", "Tvashtar Catena is a chain of volcanic caulderas caught in the middle of an eruption during the Galeleo orbiter's flyby of Io in November 1999."),
+                        ("io - volcano.jpg", "The Voyager 1 flyby of Io revealed an incredible sight: a volcanic plume expulsing matter over 100 miles above the moon's surface.")
+                  ],
+                  thumbnail: nil)
         
         Io.display(texture: "iomap.jpg",
                    model: nil,
@@ -641,12 +661,14 @@ class Objects {
                      nasa: "http://solarsystem.nasa.gov/planets/europa")
         
         Europa.images(images: [
-            ("europa - red.jpg", "On Europa's ice-covered surface, blue and white areas are relatively pure ice, whereas red areas indicate water ice mixed with hydrated salts, potentially magnesium sulfate or sulfuric acid"),
-            ("europa - ridge.jpg", "Ridges that form on Europa are likely the result of intense tidal forces or energy coming from the moon's interior."),
-            ("europa - linea.jpg", "The Minos Linea region on Europa is a part of the surface carved up by sections where salts are mixed in the ice."),
-            ("europa - impact.jpg", "This crater is around the size of Hawaii (140km across) and formed when a massive asteroid impacted the surface of the moon."),
-            ("europa - galileo.jpg", "This image, taken by the Galileo orbiter, shows the intricate patterns and details of Europa's ice-covered surface."),
-            ("europa - freckles.jpg", "These dark, freckled spots on Europa suggest there is movement in the ocean beneath the frozen surface: warm water rises to right beneath the ice until it cools and sinks back down.")])
+                        ("europa - red.jpg", "On Europa's ice-covered surface, blue and white areas are relatively pure ice, whereas red areas indicate water ice mixed with hydrated salts, potentially magnesium sulfate or sulfuric acid"),
+                        ("europa - ridge.jpg", "Ridges that form on Europa are likely the result of intense tidal forces or energy coming from the moon's interior."),
+                        ("europa - linea.jpg", "The Minos Linea region on Europa is a part of the surface carved up by sections where salts are mixed in the ice."),
+                        ("europa - impact.jpg", "This crater is around the size of Hawaii (140km across) and formed when a massive asteroid impacted the surface of the moon."),
+                        ("europa - galileo.jpg", "This image, taken by the Galileo orbiter, shows the intricate patterns and details of Europa's ice-covered surface."),
+                        ("europa - freckles.jpg", "These dark, freckled spots on Europa suggest there is movement in the ocean beneath the frozen surface: warm water rises to right beneath the ice until it cools and sinks back down.")
+                      ],
+                      thumbnail: nil)
         
         Europa.display(texture: "europamap.jpg",
                        model: nil,
@@ -662,10 +684,12 @@ class Objects {
                        nasa: "http://solarsystem.nasa.gov/planets/ganymede")
         
         Ganymede.images(images: [
-            ("ganymede - craters.jpg", "Two craters on the surface of Ganymede from recent impacts - Achelous in the center and Gula to the north.  Both are around 35 km across."),
-            ("ganymede - jupiter.jpg", "Ganymede begins to dissapear behind Jupiter.  This shot was taken by Hubble."),
-            ("ganymede - surface.jpg", "The poles of Ganymede are very large - ice and frost extend up to 25 degrees north of the equator."),
-            ("ganymede - terrain.jpg", "Grooved terrain on Ganymede is thought to be formed by plate tectonics caused by tidal resonances.")])
+                            ("ganymede - craters.jpg", "Two craters on the surface of Ganymede from recent impacts - Achelous in the center and Gula to the north.  Both are around 35 km across."),
+                            ("ganymede - jupiter.jpg", "Ganymede begins to dissapear behind Jupiter.  This shot was taken by Hubble."),
+                            ("ganymede - surface.jpg", "The poles of Ganymede are very large - ice and frost extend up to 25 degrees north of the equator."),
+                            ("ganymede - terrain.jpg", "Grooved terrain on Ganymede is thought to be formed by plate tectonics caused by tidal resonances.")
+                        ],
+                        thumbnail: nil)
         
         Ganymede.display(texture: "ganymedemap.jpg",
                          model: nil,
@@ -681,10 +705,12 @@ class Objects {
                        nasa: "http://solarsystem.nasa.gov/planets/callisto")
         
         Callisto.images(images: [
-            ("callisto - globe.jpg", "Callisto is not properly differentiated, meaning its contents have not separated into layers based on density."),
-            ("callisto - landslides.jpg", "The two large graters in this image from Galileo show landslides, indicating that the surface of Callisto is fine-grained."),
-            ("callisto - plains.jpg", "This image swathe, taken by the Galelio orbiter, shows a smoothing of the craters on the moon's surface."),
-            ("callisto - valhalla.jpg", "The Valhalla crater is a massive ring impact structure on Callisto's surface.  The impact rings extend over 1,800 kilometers from the center.")])
+                            ("callisto - globe.jpg", "Callisto is not properly differentiated, meaning its contents have not separated into layers based on density."),
+                            ("callisto - landslides.jpg", "The two large graters in this image from Galileo show landslides, indicating that the surface of Callisto is fine-grained."),
+                            ("callisto - plains.jpg", "This image swathe, taken by the Galelio orbiter, shows a smoothing of the craters on the moon's surface."),
+                            ("callisto - valhalla.jpg", "The Valhalla crater is a massive ring impact structure on Callisto's surface.  The impact rings extend over 1,800 kilometers from the center.")
+                        ],
+                        thumbnail: nil)
         
         Callisto.display(texture: "callistomap.jpg",
                          model: nil,
@@ -1352,8 +1378,8 @@ class Objects {
             ("saturn - waves.jpg", "Perturbations in Saturns rings caused by a young object forming in the Keeler gap in the rings.")]
         
         Saturn.colors(background: "saturnsurface.jpg",
-                      color1: "4F311B",
-                      color2: "CEBBA8")
+                      color1: UIColor.Orbits.SaturnPrimary,
+                      color2: UIColor.Orbits.SaturnSecondary)
         
         let S1 = Moon(name: "S/2009 S 1",
                       position: "1")
@@ -2019,8 +2045,8 @@ class Objects {
             ("uranus - storm.jpg", "Infrared images of both sides of the planet, taken by the Keck Telescope to track a storm in the upper atmosphere.")]
         
         Uranus.colors(background: "uranussurface.jpg",
-                      color1: "727E7E",
-                      color2: "71ACD4")
+                      color1: UIColor.Orbits.UranusPrimary,
+                      color2: UIColor.Orbits.UranusSecondary)
         
         let Cordelia = Moon(name: "Cordelia",
                             position: "1")
@@ -2347,8 +2373,8 @@ class Objects {
             ("neptune - triton.jpg", "Triton, seen behind Neptune in this Voyager 2 shot, makes up 99.5% of the mass of Neptune's moons.")]
         
         Neptune.colors(background: "neptunesurface.jpg",
-                       color1: "565DA0",
-                       color2: "88daf6")
+                       color1: UIColor.Orbits.NeptunePrimary,
+                       color2: UIColor.Orbits.NeptuneSecondary)
         
         let Naiad = Moon(name: "Naiad",
                          position: "1")
@@ -2859,8 +2885,8 @@ class Objects {
             ("ceres - surface.jpg", "The Dawn spacecraft has been orbiting Ceres since 2015 and has provided detailed scientific information about it's history, as well as image its surface.")]
         
         Ceres.colors(background: "ceressurface.jpg",
-                     color1: "737373",
-                     color2: "c5c5c5")
+                     color1: UIColor.Orbits.CeresPrimary,
+                     color2: UIColor.Orbits.CeresSecondary)
         
         return Ceres
     }
@@ -2915,12 +2941,12 @@ class Objects {
             ("pluto - shores.jpg", "The dark highlands on the right side of the image are called \"Krun Macula\".  The circular pits in the plains on the right side of the image are up to 1.5 miles deep."),
             ("pluto - sputnik.jpg", "New Horizons imaged the surface of Pluto in incredible detail, such as this rocky area named Sputnik Plantum."),
             ("pluto - close.jpg", "This is a close up taken by the New Horizons probe.  It extends from the Sputnik Planum badlands, across mountains, ending at the icy plains."),
-            ("pluto - haze.jpg", "Pluto's haze is caused by a type of soot formed from rections between nitrogen and methane."),
+            ("pluto - haze.jpg", "Pluto's haze is caused by a type of soot formed from reactions between nitrogen and methane."),
             ("pluto - craters", "Pluto has very diverse terrain.  The datker, cratered areas are older than the lighter areas.")]
             
         Pluto.colors(background: "plutomap.jpg",
-                     color1: "524433",
-                     color2: "8B8B82")
+                     color1: UIColor.Orbits.PlutoPrimary,
+                     color2: UIColor.Orbits.PlutoSecondary)
         
         let Charon = Moon(name: "Charon",
                           position: "1")
@@ -3014,8 +3040,8 @@ class Objects {
         Haumea.images = [("haumea - pixels.jpg", "Keck telescope image of Haumea and its moons.  This is the highest resolution image of the dwarf planet to date.")]
         
         Haumea.colors(background: "haumeasurface.jpg",
-                      color1: "612D2D",
-                      color2: "D7C3B9")
+                      color1: UIColor.Orbits.HaumeaPrimary,
+                      color2: UIColor.Orbits.HaumeaSecondary)
         
         let Namaka = Moon(name: "Namaka",
                           position: "1")
@@ -3120,8 +3146,8 @@ class Objects {
         Makemake.images = [("makemake - pixels.jpg", "Makemake and its moon, MK2, which can be seen above the dwarf planet.")]
         
         Makemake.colors(background: "makemakesurface.jpg",
-                        color1: "7A4E44",
-                        color2: "EFD8CA")
+                        color1: UIColor.Orbits.MakemakePrimary,
+                        color2: UIColor.Orbits.MakemakeSecondary)
         
         let MK2 = Moon(name: "MK 2",
                        position: "1")
@@ -3194,8 +3220,8 @@ class Objects {
                   discovered: "January 5th, 2005")
         
         Eris.colors(background: "erissurface.jpg",
-                    color1: "3E322C",
-                    color2: "83766F")
+                    color1: UIColor.Orbits.ErisPrimary,
+                    color2: UIColor.Orbits.ErisSecondary)
         
         Eris.images = [("eris - pixels.jpg", "Hubble image of Eris and its moon Dysnomia.")]
         
@@ -3269,8 +3295,8 @@ class Objects {
                        total_mass: nil)
         
         Sun.colors(background: "sunsurface.jpg",
-                   color1: "CA9506",
-                   color2: "F9B243")
+                   color1: UIColor.Orbits.SunPrimary,
+                   color2: UIColor.Orbits.SunSecondary)
         
         Sun.display(texture: "sunmap.png",
                     model: nil,
@@ -3333,11 +3359,13 @@ class Objects {
                      ring_outer_ratio: nil)
         
         TheMoon.images(images: [
-            ("moon - phases.jpg", "The Moon enters different phases based on what direction we observe it from.  These phases form the lunar cycle, which lasts about 29.5 days."),
-            ("moon - rover.jpg","The Apollo 17 Lunar Rover being inspected by Astronaut Eugene A. Cernan."),
-            ("moon - flag.jpg","The Apollo 14 mission plants its flag on the moon."),
-            ("moon - earthrise.jpg","Earthrise from Lunar orbit."),
-            ("moon - eclipse.jpg", "Occasionally, the Moon will pass in front of the Sun from the Earth's perspective, causing a solar eclipse over parts of the world.")])
+                        ("moon - phases.jpg", "The Moon enters different phases based on what direction we observe it from.  These phases form the lunar cycle, which lasts about 29.5 days."),
+                        ("moon - rover.jpg","The Apollo 17 Lunar Rover being inspected by Astronaut Eugene A. Cernan."),
+                        ("moon - flag.jpg","The Apollo 14 mission plants its flag on the moon."),
+                        ("moon - earthrise.jpg","Earthrise from Lunar orbit."),
+                        ("moon - eclipse.jpg", "Occasionally, the Moon will pass in front of the Sun from the Earth's perspective, causing a solar eclipse over parts of the world.")
+                       ],
+                       thumbnail: nil)
         
         return TheMoon
     }

@@ -25,19 +25,6 @@ class BodyCell: UITableViewCell {
         heightConstraint.constant = 183
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        guard let superview = contentView.superview else {
-            return
-        }
-        for subview in superview.subviews {
-            if String(describing: type(of: subview)).hasSuffix("SeparatorView") {
-                //subview.isHidden = false
-            }
-        }
-    }
-    
     func setRSTTimes(rise: Date?, set: Date?) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "h:mm a"
@@ -64,24 +51,12 @@ class BodyCell: UITableViewCell {
     }
     
     func clearRSTTimes() {
-        self.rises.text = ""
+        rises.text = ""
         sets.text = ""
         setView(view: RSTTimes, hidden: true)
     }
     
     func setView(view: UIView, hidden: Bool) {
-        view.isHidden = hidden
-        if hasBeenShown {
-            view.alpha = hidden ? 0 : 1
-        } else {
-            UIView.transition(with: view, duration: 0.5, options: .transitionCrossDissolve,
-                animations: {
-                    // Animations
-                    view.alpha = hidden ? 0 : 1
-                },
-                    completion: { finished in
-                    self.hasBeenShown = true
-                })
-        }
+        view.alpha = hidden ? 0 : 1
     }
 }
