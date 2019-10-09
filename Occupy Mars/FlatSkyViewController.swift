@@ -9,7 +9,7 @@ import UIKit
 import CoreLocation
 import SceneKit
 
-import SwiftAA
+//import SwiftAA
 
 class FlatSkyViewController: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
     @IBOutlet weak var compass: UIView!
@@ -94,15 +94,15 @@ class FlatSkyViewController: UIViewController, CLLocationManagerDelegate, UIGest
         print("passed updating location")
         
         for planetTooltipTuple in planetSceneBodyAndTooltipList {
-            if let aaPlanet = planetTooltipTuple.1.aa {
-                let coords = GeographicCoordinates.init(location)
-                let rstTimes = aaPlanet.riseTransitSetTimes(for: coords)
-                
-                if let let_tooltip = planetTooltipTuple.2.contentView as? PlanetTooltipController {
-                    setRSTTimes(rise: rstTimes.riseTime?.date, set: rstTimes.setTime?.date, tooltip: let_tooltip)
-                    
-                }
-            }
+//            if let aaPlanet = planetTooltipTuple.1.aa {
+//                let coords = GeographicCoordinates.init(location)
+//                let rstTimes = aaPlanet.riseTransitSetTimes(for: coords)
+//
+//                if let let_tooltip = planetTooltipTuple.2.contentView as? PlanetTooltipController {
+//                    setRSTTimes(rise: rstTimes.riseTime?.date, set: rstTimes.setTime?.date, tooltip: let_tooltip)
+//
+//                }
+//            }
         }
     }
     
@@ -137,17 +137,17 @@ class FlatSkyViewController: UIViewController, CLLocationManagerDelegate, UIGest
         
         if let riseTime = rise, let setTime = set {
             
-            if ((riseTime.day != Date.init().day && riseTime.day != Date.init().day.advanced(by: 1))
-                || (setTime.day != Date.init().day && setTime.day != Date.init().day.advanced(by: 1))) {
-                tooltip.rises.text = dateFormatterWithDay.string(from: riseTime)
-                tooltip.sets.text = dateFormatterWithDay.string(from: setTime)
-                
-                tooltip.rises.numberOfLines = 2
-                tooltip.sets.numberOfLines = 2
-            } else {
-                tooltip.rises.text = dateFormatter.string(from: riseTime)
-                tooltip.sets.text = dateFormatter.string(from: setTime)
-            }
+//            if ((riseTime.day != Date.init().day && riseTime.day != Date.init().day.advanced(by: 1))
+//                || (setTime.day != Date.init().day && setTime.day != Date.init().day.advanced(by: 1))) {
+//                tooltip.rises.text = dateFormatterWithDay.string(from: riseTime)
+//                tooltip.sets.text = dateFormatterWithDay.string(from: setTime)
+//
+//                tooltip.rises.numberOfLines = 2
+//                tooltip.sets.numberOfLines = 2
+//            } else {
+//                tooltip.rises.text = dateFormatter.string(from: riseTime)
+//                tooltip.sets.text = dateFormatter.string(from: setTime)
+//            }
         }
     }
     
@@ -188,9 +188,9 @@ class FlatSkyViewController: UIViewController, CLLocationManagerDelegate, UIGest
         planetView.antialiasingMode = .multisampling4X
         planetView.preferredFramesPerSecond = 15
         
-        if let let_celestialBody = planet.aa, let let_location = locationManager.location {
-            convertHorizontalCoordinatesToFrame(coordinates: let_celestialBody.equatorialCoordinates.makeHorizontalCoordinates(for: GeographicCoordinates.init(let_location), at: JulianDay.init(Date.init())))
-        }
+//        if let let_celestialBody = planet.aa, let let_location = locationManager.location {
+//            convertHorizontalCoordinatesToFrame(coordinates: let_celestialBody.equatorialCoordinates.makeHorizontalCoordinates(for: GeographicCoordinates.init(let_location), at: JulianDay.init(Date.init())))
+//        }
         
         x = x - 35
         y = y - 35
@@ -198,17 +198,17 @@ class FlatSkyViewController: UIViewController, CLLocationManagerDelegate, UIGest
         return planetView
     }
     
-    func convertHorizontalCoordinatesToFrame(coordinates: HorizontalCoordinates) -> CGRect {
-        print(coordinates)
-        let x = 1 * sin(coordinates.altitude.inRadians.value) * cos(coordinates.azimuth.inRadians.value)
-        let y = 1 * sin(coordinates.altitude.inRadians.value) * sin(coordinates.azimuth.inRadians.value)
-        let z = 1 * cos(coordinates.altitude.inRadians.value)
-        print(x)
-        print(y)
-        print(z)
-        
-        return CGRect(x: 1, y: 1, width: 1, height: 1)
-    }
+//    func convertHorizontalCoordinatesToFrame(coordinates: HorizontalCoordinates) -> CGRect {
+//        print(coordinates)
+//        let x = 1 * sin(coordinates.altitude.inRadians.value) * cos(coordinates.azimuth.inRadians.value)
+//        let y = 1 * sin(coordinates.altitude.inRadians.value) * sin(coordinates.azimuth.inRadians.value)
+//        let z = 1 * cos(coordinates.altitude.inRadians.value)
+//        print(x)
+//        print(y)
+//        print(z)
+//
+//        return CGRect(x: 1, y: 1, width: 1, height: 1)
+//    }
     
     func buildTooltipNib() -> PlanetTooltipController {
         let viewNib = UINib(nibName: "PlanetTooltip", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! PlanetTooltipController

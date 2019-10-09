@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import SwiftAA
+//import SwiftAA
 
 class Planet : Body {
     
@@ -23,7 +23,7 @@ class Planet : Body {
     
     //--------------------------------------------orbital elements
     
-    var aa: SwiftAA.CelestialBody?
+    //var aa: SwiftAA.CelestialBody?
     
     //--------------------------------------------initializers
     
@@ -36,9 +36,9 @@ class Planet : Body {
         super.init(name: name, position: position)
     }
     
-    func aa(planet: SwiftAA.CelestialBody) {
-        self.aa = planet
-    }
+//    func aa(planet: SwiftAA.CelestialBody) {
+//        self.aa = planet
+//    }
     
     func orbitals(year_length: Quantity?,
                   perihelion: Quantity?,

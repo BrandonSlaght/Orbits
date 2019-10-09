@@ -4,7 +4,7 @@
 import Foundation
 import CoreLocation
 
-import SwiftAA
+//import SwiftAA
 
 class Sextant: NSObject, CLLocationManagerDelegate {
     

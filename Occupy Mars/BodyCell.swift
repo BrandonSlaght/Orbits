@@ -34,19 +34,19 @@ class BodyCell: UITableViewCell {
         
         if let riseTime = rise, let setTime = set {
             
-            if ((riseTime.day != Date.init().day && riseTime.day != Date.init().day.advanced(by: 1))
-                || (setTime.day != Date.init().day && setTime.day != Date.init().day.advanced(by: 1))) {
-                rises.text = dateFormatterWithDay.string(from: riseTime)
-                sets.text = dateFormatterWithDay.string(from: setTime)
-                
-                rises.numberOfLines = 2
-                sets.numberOfLines = 2
-            } else {
-                rises.text = dateFormatter.string(from: riseTime)
-                sets.text = dateFormatter.string(from: setTime)
-            }
-            
-            setView(view: RSTTimes, hidden: false)
+//            if ((riseTime.day != Date.init().day && riseTime.day != Date.init().day.advanced(by: 1))
+//                || (setTime.day != Date.init().day && setTime.day != Date.init().day.advanced(by: 1))) {
+//                rises.text = dateFormatterWithDay.string(from: riseTime)
+//                sets.text = dateFormatterWithDay.string(from: setTime)
+//
+//                rises.numberOfLines = 2
+//                sets.numberOfLines = 2
+//            } else {
+//                rises.text = dateFormatter.string(from: riseTime)
+//                sets.text = dateFormatter.string(from: setTime)
+//            }
+//
+//            setView(view: RSTTimes, hidden: false)
         }
     }
     

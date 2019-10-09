@@ -8,7 +8,7 @@
 
 import UIKit
 import SceneKit
-import SwiftAA
+//import SwiftAA
 
 class PlanetListViewController: UITableViewController, UISplitViewControllerDelegate {
     
@@ -72,13 +72,13 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
         cell.name?.text = planet.name
         cell.classification?.text = planet.type.rawValue
         setupCellScene(cell: cell, planet: planet)
-        if let location = sextant.location, let aaPlanet = planet.aa {
-            let coords = GeographicCoordinates.init(location)
-            let rstTimes = aaPlanet.riseTransitSetTimes(for: coords)
-            cell.setRSTTimes(rise: rstTimes.riseTime?.date, set: rstTimes.setTime?.date)
-        } else {
-            cell.clearRSTTimes()
-        }
+//        if let location = sextant.location, let aaPlanet = planet.aa {
+//            let coords = GeographicCoordinates.init(location)
+//            let rstTimes = aaPlanet.riseTransitSetTimes(for: coords)
+//            cell.setRSTTimes(rise: rstTimes.riseTime?.date, set: rstTimes.setTime?.date)
+//        } else {
+//            cell.clearRSTTimes()
+//        }
         return cell
     }
     
