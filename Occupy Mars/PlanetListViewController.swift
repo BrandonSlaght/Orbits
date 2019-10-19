@@ -233,6 +233,17 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
     
     func setNavColors() {
         print("setting nav colors")
+        print(tabBarController)
+        print(tabBarController?.splitViewController)
+        print(tabBarController?.splitViewController?.primaryViewController)
+        print(tabBarController?.splitViewController?.secondaryViewController)
+        print(tabBarController?.splitViewController?.primaryViewController?.navigationController)
+        print(tabBarController?.splitViewController?.secondaryViewController?.navigationController)
+        print(tabBarController?.splitViewController?.navigationController)
+        print(tabBarController?.navigationController)
+        print(tabBarController?.moreNavigationController)
+        print(tabBarController?.moreNavigationController.navigationBar)
+        print(tabBarController?.moreNavigationController.navigationController)
         
         tabBarController?.splitViewController?.primaryViewController?.navigationController?.navigationBar.barTintColor = UIColor.Orbits.SpaceGray
         tabBarController?.splitViewController?.secondaryViewController?.navigationController?.navigationBar.barTintColor = UIColor.Orbits.SpaceGray
