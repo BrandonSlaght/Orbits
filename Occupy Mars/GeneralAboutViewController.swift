@@ -18,18 +18,18 @@ class GeneralAboutViewController: AboutViewController {
         
         if let let_description = body.description {
             descriptionText.text = let_description
-            descriptionText.textContainerInset = UIEdgeInsets.zero
-            descriptionText.textContainer.lineFragmentPadding = 0
+            //descriptionText.textContainerInset = UIEdgeInsets.zero
+            //descriptionText.textContainer.lineFragmentPadding = 0
         }
         
         let touchWiki = UITapGestureRecognizer(target: self, action:#selector(self.openWiki))
         touchWiki.numberOfTapsRequired = 1
-        wikiImage.isUserInteractionEnabled = true
+        //wikiImage.isUserInteractionEnabled = true
         wikiImage.addGestureRecognizer(touchWiki)
         
         let touchNasa = UITapGestureRecognizer(target: self, action:#selector(self.openNASA))
         touchNasa.numberOfTapsRequired = 1
-        nasaImage.isUserInteractionEnabled = true
+        //nasaImage.isUserInteractionEnabled = true
         nasaImage.addGestureRecognizer(touchNasa)
         
     }

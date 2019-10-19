@@ -45,7 +45,7 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
     
     override func viewWillAppear(_ animated: Bool) {
         animateNav()
-        //sextant.setCallbackFunction(locationUpdatedCallback)
+        sextant.setLocationInitializationCallbackFunction(locationUpdatedCallback)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -232,7 +232,23 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
     }
     
     func setNavColors() {
+        print("setting nav colors")
+        
+        tabBarController?.splitViewController?.primaryViewController?.navigationController?.navigationBar.barTintColor = UIColor.Orbits.SpaceGray
+        tabBarController?.splitViewController?.secondaryViewController?.navigationController?.navigationBar.barTintColor = UIColor.Orbits.SpaceGray
+        
+        splitViewController?.tabBarController?.moreNavigationController.navigationBar.barTintColor = UIColor.Orbits.SpaceGray
+        //splitViewController?.moreNavigationController.navigationBar.barTintColor = UIColor.Orbits.SpaceGray
+        //tabBarController?.splitViewController?.moreNavigationController.navigationBar.barTintColor = UIColor.Orbits.SpaceGray
+        tabBarController?.moreNavigationController.navigationBar.barTintColor = UIColor.Orbits.SpaceGray
+        
+        splitViewController?.tabBarController?.navigationController?.navigationBar.barTintColor = UIColor.Orbits.SpaceGray
+        splitViewController?.navigationController?.navigationBar.barTintColor = UIColor.Orbits.SpaceGray
+        tabBarController?.splitViewController?.navigationController?.navigationBar.barTintColor = UIColor.Orbits.SpaceGray
+        tabBarController?.navigationController?.navigationBar.barTintColor = UIColor.Orbits.SpaceGray
+        
         navigationController?.navigationBar.barTintColor = UIColor.Orbits.SpaceGray
+        
         tabBarController?.tabBar.barTintColor = UIColor.Orbits.SpaceGray
     }
     

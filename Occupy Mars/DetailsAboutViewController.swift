@@ -72,19 +72,20 @@ class DetailsAboutViewController: AboutViewController, UITableViewDataSource, UI
         return count!
     }
     
-    func superscript(string: String, fontName: String, size: Int) -> NSAttributedString {
-        let font:UIFont? = UIFont(name: fontName, size: CGFloat(size))
-        let fontSuper:UIFont? = UIFont(name: fontName, size: CGFloat(size/2) + 2)
-        let copy = string.replacingOccurrences(of: "^", with: "")
-        let attString:NSMutableAttributedString = NSMutableAttributedString(string: copy, attributes: [NSAttributedString.Key.font:font!])
+    func superscript(input: String, fontSize: Int) -> NSAttributedString {
+        let font = UIFont.systemFont(ofSize: CGFloat(fontSize))
+        let fontSuper = UIFont.systemFont(ofSize: CGFloat(fontSize / 2) + 2)
         
-        if let let_index = string.firstIndex(of: Character("^")) {
-            let pos = copy.distance(from: copy.startIndex, to: let_index)
-            let length = copy.distance(from: let_index, to: copy.endIndex)
-            attString.setAttributes([NSAttributedString.Key.font:fontSuper!,NSAttributedString.Key.baselineOffset:10], range: NSRange(location: pos, length: length))
-            return attString;
+        let inputCopy = input.replacingOccurrences(of: "^", with: "")
+        let attributeString = NSMutableAttributedString(string: inputCopy, attributes: [NSAttributedString.Key.font: font])
+        
+        if let let_index = input.firstIndex(of: Character("^")) {
+            let superScriptPosition = inputCopy.distance(from: inputCopy.startIndex, to: let_index)
+            let inputLength = inputCopy.distance(from: let_index, to: inputCopy.endIndex)
+            attributeString.setAttributes([NSAttributedString.Key.font: fontSuper, NSAttributedString.Key.baselineOffset:10], range: NSRange(location: superScriptPosition, length: inputLength))
+            return attributeString;
         } else {
-            return NSAttributedString(string: string)
+            return NSAttributedString(string: input)
         }
     }
     
@@ -100,21 +101,11 @@ class DetailsAboutViewController: AboutViewController, UITableViewDataSource, UI
         if tableView == self.geologyTable {
             cell = tableView.dequeueReusableCell(withIdentifier: "geologyCell", for: indexPath as IndexPath) as! DataViewCellViewController
             let previewDetail = geology[indexPath.row]
-            cell.field!.text = previewDetail.0
-            let value = NSMutableAttributedString()
-            value.append(superscript(string: previewDetail.1, fontName: cell.value.font.fontName, size: Int(cell.value.font.pointSize)))
-            value.append(NSAttributedString(string: previewDetail.2))
-            cell.value!.attributedText = value
-            addTargets(key: previewDetail.0, gesture: singleTap, view: cell.info!)
+            setupCell(for: cell, with: previewDetail, gesture: singleTap)
         } else if tableView == self.orbitTable {
             cell = tableView.dequeueReusableCell(withIdentifier: "orbitCell", for: indexPath as IndexPath) as! DataViewCellViewController
             let previewDetail = orbit[indexPath.row]
-            cell.field!.text = previewDetail.0
-            let value = NSMutableAttributedString()
-            value.append(superscript(string: previewDetail.1, fontName: cell.value.font.fontName, size: Int(cell.value.font.pointSize)))
-            value.append(NSAttributedString(string: previewDetail.2))
-            cell.value!.attributedText = value
-            addTargets(key: previewDetail.0, gesture: singleTap, view: cell.info!)
+            setupCell(for: cell, with: previewDetail, gesture: singleTap)
         } else {
             cell = tableView.dequeueReusableCell(withIdentifier: "miscCell", for: indexPath as IndexPath) as! DataViewCellViewController
             let previewDetail = misc[indexPath.row]
@@ -122,13 +113,24 @@ class DetailsAboutViewController: AboutViewController, UITableViewDataSource, UI
             cell.value!.text = previewDetail.1
             addTargets(key: previewDetail.0, gesture: singleTap, view: cell.info!)
         }
+        
         if indexPath.row % 2 == 1 {
             cell.backgroundColor = UIColor.clear
         } else {
             cell.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.1)
         }
         cell.selectionStyle = .none
+        
         return cell
+    }
+    
+    func setupCell(for cell: DataViewCellViewController, with details: (String, String, String), gesture: UITapGestureRecognizer) {
+        cell.field!.text = details.0
+        let value = NSMutableAttributedString()
+        value.append(superscript(input: details.1, fontSize: Int(cell.value.font.pointSize)))
+        value.append(NSAttributedString(string: details.2))
+        cell.value!.attributedText = value
+        addTargets(key: details.0, gesture: gesture, view: cell.info!)
     }
     
     func addTargets(key: String, gesture: UITapGestureRecognizer, view: UILabel) {

@@ -110,7 +110,9 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         moveTagToBack(ofNav: self.navigationController!)
         
-        barColor = navigationController?.navigationBar.barTintColor
+        //REFACTOR
+        barColor = splitViewController?.secondaryViewController?.navigationController?.navigationBar.barTintColor
+        //barColor = navigationController?.navigationBar.barTintColor
         tabColor = tabBarController?.tabBar.barTintColor
 
         setNavColors()
@@ -194,6 +196,14 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         } else {
             globeButton.isHidden = true
             sceneHeight.constant = 0
+            
+            //REFACTOR
+            print(body)
+            print(body.color1)
+            print(barColor)
+            
+            barColor = UIColor.Orbits.SpaceGray
+            
             adjustColor(to: body.color1, or: barColor)
         }
     }
@@ -272,10 +282,5 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
                 (self.splitViewController?.primaryViewController as! UINavigationController).navigationBar.barTintColor = gray
             }
         }
-    }
-    
-    override func willMove(toParent parent: UIViewController?) { // tricky part in iOS 10
-        navigationController?.navigationBar.barTintColor = .red //previous color
-        super.willMove(toParent: parent)
     }
 }

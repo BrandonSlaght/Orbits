@@ -21,7 +21,6 @@ class MoonAboutViewController: AboutViewController, UITableViewDataSource, UITab
         
         tableView.delegate = self
         tableView.dataSource = self
-        
         tableView.separatorEffect = UIVibrancyEffect(blurEffect: blurView.effect as! UIBlurEffect)
         tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableView.automaticDimension
@@ -45,23 +44,26 @@ class MoonAboutViewController: AboutViewController, UITableViewDataSource, UITab
         cell.backgroundColor = UIColor.clear
         let objects = body.moons
         cell.name?.text = objects[indexPath.row].name
+        setupCellScene(cell: cell, moon: objects[indexPath.row])
         
+        return cell
+    }
+    
+    func setupCellScene(cell: BodyCell, moon: Body) {
         if (cell.sceneView != nil) {
-            cell.sceneView.scene = objects[indexPath.row].getScene(size: Size.small)
+            cell.sceneView.scene = moon.getScene(size: Size.small)
             cell.sceneView.isPlaying = true
             cell.sceneView.antialiasingMode = .multisampling4X
             cell.sceneView.preferredFramesPerSecond = 15
         }
-        if (objects[indexPath.row].getScene(size: Size.small) == nil) {
+        if (cell.sceneView.scene == nil) {
             cell.heightConstraint.constant = 60
         }
-        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let index = indexPath.row
         let detail = self.storyboard?.instantiateViewController(withIdentifier: "detailViewController") as? DetailViewController
-        detail?.body = body.moons[index]
+        detail?.body = body.moons[indexPath.row]
         self.navigationController?.pushViewController(detail!, animated: true)
     }
 }

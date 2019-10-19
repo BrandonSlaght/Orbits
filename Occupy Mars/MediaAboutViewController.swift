@@ -19,12 +19,8 @@ class MediaAboutViewController: AboutViewController, UICollectionViewDelegate, U
         super.viewDidLoad()
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
-
         self.collectionView.dragDelegate = self
-        
-//        if #available(iOS 11.0, *) {
-//            self.collectionView.dragInteractionEnabled = true
-//        }
+        self.collectionView.dragInteractionEnabled = true
         
         setupCollectionView()
         registerNibs()
@@ -40,13 +36,10 @@ class MediaAboutViewController: AboutViewController, UICollectionViewDelegate, U
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    //MARK: - CollectionView UI Setup
     func setupCollectionView(){
         let layout = CHTCollectionViewWaterfallLayout()
-        // Change individual layout attributes for the spacing between cells
         layout.minimumColumnSpacing = 1.0
         layout.minimumInteritemSpacing = 1.0
         if body.images.count > 1 {
@@ -54,10 +47,8 @@ class MediaAboutViewController: AboutViewController, UICollectionViewDelegate, U
         } else {
             layout.columnCount = 1
         }
-        // Collection view attributes
         self.collectionView.autoresizingMask = [UIView.AutoresizingMask.flexibleHeight, UIView.AutoresizingMask.flexibleWidth]
         self.collectionView.alwaysBounceVertical = true
-        // Add the waterfall layout to your collection view
         self.collectionView.collectionViewLayout = layout
         for image in body.images {
             let item = SKPhoto.photoWithImage(UIImage(named: image.image)!)
@@ -66,34 +57,23 @@ class MediaAboutViewController: AboutViewController, UICollectionViewDelegate, U
         }
     }
     
-    // Register CollectionView Nibs
-    func registerNibs(){
-        // attach the UI nib file for the ImageUICollectionViewCell to the collectionview
+     func registerNibs(){
         let viewNib = UINib(nibName: "MediaViewCell", bundle: nil)
         collectionView.register(viewNib, forCellWithReuseIdentifier: "cell")
     }
     
-    //MARK: - CollectionView Delegate Methods
-    //** Number of Cells in the CollectionView */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return body.images.count
     }
     
-    //** Create a basic CollectionView Cell */
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        // Create the cell and return the cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MediaHolder
         cell.image.image = UIImage(named: body.images[indexPath.row].image)
         return cell
     }
     
-    //MARK: - CollectionView Waterfall Layout Delegate Methods (Required)
-    //** Size for the cells in the Waterfall Layout */
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
-        // create a cell size from the image size, and return the size
-        let imageSize = UIImage(named: body.images[indexPath.row].image)!.size
-        return imageSize
+        UIImage(named: body.images[indexPath.row].image)!.size
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -116,14 +96,13 @@ class MediaAboutViewController: AboutViewController, UICollectionViewDelegate, U
         }
         
         let image = images[indexPath.row]
-        mediaHolderViewController.imageObject = image.underlyingImage!
+        mediaHolderViewController.image = image.underlyingImage!
         mediaHolderViewController.imageTitle = image.caption
         mediaHolderViewController.preferredContentSize = CGSize(width: 0.0, height: 0.0)
         return mediaHolderViewController
     }
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        
         let location = CGPoint(x: previewingContext.sourceRect.midX, y: previewingContext.sourceRect.midY)
         let indexPath = collectionView?.indexPathForItem(at: location)
         let cell = collectionView?.cellForItem(at: indexPath!) as! MediaHolder
@@ -135,7 +114,6 @@ class MediaAboutViewController: AboutViewController, UICollectionViewDelegate, U
         present(browser, animated: true, completion: {})
     }
     
-    @available(iOS 11.0, *)
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         let item = self.images[indexPath.row].underlyingImage
         let itemProvider = NSItemProvider(object: item!)
@@ -144,8 +122,7 @@ class MediaAboutViewController: AboutViewController, UICollectionViewDelegate, U
         return [dragItem]
     }
     
-    @available(iOS 11.0, *)
     func collectionView(_ collectionView: UICollectionView, itemsForAddingTo session: UIDragSession, at indexPath: IndexPath, point: CGPoint) -> [UIDragItem] {
-        return self.collectionView(collectionView, itemsForBeginning: session, at: indexPath)
+        self.collectionView(collectionView, itemsForBeginning: session, at: indexPath)
     }
 }

@@ -10,9 +10,7 @@ import UIKit
 import SceneKit
 
 class BodyCell: UITableViewCell {
-    
-    var hasBeenShown = false
-    
+        
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet var name: UILabel!
     @IBOutlet var classification: UILabel!

@@ -24,26 +24,23 @@ class GlobeViewController: UIViewController {
     
     @IBAction func stopRotation(_ sender: Any) {
         if rotating {
-            rotating = false
             rotate.setImage(UIImage(named: "icon-rotation-off"), for: UIControl.State.normal)
             stopMotion()
         } else {
-            rotating = true
             rotate.setImage(UIImage(named: "icon-rotation-on"), for: UIControl.State.normal)
             startMotion()
         }
+        rotating = !rotating
     }
     
     var split: UISplitViewController!
-    
-    var rotating = true
-    
     var body: Body!
     var camera: SCNNode!
     var barColor: UIColor!
     var barImage: UIImage!
     var barBackground: UIImage!
     var primaryWidth = CGFloat(100)
+    var rotating = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,15 +57,12 @@ class GlobeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         globe.pointOfView?.position = SCNVector3(0.0, 0.0, 5.0)
         globe.pointOfView?.position.z = 5
-        //globe.pointOfView?.camera?.motionBlurIntensity = 1.0
-        //globe.pointOfView?.camera?.wantsHDR = true
-        //globe.pointOfView?.camera?.bloomIntensity = 1.0
         
         camera = globe.pointOfView?.clone()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        split.toggleMasterView()
+        //split.toggleMasterView()
     }
     
     override func didReceiveMemoryWarning() {
