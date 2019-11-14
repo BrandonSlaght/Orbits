@@ -49,7 +49,7 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        setNavColors()
+        setupTabBar()
         manageVersionUpdate()
         
         //let initialIndexPath = IndexPath(row: 0, section: 0)
@@ -215,13 +215,13 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
         }
         
         coordinator.animate(alongsideTransition: {
-            [weak self] context in self?.setNavColors()
+            [weak self] context in self?.setupTabBar()
         }, completion: nil)
     }
     
     func setupNavBar() {
         let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = .purple
+        appearance.backgroundColor = UIColor.Orbits.SpaceGray
         appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
         appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
 
@@ -231,35 +231,7 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    func setNavColors() {
-        print("setting nav colors")
-        print(tabBarController)
-        print(tabBarController?.splitViewController)
-        print(tabBarController?.splitViewController?.primaryViewController)
-        print(tabBarController?.splitViewController?.secondaryViewController)
-        print(tabBarController?.splitViewController?.primaryViewController?.navigationController)
-        print(tabBarController?.splitViewController?.secondaryViewController?.navigationController)
-        print(tabBarController?.splitViewController?.navigationController)
-        print(tabBarController?.navigationController)
-        print(tabBarController?.moreNavigationController)
-        print(tabBarController?.moreNavigationController.navigationBar)
-        print(tabBarController?.moreNavigationController.navigationController)
-        
-        tabBarController?.splitViewController?.primaryViewController?.navigationController?.navigationBar.barTintColor = UIColor.Orbits.SpaceGray
-        tabBarController?.splitViewController?.secondaryViewController?.navigationController?.navigationBar.barTintColor = UIColor.Orbits.SpaceGray
-        
-        splitViewController?.tabBarController?.moreNavigationController.navigationBar.barTintColor = UIColor.Orbits.SpaceGray
-        //splitViewController?.moreNavigationController.navigationBar.barTintColor = UIColor.Orbits.SpaceGray
-        //tabBarController?.splitViewController?.moreNavigationController.navigationBar.barTintColor = UIColor.Orbits.SpaceGray
-        tabBarController?.moreNavigationController.navigationBar.barTintColor = UIColor.Orbits.SpaceGray
-        
-        splitViewController?.tabBarController?.navigationController?.navigationBar.barTintColor = UIColor.Orbits.SpaceGray
-        splitViewController?.navigationController?.navigationBar.barTintColor = UIColor.Orbits.SpaceGray
-        tabBarController?.splitViewController?.navigationController?.navigationBar.barTintColor = UIColor.Orbits.SpaceGray
-        tabBarController?.navigationController?.navigationBar.barTintColor = UIColor.Orbits.SpaceGray
-        
-        navigationController?.navigationBar.barTintColor = UIColor.Orbits.SpaceGray
-        
+    func setupTabBar() {
         tabBarController?.tabBar.barTintColor = UIColor.Orbits.SpaceGray
     }
     

@@ -507,531 +507,531 @@ class Objects {
                        color1: UIColor.Orbits.JupiterPrimary,
                        color2: UIColor.Orbits.JupiterSecondary)
         
-        let Metis = Moon(name: "Metis",
-                         position: "1")
-        
-        Metis.about(description: "Metis, also known as Jupiter XVI, is the innermost moon of Jupiter. It was discovered in 1979 in images taken by Voyager 1, and was named in 1983 after the first wife of Zeus, Metis. Additional observations made between early 1996 and September 2003 by the Galileo spacecraft allowed its surface to be imaged.\n\nMetis is tidally locked to Jupiter, and its shape is strongly asymmetrical, with one of the diameters being almost twice as large as the smallest one. It is also one of the two moons known to orbit Jupiter in less than the length of Jupiter's day, the other being Adrastea. It orbits within the main ring of Jupiter, and is thought to be a major contributor of material to the rings.",
-                    wiki: "https://en.wikipedia.org/wiki/Metis_(moon)",
-                    nasa: "http://solarsystem.nasa.gov/planets/metis")
-        
-        //        Metis.geology(mass: 3.6,
-        //                      volume: 42.7,
-        //                      equatorial: 21.5,
-        //                      density: 3,
-        //                      gravity: 0.017,
-        //                      escape_velocity: 98,
-        //                      irradiance: 50.26,
-        //                      geographic_height_variance: nil)
-        //
-        //        Metis.orbitals(orbital_length: 0.2947916666,
-        //                       perigee: 127974,
-        //                       apogee: 128026,
-        //                       velocity: 31.501,
-        //                       inclination: 0.06,
-        //                       eccentricity: 0.0002,
-        //                       day_length: 0.294791666,
-        //                       equator_inclination: 0)
-        
-        //        Metis.misc(pronunciation: nil,
-        //                   discovered: "1979")
-        
-        Jupiter.moons.append(Metis)
-        
-        let Adrastea = Moon(name: "Adrastea",
-                            position: "2")
-        
-        Adrastea.about(description: "Adrastea, also known as Jupiter XV, is the second by distance, and the smallest of the four inner moons of Jupiter. It was discovered in photographs taken by Voyager 2 in 1979, making it the first natural satellite to be discovered from images taken by an interplanetary spacecraft, rather than through a telescope. It was officially named after the mythological Adrasteia, foster mother of the Greek god Zeus—the equivalent of the Roman god Jupiter.\n\nAdrastea is one of the few moons in the Solar System known to orbit its planet in less than the length of that planet's day. It orbits at the edge of Jupiter's Main Ring and is thought to be the main contributor of material to the Rings of Jupiter. Despite observations made in the 1990s by the Galileo spacecraft, very little is known about the moon's physical characteristics other than its size and the fact that it is tidally locked to Jupiter.",
-                       wiki: "https://en.wikipedia.org/wiki/Adrastea_(moon)",
-                       nasa: "http://solarsystem.nasa.gov/planets/adrastea")
-        
-        //        Adrastea.geology(mass: 0.74933,
-        //                         volume: 2310,
-        //                         equatorial: 8.2,
-        //                         density: 3,
-        //                         gravity: 0.007,
-        //                         escape_velocity: 11,
-        //                         irradiance: 50.26,
-        //                         geographic_height_variance: nil)
-        //
-        //        Adrastea.orbitals(orbital_length: 0.29826,
-        //                          perigee: 129000,
-        //                          apogee: 129000,
-        //                          velocity: 31.378,
-        //                          inclination: 0.03,
-        //                          eccentricity: 0.0015,
-        //                          day_length: 0.29826,
-        //                          equator_inclination: 0)
-        
-        //        Adrastea.misc(pronunciation: nil,
-        //                      discovered: "1979")
-        
-        Jupiter.moons.append(Adrastea)
-        
-        let Amalthea = Moon(name: "Amalthea",
-                            position: "3")
-        
-        Amalthea.about(description: "Amalthea is the third moon of Jupiter in order of distance from the planet. It was discovered on 9 September 1892, by Edward Emerson Barnard and named after Amalthea, a nymph in Greek mythology. It is also known as Jupiter V.\n\nAmalthea is in a close orbit around Jupiter and is within the outer edge of the Amalthea Gossamer Ring, which is formed from dust ejected from its surface. From its surface, Jupiter would appear 46.5 degrees in diameter. Amalthea is the largest of the inner satellites of Jupiter. Irregularly shaped and reddish in color, it is thought to consist of porous water ice with unknown amounts of other materials. Its surface features include large craters and ridges.\n\nAmalthea was photographed in 1979 by the Voyager and 2 spacecraft, and later, in more detail, by the Galileo orbiter in the 1990s.",
-                       wiki: "https://en.wikipedia.org/wiki/Amalthea_(moon)",
-                       nasa: "http://solarsystem.nasa.gov/planets/amalthea")
-        
-        //        Amalthea.geology(mass: 208,
-        //                         volume: 2.43,
-        //                         equatorial: 83.5,
-        //                         density: 0.857,
-        //                         gravity: 0.02,
-        //                         escape_velocity: 58,
-        //                         irradiance: 50.26,
-        //                         geographic_height_variance: nil)
-        //
-        //        Amalthea.orbitals(orbital_length: 0.49817943,
-        //                          perigee: 181150,
-        //                          apogee: 182840,
-        //                          velocity: 26.57,
-        //                          inclination: 0.374,
-        //                          eccentricity: 0.00319,
-        //                          day_length: 0.49817943,
-        //                          equator_inclination: 0)
-        
-        //        Amalthea.misc(pronunciation: nil,
-        //                      discovered: "1892")
-        
-        Amalthea.display(texture: nil,
-                         model: "amalthea.dae",
-                         normalmap: nil)
-        
-        Jupiter.moons.append(Amalthea)
-        
-        let Thebe = Moon(name: "Thebe", position: "4")
-        
-        Thebe.about(description: "Thebe also known as Jupiter XIV, is the fourth of Jupiter's moons by distance from the planet. It was discovered by Stephen P. Synnott in images from the Voyager 1 space probe taken on March 5, 1979, while making its flyby of Jupiter. In 1983 it was officially named after the mythological nymph Thebe.\n\nThe second largest of the inner satellites of Jupiter, Thebe orbits within the outer edge of the Thebe gossamer ring that is formed from dust ejected from its surface. It is irregularly shaped and reddish in colour, and is thought like Amalthea to consist of porous water ice with unknown amounts of other materials. Its surface features include large craters and high mountains—some of them are comparable to the size of the moon itself.\n\nThebe was photographed in 1979 by the Voyager 1 and 2 spacecraft, and later, in more detail, by the Galileo orbiter in the 1990s.",
-                    wiki: "https://en.wikipedia.org/wiki/Thebe_(moon)",
-                    nasa: "http://solarsystem.nasa.gov/planets/thebe")
-        
-        //        Thebe.geology(mass: 0.014987,
-        //                      volume: 501914,
-        //                      equatorial: 49.3,
-        //                      density: 3,
-        //                      gravity: 0.013,
-        //                      escape_velocity: 64,
-        //                      irradiance: 50.26,
-        //                      geographic_height_variance: nil)
-        //
-        //        Thebe.orbitals(orbital_length: 0.674536,
-        //                       perigee: 218000,
-        //                       apogee: 226000,
-        //                       velocity: 23.92,
-        //                       inclination: 1.076,
-        //                       eccentricity: 0.0175,
-        //                       day_length: 0.674536,
-        //                       equator_inclination: 0)
-        
-        //        Thebe.misc(pronunciation: nil,
-        //                   discovered: "1979")
-        
-        Jupiter.moons.append(Thebe);
-        
-        let Io = Moon(name: "Io",
-                      position: "5")
-        
-        Io.about(description: "Io is the innermost of the four Galilean moons of the planet Jupiter. It is the fourth-largest moon, has the highest density of all the moons, and has the least amount of relative water of any known object in the Solar System. It was discovered in 1610 and was named after the mythological character Io, a priestess of Hera who became one of Zeus's lovers.\n\nWith over 400 active volcanoes, Io is the most geologically active object in the Solar System. This extreme geologic activity is the result of tidal heating from friction generated within Io's interior as it is pulled between Jupiter and the other Galilean satellites—Europa, Ganymede and Callisto. Several volcanoes produce plumes of sulfur and sulfur dioxide that climb as high as 500 km (300 mi) above the surface. Io's surface is also dotted with more than 100 mountains that have been uplifted by extensive compression at the base of Io's silicate crust. Some of these peaks are taller than Mount Everest. Unlike most satellites in the outer Solar System, which are mostly composed of water ice, Io is primarily composed of silicate rock surrounding a molten iron or iron-sulfide core. Most of Io's surface is composed of extensive plains coated with sulfur and sulfur-dioxide frost.\n\nIo's volcanism is responsible for many of its unique features. Its volcanic plumes and lava flows produce large surface changes and paint the surface in various subtle shades of yellow, red, white, black, and green, largely due to allotropes and compounds of sulfur. Numerous extensive lava flows, several more than 500 km (300 mi) in length, also mark the surface. The materials produced by this volcanism make up Io's thin, patchy atmosphere and Jupiter's extensive magnetosphere. Io's volcanic ejecta also produce a large plasma torus around Jupiter.\n\nIo played a significant role in the development of astronomy in the 17th and 18th centuries. It was discovered in January 1610 by Galileo Galilei, along with the other Galilean satellites. This discovery furthered the adoption of the Copernican model of the Solar System, the development of Kepler's laws of motion, and the first measurement of the speed of light. From Earth, Io remained just a point of light until the late 19th and early 20th centuries, when it became possible to resolve its large-scale surface features, such as the dark red polar and bright equatorial regions. In 1979, the two Voyager spacecraft revealed Io to be a geologically active world, with numerous volcanic features, large mountains, and a young surface with no obvious impact craters. The Galileo spacecraft performed several close flybys in the 1990s and early 2000s, obtaining data about Io's interior structure and surface composition. These spacecraft also revealed the relationship between Io and Jupiter's magnetosphere and the existence of a belt of high-energy radiation centered on Io's orbit. Io receives about 3,600 rem (36 Sv) of ionizing radiation per day.\n\nFurther observations have been made by Cassini–Huygens in 2000 and New Horizons in 2007, as well as from Earth-based telescopes and the Hubble Space Telescope.\n\nFrom the surface of Io, Jupiter would subtend an arc of 19.5°, making Jupiter to appear 39 times the apparent diameter of our Moon.",
-                 wiki: "https://en.wikipedia.org/wiki/Io_(moon)",
-                 nasa: "http://solarsystem.nasa.gov/planets/io")
-        
-        Io.images(images: [
-                        ("io - pele.jpg", "An eruption of Io's volcano Pele.  The fallout covers an area the size of Alaska."),
-                        ("io - tohil.jpg", "Although not a volcano, Tohil Mons towers over 18,000 feet above Io's surface.  Questions remain over whether its origin is volcanic or not."),
-                        ("io - tupan.jpg", "Tupan Patera is a volcanic depression around 47 miles across and surrounded by cliffs 3000 feet high.  Lava flows throughout the center of the crater."),
-                        ("io - jupiter.jpg", "Io Passing in front of Jupiter.  Io is slightly larger than Earth's moon."),
-                        ("io - tvashtar.jpg", "Tvashtar Catena is a chain of volcanic caulderas caught in the middle of an eruption during the Galeleo orbiter's flyby of Io in November 1999."),
-                        ("io - volcano.jpg", "The Voyager 1 flyby of Io revealed an incredible sight: a volcanic plume expulsing matter over 100 miles above the moon's surface.")
-                  ],
-                  thumbnail: nil)
-        
-        Io.display(texture: "iomap.jpg",
-                   model: nil,
-                   normalmap: nil)
-        
-        Jupiter.moons.append(Io)
-        
-        let Europa = Moon(name: "Europa",
-                          position: "6")
-        
-        Europa.about(description: "Europa (Jupiter II), is the smallest of the four Galilean moons orbiting Jupiter, and the sixth-closest to the planet. It is also the sixth-largest moon in the Solar System. Europa was discovered in 1610 by Galileo Galilei and was named after Europa, the legendary mother of King Minos of Crete and lover of Zeus (the Greek equivalent of the Roman god Jupiter).\n\nSlightly smaller than Earth's Moon, Europa is primarily made of silicate rock and has a water-ice crust and probably an iron–nickel core. It has a tenuous atmosphere composed primarily of oxygen. Its surface is striated by cracks and streaks, whereas craters are relatively rare. In addition to Earth-bound telescope observations, Europa has been examined by a succession of space probe flybys, the first occurring in the early 1970s.\n\nEuropa has the smoothest surface of any known solid object in the Solar System. The apparent youth and smoothness of the surface have led to the hypothesis that a water ocean exists beneath it, which could conceivably harbor extraterrestrial life. The predominant model suggests that heat from tidal flexing causes the ocean to remain liquid and drives ice movement similar to plate tectonics, absorbing chemicals from the surface into the ocean below. Sea salt from a subsurface ocean may be coating some geological features on Europa, suggesting that the ocean is interacting with the seafloor. This may be important in determining if Europa could be habitable. In addition, the Hubble Space Telescope detected water vapor plumes similar to those observed on Saturn's moon Enceladus, which are thought to be caused by erupting cryogeysers.\n\nThe Galileo mission, launched in 1989, provides the bulk of current data on Europa. No spacecraft has yet landed on Europa, although there have been several proposed exploration missions. The European Space Agency's Jupiter Icy Moon Explorer (JUICE) is a mission to Ganymede that is due to launch in 2022, but it will conduct two flybys of Europa. NASA's planned Europa Multiple-Flyby Mission will be launched in the mid-2020s.",
-                     wiki: "https://en.wikipedia.org/wiki/Europa_(moon)",
-                     nasa: "http://solarsystem.nasa.gov/planets/europa")
-        
-        Europa.images(images: [
-                        ("europa - red.jpg", "On Europa's ice-covered surface, blue and white areas are relatively pure ice, whereas red areas indicate water ice mixed with hydrated salts, potentially magnesium sulfate or sulfuric acid"),
-                        ("europa - ridge.jpg", "Ridges that form on Europa are likely the result of intense tidal forces or energy coming from the moon's interior."),
-                        ("europa - linea.jpg", "The Minos Linea region on Europa is a part of the surface carved up by sections where salts are mixed in the ice."),
-                        ("europa - impact.jpg", "This crater is around the size of Hawaii (140km across) and formed when a massive asteroid impacted the surface of the moon."),
-                        ("europa - galileo.jpg", "This image, taken by the Galileo orbiter, shows the intricate patterns and details of Europa's ice-covered surface."),
-                        ("europa - freckles.jpg", "These dark, freckled spots on Europa suggest there is movement in the ocean beneath the frozen surface: warm water rises to right beneath the ice until it cools and sinks back down.")
-                      ],
-                      thumbnail: nil)
-        
-        Europa.display(texture: "europamap.jpg",
-                       model: nil,
-                       normalmap: nil)
-        
-        Jupiter.moons.append(Europa)
-        
-        let Ganymede = Moon(name: "Ganymede",
-                            position: "7")
-        
-        Ganymede.about(description: "Ganymede (Jupiter III) is the largest and most massive moon of Jupiter and in the Solar System. The ninth largest object in the Solar System, it is the largest without a substantial atmosphere. It has a diameter of 5,268 km (3,273 mi) and is 8% larger than the planet Mercury, although only 45% as massive. Possessing a metallic core, it has the lowest moment of inertia factor of any solid body in the Solar System and is the only moon known to have a magnetic field. It is the third of the Galilean moons, the first group of objects discovered orbiting another planet, and the seventh satellite outward from Jupiter, Ganymede orbits Jupiter in roughly seven days and is in a 1:2:4 orbital resonance with the moons Europa and Io, respectively.\n\nGanymede is composed of approximately equal amounts of silicate rock and water ice. It is a fully differentiated body with an iron-rich, liquid core, and an internal ocean that may contain more water than all of Earth's oceans combined. Its surface is composed of two main types of terrain. Dark regions, saturated with impact craters and dated to four billion years ago, cover about a third of the satellite. Lighter regions, crosscut by extensive grooves and ridges and only slightly less ancient, cover the remainder. The cause of the light terrain's disrupted geology is not fully known, but was likely the result of tectonic activity due to tidal heating.\n\nGanymede's magnetic field is probably created by convection within its liquid iron core. The meager magnetic field is buried within Jupiter's much larger magnetic field and would show only as a local perturbation of the field lines. The satellite has a thin oxygen atmosphere that includes O, O2, and possibly O3 (ozone). Atomic hydrogen is a minor atmospheric constituent. Whether the satellite has an ionosphere associated with its atmosphere is unresolved.\n\nGanymede's discovery is credited to Galileo Galilei, who was the first to observe it on January 7, 1610. The satellite's name was soon suggested by astronomer Simon Marius, for the mythological Ganymede, cupbearer of the Greek gods and Zeus's lover. Beginning with Pioneer 10, several spacecraft have explored Ganymede. The Voyager probes refined measurements of its size, while Galileo discovered its underground ocean and magnetic field. The next planned mission to the Jovian system is the European Space Agency's Jupiter Icy Moon Explorer (JUICE), due to launch in 2022. After flybys of all three icy Galilean moons, the probe is planned to enter orbit around Ganymede.",
-                       wiki: "https://en.wikipedia.org/wiki/Ganymede_(moon)",
-                       nasa: "http://solarsystem.nasa.gov/planets/ganymede")
-        
-        Ganymede.images(images: [
-                            ("ganymede - craters.jpg", "Two craters on the surface of Ganymede from recent impacts - Achelous in the center and Gula to the north.  Both are around 35 km across."),
-                            ("ganymede - jupiter.jpg", "Ganymede begins to dissapear behind Jupiter.  This shot was taken by Hubble."),
-                            ("ganymede - surface.jpg", "The poles of Ganymede are very large - ice and frost extend up to 25 degrees north of the equator."),
-                            ("ganymede - terrain.jpg", "Grooved terrain on Ganymede is thought to be formed by plate tectonics caused by tidal resonances.")
-                        ],
-                        thumbnail: nil)
-        
-        Ganymede.display(texture: "ganymedemap.jpg",
-                         model: nil,
-                         normalmap: nil)
-        
-        Jupiter.moons.append(Ganymede)
-        
-        let Callisto = Moon(name: "Callisto",
-                            position: "8")
-        
-        Callisto.about(description: "Callisto (Jupiter IV) is the second-largest moon of Jupiter, after Ganymede. It is the third-largest moon in the Solar System and the largest object in the Solar System not to be properly differentiated. Callisto was discovered in 1610 by Galileo Galilei. At 4821 km in diameter, Callisto has about 99% the diameter of the planet Mercury but only about a third of its mass. It is the fourth Galilean moon of Jupiter by distance, with an orbital radius of about 1883000 km. It is not in an orbital resonance like the three other Galilean satellites—Io, Europa, and Ganymede—and is thus not appreciably tidally heated. Callisto's rotation is tidally locked to its orbit around Jupiter, so that the same hemisphere always faces inward; Jupiter appears to stand nearly still in Callisto's sky. It is less affected by Jupiter's magnetosphere than the other inner satellites because of its more remote orbit, located just outside Jupiter's main radiation belt.\n\nCallisto is composed of approximately equal amounts of rock and ices, with a density of about 1.83 g/cm3, the lowest density and surface gravity of Jupiter's major moons. Compounds detected spectroscopically on the surface include water ice, carbon dioxide, silicates, and organic compounds. Investigation by the Galileo spacecraft revealed that Callisto may have a small silicate core and possibly a subsurface ocean of liquid water at depths greater than 100 km.\n\nThe surface of Callisto is the oldest and most heavily cratered in the Solar System. Its surface is completely covered with impact craters. It does not show any signatures of subsurface processes such as plate tectonics or volcanism, with no signs that geological activity in general has ever occurred, and is thought to have evolved predominantly under the influence of impacts. Prominent surface features include multi-ring structures, variously shaped impact craters, and chains of craters (catenae) and associated scarps, ridges and deposits. At a small scale, the surface is varied and made up of small, sparkly frost deposits at the tips of high spots, surrounded by a low-lying, smooth blanket of dark material. This is thought to result from the sublimation-driven degradation of small landforms, which is supported by the general deficit of small impact craters and the presence of numerous small knobs, considered to be their remnants. The absolute ages of the landforms are not known.\n\nCallisto is surrounded by an extremely thin atmosphere composed of carbon dioxide and probably molecular oxygen, as well as by a rather intense ionosphere. Callisto is thought to have formed by slow accretion from the disk of the gas and dust that surrounded Jupiter after its formation. Callisto's gradual accretion and the lack of tidal heating meant that not enough heat was available for rapid differentiation. The slow convection in the interior of Callisto, which commenced soon after formation, led to partial differentiation and possibly to the formation of a subsurface ocean at a depth of 100–150 km and a small, rocky core.\n\nThe likely presence of an ocean within Callisto leaves open the possibility that it could harbor life. However, conditions are thought to be less favorable than on nearby Europa. Various space probes from Pioneers 10 and 11 to Galileo and Cassini have studied Callisto. Because of its low radiation levels, Callisto has long been considered the most suitable place for a human base for future exploration of the Jovian system.",
-                       wiki: "https://en.wikipedia.org/wiki/Callisto_(moon)",
-                       nasa: "http://solarsystem.nasa.gov/planets/callisto")
-        
-        Callisto.images(images: [
-                            ("callisto - globe.jpg", "Callisto is not properly differentiated, meaning its contents have not separated into layers based on density."),
-                            ("callisto - landslides.jpg", "The two large graters in this image from Galileo show landslides, indicating that the surface of Callisto is fine-grained."),
-                            ("callisto - plains.jpg", "This image swathe, taken by the Galelio orbiter, shows a smoothing of the craters on the moon's surface."),
-                            ("callisto - valhalla.jpg", "The Valhalla crater is a massive ring impact structure on Callisto's surface.  The impact rings extend over 1,800 kilometers from the center.")
-                        ],
-                        thumbnail: nil)
-        
-        Callisto.display(texture: "callistomap.jpg",
-                         model: nil,
-                         normalmap: nil)
-        
-        Jupiter.moons.append(Callisto)
-        
-        let Themisto = Moon(name: "Themisto",
-                            position: "9")
-        
-        Themisto.about(description: "Themisto, also known as Jupiter XVIII, is a small prograde irregular satellite of Jupiter. Themisto was first discovered by Charles T. Kowal and Elizabeth Roemer on September 30, 1975, reported on October 3, 1975 and designated S/1975 J 1. However, not enough observations were made to establish an orbit and it was subsequently lost.\n\nThemisto appeared as a footnote in astronomy textbooks into the 1980s. Then, in 2000, a seemingly new satellite was discovered by Scott S. Sheppard, David C. Jewitt, Yanga R. Fernández and Eugene A. Magnier, and was designated S/2000 J 1. It was soon confirmed that this was the same as the one observed in 1975. This observation was immediately correlated with an observation on August 6, 2000, by the team of Brett J. Gladman, John J. Kavelaars, Jean-Marc Petit, Hans Scholl, Matthew J. Holman, Brian G. Marsden, Philip D. Nicholson and Joseph A. Burns, which was reported to the Minor Planet Center but not published as an IAU Circular (IAUC).  In October 2002 it was officially named after Themisto, daughter of the river god Inachus and lover of Zeus (Jupiter) in Greek mythology.\n\nThemisto's orbit is unusual: unlike most of Jupiter's moons, which orbit in distinct groups, Themisto orbits alone. The moon is located midway between the Galilean moons and the first group of prograde irregular moons, called the Himalia group.\n\nThemisto is about 8 kilometers (5 miles) in diameter (assuming an albedo of 0.04). That figure can be used to find a surface area of between 200 and 380 square kilometers.",
-                       wiki: "https://en.wikipedia.org/wiki/Themisto_(moon)",
-                       nasa: "http://solarsystem.nasa.gov/planets/themisto")
-        
-        Jupiter.moons.append(Themisto)
-        
-        let Leda = Moon(name: "Leda",
-                        position: "10")
-        
-        Leda.about(description: "Leda, also known as Jupiter XIII, is a prograde irregular satellite of Jupiter. It was discovered by Charles T. Kowal at the Mount Palomar Observatory on September 14, 1974, after three nights' worth of photographic plates had been taken (September 11 through 13; Leda appears on all of them). It was named after Leda, who was a lover of Zeus, the Greek equivalent of Jupiter (who came to her in the form of a swan). Kowal suggested the name and the IAU endorsed it in 1975.\n\nLeda belongs to the Himalia group, five moons orbiting between 11 and 13 Gm from Jupiter at an inclination of about 27.5°. The orbital elements given here are as of January 2000, but they are continuously changing due to solar and planetary perturbations.",
-                   wiki: "https://en.wikipedia.org/wiki/Leda_(moon)",
-                   nasa: "http://solarsystem.nasa.gov/planets/leda")
-        
-        Jupiter.moons.append(Leda)
-        
-        let Himalia = Moon(name: "Himalia",
-                           position: "11")
-        
-        Himalia.about(description: "Himalia is the largest irregular satellite of Jupiter, the sixth largest overall in size, and only the four Galilean moons of Jupiter have greater mass. It was discovered by Charles Dillon Perrine at the Lick Observatory on 3 December 1904 and is named after the nymph Himalia, who bore three sons of Zeus (the Greek equivalent of Jupiter). It is one of the largest planetary moons in the Solar System not imaged in detail, and the largest not including the moons of Neptune and several trans-Neptunian objects, particularly that of the second-largest-but-most-massive dwarf planet, Eris.\n\nHimalia was discovered by Charles Dillon Perrine at the Lick Observatory on 3 December 1904. Himalia is Jupiter's most easily observed small satellite; though Amalthea is brighter, its proximity to the planet's brilliant disk makes it a far more difficult object to view.\n\nHimalia is named after the nymph Himalia, who bore three sons of Zeus (the Greek equivalent of Jupiter). The moon did not receive its present name until 1975; before then, it was simply known as Jupiter VI or Jupiter Satellite VI, although calls for a full name appeared shortly after its and Elara's discovery; A.C.D. Crommelin wrote in 1905:",
-                      wiki: "https://en.wikipedia.org/wiki/Himalia_(moon)",
-                      nasa: "http://solarsystem.nasa.gov/planets/himalia")
-        
-        Jupiter.moons.append(Himalia)
-        
-        let J12018 = Moon(name: "S/2018 J 1",
-                           position: "12")
-        
-        J12018.about(description: "Jupiter LXXI, originally known as S/2018 J 1, is an outer natural satellite of Jupiter. It was discovered by Scott S. Sheppard and his team in 2018, and was announced on July 17, 2018, via a Minor Planet Electronic Circular from the Minor Planet Center. It is about 3 kilometres (2 mi) in diameter and has an orbit radius of around 11,483,000 kilometres (7,135,000 miles); its orbital inclination is about 30.61°. It belongs to the Himalia group.",
-                      wiki: "https://en.wikipedia.org/wiki/Jupiter_LXXI",
-                      nasa: "https://solarsystem.nasa.gov/moons/jupiter-moons/s-2018-j1/")
-        
-        Jupiter.moons.append(J12018)
-        
-        let J42017 = Moon(name: "S/2017 J 4",
-                           position: "13")
-        
-        J42017.about(description: "Jupiter LXV, originally known as S/2017 J 4, is an outer natural satellite of Jupiter. It was discovered by Scott S. Sheppard and his team in 2017, but not announced until July 17, 2018 via a Minor Planet Electronic Circular from the Minor Planet Center. It is about 3 kilometers in diameter and orbits at a semi-major axis of about 11,525,000 km with an inclination of about 28.15°. It belongs to the Himalia group.",
-                      wiki: "https://en.wikipedia.org/wiki/Jupiter_LXV",
-                      nasa: "https://solarsystem.nasa.gov/moons/jupiter-moons/s-2017-j4")
-        
-        Jupiter.moons.append(J42017)
-        
-        let Lysithea = Moon(name: "Lysithea",
-                            position: "12")
-        
-        Lysithea.about(description: "Lysithea is a prograde irregular satellite of Jupiter. It was discovered by Seth Barnes Nicholson in 1938 at Mount Wilson Observatory and is named after the mythological Lysithea, daughter of Oceanus and one of Zeus' lovers.\n\nLysithea did not receive its present name until 1975; before then, it was simply known as Jupiter X. It was sometimes called \"Demeter\" from 1955 to 1975.\n\nIt belongs to the Himalia group, five moons orbiting between 11 and 13 Gm from Jupiter at an inclination of about 28.3°. Its orbital elements are as of January 2000. They are continuously changing due to solar and planetary perturbations.",
-                       wiki: "https://en.wikipedia.org/wiki/Lysithea_(moon)",
-                       nasa: "http://solarsystem.nasa.gov/planets/lysithea")
-        
-        Jupiter.moons.append(Lysithea)
-        
-        let Elara = Moon(name: "Elara",
-                         position: "13")
-        
-        Elara.about(description: "Elara is a prograde irregular satellite of Jupiter. It was discovered by Charles Dillon Perrine at Lick Observatory in 1905. It is the eighth largest moon of Jupiter and is named after Elara, one of Zeus's lovers and the mother of the giant Tityos.\n\nElara did not receive its present name until 1975; before then, it was simply known as Jupiter VII. It was sometimes called \"Hera\" between 1955 and 1975. It has a mean radius of just 43 km, thus it is 2% of the size of Europa. However it is half the size of Himalia, so it is the second biggest moon in the Himalia group. It might be a captured type C or D asteroid, for it reflects very little light.\n\nElara belongs to the Himalia group, five moons orbiting between 11 and 13 Gm from Jupiter at an inclination of about 27.5°. Its orbital elements are as of January 2000. They are continuously changing due to solar and planetary perturbations.",
-                    wiki: "https://en.wikipedia.org/wiki/Elara_(moon)",
-                    nasa: "http://solarsystem.nasa.gov/planets/elara")
-        
-        Jupiter.moons.append(Elara);
-        
-        let Dia = Moon(name: "Dia",
-                       position: "14")
-        
-        Dia.about(description: "Dia, also known as Jupiter LIII, is the second-outermost known prograde irregular satellite of Jupiter. Provisionally known as S/2000 J 11, it received its name on March 7, 2015. It is named after Dia, daughter of Deioneus (or Eioneus), wife of Ixion. According to Homer, she was seduced by Zeus in stallion form; Pirithous was the issue.\n\nThe satellite is the only known small body in the Himalia group.\n\nDia is believed to be about 4 kilometres in diameter. It orbits Jupiter at an average distance of 12 million km in 274 days, at an inclination of 28° (to Jupiter's equator), and with an eccentricity of 0.21.Dia was discovered by a team of astronomers from the University of Hawaii led by Scott S. Sheppard in 2000 with an observation arc of 26 days.\n\nInitial observations were not followed up, and Dia was not observed for more than a decade after 2000. This apparent disappearance led some astronomers to consider the moon lost. One theory was that it had crashed into Himalia, creating a faint ring around Jupiter. However, it was finally recovered in observations made in 2010 and 2011.",
-                  wiki: "https://en.wikipedia.org/wiki/Dia_(moon)",
-                  nasa: "http://solarsystem.nasa.gov/planets/dia")
-        
-        Jupiter.moons.append(Dia)
-        
-        let Carpo = Moon(name: "Carpo",
-                         position: "15")
-        
-        Carpo.about(description: "Carpo , also Jupiter XLVI, is a natural satellite of Jupiter. It was discovered by a team of astronomers from the University of Hawaii led by Scott S. Sheppard in 2003, and was provisionally designated as S/2003 J 20 until it received its name in early 2005.\n\nCarpo is about 3 kilometres (1.9 miles) in diameter, and orbits Jupiter at an average distance of 17.145 Gm (just over ten million miles) in 458.625 days, at an inclination of 56° to the ecliptic (55° to Jupiter's equator), and with a high eccentricity of 0.4316. All of the moons further from Jupiter than Carpo are retrograde.\n\nIt was named in March 2005 after Carpo, one of the Horae, and a daughter of Zeus (Jupiter).\n\nLike Themisto, this moon seems to be the lone member of a unique class, which makes it particularly interesting. The orbital inclination of satellites such as this one is limited by the Kozai effect, discovered by Yoshihide Kozai in 1962. This effect induces a periodic exchange between the inclination and eccentricity of the orbit; if the inclination is large enough, the eccentricity can in turn grow so large that the periapsis of the satellite (called the perizene in the case of moons of Jupiter) would be in the immediate vicinity of the Galilean moons (Io, Europa, Ganymede and Callisto). The satellite would eventually collide with one of these, or a close encounter would eject it altogether from the Jovian system. The periapsis precession period (Pw) is 6.8 million years long.",
-                    wiki: "https://en.wikipedia.org/wiki/Carpo_(moon)",
-                    nasa: "http://solarsystem.nasa.gov/planets/carpo")
-        
-        Jupiter.moons.append(Carpo)
-        
-        let J12 = Moon(name: "S/2003 J 12",
-                       position: "16")
-        
-        J12.about(description: "S/2003 J 12 is a natural satellite of Jupiter, and is the third-smallest known satellite in the Solar System, after Aegaeon and S/2009 S 1. It was discovered by a team of astronomers from the University of Hawaii led by Scott S. Sheppard in 2003.\n\nS/2003 J 12 is about 1 kilometre (0.6 miles) in diameter, and orbits Jupiter at an average distance of 17,883 Mm in 489.72 days, at an inclination of 143° to the ecliptic (143° to Jupiter's equator), in a retrograde direction and with an eccentricity of 0.4920.\n\nIt is the innermost of the outer irregular retrograde satellites of Jupiter, and does not seem to belong to any group.",
-                  wiki: "https://en.wikipedia.org/wiki/S/2003_J_12",
-                  nasa: "http://solarsystem.nasa.gov/planets/s2003j12")
-        
-        Jupiter.moons.append(J12)
-        
-        let Valetudo = Moon(name: "Valetudo",
-                       position: "17")
-        
-        Valetudo.about(description: "Valetudo, also known as Jupiter LXII, is a moon of Jupiter. It was discovered by Scott S. Sheppard and his team in data reaching back to 2016, but was not announced until July 17, 2018, via a Minor Planet Electronic Circular from the Minor Planet Center. It has a diameter of about 1 km (0.6 mi) and orbits Jupiter at a distance of about 19 million kilometres (12 million miles). Its orbital inclination is 34 degrees, and its orbital eccentricity is 0.222.[1] It has a prograde orbit, but it crosses paths with several moons that have retrograde orbits and may in the future collide with them. It was provisionally designated as S/2016 J 2 until it received its name in 2018. The name Valetudo was proposed for it as part of its announcement, after the Roman goddess of health and hygiene, Valetudo, a great-granddaughter of the god Jupiter and approved by the IAU Working Group for Planetary System Nomenclature on 3 October 2018.",
-                  wiki: "https://en.wikipedia.org/wiki/Valetudo_(moon)",
-                  nasa: "https://solarsystem.nasa.gov/moons/jupiter-moons/s-2016-j2-valetudo/")
-        
-        Jupiter.moons.append(Valetudo)
-        
-        let Euporie = Moon(name: "Euporie",
-                           position: "17")
-        
-        Euporie.about(description: "Euporie, also known as Jupiter XXXIV, is a natural satellite of Jupiter. It was discovered by a team of astronomers from the University of Hawaii led by Scott S. Sheppard in 2001, and given the temporary designation S/2001 J 10.\n\nEuporie is about 2 kilometres in diameter, and orbits Jupiter at an average distance of 19,088 Mm in 538.780 days, at an inclination of 145° to the ecliptic (145° to Jupiter's equator), in a retrograde direction and with an eccentricity of 0.0960.\n\nIt was named in August 2003 after Euporie, a Greek goddess of abundance and one of the Horae in Greek mythology (and thus a daughter of Zeus).\n\nIt is the innermost member of the Ananke group, retrograde irregular moons that orbit Jupiter between 19.3 and 22.7 Gm, at inclinations of roughly 150°.",
-                      wiki: "https://en.wikipedia.org/wiki/Euporie_(moon)",
-                      nasa: "http://solarsystem.nasa.gov/planets/euporie")
-        
-        Jupiter.moons.append(Euporie)
-        
-        let J3 = Moon(name: "S/2003 J 3",
-                      position: "18")
-        
-        J3.about(description: "S/2003 J 3 is a natural satellite of Jupiter. It was discovered by a team of astronomers from the University of Hawaii led by Scott S. Sheppard in 2003.\n\nS/2003 J 3 is about 2 kilometres in diameter, and orbits Jupiter at an average distance of 19,622 Mm in 561.518 days, at an inclination of 146° to the ecliptic (146° to Jupiter's equator), in a retrograde direction and with an eccentricity of 0.2507.\n\nIt belongs to the Ananke group, retrograde irregular moons that orbit Jupiter between 19.3 and 22.7 Gm, at inclinations of roughly 150°.",
-                 wiki: "https://en.wikipedia.org/wiki/S/2003_J_3",
-                 nasa: "http://solarsystem.nasa.gov/planets/s2003j03")
-        
-        Jupiter.moons.append(J3)
-        
-        let J18 = Moon(name: "S/2003 J 18",
-                       position: "19")
-        
-        J18.about(description: "S/2003 J 18 is a natural satellite of Jupiter. It was discovered by a team of astronomers led by Brett J. Gladman in 2003.\n\nS/2003 J 18 is about 2 kilometres in diameter, and orbits Jupiter at an average distance of 19,813 Mm in 569.728 days, at an inclination of 147° to the ecliptic (149° to Jupiter's equator), in a retrograde direction and with an eccentricity of 0.1570.\n\nIt belongs to the Ananke group, retrograde irregular moons that orbit Jupiter between 19.3 and 22.7 Gm, at inclinations of roughly 150°.",
-                  wiki: "https://en.wikipedia.org/wiki/S/2003_J_18",
-                  nasa: "http://solarsystem.nasa.gov/planets/s2003j18")
-        
-        Jupiter.moons.append(J18)
-        
-//        let J1 = Moon(name: "S/2011 J 1",
-//                      position: "20")
+//        let Metis = Moon(name: "Metis",
+//                         position: "1")
+//        
+//        Metis.about(description: "Metis, also known as Jupiter XVI, is the innermost moon of Jupiter. It was discovered in 1979 in images taken by Voyager 1, and was named in 1983 after the first wife of Zeus, Metis. Additional observations made between early 1996 and September 2003 by the Galileo spacecraft allowed its surface to be imaged.\n\nMetis is tidally locked to Jupiter, and its shape is strongly asymmetrical, with one of the diameters being almost twice as large as the smallest one. It is also one of the two moons known to orbit Jupiter in less than the length of Jupiter's day, the other being Adrastea. It orbits within the main ring of Jupiter, and is thought to be a major contributor of material to the rings.",
+//                    wiki: "https://en.wikipedia.org/wiki/Metis_(moon)",
+//                    nasa: "http://solarsystem.nasa.gov/planets/metis")
+//        
+//        //        Metis.geology(mass: 3.6,
+//        //                      volume: 42.7,
+//        //                      equatorial: 21.5,
+//        //                      density: 3,
+//        //                      gravity: 0.017,
+//        //                      escape_velocity: 98,
+//        //                      irradiance: 50.26,
+//        //                      geographic_height_variance: nil)
+//        //
+//        //        Metis.orbitals(orbital_length: 0.2947916666,
+//        //                       perigee: 127974,
+//        //                       apogee: 128026,
+//        //                       velocity: 31.501,
+//        //                       inclination: 0.06,
+//        //                       eccentricity: 0.0002,
+//        //                       day_length: 0.294791666,
+//        //                       equator_inclination: 0)
+//        
+//        //        Metis.misc(pronunciation: nil,
+//        //                   discovered: "1979")
+//        
+//        Jupiter.moons.append(Metis)
+//        
+//        let Adrastea = Moon(name: "Adrastea",
+//                            position: "2")
+//        
+//        Adrastea.about(description: "Adrastea, also known as Jupiter XV, is the second by distance, and the smallest of the four inner moons of Jupiter. It was discovered in photographs taken by Voyager 2 in 1979, making it the first natural satellite to be discovered from images taken by an interplanetary spacecraft, rather than through a telescope. It was officially named after the mythological Adrasteia, foster mother of the Greek god Zeus—the equivalent of the Roman god Jupiter.\n\nAdrastea is one of the few moons in the Solar System known to orbit its planet in less than the length of that planet's day. It orbits at the edge of Jupiter's Main Ring and is thought to be the main contributor of material to the Rings of Jupiter. Despite observations made in the 1990s by the Galileo spacecraft, very little is known about the moon's physical characteristics other than its size and the fact that it is tidally locked to Jupiter.",
+//                       wiki: "https://en.wikipedia.org/wiki/Adrastea_(moon)",
+//                       nasa: "http://solarsystem.nasa.gov/planets/adrastea")
+//        
+//        //        Adrastea.geology(mass: 0.74933,
+//        //                         volume: 2310,
+//        //                         equatorial: 8.2,
+//        //                         density: 3,
+//        //                         gravity: 0.007,
+//        //                         escape_velocity: 11,
+//        //                         irradiance: 50.26,
+//        //                         geographic_height_variance: nil)
+//        //
+//        //        Adrastea.orbitals(orbital_length: 0.29826,
+//        //                          perigee: 129000,
+//        //                          apogee: 129000,
+//        //                          velocity: 31.378,
+//        //                          inclination: 0.03,
+//        //                          eccentricity: 0.0015,
+//        //                          day_length: 0.29826,
+//        //                          equator_inclination: 0)
+//        
+//        //        Adrastea.misc(pronunciation: nil,
+//        //                      discovered: "1979")
+//        
+//        Jupiter.moons.append(Adrastea)
+//        
+//        let Amalthea = Moon(name: "Amalthea",
+//                            position: "3")
+//        
+//        Amalthea.about(description: "Amalthea is the third moon of Jupiter in order of distance from the planet. It was discovered on 9 September 1892, by Edward Emerson Barnard and named after Amalthea, a nymph in Greek mythology. It is also known as Jupiter V.\n\nAmalthea is in a close orbit around Jupiter and is within the outer edge of the Amalthea Gossamer Ring, which is formed from dust ejected from its surface. From its surface, Jupiter would appear 46.5 degrees in diameter. Amalthea is the largest of the inner satellites of Jupiter. Irregularly shaped and reddish in color, it is thought to consist of porous water ice with unknown amounts of other materials. Its surface features include large craters and ridges.\n\nAmalthea was photographed in 1979 by the Voyager and 2 spacecraft, and later, in more detail, by the Galileo orbiter in the 1990s.",
+//                       wiki: "https://en.wikipedia.org/wiki/Amalthea_(moon)",
+//                       nasa: "http://solarsystem.nasa.gov/planets/amalthea")
+//        
+//        //        Amalthea.geology(mass: 208,
+//        //                         volume: 2.43,
+//        //                         equatorial: 83.5,
+//        //                         density: 0.857,
+//        //                         gravity: 0.02,
+//        //                         escape_velocity: 58,
+//        //                         irradiance: 50.26,
+//        //                         geographic_height_variance: nil)
+//        //
+//        //        Amalthea.orbitals(orbital_length: 0.49817943,
+//        //                          perigee: 181150,
+//        //                          apogee: 182840,
+//        //                          velocity: 26.57,
+//        //                          inclination: 0.374,
+//        //                          eccentricity: 0.00319,
+//        //                          day_length: 0.49817943,
+//        //                          equator_inclination: 0)
+//        
+//        //        Amalthea.misc(pronunciation: nil,
+//        //                      discovered: "1892")
+//        
+//        Amalthea.display(texture: nil,
+//                         model: "amalthea.dae",
+//                         normalmap: nil)
+//        
+//        Jupiter.moons.append(Amalthea)
+//        
+//        let Thebe = Moon(name: "Thebe", position: "4")
+//        
+//        Thebe.about(description: "Thebe also known as Jupiter XIV, is the fourth of Jupiter's moons by distance from the planet. It was discovered by Stephen P. Synnott in images from the Voyager 1 space probe taken on March 5, 1979, while making its flyby of Jupiter. In 1983 it was officially named after the mythological nymph Thebe.\n\nThe second largest of the inner satellites of Jupiter, Thebe orbits within the outer edge of the Thebe gossamer ring that is formed from dust ejected from its surface. It is irregularly shaped and reddish in colour, and is thought like Amalthea to consist of porous water ice with unknown amounts of other materials. Its surface features include large craters and high mountains—some of them are comparable to the size of the moon itself.\n\nThebe was photographed in 1979 by the Voyager 1 and 2 spacecraft, and later, in more detail, by the Galileo orbiter in the 1990s.",
+//                    wiki: "https://en.wikipedia.org/wiki/Thebe_(moon)",
+//                    nasa: "http://solarsystem.nasa.gov/planets/thebe")
+//        
+//        //        Thebe.geology(mass: 0.014987,
+//        //                      volume: 501914,
+//        //                      equatorial: 49.3,
+//        //                      density: 3,
+//        //                      gravity: 0.013,
+//        //                      escape_velocity: 64,
+//        //                      irradiance: 50.26,
+//        //                      geographic_height_variance: nil)
+//        //
+//        //        Thebe.orbitals(orbital_length: 0.674536,
+//        //                       perigee: 218000,
+//        //                       apogee: 226000,
+//        //                       velocity: 23.92,
+//        //                       inclination: 1.076,
+//        //                       eccentricity: 0.0175,
+//        //                       day_length: 0.674536,
+//        //                       equator_inclination: 0)
+//        
+//        //        Thebe.misc(pronunciation: nil,
+//        //                   discovered: "1979")
+//        
+//        Jupiter.moons.append(Thebe);
+//        
+//        let Io = Moon(name: "Io",
+//                      position: "5")
+//        
+//        Io.about(description: "Io is the innermost of the four Galilean moons of the planet Jupiter. It is the fourth-largest moon, has the highest density of all the moons, and has the least amount of relative water of any known object in the Solar System. It was discovered in 1610 and was named after the mythological character Io, a priestess of Hera who became one of Zeus's lovers.\n\nWith over 400 active volcanoes, Io is the most geologically active object in the Solar System. This extreme geologic activity is the result of tidal heating from friction generated within Io's interior as it is pulled between Jupiter and the other Galilean satellites—Europa, Ganymede and Callisto. Several volcanoes produce plumes of sulfur and sulfur dioxide that climb as high as 500 km (300 mi) above the surface. Io's surface is also dotted with more than 100 mountains that have been uplifted by extensive compression at the base of Io's silicate crust. Some of these peaks are taller than Mount Everest. Unlike most satellites in the outer Solar System, which are mostly composed of water ice, Io is primarily composed of silicate rock surrounding a molten iron or iron-sulfide core. Most of Io's surface is composed of extensive plains coated with sulfur and sulfur-dioxide frost.\n\nIo's volcanism is responsible for many of its unique features. Its volcanic plumes and lava flows produce large surface changes and paint the surface in various subtle shades of yellow, red, white, black, and green, largely due to allotropes and compounds of sulfur. Numerous extensive lava flows, several more than 500 km (300 mi) in length, also mark the surface. The materials produced by this volcanism make up Io's thin, patchy atmosphere and Jupiter's extensive magnetosphere. Io's volcanic ejecta also produce a large plasma torus around Jupiter.\n\nIo played a significant role in the development of astronomy in the 17th and 18th centuries. It was discovered in January 1610 by Galileo Galilei, along with the other Galilean satellites. This discovery furthered the adoption of the Copernican model of the Solar System, the development of Kepler's laws of motion, and the first measurement of the speed of light. From Earth, Io remained just a point of light until the late 19th and early 20th centuries, when it became possible to resolve its large-scale surface features, such as the dark red polar and bright equatorial regions. In 1979, the two Voyager spacecraft revealed Io to be a geologically active world, with numerous volcanic features, large mountains, and a young surface with no obvious impact craters. The Galileo spacecraft performed several close flybys in the 1990s and early 2000s, obtaining data about Io's interior structure and surface composition. These spacecraft also revealed the relationship between Io and Jupiter's magnetosphere and the existence of a belt of high-energy radiation centered on Io's orbit. Io receives about 3,600 rem (36 Sv) of ionizing radiation per day.\n\nFurther observations have been made by Cassini–Huygens in 2000 and New Horizons in 2007, as well as from Earth-based telescopes and the Hubble Space Telescope.\n\nFrom the surface of Io, Jupiter would subtend an arc of 19.5°, making Jupiter to appear 39 times the apparent diameter of our Moon.",
+//                 wiki: "https://en.wikipedia.org/wiki/Io_(moon)",
+//                 nasa: "http://solarsystem.nasa.gov/planets/io")
+//        
+//        Io.images(images: [
+//                        ("io - pele.jpg", "An eruption of Io's volcano Pele.  The fallout covers an area the size of Alaska."),
+//                        ("io - tohil.jpg", "Although not a volcano, Tohil Mons towers over 18,000 feet above Io's surface.  Questions remain over whether its origin is volcanic or not."),
+//                        ("io - tupan.jpg", "Tupan Patera is a volcanic depression around 47 miles across and surrounded by cliffs 3000 feet high.  Lava flows throughout the center of the crater."),
+//                        ("io - jupiter.jpg", "Io Passing in front of Jupiter.  Io is slightly larger than Earth's moon."),
+//                        ("io - tvashtar.jpg", "Tvashtar Catena is a chain of volcanic caulderas caught in the middle of an eruption during the Galeleo orbiter's flyby of Io in November 1999."),
+//                        ("io - volcano.jpg", "The Voyager 1 flyby of Io revealed an incredible sight: a volcanic plume expulsing matter over 100 miles above the moon's surface.")
+//                  ],
+//                  thumbnail: nil)
+//        
+//        Io.display(texture: "iomap.jpg",
+//                   model: nil,
+//                   normalmap: nil)
+//        
+//        Jupiter.moons.append(Io)
+//        
+//        let Europa = Moon(name: "Europa",
+//                          position: "6")
+//        
+//        Europa.about(description: "Europa (Jupiter II), is the smallest of the four Galilean moons orbiting Jupiter, and the sixth-closest to the planet. It is also the sixth-largest moon in the Solar System. Europa was discovered in 1610 by Galileo Galilei and was named after Europa, the legendary mother of King Minos of Crete and lover of Zeus (the Greek equivalent of the Roman god Jupiter).\n\nSlightly smaller than Earth's Moon, Europa is primarily made of silicate rock and has a water-ice crust and probably an iron–nickel core. It has a tenuous atmosphere composed primarily of oxygen. Its surface is striated by cracks and streaks, whereas craters are relatively rare. In addition to Earth-bound telescope observations, Europa has been examined by a succession of space probe flybys, the first occurring in the early 1970s.\n\nEuropa has the smoothest surface of any known solid object in the Solar System. The apparent youth and smoothness of the surface have led to the hypothesis that a water ocean exists beneath it, which could conceivably harbor extraterrestrial life. The predominant model suggests that heat from tidal flexing causes the ocean to remain liquid and drives ice movement similar to plate tectonics, absorbing chemicals from the surface into the ocean below. Sea salt from a subsurface ocean may be coating some geological features on Europa, suggesting that the ocean is interacting with the seafloor. This may be important in determining if Europa could be habitable. In addition, the Hubble Space Telescope detected water vapor plumes similar to those observed on Saturn's moon Enceladus, which are thought to be caused by erupting cryogeysers.\n\nThe Galileo mission, launched in 1989, provides the bulk of current data on Europa. No spacecraft has yet landed on Europa, although there have been several proposed exploration missions. The European Space Agency's Jupiter Icy Moon Explorer (JUICE) is a mission to Ganymede that is due to launch in 2022, but it will conduct two flybys of Europa. NASA's planned Europa Multiple-Flyby Mission will be launched in the mid-2020s.",
+//                     wiki: "https://en.wikipedia.org/wiki/Europa_(moon)",
+//                     nasa: "http://solarsystem.nasa.gov/planets/europa")
+//        
+//        Europa.images(images: [
+//                        ("europa - red.jpg", "On Europa's ice-covered surface, blue and white areas are relatively pure ice, whereas red areas indicate water ice mixed with hydrated salts, potentially magnesium sulfate or sulfuric acid"),
+//                        ("europa - ridge.jpg", "Ridges that form on Europa are likely the result of intense tidal forces or energy coming from the moon's interior."),
+//                        ("europa - linea.jpg", "The Minos Linea region on Europa is a part of the surface carved up by sections where salts are mixed in the ice."),
+//                        ("europa - impact.jpg", "This crater is around the size of Hawaii (140km across) and formed when a massive asteroid impacted the surface of the moon."),
+//                        ("europa - galileo.jpg", "This image, taken by the Galileo orbiter, shows the intricate patterns and details of Europa's ice-covered surface."),
+//                        ("europa - freckles.jpg", "These dark, freckled spots on Europa suggest there is movement in the ocean beneath the frozen surface: warm water rises to right beneath the ice until it cools and sinks back down.")
+//                      ],
+//                      thumbnail: nil)
+//        
+//        Europa.display(texture: "europamap.jpg",
+//                       model: nil,
+//                       normalmap: nil)
+//        
+//        Jupiter.moons.append(Europa)
+//        
+//        let Ganymede = Moon(name: "Ganymede",
+//                            position: "7")
+//        
+//        Ganymede.about(description: "Ganymede (Jupiter III) is the largest and most massive moon of Jupiter and in the Solar System. The ninth largest object in the Solar System, it is the largest without a substantial atmosphere. It has a diameter of 5,268 km (3,273 mi) and is 8% larger than the planet Mercury, although only 45% as massive. Possessing a metallic core, it has the lowest moment of inertia factor of any solid body in the Solar System and is the only moon known to have a magnetic field. It is the third of the Galilean moons, the first group of objects discovered orbiting another planet, and the seventh satellite outward from Jupiter, Ganymede orbits Jupiter in roughly seven days and is in a 1:2:4 orbital resonance with the moons Europa and Io, respectively.\n\nGanymede is composed of approximately equal amounts of silicate rock and water ice. It is a fully differentiated body with an iron-rich, liquid core, and an internal ocean that may contain more water than all of Earth's oceans combined. Its surface is composed of two main types of terrain. Dark regions, saturated with impact craters and dated to four billion years ago, cover about a third of the satellite. Lighter regions, crosscut by extensive grooves and ridges and only slightly less ancient, cover the remainder. The cause of the light terrain's disrupted geology is not fully known, but was likely the result of tectonic activity due to tidal heating.\n\nGanymede's magnetic field is probably created by convection within its liquid iron core. The meager magnetic field is buried within Jupiter's much larger magnetic field and would show only as a local perturbation of the field lines. The satellite has a thin oxygen atmosphere that includes O, O2, and possibly O3 (ozone). Atomic hydrogen is a minor atmospheric constituent. Whether the satellite has an ionosphere associated with its atmosphere is unresolved.\n\nGanymede's discovery is credited to Galileo Galilei, who was the first to observe it on January 7, 1610. The satellite's name was soon suggested by astronomer Simon Marius, for the mythological Ganymede, cupbearer of the Greek gods and Zeus's lover. Beginning with Pioneer 10, several spacecraft have explored Ganymede. The Voyager probes refined measurements of its size, while Galileo discovered its underground ocean and magnetic field. The next planned mission to the Jovian system is the European Space Agency's Jupiter Icy Moon Explorer (JUICE), due to launch in 2022. After flybys of all three icy Galilean moons, the probe is planned to enter orbit around Ganymede.",
+//                       wiki: "https://en.wikipedia.org/wiki/Ganymede_(moon)",
+//                       nasa: "http://solarsystem.nasa.gov/planets/ganymede")
+//        
+//        Ganymede.images(images: [
+//                            ("ganymede - craters.jpg", "Two craters on the surface of Ganymede from recent impacts - Achelous in the center and Gula to the north.  Both are around 35 km across."),
+//                            ("ganymede - jupiter.jpg", "Ganymede begins to dissapear behind Jupiter.  This shot was taken by Hubble."),
+//                            ("ganymede - surface.jpg", "The poles of Ganymede are very large - ice and frost extend up to 25 degrees north of the equator."),
+//                            ("ganymede - terrain.jpg", "Grooved terrain on Ganymede is thought to be formed by plate tectonics caused by tidal resonances.")
+//                        ],
+//                        thumbnail: nil)
+//        
+//        Ganymede.display(texture: "ganymedemap.jpg",
+//                         model: nil,
+//                         normalmap: nil)
+//        
+//        Jupiter.moons.append(Ganymede)
+//        
+//        let Callisto = Moon(name: "Callisto",
+//                            position: "8")
+//        
+//        Callisto.about(description: "Callisto (Jupiter IV) is the second-largest moon of Jupiter, after Ganymede. It is the third-largest moon in the Solar System and the largest object in the Solar System not to be properly differentiated. Callisto was discovered in 1610 by Galileo Galilei. At 4821 km in diameter, Callisto has about 99% the diameter of the planet Mercury but only about a third of its mass. It is the fourth Galilean moon of Jupiter by distance, with an orbital radius of about 1883000 km. It is not in an orbital resonance like the three other Galilean satellites—Io, Europa, and Ganymede—and is thus not appreciably tidally heated. Callisto's rotation is tidally locked to its orbit around Jupiter, so that the same hemisphere always faces inward; Jupiter appears to stand nearly still in Callisto's sky. It is less affected by Jupiter's magnetosphere than the other inner satellites because of its more remote orbit, located just outside Jupiter's main radiation belt.\n\nCallisto is composed of approximately equal amounts of rock and ices, with a density of about 1.83 g/cm3, the lowest density and surface gravity of Jupiter's major moons. Compounds detected spectroscopically on the surface include water ice, carbon dioxide, silicates, and organic compounds. Investigation by the Galileo spacecraft revealed that Callisto may have a small silicate core and possibly a subsurface ocean of liquid water at depths greater than 100 km.\n\nThe surface of Callisto is the oldest and most heavily cratered in the Solar System. Its surface is completely covered with impact craters. It does not show any signatures of subsurface processes such as plate tectonics or volcanism, with no signs that geological activity in general has ever occurred, and is thought to have evolved predominantly under the influence of impacts. Prominent surface features include multi-ring structures, variously shaped impact craters, and chains of craters (catenae) and associated scarps, ridges and deposits. At a small scale, the surface is varied and made up of small, sparkly frost deposits at the tips of high spots, surrounded by a low-lying, smooth blanket of dark material. This is thought to result from the sublimation-driven degradation of small landforms, which is supported by the general deficit of small impact craters and the presence of numerous small knobs, considered to be their remnants. The absolute ages of the landforms are not known.\n\nCallisto is surrounded by an extremely thin atmosphere composed of carbon dioxide and probably molecular oxygen, as well as by a rather intense ionosphere. Callisto is thought to have formed by slow accretion from the disk of the gas and dust that surrounded Jupiter after its formation. Callisto's gradual accretion and the lack of tidal heating meant that not enough heat was available for rapid differentiation. The slow convection in the interior of Callisto, which commenced soon after formation, led to partial differentiation and possibly to the formation of a subsurface ocean at a depth of 100–150 km and a small, rocky core.\n\nThe likely presence of an ocean within Callisto leaves open the possibility that it could harbor life. However, conditions are thought to be less favorable than on nearby Europa. Various space probes from Pioneers 10 and 11 to Galileo and Cassini have studied Callisto. Because of its low radiation levels, Callisto has long been considered the most suitable place for a human base for future exploration of the Jovian system.",
+//                       wiki: "https://en.wikipedia.org/wiki/Callisto_(moon)",
+//                       nasa: "http://solarsystem.nasa.gov/planets/callisto")
+//        
+//        Callisto.images(images: [
+//                            ("callisto - globe.jpg", "Callisto is not properly differentiated, meaning its contents have not separated into layers based on density."),
+//                            ("callisto - landslides.jpg", "The two large graters in this image from Galileo show landslides, indicating that the surface of Callisto is fine-grained."),
+//                            ("callisto - plains.jpg", "This image swathe, taken by the Galelio orbiter, shows a smoothing of the craters on the moon's surface."),
+//                            ("callisto - valhalla.jpg", "The Valhalla crater is a massive ring impact structure on Callisto's surface.  The impact rings extend over 1,800 kilometers from the center.")
+//                        ],
+//                        thumbnail: nil)
+//        
+//        Callisto.display(texture: "callistomap.jpg",
+//                         model: nil,
+//                         normalmap: nil)
+//        
+//        Jupiter.moons.append(Callisto)
+//        
+//        let Themisto = Moon(name: "Themisto",
+//                            position: "9")
+//        
+//        Themisto.about(description: "Themisto, also known as Jupiter XVIII, is a small prograde irregular satellite of Jupiter. Themisto was first discovered by Charles T. Kowal and Elizabeth Roemer on September 30, 1975, reported on October 3, 1975 and designated S/1975 J 1. However, not enough observations were made to establish an orbit and it was subsequently lost.\n\nThemisto appeared as a footnote in astronomy textbooks into the 1980s. Then, in 2000, a seemingly new satellite was discovered by Scott S. Sheppard, David C. Jewitt, Yanga R. Fernández and Eugene A. Magnier, and was designated S/2000 J 1. It was soon confirmed that this was the same as the one observed in 1975. This observation was immediately correlated with an observation on August 6, 2000, by the team of Brett J. Gladman, John J. Kavelaars, Jean-Marc Petit, Hans Scholl, Matthew J. Holman, Brian G. Marsden, Philip D. Nicholson and Joseph A. Burns, which was reported to the Minor Planet Center but not published as an IAU Circular (IAUC).  In October 2002 it was officially named after Themisto, daughter of the river god Inachus and lover of Zeus (Jupiter) in Greek mythology.\n\nThemisto's orbit is unusual: unlike most of Jupiter's moons, which orbit in distinct groups, Themisto orbits alone. The moon is located midway between the Galilean moons and the first group of prograde irregular moons, called the Himalia group.\n\nThemisto is about 8 kilometers (5 miles) in diameter (assuming an albedo of 0.04). That figure can be used to find a surface area of between 200 and 380 square kilometers.",
+//                       wiki: "https://en.wikipedia.org/wiki/Themisto_(moon)",
+//                       nasa: "http://solarsystem.nasa.gov/planets/themisto")
+//        
+//        Jupiter.moons.append(Themisto)
+//        
+//        let Leda = Moon(name: "Leda",
+//                        position: "10")
+//        
+//        Leda.about(description: "Leda, also known as Jupiter XIII, is a prograde irregular satellite of Jupiter. It was discovered by Charles T. Kowal at the Mount Palomar Observatory on September 14, 1974, after three nights' worth of photographic plates had been taken (September 11 through 13; Leda appears on all of them). It was named after Leda, who was a lover of Zeus, the Greek equivalent of Jupiter (who came to her in the form of a swan). Kowal suggested the name and the IAU endorsed it in 1975.\n\nLeda belongs to the Himalia group, five moons orbiting between 11 and 13 Gm from Jupiter at an inclination of about 27.5°. The orbital elements given here are as of January 2000, but they are continuously changing due to solar and planetary perturbations.",
+//                   wiki: "https://en.wikipedia.org/wiki/Leda_(moon)",
+//                   nasa: "http://solarsystem.nasa.gov/planets/leda")
+//        
+//        Jupiter.moons.append(Leda)
+//        
+//        let Himalia = Moon(name: "Himalia",
+//                           position: "11")
+//        
+//        Himalia.about(description: "Himalia is the largest irregular satellite of Jupiter, the sixth largest overall in size, and only the four Galilean moons of Jupiter have greater mass. It was discovered by Charles Dillon Perrine at the Lick Observatory on 3 December 1904 and is named after the nymph Himalia, who bore three sons of Zeus (the Greek equivalent of Jupiter). It is one of the largest planetary moons in the Solar System not imaged in detail, and the largest not including the moons of Neptune and several trans-Neptunian objects, particularly that of the second-largest-but-most-massive dwarf planet, Eris.\n\nHimalia was discovered by Charles Dillon Perrine at the Lick Observatory on 3 December 1904. Himalia is Jupiter's most easily observed small satellite; though Amalthea is brighter, its proximity to the planet's brilliant disk makes it a far more difficult object to view.\n\nHimalia is named after the nymph Himalia, who bore three sons of Zeus (the Greek equivalent of Jupiter). The moon did not receive its present name until 1975; before then, it was simply known as Jupiter VI or Jupiter Satellite VI, although calls for a full name appeared shortly after its and Elara's discovery; A.C.D. Crommelin wrote in 1905:",
+//                      wiki: "https://en.wikipedia.org/wiki/Himalia_(moon)",
+//                      nasa: "http://solarsystem.nasa.gov/planets/himalia")
+//        
+//        Jupiter.moons.append(Himalia)
+//        
+//        let J12018 = Moon(name: "S/2018 J 1",
+//                           position: "12")
+//        
+//        J12018.about(description: "Jupiter LXXI, originally known as S/2018 J 1, is an outer natural satellite of Jupiter. It was discovered by Scott S. Sheppard and his team in 2018, and was announced on July 17, 2018, via a Minor Planet Electronic Circular from the Minor Planet Center. It is about 3 kilometres (2 mi) in diameter and has an orbit radius of around 11,483,000 kilometres (7,135,000 miles); its orbital inclination is about 30.61°. It belongs to the Himalia group.",
+//                      wiki: "https://en.wikipedia.org/wiki/Jupiter_LXXI",
+//                      nasa: "https://solarsystem.nasa.gov/moons/jupiter-moons/s-2018-j1/")
+//        
+//        Jupiter.moons.append(J12018)
+//        
+//        let J42017 = Moon(name: "S/2017 J 4",
+//                           position: "13")
+//        
+//        J42017.about(description: "Jupiter LXV, originally known as S/2017 J 4, is an outer natural satellite of Jupiter. It was discovered by Scott S. Sheppard and his team in 2017, but not announced until July 17, 2018 via a Minor Planet Electronic Circular from the Minor Planet Center. It is about 3 kilometers in diameter and orbits at a semi-major axis of about 11,525,000 km with an inclination of about 28.15°. It belongs to the Himalia group.",
+//                      wiki: "https://en.wikipedia.org/wiki/Jupiter_LXV",
+//                      nasa: "https://solarsystem.nasa.gov/moons/jupiter-moons/s-2017-j4")
+//        
+//        Jupiter.moons.append(J42017)
+//        
+//        let Lysithea = Moon(name: "Lysithea",
+//                            position: "12")
+//        
+//        Lysithea.about(description: "Lysithea is a prograde irregular satellite of Jupiter. It was discovered by Seth Barnes Nicholson in 1938 at Mount Wilson Observatory and is named after the mythological Lysithea, daughter of Oceanus and one of Zeus' lovers.\n\nLysithea did not receive its present name until 1975; before then, it was simply known as Jupiter X. It was sometimes called \"Demeter\" from 1955 to 1975.\n\nIt belongs to the Himalia group, five moons orbiting between 11 and 13 Gm from Jupiter at an inclination of about 28.3°. Its orbital elements are as of January 2000. They are continuously changing due to solar and planetary perturbations.",
+//                       wiki: "https://en.wikipedia.org/wiki/Lysithea_(moon)",
+//                       nasa: "http://solarsystem.nasa.gov/planets/lysithea")
+//        
+//        Jupiter.moons.append(Lysithea)
+//        
+//        let Elara = Moon(name: "Elara",
+//                         position: "13")
+//        
+//        Elara.about(description: "Elara is a prograde irregular satellite of Jupiter. It was discovered by Charles Dillon Perrine at Lick Observatory in 1905. It is the eighth largest moon of Jupiter and is named after Elara, one of Zeus's lovers and the mother of the giant Tityos.\n\nElara did not receive its present name until 1975; before then, it was simply known as Jupiter VII. It was sometimes called \"Hera\" between 1955 and 1975. It has a mean radius of just 43 km, thus it is 2% of the size of Europa. However it is half the size of Himalia, so it is the second biggest moon in the Himalia group. It might be a captured type C or D asteroid, for it reflects very little light.\n\nElara belongs to the Himalia group, five moons orbiting between 11 and 13 Gm from Jupiter at an inclination of about 27.5°. Its orbital elements are as of January 2000. They are continuously changing due to solar and planetary perturbations.",
+//                    wiki: "https://en.wikipedia.org/wiki/Elara_(moon)",
+//                    nasa: "http://solarsystem.nasa.gov/planets/elara")
+//        
+//        Jupiter.moons.append(Elara);
+//        
+//        let Dia = Moon(name: "Dia",
+//                       position: "14")
+//        
+//        Dia.about(description: "Dia, also known as Jupiter LIII, is the second-outermost known prograde irregular satellite of Jupiter. Provisionally known as S/2000 J 11, it received its name on March 7, 2015. It is named after Dia, daughter of Deioneus (or Eioneus), wife of Ixion. According to Homer, she was seduced by Zeus in stallion form; Pirithous was the issue.\n\nThe satellite is the only known small body in the Himalia group.\n\nDia is believed to be about 4 kilometres in diameter. It orbits Jupiter at an average distance of 12 million km in 274 days, at an inclination of 28° (to Jupiter's equator), and with an eccentricity of 0.21.Dia was discovered by a team of astronomers from the University of Hawaii led by Scott S. Sheppard in 2000 with an observation arc of 26 days.\n\nInitial observations were not followed up, and Dia was not observed for more than a decade after 2000. This apparent disappearance led some astronomers to consider the moon lost. One theory was that it had crashed into Himalia, creating a faint ring around Jupiter. However, it was finally recovered in observations made in 2010 and 2011.",
+//                  wiki: "https://en.wikipedia.org/wiki/Dia_(moon)",
+//                  nasa: "http://solarsystem.nasa.gov/planets/dia")
+//        
+//        Jupiter.moons.append(Dia)
+//        
+//        let Carpo = Moon(name: "Carpo",
+//                         position: "15")
+//        
+//        Carpo.about(description: "Carpo , also Jupiter XLVI, is a natural satellite of Jupiter. It was discovered by a team of astronomers from the University of Hawaii led by Scott S. Sheppard in 2003, and was provisionally designated as S/2003 J 20 until it received its name in early 2005.\n\nCarpo is about 3 kilometres (1.9 miles) in diameter, and orbits Jupiter at an average distance of 17.145 Gm (just over ten million miles) in 458.625 days, at an inclination of 56° to the ecliptic (55° to Jupiter's equator), and with a high eccentricity of 0.4316. All of the moons further from Jupiter than Carpo are retrograde.\n\nIt was named in March 2005 after Carpo, one of the Horae, and a daughter of Zeus (Jupiter).\n\nLike Themisto, this moon seems to be the lone member of a unique class, which makes it particularly interesting. The orbital inclination of satellites such as this one is limited by the Kozai effect, discovered by Yoshihide Kozai in 1962. This effect induces a periodic exchange between the inclination and eccentricity of the orbit; if the inclination is large enough, the eccentricity can in turn grow so large that the periapsis of the satellite (called the perizene in the case of moons of Jupiter) would be in the immediate vicinity of the Galilean moons (Io, Europa, Ganymede and Callisto). The satellite would eventually collide with one of these, or a close encounter would eject it altogether from the Jovian system. The periapsis precession period (Pw) is 6.8 million years long.",
+//                    wiki: "https://en.wikipedia.org/wiki/Carpo_(moon)",
+//                    nasa: "http://solarsystem.nasa.gov/planets/carpo")
+//        
+//        Jupiter.moons.append(Carpo)
+//        
+//        let J12 = Moon(name: "S/2003 J 12",
+//                       position: "16")
+//        
+//        J12.about(description: "S/2003 J 12 is a natural satellite of Jupiter, and is the third-smallest known satellite in the Solar System, after Aegaeon and S/2009 S 1. It was discovered by a team of astronomers from the University of Hawaii led by Scott S. Sheppard in 2003.\n\nS/2003 J 12 is about 1 kilometre (0.6 miles) in diameter, and orbits Jupiter at an average distance of 17,883 Mm in 489.72 days, at an inclination of 143° to the ecliptic (143° to Jupiter's equator), in a retrograde direction and with an eccentricity of 0.4920.\n\nIt is the innermost of the outer irregular retrograde satellites of Jupiter, and does not seem to belong to any group.",
+//                  wiki: "https://en.wikipedia.org/wiki/S/2003_J_12",
+//                  nasa: "http://solarsystem.nasa.gov/planets/s2003j12")
+//        
+//        Jupiter.moons.append(J12)
+//        
+//        let Valetudo = Moon(name: "Valetudo",
+//                       position: "17")
+//        
+//        Valetudo.about(description: "Valetudo, also known as Jupiter LXII, is a moon of Jupiter. It was discovered by Scott S. Sheppard and his team in data reaching back to 2016, but was not announced until July 17, 2018, via a Minor Planet Electronic Circular from the Minor Planet Center. It has a diameter of about 1 km (0.6 mi) and orbits Jupiter at a distance of about 19 million kilometres (12 million miles). Its orbital inclination is 34 degrees, and its orbital eccentricity is 0.222.[1] It has a prograde orbit, but it crosses paths with several moons that have retrograde orbits and may in the future collide with them. It was provisionally designated as S/2016 J 2 until it received its name in 2018. The name Valetudo was proposed for it as part of its announcement, after the Roman goddess of health and hygiene, Valetudo, a great-granddaughter of the god Jupiter and approved by the IAU Working Group for Planetary System Nomenclature on 3 October 2018.",
+//                  wiki: "https://en.wikipedia.org/wiki/Valetudo_(moon)",
+//                  nasa: "https://solarsystem.nasa.gov/moons/jupiter-moons/s-2016-j2-valetudo/")
+//        
+//        Jupiter.moons.append(Valetudo)
+//        
+//        let Euporie = Moon(name: "Euporie",
+//                           position: "17")
+//        
+//        Euporie.about(description: "Euporie, also known as Jupiter XXXIV, is a natural satellite of Jupiter. It was discovered by a team of astronomers from the University of Hawaii led by Scott S. Sheppard in 2001, and given the temporary designation S/2001 J 10.\n\nEuporie is about 2 kilometres in diameter, and orbits Jupiter at an average distance of 19,088 Mm in 538.780 days, at an inclination of 145° to the ecliptic (145° to Jupiter's equator), in a retrograde direction and with an eccentricity of 0.0960.\n\nIt was named in August 2003 after Euporie, a Greek goddess of abundance and one of the Horae in Greek mythology (and thus a daughter of Zeus).\n\nIt is the innermost member of the Ananke group, retrograde irregular moons that orbit Jupiter between 19.3 and 22.7 Gm, at inclinations of roughly 150°.",
+//                      wiki: "https://en.wikipedia.org/wiki/Euporie_(moon)",
+//                      nasa: "http://solarsystem.nasa.gov/planets/euporie")
+//        
+//        Jupiter.moons.append(Euporie)
+//        
+//        let J3 = Moon(name: "S/2003 J 3",
+//                      position: "18")
+//        
+//        J3.about(description: "S/2003 J 3 is a natural satellite of Jupiter. It was discovered by a team of astronomers from the University of Hawaii led by Scott S. Sheppard in 2003.\n\nS/2003 J 3 is about 2 kilometres in diameter, and orbits Jupiter at an average distance of 19,622 Mm in 561.518 days, at an inclination of 146° to the ecliptic (146° to Jupiter's equator), in a retrograde direction and with an eccentricity of 0.2507.\n\nIt belongs to the Ananke group, retrograde irregular moons that orbit Jupiter between 19.3 and 22.7 Gm, at inclinations of roughly 150°.",
+//                 wiki: "https://en.wikipedia.org/wiki/S/2003_J_3",
+//                 nasa: "http://solarsystem.nasa.gov/planets/s2003j03")
+//        
+//        Jupiter.moons.append(J3)
+//        
+//        let J18 = Moon(name: "S/2003 J 18",
+//                       position: "19")
+//        
+//        J18.about(description: "S/2003 J 18 is a natural satellite of Jupiter. It was discovered by a team of astronomers led by Brett J. Gladman in 2003.\n\nS/2003 J 18 is about 2 kilometres in diameter, and orbits Jupiter at an average distance of 19,813 Mm in 569.728 days, at an inclination of 147° to the ecliptic (149° to Jupiter's equator), in a retrograde direction and with an eccentricity of 0.1570.\n\nIt belongs to the Ananke group, retrograde irregular moons that orbit Jupiter between 19.3 and 22.7 Gm, at inclinations of roughly 150°.",
+//                  wiki: "https://en.wikipedia.org/wiki/S/2003_J_18",
+//                  nasa: "http://solarsystem.nasa.gov/planets/s2003j18")
+//        
+//        Jupiter.moons.append(J18)
+//        
+////        let J1 = Moon(name: "S/2011 J 1",
+////                      position: "20")
+////
+////        J1.about(description: "S/2011 J 1 is a natural satellite of Jupiter. It was discovered by Scott Sheppard in 2011.",
+////                 wiki: "https://en.wikipedia.org/wiki/S/2011_J_1",
+////                 nasa: "http://solarsystem.nasa.gov/planets/s2011j1")
+////
+////        Jupiter.moons.append(J1)
+//        
+//        let J2 = Moon(name: "Jupiter LII",
+//                      position: "21")
+//        
+//        J2.about(description: "Jupiter LII, originally known as S/2010 J 2, is a natural satellite of Jupiter. It was discovered by Christian Veillet in 2010. It received its permanent number in March 2015. It takes 1.69 years to orbit around Jupiter, and its average distance is 21.01 million km. Jupiter LII has a diameter of about 1 kilometer and in 2010 it was labeled the smallest known moon in the solar system to have been found from Earth.",
+//                 wiki: "https://en.wikipedia.org/wiki/Jupiter_LII",
+//                 nasa: "http://solarsystem.nasa.gov/planets/s2010j2")
+//        
+//        Jupiter.moons.append(J2)
+//        
+//        let Thelxinoe = Moon(name: "Thelxinoe",
+//                             position: "22")
+//        
+//        Thelxinoe.about(description: "Thelxinoe, also known as Jupiter XLII, is a natural satellite of Jupiter. It was discovered by a team of astronomers from the University of Hawaii led by Scott S. Sheppard in 2004 from pictures taken in 2003, and originally received the temporary designation S/2003 J 22.\n\nThelxinoe is about 2 kilometres in diameter, and orbits Jupiter at an average distance of 20,454 Mm in 597.607 days, at an inclination of 151° to the ecliptic (153° to Jupiter's equator), in a retrograde direction and with an eccentricity of 0.2685.\n\nIt was named in March 2005 after Thelxinoe, one of the four original Muses according to some Greek writers, and a daughter of Zeus (Jupiter) by Mnemosyne.\n\nThelxinoe belongs to the Ananke group, retrograde irregular moons that orbit Jupiter between 19.3 and 22.7 Gm, at inclinations of roughly 150°.",
+//                        wiki: "https://en.wikipedia.org/wiki/Thelxinoe_(moon)",
+//                        nasa: "http://solarsystem.nasa.gov/planets/thelxinoe")
+//        
+//        Jupiter.moons.append(Thelxinoe)
+//        
+//        let Euanthe = Moon(name: "Euanthe",
+//                           position: "23")
+//        
+//        Euanthe.about(description: "Euanthe, also known as Jupiter XXXIII, is a retrograde irregular satellite of Jupiter. It was discovered by a team of astronomers from the University of Hawaii led by Scott S. Sheppard in 2001, and given the temporary designation S/2001 J 7.\n\nEuanthe is about 3 kilometres in diameter, and orbits Jupiter at an average distance of 20,465 Mm in 598.093 days, at an inclination of 143° to the ecliptic (142° to Jupiter's equator) with an eccentricity of 0.2001.\n\nIt was named in August 2003 after Euanthe, who was the mother of the Graces, according to some Greek writers.\n\nEuanthe belongs to the Ananke group, retrograde irregular moons that orbit Jupiter between 19.3 and 22.7 Gm, at inclinations of roughly 150°.",
+//                      wiki: "https://en.wikipedia.org/wiki/Euanthe_(moon)",
+//                      nasa: "http://solarsystem.nasa.gov/planets/euanthe")
+//        
+//        Jupiter.moons.append(Euanthe)
+//        
+//        let Helike = Moon(name: "Helike",
+//                          position: "24")
+//        
+//        Helike.about(description: "Helike, also known as Jupiter XLV, is a moon of Jupiter. It was discovered by a team of astronomers from the University of Hawaii led by Scott S. Sheppard in 2003, and given the temporary designation S/2003 J 6.\n\nHelike is about 4 kilometres in diameter, and orbits Jupiter at an average distance of 20.54 million kilometres in 601.402 days, at an inclination of 155° to the ecliptic (156° to Jupiter's equator), in a retrograde direction and with an eccentricity of 0.1375. Its average orbital speed is 2.48 km/s.\n\nIt was named in March 2005 after Helike, one of the nymphs that nurtured Zeus (Jupiter) in his infancy on Crete.\n\nHelike belongs to the Ananke group, retrograde irregular moons that orbit Jupiter between 19.3 and 22.7 million kilometres, at inclinations of roughly 150°.",
+//                     wiki: "http://solarsystem.nasa.gov/planets/helike",
+//                     nasa: "http://solarsystem.nasa.gov/planets/helike")
+//        
+//        Jupiter.moons.append(Helike)
+//        
+//        let Orthosie = Moon(name: "Orthosie",
+//                            position: "25")
+//        
+//        Orthosie.about(description: "Orthosie, also known as Jupiter XXXV, is a natural satellite of Jupiter. It was discovered by a team of astronomers from the University of Hawaii led by Scott S. Sheppard in 2001, and given the temporary designation S/2001 J 9.\n\nOrthosie is about 2 kilometres in diameter, and orbits Jupiter at an average distance of 20,568 Mm in 602.619 days, at an inclination of 142° to the ecliptic (143° to Jupiter's equator), in a retrograde direction and with an eccentricity of 0.2433.\n\nIt was named in August 2003 after Orthosie, the Greek goddess of prosperity and one of the Horae. The Horae (Hours) were daughters of Zeus and Themis.\n\nOrthosie belongs to the Ananke group, retrograde irregular moons that orbit Jupiter between 19.3 and 22.7 Gm, at inclinations of roughly 150°.",
+//                       wiki: "https://en.wikipedia.org/wiki/Orthosie_(moon)",
+//                       nasa: "http://solarsystem.nasa.gov/planets/orthosie")
+//        
+//        Jupiter.moons.append(Orthosie)
+//        
+//        let J7 = Moon(name: "Jupiter LXVIII",
+//                      position: "28")
 //
-//        J1.about(description: "S/2011 J 1 is a natural satellite of Jupiter. It was discovered by Scott Sheppard in 2011.",
-//                 wiki: "https://en.wikipedia.org/wiki/S/2011_J_1",
-//                 nasa: "http://solarsystem.nasa.gov/planets/s2011j1")
+//        J7.about(description: "Jupiter LXVIII, originally known as S/2017 J 7, is an outer natural satellite of Jupiter. It was discovered by Scott S. Sheppard and his team in 2017, but not announced until July 17, 2018 via a Minor Planet Electronic Circular from the Minor Planet Center. It is about 2 kilometers in diameter and orbits at a semi-major axis of about 20,627,000 km with an inclination of about 143.4°. It belongs to the Ananke group.",
+//                 wiki: "https://en.wikipedia.org/wiki/Jupiter_LXVIII",
+//                 nasa: "https://solarsystem.nasa.gov/moons/jupiter-moons/s-2017-j7/in-depth/")
 //
-//        Jupiter.moons.append(J1)
-        
-        let J2 = Moon(name: "Jupiter LII",
-                      position: "21")
-        
-        J2.about(description: "Jupiter LII, originally known as S/2010 J 2, is a natural satellite of Jupiter. It was discovered by Christian Veillet in 2010. It received its permanent number in March 2015. It takes 1.69 years to orbit around Jupiter, and its average distance is 21.01 million km. Jupiter LII has a diameter of about 1 kilometer and in 2010 it was labeled the smallest known moon in the solar system to have been found from Earth.",
-                 wiki: "https://en.wikipedia.org/wiki/Jupiter_LII",
-                 nasa: "http://solarsystem.nasa.gov/planets/s2010j2")
-        
-        Jupiter.moons.append(J2)
-        
-        let Thelxinoe = Moon(name: "Thelxinoe",
-                             position: "22")
-        
-        Thelxinoe.about(description: "Thelxinoe, also known as Jupiter XLII, is a natural satellite of Jupiter. It was discovered by a team of astronomers from the University of Hawaii led by Scott S. Sheppard in 2004 from pictures taken in 2003, and originally received the temporary designation S/2003 J 22.\n\nThelxinoe is about 2 kilometres in diameter, and orbits Jupiter at an average distance of 20,454 Mm in 597.607 days, at an inclination of 151° to the ecliptic (153° to Jupiter's equator), in a retrograde direction and with an eccentricity of 0.2685.\n\nIt was named in March 2005 after Thelxinoe, one of the four original Muses according to some Greek writers, and a daughter of Zeus (Jupiter) by Mnemosyne.\n\nThelxinoe belongs to the Ananke group, retrograde irregular moons that orbit Jupiter between 19.3 and 22.7 Gm, at inclinations of roughly 150°.",
-                        wiki: "https://en.wikipedia.org/wiki/Thelxinoe_(moon)",
-                        nasa: "http://solarsystem.nasa.gov/planets/thelxinoe")
-        
-        Jupiter.moons.append(Thelxinoe)
-        
-        let Euanthe = Moon(name: "Euanthe",
-                           position: "23")
-        
-        Euanthe.about(description: "Euanthe, also known as Jupiter XXXIII, is a retrograde irregular satellite of Jupiter. It was discovered by a team of astronomers from the University of Hawaii led by Scott S. Sheppard in 2001, and given the temporary designation S/2001 J 7.\n\nEuanthe is about 3 kilometres in diameter, and orbits Jupiter at an average distance of 20,465 Mm in 598.093 days, at an inclination of 143° to the ecliptic (142° to Jupiter's equator) with an eccentricity of 0.2001.\n\nIt was named in August 2003 after Euanthe, who was the mother of the Graces, according to some Greek writers.\n\nEuanthe belongs to the Ananke group, retrograde irregular moons that orbit Jupiter between 19.3 and 22.7 Gm, at inclinations of roughly 150°.",
-                      wiki: "https://en.wikipedia.org/wiki/Euanthe_(moon)",
-                      nasa: "http://solarsystem.nasa.gov/planets/euanthe")
-        
-        Jupiter.moons.append(Euanthe)
-        
-        let Helike = Moon(name: "Helike",
-                          position: "24")
-        
-        Helike.about(description: "Helike, also known as Jupiter XLV, is a moon of Jupiter. It was discovered by a team of astronomers from the University of Hawaii led by Scott S. Sheppard in 2003, and given the temporary designation S/2003 J 6.\n\nHelike is about 4 kilometres in diameter, and orbits Jupiter at an average distance of 20.54 million kilometres in 601.402 days, at an inclination of 155° to the ecliptic (156° to Jupiter's equator), in a retrograde direction and with an eccentricity of 0.1375. Its average orbital speed is 2.48 km/s.\n\nIt was named in March 2005 after Helike, one of the nymphs that nurtured Zeus (Jupiter) in his infancy on Crete.\n\nHelike belongs to the Ananke group, retrograde irregular moons that orbit Jupiter between 19.3 and 22.7 million kilometres, at inclinations of roughly 150°.",
-                     wiki: "http://solarsystem.nasa.gov/planets/helike",
-                     nasa: "http://solarsystem.nasa.gov/planets/helike")
-        
-        Jupiter.moons.append(Helike)
-        
-        let Orthosie = Moon(name: "Orthosie",
-                            position: "25")
-        
-        Orthosie.about(description: "Orthosie, also known as Jupiter XXXV, is a natural satellite of Jupiter. It was discovered by a team of astronomers from the University of Hawaii led by Scott S. Sheppard in 2001, and given the temporary designation S/2001 J 9.\n\nOrthosie is about 2 kilometres in diameter, and orbits Jupiter at an average distance of 20,568 Mm in 602.619 days, at an inclination of 142° to the ecliptic (143° to Jupiter's equator), in a retrograde direction and with an eccentricity of 0.2433.\n\nIt was named in August 2003 after Orthosie, the Greek goddess of prosperity and one of the Horae. The Horae (Hours) were daughters of Zeus and Themis.\n\nOrthosie belongs to the Ananke group, retrograde irregular moons that orbit Jupiter between 19.3 and 22.7 Gm, at inclinations of roughly 150°.",
-                       wiki: "https://en.wikipedia.org/wiki/Orthosie_(moon)",
-                       nasa: "http://solarsystem.nasa.gov/planets/orthosie")
-        
-        Jupiter.moons.append(Orthosie)
-        
-        let J7 = Moon(name: "Jupiter LXVIII",
-                      position: "28")
-
-        J7.about(description: "Jupiter LXVIII, originally known as S/2017 J 7, is an outer natural satellite of Jupiter. It was discovered by Scott S. Sheppard and his team in 2017, but not announced until July 17, 2018 via a Minor Planet Electronic Circular from the Minor Planet Center. It is about 2 kilometers in diameter and orbits at a semi-major axis of about 20,627,000 km with an inclination of about 143.4°. It belongs to the Ananke group.",
-                 wiki: "https://en.wikipedia.org/wiki/Jupiter_LXVIII",
-                 nasa: "https://solarsystem.nasa.gov/moons/jupiter-moons/s-2017-j7/in-depth/")
-
-        Jupiter.moons.append(J7)
-
-        let J12016 = Moon(name: "Jupiter LIV",
-                      position: "29")
-        
-        J12016.about(description: "Jupiter LIV, originally known as S/2016 J 1, is an outer natural satellite of Jupiter. It was discovered by Scott S. Sheppard in 2016, but not announced until June 2, 2017 via a Minor Planet Electronic Circular from the Minor Planet Center. It is about 1 kilometer in diameter and orbits at a semi-major axis of about 20,650,845 km with an inclination of about 139.8°. It belongs to the Ananke group.",
-                 wiki: "https://en.wikipedia.org/wiki/Jupiter_LIV",
-                 nasa: "https://solarsystem.nasa.gov/moons/jupiter-moons/s-2016-j-1/in-depth/")
-        
-        Jupiter.moons.append(J12016)
-        
-        let J32017 = Moon(name: "S/2017 J 3",
-                     position: "30")
-        
-        J32017.about(description: "Jupiter LXIV, originally known as S/2017 J 3, is an outer natural satellite of Jupiter. It was discovered by Scott S. Sheppard and his team in 2017, but not announced until July 17, 2018 via a Minor Planet Electronic Circular from the Minor Planet Center. It is about 2 kilometers in diameter and orbits at a semi-major axis of about 20,694,000 km with an inclination of about 147.9°. It belongs to the Ananke group.",
-                wiki: "https://en.wikipedia.org/wiki/Jupiter_LXIV",
-                nasa: "https://solarsystem.nasa.gov/moons/jupiter-moons/s-2017-j3/in-depth/")
-        
-        Jupiter.moons.append(J32017)
-        
-        let Iocaste = Moon(name: "Iocaste",
-                           position: "26")
-        
-        Iocaste.about(description: "Iocaste, also known as Jupiter XXIV, is a retrograde irregular satellite of Jupiter. It was discovered by a team of astronomers from the University of Hawaii led by Scott S. Sheppard in 2000, and given the temporary designation S/2000 J 3.\n\nIocaste orbits Jupiter at an average distance of 20,723 million kilometers in 609.427 days, at an inclination of 147° to the ecliptic (146° to Jupiter's equator) with an eccentricity of 0.2874.\n\nIt was named in October 2002 after Jocasta, the mother/wife of Oedipus in Greek mythology.\n\nIocaste belongs to the Ananke group, believed to be the remnants of a break-up of a captured heliocentric asteroid.\n\nThe satellite is about 5 kilometres in diameter and appears grey (colour indices B−V=0.63, R−V=0.36), similar to C-type asteroids.",
-                      wiki: "https://en.wikipedia.org/wiki/Iocaste_(moon)",
-                      nasa: "http://solarsystem.nasa.gov/planets/iocaste")
-        
-        Jupiter.moons.append(Iocaste)
-        
-        let J16 = Moon(name: "S/2003 J 16",
-                       position: "27")
-        
-        J16.about(description: "S/2003 J 16 is a natural satellite of Jupiter. It was discovered by a team of astronomers led by Brett J. Gladman in 2003.\n\nS/2003 J 16 is about 2 kilometres in diameter, and orbits Jupiter at an average distance of 20,744 Mm in 610.362 days, at an inclination of 151° to the ecliptic (149° to Jupiter's equator), in a retrograde direction and with an eccentricity of 0.3185.\n\nIt belongs to the Ananke group, retrograde irregular moons which orbit Jupiter between 19.3 and 22.7 Gm, at inclinations of roughly 150°.",
-                  wiki: "https://en.wikipedia.org/wiki/S/2003_J_16",
-                  nasa: "http://solarsystem.nasa.gov/planets/s2003j16")
-        
-        Jupiter.moons.append(J16)
-        
-        let Praxidike = Moon(name: "Praxidike",
-                             position: "28")
-        
-        Praxidike.about(description: "Praxidike, also known as Jupiter XXVII, is a retrograde irregular satellite of Jupiter. It was discovered by a team of astronomers from the University of Hawaii led by Scott S. Sheppard in 2000, and given the temporary designation S/2000 J 7.\n\nPraxidike orbits Jupiter at an average distance of 20,824 Mm in 613.904 days, at an inclination of 144° to the ecliptic (143° to Jupiter's equator), in a retrograde direction and with an eccentricity of 0.1840.\n\nIt was named in August 2003 after Praxidike, the Greek goddess of punishment.\n\nPraxidike belongs to the Ananke group, believed to be the remnants of a break-up of a captured heliocentric asteroid. With an estimated diameter of 7 km, Praxidike is the second largest member of the group after Ananke itself (assumed albedo of 0.04).\n\nThe satellite appears grey (colour indices B-V=0.77, R-V= 0.34), typical of C-type asteroids.",
-                        wiki: "https://en.wikipedia.org/wiki/Praxidike_(moon)",
-                        nasa: "http://solarsystem.nasa.gov/planets/praxidike")
-        
-        Jupiter.moons.append(Praxidike)
-        
-        let Harpalyke = Moon(name: "Harpalyke",
-                             position: "29")
-        
-        Harpalyke.about(description: "Harpalyke, also known as Jupiter XXII, is a retrograde irregular satellite of Jupiter. It was discovered by a team of astronomers from the University of Hawaii led by Scott S. Sheppard in 2000, and given the temporary designation S/2000 J 5. In August 2003, the moon was named after Harpalyke, the incestuous daughter of Klymenos, who in some accounts was also a lover of Zeus (Jupiter).\n\nHarpalyke belongs to the Ananke group, believed to be the remnants of a break-up of a captured heliocentric asteroid. It is about 4 kilometres in diameter and appears grey (color index R-V=0.43), similar to C-type asteroids. The satellite orbits Jupiter at an average distance of 21,064 Mm in 624.542 Earth days, at an inclination of 147° to the ecliptic (147° to Jupiter's equator) with an eccentricity of 0.2441.",
-                        wiki: "https://en.wikipedia.org/wiki/Harpalyke_(moon)",
-                        nasa: "http://solarsystem.nasa.gov/planets/harpalyke")
-        
-        Jupiter.moons.append(Harpalyke)
-        
-        let Mneme = Moon(name: "Mneme",
-                         position: "30")
-        
-        Mneme.about(description: "Mneme, also known as Jupiter XL, is a retrograde irregular satellite of Jupiter. It was discovered by a team of astronomers from the University of Hawaii led by Scott S. Sheppard, et al. in 2003, and was provisionally designated S/2003 J 21.\n\nMneme is about 2 kilometres in diameter, and orbits Jupiter at an average distance of 21.427 million kilometres in 640.769 days, at an inclination of 149° to the ecliptic (148° to Jupiter's equator) with an eccentricity of 0.2214. Its average orbital speed is 2.43 km/s.\n\nIt was named in March 2005 after Mneme, one of the three original Muses. She is sometimes confused with Mnemosyne, mother of the Muses (the three or the nine, depending on the author) by Zeus (Jupiter).\n\nMneme belongs to the Ananke group, retrograde irregular moons which orbit Jupiter between 19.3 and 22.7 million kilometres, at inclinations of roughly 150°.",
-                    wiki: "https://en.wikipedia.org/wiki/Mneme_(moon)",
-                    nasa: "http://solarsystem.nasa.gov/planets/mneme")
-        
-        Jupiter.moons.append(Mneme)
-        
-        let Hermippe = Moon(name: "Hermippe",
-                            position: "31")
-        
-        Hermippe.about(description: "Hermippe, or Jupiter XXX, is a natural satellite of Jupiter. It was discovered by a team of astronomers from the Institute for Astronomy of the University of Hawaii led by David Jewitt and Scott S. Sheppard in 2001, and given the temporary designation S/2001 J 3.\n\nHermippe is about 4 kilometres in diameter, and orbits Jupiter at an average distance of 21 million kilometers in about 630 days, at an inclination of 151° to the ecliptic (149° to Jupiter's equator), in a retrograde direction and with an eccentricity of 0.2290.\n\nIt was named in August 2003 by the IAU, after Hermippe, a lover of Zeus (Jupiter).\n\nHermippe belongs to the Ananke group, retrograde irregular moons which orbit Jupiter between 19.3 and 22.7 gigametres (0.152 astronomical units), at inclinations of roughly 150°.",
-                       wiki: "https://en.wikipedia.org/wiki/Hermippe_(moon)",
-                       nasa: "http://solarsystem.nasa.gov/planets/hermippe")
-        
-        Jupiter.moons.append(Hermippe)
-        
-        let Thyone = Moon(name: "Thyone",
-                          position: "32")
-        
-        Thyone.about(description: "Thyone, also known as Jupiter XXIX, is a retrograde irregular satellite of Jupiter. It was discovered by a team of astronomers from the University of Hawaii led by Scott S. Sheppard, et al. in 2001, and given the temporary designation S/2001 J 2.\n\nThyone is about 4 kilometres in diameter, and orbits Jupiter at an average distance of 21.406 million kilometres in 639.803 days, at an inclination of 147° to the ecliptic (147° to Jupiter's equator) with an eccentricity of 0.2526. Its average orbital speed is 2.43 km/s.\n\nIt was named in August 2003 after Thyone, better known as Semele, mother of Dionysus in Greek mythology.\n\nThyone belongs to the Ananke group, retrograde irregular moons which orbit Jupiter between 19.3 and 22.7 million kilometres, at inclinations of roughly 150°.",
-                     wiki: "https://en.wikipedia.org/wiki/Thyone_(moon)",
-                     nasa: "http://solarsystem.nasa.gov/planets/thyone")
-        
-        Jupiter.moons.append(Thyone)
-        
-        let J92017 = Moon(name: "S/2017 J 9",
-                     position: "38")
-        
-        J92017.about(description: "Jupiter LXX, originally known as S/2017 J 9, is an outer natural satellite of Jupiter. It was discovered by Scott S. Sheppard and his team in 2017, but not announced until July 17, 2018 via a Minor Planet Electronic Circular from the Minor Planet Center. It is about 3 kilometers in diameter and orbits at a semi-major axis of about 21,487,000 km with an inclination of about 152.7°. It belongs to the Ananke group.",
-                wiki: "https://en.wikipedia.org/wiki/Jupiter_LXX",
-                nasa: "https://solarsystem.nasa.gov/moons/jupiter-moons/s-2017-j9/in-depth/")
-        
-        Jupiter.moons.append(J92017)
-        
-        let J = Moon(name: "",
-                     position: "")
-        
-        J.about(description: "",
-                wiki: "",
-                nasa: "")
-        
-        Jupiter.moons.append(J)
-        
-        let Ananke = Moon(name: "Ananke",
-                          position: "33")
-        
-        Ananke.about(description: "Ananke is a retrograde irregular moon of Jupiter. It was discovered by Seth Barnes Nicholson at Mount Wilson Observatory in 1951 and is named after the mythological Ananke, the personification of Necessity, and the mother of the Moirai by Zeus. The adjectival form of the name is Anankean.\n\nAnanke did not receive its present name until 1975; before then, it was simply known as Jupiter XII. It was sometimes called \"Adrastea\" between 1955 and 1975 (Adrastea is now the name of another satellite of Jupiter).\n\nAnanke gives its name to the Ananke group, retrograde irregular moons which orbit Jupiter between 19.3 and 22.7 Gm, at inclinations of roughly 150°.\n\nAnanke orbits Jupiter on a high eccentricity and high inclination retrograde orbit. Eight irregular satellites orbiting Jupiter have been discovered since 2000 following similar orbits. The orbital elements are as of January 2000. They are continuously changing due to Solar and planetary perturbations. The diagram illustrates Ananke's orbit in relation to other retrograde irregular satellites of Jupiter. The eccentricity of selected orbits is represented by the yellow segments (extending from the pericentre to the apocentre). The outermost regular satellite Callisto is located for reference.\n\nGiven these orbital elements and the physical characteristics known so far, Ananke is thought to be the largest remnant of an original break-up forming the Ananke group.",
-                     wiki: "https://en.wikipedia.org/wiki/Ananke_(moon)",
-                     nasa: "http://solarsystem.nasa.gov/planets/ananke")
-        
-        Jupiter.moons.append(Ananke)
-        
-        let Herse = Moon(name: "Herse",
-                         position: "34")
-        
-        Herse.about(description: "Herse, or Jupiter L, previously known by its provisional designation of S/2003 J 17, is a natural satellite of Jupiter. It was discovered on 8 February 2003 by the astronomers Brett J. Gladman, John J. Kavelaars, Jean-Marc Petit, and Lynne Allen and also by a team of astronomers at the University of Hawaii. It was named after Herse 'dew', a daughter of Zeus and Selene the moon in Greek mythology, on 11 November 2009.\n\nHerse is about 2 kilometres in diameter, and orbits Jupiter at an average distance of 22.134 gigametre (Gm) in 672.752 days, at a mean inclination of 165° to the ecliptic, in a retrograde direction and with a mean eccentricity of 0.2493.\n\nIt is the innermost member of the Carme group, made up of irregular retrograde moons orbiting Jupiter at a distance ranging between 23 and 24 Gm and at an inclination of about 165°.",
-                    wiki: "https://en.wikipedia.org/wiki/Herse_(moon)",
-                    nasa: "http://solarsystem.nasa.gov/planets/herse")
-        
-        Jupiter.moons.append(Herse)
-        
-        let Aitne = Moon(name: "Aitne",
-                         position: "35")
-        
-        Aitne.about(description: "Aitne, also known as Jupiter XXXI, is a retrograde irregular satellite of Jupiter. It was discovered by a team of astronomers from the University of Hawaii led by Scott S. Sheppard, et al. in 2001, and given the temporary designation S/2001 J 11. Aitne belongs to the Carme group, made up of irregular retrograde moons orbiting Jupiter at a distance ranging between 23 and 24 Gm and at an inclination of about 165°.\n\nAitne is about 3 kilometres in diameter, and orbits Jupiter at an average distance of 22,285 Mm in 679.641 days, at an inclination of 166° to the ecliptic (164° to Jupiter's equator), in a retrograde direction and with an eccentricity of 0.393.\n\nIt was named in August 2003 after Aitna or Aitne, the divine personification of Mount Etna, whose sons by Zeus (Jupiter) are the Palici, the twin Sicilian gods of geysers (other authors have them descend from Thalia and/or Hephaistos).",
-                    wiki: "https://en.wikipedia.org/wiki/Aitne_(moon)",
-                    nasa: "http://solarsystem.nasa.gov/planets/aitne")
-        
-        Jupiter.moons.append(Aitne)
+//        Jupiter.moons.append(J7)
+//
+//        let J12016 = Moon(name: "Jupiter LIV",
+//                      position: "29")
+//        
+//        J12016.about(description: "Jupiter LIV, originally known as S/2016 J 1, is an outer natural satellite of Jupiter. It was discovered by Scott S. Sheppard in 2016, but not announced until June 2, 2017 via a Minor Planet Electronic Circular from the Minor Planet Center. It is about 1 kilometer in diameter and orbits at a semi-major axis of about 20,650,845 km with an inclination of about 139.8°. It belongs to the Ananke group.",
+//                 wiki: "https://en.wikipedia.org/wiki/Jupiter_LIV",
+//                 nasa: "https://solarsystem.nasa.gov/moons/jupiter-moons/s-2016-j-1/in-depth/")
+//        
+//        Jupiter.moons.append(J12016)
+//        
+//        let J32017 = Moon(name: "S/2017 J 3",
+//                     position: "30")
+//        
+//        J32017.about(description: "Jupiter LXIV, originally known as S/2017 J 3, is an outer natural satellite of Jupiter. It was discovered by Scott S. Sheppard and his team in 2017, but not announced until July 17, 2018 via a Minor Planet Electronic Circular from the Minor Planet Center. It is about 2 kilometers in diameter and orbits at a semi-major axis of about 20,694,000 km with an inclination of about 147.9°. It belongs to the Ananke group.",
+//                wiki: "https://en.wikipedia.org/wiki/Jupiter_LXIV",
+//                nasa: "https://solarsystem.nasa.gov/moons/jupiter-moons/s-2017-j3/in-depth/")
+//        
+//        Jupiter.moons.append(J32017)
+//        
+//        let Iocaste = Moon(name: "Iocaste",
+//                           position: "26")
+//        
+//        Iocaste.about(description: "Iocaste, also known as Jupiter XXIV, is a retrograde irregular satellite of Jupiter. It was discovered by a team of astronomers from the University of Hawaii led by Scott S. Sheppard in 2000, and given the temporary designation S/2000 J 3.\n\nIocaste orbits Jupiter at an average distance of 20,723 million kilometers in 609.427 days, at an inclination of 147° to the ecliptic (146° to Jupiter's equator) with an eccentricity of 0.2874.\n\nIt was named in October 2002 after Jocasta, the mother/wife of Oedipus in Greek mythology.\n\nIocaste belongs to the Ananke group, believed to be the remnants of a break-up of a captured heliocentric asteroid.\n\nThe satellite is about 5 kilometres in diameter and appears grey (colour indices B−V=0.63, R−V=0.36), similar to C-type asteroids.",
+//                      wiki: "https://en.wikipedia.org/wiki/Iocaste_(moon)",
+//                      nasa: "http://solarsystem.nasa.gov/planets/iocaste")
+//        
+//        Jupiter.moons.append(Iocaste)
+//        
+//        let J16 = Moon(name: "S/2003 J 16",
+//                       position: "27")
+//        
+//        J16.about(description: "S/2003 J 16 is a natural satellite of Jupiter. It was discovered by a team of astronomers led by Brett J. Gladman in 2003.\n\nS/2003 J 16 is about 2 kilometres in diameter, and orbits Jupiter at an average distance of 20,744 Mm in 610.362 days, at an inclination of 151° to the ecliptic (149° to Jupiter's equator), in a retrograde direction and with an eccentricity of 0.3185.\n\nIt belongs to the Ananke group, retrograde irregular moons which orbit Jupiter between 19.3 and 22.7 Gm, at inclinations of roughly 150°.",
+//                  wiki: "https://en.wikipedia.org/wiki/S/2003_J_16",
+//                  nasa: "http://solarsystem.nasa.gov/planets/s2003j16")
+//        
+//        Jupiter.moons.append(J16)
+//        
+//        let Praxidike = Moon(name: "Praxidike",
+//                             position: "28")
+//        
+//        Praxidike.about(description: "Praxidike, also known as Jupiter XXVII, is a retrograde irregular satellite of Jupiter. It was discovered by a team of astronomers from the University of Hawaii led by Scott S. Sheppard in 2000, and given the temporary designation S/2000 J 7.\n\nPraxidike orbits Jupiter at an average distance of 20,824 Mm in 613.904 days, at an inclination of 144° to the ecliptic (143° to Jupiter's equator), in a retrograde direction and with an eccentricity of 0.1840.\n\nIt was named in August 2003 after Praxidike, the Greek goddess of punishment.\n\nPraxidike belongs to the Ananke group, believed to be the remnants of a break-up of a captured heliocentric asteroid. With an estimated diameter of 7 km, Praxidike is the second largest member of the group after Ananke itself (assumed albedo of 0.04).\n\nThe satellite appears grey (colour indices B-V=0.77, R-V= 0.34), typical of C-type asteroids.",
+//                        wiki: "https://en.wikipedia.org/wiki/Praxidike_(moon)",
+//                        nasa: "http://solarsystem.nasa.gov/planets/praxidike")
+//        
+//        Jupiter.moons.append(Praxidike)
+//        
+//        let Harpalyke = Moon(name: "Harpalyke",
+//                             position: "29")
+//        
+//        Harpalyke.about(description: "Harpalyke, also known as Jupiter XXII, is a retrograde irregular satellite of Jupiter. It was discovered by a team of astronomers from the University of Hawaii led by Scott S. Sheppard in 2000, and given the temporary designation S/2000 J 5. In August 2003, the moon was named after Harpalyke, the incestuous daughter of Klymenos, who in some accounts was also a lover of Zeus (Jupiter).\n\nHarpalyke belongs to the Ananke group, believed to be the remnants of a break-up of a captured heliocentric asteroid. It is about 4 kilometres in diameter and appears grey (color index R-V=0.43), similar to C-type asteroids. The satellite orbits Jupiter at an average distance of 21,064 Mm in 624.542 Earth days, at an inclination of 147° to the ecliptic (147° to Jupiter's equator) with an eccentricity of 0.2441.",
+//                        wiki: "https://en.wikipedia.org/wiki/Harpalyke_(moon)",
+//                        nasa: "http://solarsystem.nasa.gov/planets/harpalyke")
+//        
+//        Jupiter.moons.append(Harpalyke)
+//        
+//        let Mneme = Moon(name: "Mneme",
+//                         position: "30")
+//        
+//        Mneme.about(description: "Mneme, also known as Jupiter XL, is a retrograde irregular satellite of Jupiter. It was discovered by a team of astronomers from the University of Hawaii led by Scott S. Sheppard, et al. in 2003, and was provisionally designated S/2003 J 21.\n\nMneme is about 2 kilometres in diameter, and orbits Jupiter at an average distance of 21.427 million kilometres in 640.769 days, at an inclination of 149° to the ecliptic (148° to Jupiter's equator) with an eccentricity of 0.2214. Its average orbital speed is 2.43 km/s.\n\nIt was named in March 2005 after Mneme, one of the three original Muses. She is sometimes confused with Mnemosyne, mother of the Muses (the three or the nine, depending on the author) by Zeus (Jupiter).\n\nMneme belongs to the Ananke group, retrograde irregular moons which orbit Jupiter between 19.3 and 22.7 million kilometres, at inclinations of roughly 150°.",
+//                    wiki: "https://en.wikipedia.org/wiki/Mneme_(moon)",
+//                    nasa: "http://solarsystem.nasa.gov/planets/mneme")
+//        
+//        Jupiter.moons.append(Mneme)
+//        
+//        let Hermippe = Moon(name: "Hermippe",
+//                            position: "31")
+//        
+//        Hermippe.about(description: "Hermippe, or Jupiter XXX, is a natural satellite of Jupiter. It was discovered by a team of astronomers from the Institute for Astronomy of the University of Hawaii led by David Jewitt and Scott S. Sheppard in 2001, and given the temporary designation S/2001 J 3.\n\nHermippe is about 4 kilometres in diameter, and orbits Jupiter at an average distance of 21 million kilometers in about 630 days, at an inclination of 151° to the ecliptic (149° to Jupiter's equator), in a retrograde direction and with an eccentricity of 0.2290.\n\nIt was named in August 2003 by the IAU, after Hermippe, a lover of Zeus (Jupiter).\n\nHermippe belongs to the Ananke group, retrograde irregular moons which orbit Jupiter between 19.3 and 22.7 gigametres (0.152 astronomical units), at inclinations of roughly 150°.",
+//                       wiki: "https://en.wikipedia.org/wiki/Hermippe_(moon)",
+//                       nasa: "http://solarsystem.nasa.gov/planets/hermippe")
+//        
+//        Jupiter.moons.append(Hermippe)
+//        
+//        let Thyone = Moon(name: "Thyone",
+//                          position: "32")
+//        
+//        Thyone.about(description: "Thyone, also known as Jupiter XXIX, is a retrograde irregular satellite of Jupiter. It was discovered by a team of astronomers from the University of Hawaii led by Scott S. Sheppard, et al. in 2001, and given the temporary designation S/2001 J 2.\n\nThyone is about 4 kilometres in diameter, and orbits Jupiter at an average distance of 21.406 million kilometres in 639.803 days, at an inclination of 147° to the ecliptic (147° to Jupiter's equator) with an eccentricity of 0.2526. Its average orbital speed is 2.43 km/s.\n\nIt was named in August 2003 after Thyone, better known as Semele, mother of Dionysus in Greek mythology.\n\nThyone belongs to the Ananke group, retrograde irregular moons which orbit Jupiter between 19.3 and 22.7 million kilometres, at inclinations of roughly 150°.",
+//                     wiki: "https://en.wikipedia.org/wiki/Thyone_(moon)",
+//                     nasa: "http://solarsystem.nasa.gov/planets/thyone")
+//        
+//        Jupiter.moons.append(Thyone)
+//        
+//        let J92017 = Moon(name: "S/2017 J 9",
+//                     position: "38")
+//        
+//        J92017.about(description: "Jupiter LXX, originally known as S/2017 J 9, is an outer natural satellite of Jupiter. It was discovered by Scott S. Sheppard and his team in 2017, but not announced until July 17, 2018 via a Minor Planet Electronic Circular from the Minor Planet Center. It is about 3 kilometers in diameter and orbits at a semi-major axis of about 21,487,000 km with an inclination of about 152.7°. It belongs to the Ananke group.",
+//                wiki: "https://en.wikipedia.org/wiki/Jupiter_LXX",
+//                nasa: "https://solarsystem.nasa.gov/moons/jupiter-moons/s-2017-j9/in-depth/")
+//        
+//        Jupiter.moons.append(J92017)
+//        
+//        let J = Moon(name: "",
+//                     position: "")
+//        
+//        J.about(description: "",
+//                wiki: "",
+//                nasa: "")
+//        
+//        Jupiter.moons.append(J)
+//        
+//        let Ananke = Moon(name: "Ananke",
+//                          position: "33")
+//        
+//        Ananke.about(description: "Ananke is a retrograde irregular moon of Jupiter. It was discovered by Seth Barnes Nicholson at Mount Wilson Observatory in 1951 and is named after the mythological Ananke, the personification of Necessity, and the mother of the Moirai by Zeus. The adjectival form of the name is Anankean.\n\nAnanke did not receive its present name until 1975; before then, it was simply known as Jupiter XII. It was sometimes called \"Adrastea\" between 1955 and 1975 (Adrastea is now the name of another satellite of Jupiter).\n\nAnanke gives its name to the Ananke group, retrograde irregular moons which orbit Jupiter between 19.3 and 22.7 Gm, at inclinations of roughly 150°.\n\nAnanke orbits Jupiter on a high eccentricity and high inclination retrograde orbit. Eight irregular satellites orbiting Jupiter have been discovered since 2000 following similar orbits. The orbital elements are as of January 2000. They are continuously changing due to Solar and planetary perturbations. The diagram illustrates Ananke's orbit in relation to other retrograde irregular satellites of Jupiter. The eccentricity of selected orbits is represented by the yellow segments (extending from the pericentre to the apocentre). The outermost regular satellite Callisto is located for reference.\n\nGiven these orbital elements and the physical characteristics known so far, Ananke is thought to be the largest remnant of an original break-up forming the Ananke group.",
+//                     wiki: "https://en.wikipedia.org/wiki/Ananke_(moon)",
+//                     nasa: "http://solarsystem.nasa.gov/planets/ananke")
+//        
+//        Jupiter.moons.append(Ananke)
+//        
+//        let Herse = Moon(name: "Herse",
+//                         position: "34")
+//        
+//        Herse.about(description: "Herse, or Jupiter L, previously known by its provisional designation of S/2003 J 17, is a natural satellite of Jupiter. It was discovered on 8 February 2003 by the astronomers Brett J. Gladman, John J. Kavelaars, Jean-Marc Petit, and Lynne Allen and also by a team of astronomers at the University of Hawaii. It was named after Herse 'dew', a daughter of Zeus and Selene the moon in Greek mythology, on 11 November 2009.\n\nHerse is about 2 kilometres in diameter, and orbits Jupiter at an average distance of 22.134 gigametre (Gm) in 672.752 days, at a mean inclination of 165° to the ecliptic, in a retrograde direction and with a mean eccentricity of 0.2493.\n\nIt is the innermost member of the Carme group, made up of irregular retrograde moons orbiting Jupiter at a distance ranging between 23 and 24 Gm and at an inclination of about 165°.",
+//                    wiki: "https://en.wikipedia.org/wiki/Herse_(moon)",
+//                    nasa: "http://solarsystem.nasa.gov/planets/herse")
+//        
+//        Jupiter.moons.append(Herse)
+//        
+//        let Aitne = Moon(name: "Aitne",
+//                         position: "35")
+//        
+//        Aitne.about(description: "Aitne, also known as Jupiter XXXI, is a retrograde irregular satellite of Jupiter. It was discovered by a team of astronomers from the University of Hawaii led by Scott S. Sheppard, et al. in 2001, and given the temporary designation S/2001 J 11. Aitne belongs to the Carme group, made up of irregular retrograde moons orbiting Jupiter at a distance ranging between 23 and 24 Gm and at an inclination of about 165°.\n\nAitne is about 3 kilometres in diameter, and orbits Jupiter at an average distance of 22,285 Mm in 679.641 days, at an inclination of 166° to the ecliptic (164° to Jupiter's equator), in a retrograde direction and with an eccentricity of 0.393.\n\nIt was named in August 2003 after Aitna or Aitne, the divine personification of Mount Etna, whose sons by Zeus (Jupiter) are the Palici, the twin Sicilian gods of geysers (other authors have them descend from Thalia and/or Hephaistos).",
+//                    wiki: "https://en.wikipedia.org/wiki/Aitne_(moon)",
+//                    nasa: "http://solarsystem.nasa.gov/planets/aitne")
+//        
+//        Jupiter.moons.append(Aitne)
         
         let Kale = Moon(name: "Kale",
                         position: "36")

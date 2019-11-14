@@ -30,7 +30,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             self.cycleFromViewController(oldViewController: self.currentViewController!, toViewController: viewController)
             self.currentViewController = viewController
         }
-        scrollViewDidScroll(scrollView)
+        //scrollViewDidScroll(scrollView)
     }
     
     var body: Body!
@@ -112,7 +112,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         //REFACTOR
         barColor = splitViewController?.secondaryViewController?.navigationController?.navigationBar.barTintColor
-        //barColor = navigationController?.navigationBar.barTintColor
         tabColor = tabBarController?.tabBar.barTintColor
 
         setNavColors()
@@ -197,11 +196,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             globeButton.isHidden = true
             sceneHeight.constant = 0
             
-            //REFACTOR
-            print(body)
-            print(body.color1)
-            print(barColor)
-            
             barColor = UIColor.Orbits.SpaceGray
             
             adjustColor(to: body.color1, or: barColor)
@@ -263,24 +257,32 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         BTBalloon.sharedInstance().hide()
     }
     
+    func setupNavBar(to color: UIColor) {
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = color
+        
+        if splitViewController?.secondaryViewController != nil {
+            navigationController?.navigationBar.standardAppearance = appearance
+            navigationController?.navigationBar.compactAppearance = appearance
+            navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        } else { //we are on an iPhone :(
+            (self.splitViewController?.primaryViewController as! UINavigationController).navigationBar.standardAppearance = appearance
+            (self.splitViewController?.primaryViewController as! UINavigationController).navigationBar.compactAppearance = appearance
+            (self.splitViewController?.primaryViewController as! UINavigationController).navigationBar.scrollEdgeAppearance = appearance
+            //(self.splitViewController?.primaryViewController as! UINavigationController).navigationBar.barTintColor = let_color
+        }
+
+
+    }
     
     func setNavColors() {
         if let let_color = body.color1 {
+            setupNavBar(to: let_color)
             tabBarController?.tabBar.barTintColor = let_color
-            //we are on an iPad and don't have to do anything fucked up
-            if splitViewController?.secondaryViewController != nil {
-                navigationController?.navigationBar.barTintColor = let_color
-            } else { //we are on an iPhone :(
-                (self.splitViewController?.primaryViewController as! UINavigationController).navigationBar.barTintColor = let_color
-            }
         } else {
             let gray = UIColor.Orbits.SpaceGray
+            setupNavBar(to: gray)
             tabBarController?.tabBar.barTintColor = gray
-            if splitViewController?.secondaryViewController != nil {
-                navigationController?.navigationBar.barTintColor = gray
-            } else {
-                (self.splitViewController?.primaryViewController as! UINavigationController).navigationBar.barTintColor = gray
-            }
         }
     }
 }
