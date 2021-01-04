@@ -10,6 +10,6 @@ Please leave a detailed explanation of what your changes do.
 
 If this change is anything other than a defect fix, please describe your reasoning for making this change, justifying any UI changes and architecture decisions.
 
-# Notifications:
+# CCs:
 
 Please @mention the project owner for review.
