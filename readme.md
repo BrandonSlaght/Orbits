@@ -2,8 +2,8 @@
 
 [![CodeFactor](https://www.codefactor.io/repository/github/brandonslaght/orbits/badge)](https://www.codefactor.io/repository/github/brandonslaght/orbits)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/BrandonSlaght/Orbits/graphs/commit-activity)
-[![PRs Welcome](https://img.shields.io/badge/PRs%3F-welcome-green.svg?style=flat-square)](https://github.com/BrandonSlaght/Orbits/compare)
-[![Website brandonslaght.github.io](https://img.shields.io/website-up-down-green-red/https://brandonslaght.me/orbits.svg)](https://brandonslaght.me/orbits/)
+[![PRs Welcome](https://img.shields.io/badge/PRs%3F-welcome-green.svg)](https://github.com/BrandonSlaght/Orbits/compare)
+[![Website brandonslaght.github.io](https://img.shields.io/website-up-down-green-red/https/brandonslaght.me/orbits/index.html.svg)](https://brandonslaght.me/orbits/)
 
 This project originated as a final project for my senior year app development course. Occasionally sees active development. 
 
