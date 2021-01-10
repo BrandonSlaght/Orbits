@@ -11,8 +11,8 @@ Features planet and moon information, images, models, and rise/set times. More f
 
 ## Libraries used:
 
-[CHTCollectionViewWaterfallLayout](https://github.com/chiahsien/CHTCollectionViewWaterfallLayout "Link to repo")
-[SwiftAA](https://github.com/onekiloparsec/SwiftAA "Link to repo")
-[SKPhotoBrowser](https://github.com/suzuki-0000/SKPhotoBrowser "Link to repo")
-[MKUnits](https://github.com/michalkonturek/MKUnits "Link to repo")
+[CHTCollectionViewWaterfallLayout](https://github.com/chiahsien/CHTCollectionViewWaterfallLayout "Link to repo")  
+[SwiftAA](https://github.com/onekiloparsec/SwiftAA "Link to repo")  
+[SKPhotoBrowser](https://github.com/suzuki-0000/SKPhotoBrowser "Link to repo")  
+[MKUnits](https://github.com/michalkonturek/MKUnits "Link to repo")  
 [BTBalloon](https://github.com/brightec/BTBalloon "Link to repo")
