@@ -215,7 +215,7 @@ class PlanetListViewController: UITableViewController, UISplitViewControllerDele
         }
         
         coordinator.animate(alongsideTransition: {
-            [weak self] context in self?.setupTabBar()
+            [weak self] _ in self?.setupTabBar()
         }, completion: nil)
     }
     

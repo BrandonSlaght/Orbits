@@ -32,7 +32,7 @@ public protocol EasyTipViewDelegate : class {
 
 public extension EasyTipView {
     
-    // MARK:- Class methods -
+    // MARK: - Class methods -
     
     /**
      Presents an EasyTipView pointing to a particular UIBarItem instance within the specified superview
@@ -67,7 +67,7 @@ public extension EasyTipView {
         ev.show(animated: animated, forView: view, withinSuperview: superview)
     }
     
-    // MARK:- Instance methods -
+    // MARK: - Instance methods -
     
     /**
      Presents an EasyTipView pointing to a particular UIBarItem instance within the specified superview
@@ -143,7 +143,7 @@ public extension EasyTipView {
         UIView.animate(withDuration: preferences.animating.dismissDuration, delay: 0, usingSpringWithDamping: damping, initialSpringVelocity: velocity, options: [.curveEaseInOut], animations: { _ in
             self.transform = self.preferences.animating.dismissTransform
             self.alpha = self.preferences.animating.dismissFinalAlpha
-        }) { (finished) -> Void in
+        }) { (_) -> Void in
             completion?()
             self.delegate?.easyTipViewDidDismiss(self)
             self.removeFromSuperview()
@@ -165,7 +165,7 @@ extension EasyTipView: UIGestureRecognizerDelegate {
 
 open class EasyTipView: UIView {
     
-    // MARK:- Nested types -
+    // MARK: - Nested types -
     
     public enum ArrowPosition {
         case any
@@ -223,7 +223,7 @@ open class EasyTipView: UIView {
         public init() {}
     }
     
-    // MARK:- Variables -
+    // MARK: - Variables -
     
     override open var backgroundColor: UIColor? {
         didSet {
@@ -281,7 +281,7 @@ open class EasyTipView: UIView {
     
     open static var globalPreferences = Preferences()
     
-    // MARK:- Initializer -
+    // MARK: - Initializer -
     
     public init (text: String, preferences: Preferences = EasyTipView.globalPreferences, delegate: EasyTipViewDelegate? = nil){
         
@@ -370,7 +370,7 @@ open class EasyTipView: UIView {
         
         var position = preferences.drawing.arrowPosition
         
-        let refViewFrame = presentingView!.convert(presentingView!.bounds, to: superview);
+        let refViewFrame = presentingView!.convert(presentingView!.bounds, to: superview)
         
         let superviewFrame: CGRect
         if let scrollview = superview as? UIScrollView {
@@ -421,13 +421,13 @@ open class EasyTipView: UIView {
         self.frame = frame
     }
     
-    // MARK:- Callbacks -
+    // MARK: - Callbacks -
     
     func handleTap() {
         dismiss()
     }
     
-    // MARK:- Drawing -
+    // MARK: - Drawing -
     
     fileprivate func drawBubble(_ bubbleFrame: CGRect, arrowPosition: ArrowPosition,  context: CGContext) {
         

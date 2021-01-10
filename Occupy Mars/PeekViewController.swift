@@ -27,11 +27,11 @@ class PeekViewController: UIViewController {
     
     override var previewActionItems: [UIPreviewActionItem] {
         
-        let saveAction = UIPreviewAction(title: "Save", style: .default) { (action: UIPreviewAction, vc: UIViewController) -> Void in
-            UIImageWriteToSavedPhotosAlbum(self.image, nil, nil, nil);
+        let saveAction = UIPreviewAction(title: "Save", style: .default) { (_: UIPreviewAction, _: UIViewController) -> Void in
+            UIImageWriteToSavedPhotosAlbum(self.image, nil, nil, nil)
         }
         
-        let shareAction = UIPreviewAction(title: "Share", style: .default) { (action: UIPreviewAction, vc: UIViewController) -> Void in
+        let shareAction = UIPreviewAction(title: "Share", style: .default) { (_: UIPreviewAction, _: UIViewController) -> Void in
             let image = self.image
             let activityViewController = UIActivityViewController(activityItems: [(image), self.imageTitle], applicationActivities: nil)
             activityViewController.popoverPresentationController?.sourceView = self.view
