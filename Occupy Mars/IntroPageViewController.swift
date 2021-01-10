@@ -28,7 +28,7 @@ class IntroPageViewController: UIPageViewController {
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        coordinator.animate(alongsideTransition: { (UIViewControllerTransitionCoordinatorContext) -> Void in
+        coordinator.animate(alongsideTransition: { (_) -> Void in
             self.playerLayer?.frame = self.view.frame
         }, completion: { (_) -> Void in
         })
