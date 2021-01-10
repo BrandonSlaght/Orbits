@@ -1,2 +1,11 @@
+# OS generated files #
+######################
+.DS_Store?
+ehthumbs.db
+._*
+Thumbs.db
+
+# Xcode generated files #
+#########################
 
 Occupy Mars.xcodeproj/project.xcworkspace/xcuserdata/bslaght.xcuserdatad/UserInterfaceState.xcuserstate
