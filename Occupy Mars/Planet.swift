@@ -107,7 +107,7 @@ class Planet : Body {
         
         ret.append(("Moons",String(describing: moons.count)))
         
-        if rings.count > 0 {
+		if !rings.isEmpty {
             ret.append(("Ring System", "Yes"))
         } else {
             ret.append(("Ring System", "No"))

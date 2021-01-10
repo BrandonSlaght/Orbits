@@ -157,13 +157,13 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     func setupTabs() {
         tabs.removeAllSegments()
         
-        if body.images.count > 0 || body.videos.count > 0 {
+        if !body.images.isEmpty || !body.videos.isEmpty {
             tabs.insertSegment(withTitle: "Media", at: 0, animated: false)
         }
-        if body.rings.count > 0 {
+        if !body.rings.isEmpty {
             tabs.insertSegment(withTitle: "Rings", at: 0, animated: false)
         }
-        if body.moons.count > 0 {
+        if !body.moons.isEmpty {
             tabs.insertSegment(withTitle: "Moons", at: 0, animated: false)
         }
         if body.hasDetails {
