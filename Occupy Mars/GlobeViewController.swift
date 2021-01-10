@@ -48,6 +48,11 @@ class GlobeViewController: UIViewController {
             globe.antialiasingMode = .multisampling4X
             globe.scene = let_scene
             globe.scene?.background.contents = UIImage(named: "sky.jpg")
+			for gestureRecognizers in globe.gestureRecognizers! {
+				if let panGestureRecognizer = gestureRecognizers as? UIPanGestureRecognizer {
+					panGestureRecognizer.maximumNumberOfTouches = 1
+				}
+			}
         } else {
             self.navigationItem.title = "Error"
         }

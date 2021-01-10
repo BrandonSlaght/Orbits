@@ -133,6 +133,8 @@
 		C5941BDF1DBBFD940057A46A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5941BDE1DBBFD940057A46A /* Assets.xcassets */; };
 		C5941BE21DBBFD940057A46A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5941BE01DBBFD940057A46A /* LaunchScreen.storyboard */; };
 		C5941BEA1DBBFEA40057A46A /* IntroPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5941BE91DBBFEA40057A46A /* IntroPageViewController.swift */; };
+		C598E90D25AB8BCB00BB3827 /* SwiftAA in Frameworks */ = {isa = PBXBuildFile; productRef = C598E90C25AB8BCB00BB3827 /* SwiftAA */; };
+		C598E90E25AB8BCB00BB3827 /* SwiftAA in Embed Frameworks */ = {isa = PBXBuildFile; productRef = C598E90C25AB8BCB00BB3827 /* SwiftAA */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C5991A3E1DD9738200A86F04 /* WaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5991A3D1DD9738200A86F04 /* WaterfallLayout.swift */; };
 		C5A8D40A1FFDD36B0015AE81 /* PlanetTooltip.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5A8D4091FFDD36B0015AE81 /* PlanetTooltip.xib */; };
 		C5A8D40C1FFDF1530015AE81 /* PlanetTooltipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A8D40B1FFDF1530015AE81 /* PlanetTooltipController.swift */; };
@@ -214,6 +216,17 @@
 				C5B3271D210D4FE70074DF34 /* tonight.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C598E90F25AB8BCB00BB3827 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C598E90E25AB8BCB00BB3827 /* SwiftAA in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C5BFF700210BFB2200C9E70A /* Copy Files */ = {
@@ -433,6 +446,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C598E90D25AB8BCB00BB3827 /* SwiftAA in Frameworks */,
 				840FEFB71EDE3D570005B69E /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -934,12 +948,16 @@
 				C5BFF700210BFB2200C9E70A /* Copy Files */,
 				840FEFB11EDE3D560005B69E /* Frameworks */,
 				840FEFB21EDE3D560005B69E /* Resources */,
+				C598E90F25AB8BCB00BB3827 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = tonight;
+			packageProductDependencies = (
+				C598E90C25AB8BCB00BB3827 /* SwiftAA */,
+			);
 			productName = tonight;
 			productReference = 840FEFB41EDE3D560005B69E /* tonight.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -1546,6 +1564,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		C53449A125AB776C001F596B /* SwiftAA */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C534498625AB685D001F596B /* XCRemoteSwiftPackageReference "SwiftAA" */;
+			productName = SwiftAA;
+		};
+		C598E90C25AB8BCB00BB3827 /* SwiftAA */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C534498625AB685D001F596B /* XCRemoteSwiftPackageReference "SwiftAA" */;
 			productName = SwiftAA;
