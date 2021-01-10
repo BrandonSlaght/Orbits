@@ -8,3 +8,11 @@
 This project originated as a final project for my senior year app development course. Occasionally sees active development. 
 
 Features planet and moon information, images, models, and rise/set times. More features are on the eventual roadmap. Code contributions are welcome. [Available on the App Store.](https://apps.apple.com/us/app/orbits-a-planet-tracker/id1220543514 "App Store link")
+
+## Libraries used:
+
+[CHTCollectionViewWaterfallLayout](https://github.com/chiahsien/CHTCollectionViewWaterfallLayout "Link to repo")  
+[SwiftAA](https://github.com/onekiloparsec/SwiftAA "Link to repo")  
+[SKPhotoBrowser](https://github.com/suzuki-0000/SKPhotoBrowser "Link to repo")  
+[MKUnits](https://github.com/michalkonturek/MKUnits "Link to repo")  
+[BTBalloon](https://github.com/brightec/BTBalloon "Link to repo")

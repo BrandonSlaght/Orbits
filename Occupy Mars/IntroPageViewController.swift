@@ -28,9 +28,9 @@ class IntroPageViewController: UIPageViewController {
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        coordinator.animate(alongsideTransition: { (UIViewControllerTransitionCoordinatorContext) -> Void in
+        coordinator.animate(alongsideTransition: { (_) -> Void in
             self.playerLayer?.frame = self.view.frame
-        }, completion: { (UIViewControllerTransitionCoordinatorContext) -> Void in
+        }, completion: { (_) -> Void in
         })
         super.viewWillTransition(to: size, with: coordinator)
     }
@@ -52,7 +52,7 @@ class IntroPageViewController: UIPageViewController {
     func setupPlayer() {
         let path = Bundle.main.path(forResource: "background", ofType: "mp4")
         player = AVPlayer(url: URL(fileURLWithPath: path!))
-        player!.actionAtItemEnd = AVPlayer.ActionAtItemEnd.none;
+        player!.actionAtItemEnd = AVPlayer.ActionAtItemEnd.none
         player!.isMuted = true
         player!.volume = 0
         player!.seek(to: CMTime.zero)

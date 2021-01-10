@@ -52,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         
         var tabBarViewController: UITabBarController
-        var optTabBarViewController: UITabBarController? = nil
+        var optTabBarViewController: UITabBarController?
         if let let_tabBarViewController = self.window!.rootViewController as? UITabBarController {
             optTabBarViewController = let_tabBarViewController
         }
@@ -66,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         print(tabBarViewController.viewControllers?.count ?? 0)
-        var splitViewController:UISplitViewController? = nil
+        var splitViewController:UISplitViewController?
         for viewController in tabBarViewController.viewControllers! {
             if viewController.title == "SplitView" {
                 splitViewController = viewController as? UISplitViewController
