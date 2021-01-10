@@ -83,7 +83,7 @@ class DetailsAboutViewController: AboutViewController, UITableViewDataSource, UI
             let superScriptPosition = inputCopy.distance(from: inputCopy.startIndex, to: let_index)
             let inputLength = inputCopy.distance(from: let_index, to: inputCopy.endIndex)
             attributeString.setAttributes([NSAttributedString.Key.font: fontSuper, NSAttributedString.Key.baselineOffset:10], range: NSRange(location: superScriptPosition, length: inputLength))
-            return attributeString;
+            return attributeString
         } else {
             return NSAttributedString(string: input)
         }
@@ -96,7 +96,7 @@ class DetailsAboutViewController: AboutViewController, UITableViewDataSource, UI
         let singleTap = UITapGestureRecognizer()
         singleTap.numberOfTapsRequired = 1
         singleTap.numberOfTouchesRequired = 1
-        singleTap.cancelsTouchesInView = false;
+        singleTap.cancelsTouchesInView = false
 
         if tableView == self.geologyTable {
             cell = tableView.dequeueReusableCell(withIdentifier: "geologyCell", for: indexPath as IndexPath) as! DataViewCellViewController

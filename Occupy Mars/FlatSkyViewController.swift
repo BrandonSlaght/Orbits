@@ -256,18 +256,18 @@ class FlatSkyViewController: UIViewController, CLLocationManagerDelegate, UIGest
     
     
     func handleTap(rec: UITapGestureRecognizer, tupleIndex: Int) {
-        print("handingTap1");
+        print("handingTap1")
         if rec.state == .ended {
-            print("handingTap1");
+            print("handingTap1")
             let tooltip = planetSceneBodyAndTooltipList[tupleIndex].2
             let planetScene = planetSceneBodyAndTooltipList[tupleIndex].0
             print(tooltip.isShowing)
             print(tooltip.isHidden)
             print(tooltip.isFocused)
             for tuple in planetSceneBodyAndTooltipList {
-                print("handingTap3");
+                print("handingTap3")
                 if tuple.2.isShowing {
-                    print("handingTap4");
+                    print("handingTap4")
                     tooltip.cancelDismissTimer()
                     tuple.2.dismiss()
                 }
@@ -276,7 +276,7 @@ class FlatSkyViewController: UIViewController, CLLocationManagerDelegate, UIGest
             print(tooltip.isHidden)
             print(tooltip.isFocused)
             if !tooltip.isShowing {
-                print("handingTap5");
+                print("handingTap5")
                 tooltip.cancelDismissTimer()
                 tooltip.present(from: planetScene, animated: true)//(from: CGPoint(x: self.compass.convert(planetScene.frame, to: self.view).midX, y: self.compass.convert(planetScene.frame, to: self.view).midY - 25), in: self.view, animated: false)
             }

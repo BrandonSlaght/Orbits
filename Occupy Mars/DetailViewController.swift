@@ -60,7 +60,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
              new.view.alpha = 1
              old.view.alpha = 0
         },
-        completion: { finished in
+        completion: { _ in
              old.view.removeFromSuperview()
              old.removeFromParent()
              new.didMove(toParent: self)
@@ -138,7 +138,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         let singleTap = UITapGestureRecognizer()
         singleTap.numberOfTapsRequired = 1
         singleTap.numberOfTouchesRequired = 1
-        singleTap.cancelsTouchesInView = false;
+        singleTap.cancelsTouchesInView = false
         singleTap.addTarget(self, action: #selector(DetailViewController.hide(_:)))
         self.view.addGestureRecognizer(singleTap)
     }
