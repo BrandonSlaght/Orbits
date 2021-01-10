@@ -55,6 +55,8 @@
 		C52458381DC578F1009F3374 /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52458371DC578F1009F3374 /* Planet.swift */; };
 		C524583A1DC5988D009F3374 /* Moon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52458391DC5988D009F3374 /* Moon.swift */; };
 		C524583C1DC59E0B009F3374 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = C524583B1DC59E0B009F3374 /* Types.swift */; };
+		C53449A225AB776C001F596B /* SwiftAA in Frameworks */ = {isa = PBXBuildFile; productRef = C53449A125AB776C001F596B /* SwiftAA */; };
+		C53449A325AB776C001F596B /* SwiftAA in Embed Frameworks */ = {isa = PBXBuildFile; productRef = C53449A125AB776C001F596B /* SwiftAA */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C549582B1EBFF56D00153998 /* amalthea - thumbnail.dae in Resources */ = {isa = PBXBuildFile; fileRef = C549582A1EBFF56D00153998 /* amalthea - thumbnail.dae */; };
 		C549582D1EBFF57700153998 /* amaltheamap - thumbnail.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C549582C1EBFF57700153998 /* amaltheamap - thumbnail.jpg */; };
 		C549582F1EBFF57B00153998 /* amalthea.dae in Resources */ = {isa = PBXBuildFile; fileRef = C549582E1EBFF57B00153998 /* amalthea.dae */; };
@@ -63,8 +65,8 @@
 		C54958351EBFF68400153998 /* deimosmap - thumbnail.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C54958341EBFF68400153998 /* deimosmap - thumbnail.jpg */; };
 		C54958371EBFF68900153998 /* deimosnormalmap - thumbnail.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C54958361EBFF68900153998 /* deimosnormalmap - thumbnail.jpg */; };
 		C54958391EBFF69200153998 /* deimosmap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C54958381EBFF69200153998 /* deimosmap.jpg */; };
-		C549583B1EBFF6B400153998 /* epimetheus - thumbnail.dae in Resources */ = {isa = PBXBuildFile; fileRef = C549583A1EBFF6B400153998 /* epimetheus - thumbnail.dae */; };
-		C549583D1EBFF6B900153998 /* epimetheus.dae in Resources */ = {isa = PBXBuildFile; fileRef = C549583C1EBFF6B900153998 /* epimetheus.dae */; };
+		C549583B1EBFF6B400153998 /* epimetheus - thumbnail.dae in Resources */ = {isa = PBXBuildFile; fileRef = C549583A1EBFF6B400153998 /* epimetheus - thumbnail.dae */; settings = {ATTRIBUTES = ("--compress", ); }; };
+		C549583D1EBFF6B900153998 /* epimetheus.dae in Resources */ = {isa = PBXBuildFile; fileRef = C549583C1EBFF6B900153998 /* epimetheus.dae */; settings = {ATTRIBUTES = ("--compress", ); }; };
 		C54958401EBFF6DF00153998 /* epimetheusmap - thumbnail.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C549583E1EBFF6DF00153998 /* epimetheusmap - thumbnail.jpg */; };
 		C54958411EBFF6DF00153998 /* epimetheusmap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C549583F1EBFF6DF00153998 /* epimetheusmap.jpg */; };
 		C54958471EBFF71000153998 /* hyperion - thumbnail.dae in Resources */ = {isa = PBXBuildFile; fileRef = C54958421EBFF71000153998 /* hyperion - thumbnail.dae */; };
@@ -141,7 +143,7 @@
 		C5AEC3F31DCE77C500992AEB /* MoonAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AEC3F21DCE77C500992AEB /* MoonAboutViewController.swift */; };
 		C5AEC3F51DCE77D500992AEB /* DetailsAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AEC3F41DCE77D500992AEB /* DetailsAboutViewController.swift */; };
 		C5AEC3F91DCE77FA00992AEB /* MediaAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AEC3F81DCE77FA00992AEB /* MediaAboutViewController.swift */; };
-		C5B3271D210D4FE70074DF34 /* tonight.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 840FEFB41EDE3D560005B69E /* tonight.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C5B3271D210D4FE70074DF34 /* tonight.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 840FEFB41EDE3D560005B69E /* tonight.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C5BFF6F4210BDC5D00C9E70A /* Objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C24C801DC68DA10028FAF5 /* Objects.swift */; };
 		C5BFF6F5210BDC6500C9E70A /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52458371DC578F1009F3374 /* Planet.swift */; };
 		C5BFF6F6210BDC6900C9E70A /* Moon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52458391DC5988D009F3374 /* Moon.swift */; };
@@ -169,13 +171,10 @@
 		C5C24C811DC68DA10028FAF5 /* Objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C24C801DC68DA10028FAF5 /* Objects.swift */; };
 		C5C281BB1DDB91420036C7A0 /* MediaHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C281BA1DDB91420036C7A0 /* MediaHolder.swift */; };
 		C5C281C01DDB94B60036C7A0 /* MediaViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5C281BF1DDB94B60036C7A0 /* MediaViewCell.xib */; };
-		C5CB310D234C378E009605E9 /* SwiftAA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5CB310C234C378E009605E9 /* SwiftAA.framework */; };
-		C5CB310E234C378E009605E9 /* SwiftAA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5CB310C234C378E009605E9 /* SwiftAA.framework */; };
 		C5CB3113234C38E8009605E9 /* Integrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CB3112234C38E8009605E9 /* Integrations.swift */; };
 		C5CB3114234C38E8009605E9 /* Integrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CB3112234C38E8009605E9 /* Integrations.swift */; };
 		C5CB3116234C3906009605E9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CB3115234C3906009605E9 /* Colors.swift */; };
 		C5CB3117234C3906009605E9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CB3115234C3906009605E9 /* Colors.swift */; };
-		C5CB3118234C3A2A009605E9 /* SwiftAA.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C5CB310C234C378E009605E9 /* SwiftAA.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C5CD59C01DD91E4F00ACB8EA /* GlobeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CD59BF1DD91E4F00ACB8EA /* GlobeViewController.swift */; };
 		C5CD59C31DD91F8600ACB8EA /* background.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C5CD59C21DD91F8600ACB8EA /* background.mp4 */; };
 		C5D349161FF334DA0074769E /* FlatSkyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D349151FF334DA0074769E /* FlatSkyViewController.swift */; };
@@ -201,7 +200,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C5CB3118234C3A2A009605E9 /* SwiftAA.framework in Embed Frameworks */,
+				C53449A325AB776C001F596B /* SwiftAA in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,7 +416,6 @@
 		C5C24C801DC68DA10028FAF5 /* Objects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Objects.swift; sourceTree = "<group>"; };
 		C5C281BA1DDB91420036C7A0 /* MediaHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaHolder.swift; sourceTree = "<group>"; };
 		C5C281BF1DDB94B60036C7A0 /* MediaViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaViewCell.xib; sourceTree = "<group>"; };
-		C5CB310C234C378E009605E9 /* SwiftAA.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftAA.framework; sourceTree = "<group>"; };
 		C5CB3112234C38E8009605E9 /* Integrations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Integrations.swift; sourceTree = "<group>"; };
 		C5CB3115234C3906009605E9 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C5CB3119234C3A83009605E9 /* Occupy Mars.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Occupy Mars.entitlements"; sourceTree = "<group>"; };
@@ -435,7 +433,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5CB310E234C378E009605E9 /* SwiftAA.framework in Frameworks */,
 				840FEFB71EDE3D570005B69E /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,7 +441,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5CB310D234C378E009605E9 /* SwiftAA.framework in Frameworks */,
+				C53449A225AB776C001F596B /* SwiftAA in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,7 +451,6 @@
 		840FEFB51EDE3D570005B69E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C5CB310C234C378E009605E9 /* SwiftAA.framework */,
 				840FEFB61EDE3D570005B69E /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
@@ -964,6 +960,9 @@
 				C583D13F2053332A006D61DC /* PBXTargetDependency */,
 			);
 			name = "Occupy Mars";
+			packageProductDependencies = (
+				C53449A125AB776C001F596B /* SwiftAA */,
+			);
 			productName = "Occupy Mars";
 			productReference = C5941BD01DBBFD940057A46A /* Occupy Mars.app */;
 			productType = "com.apple.product-type.application";
@@ -975,12 +974,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = "Slaght, Brandon";
 				TargetAttributes = {
 					840FEFB31EDE3D560005B69E = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 98PHYR992B;
 						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
@@ -1001,6 +999,9 @@
 				Base,
 			);
 			mainGroup = C5941BC71DBBFD940057A46A;
+			packageReferences = (
+				C534498625AB685D001F596B /* XCRemoteSwiftPackageReference "SwiftAA" */,
+			);
 			productRefGroup = C5941BD11DBBFD940057A46A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1218,7 +1219,6 @@
 /* Begin PBXTargetDependency section */
 		C583D13F2053332A006D61DC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			platformFilter = ios;
 			target = 840FEFB31EDE3D560005B69E /* tonight */;
 			targetProxy = C583D13E2053332A006D61DC /* PBXContainerItemProxy */;
 		};
@@ -1335,6 +1335,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1365,6 +1366,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos watchos watchsimulator appletvos appletvsimulator macosx";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1394,6 +1396,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1417,6 +1420,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos watchos watchsimulator appletvos appletvsimulator macosx";
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1450,12 +1454,14 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = orbitals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos watchsimulator watchos appletvos appletvsimulator macosx";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_INCLUDE_PATHS = "${SRCROOT}/sextant/**";
 				SWIFT_OBJC_BRIDGING_HEADER = "Occupy Mars/Occupy Mars-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = NO;
 			};
 			name = Debug;
 		};
@@ -1485,11 +1491,13 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = orbitals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos watchsimulator watchos appletvos appletvsimulator macosx";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_INCLUDE_PATHS = "${SRCROOT}/sextant/**";
 				SWIFT_OBJC_BRIDGING_HEADER = "Occupy Mars/Occupy Mars-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = NO;
 			};
 			name = Release;
 		};
@@ -1524,6 +1532,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C534498625AB685D001F596B /* XCRemoteSwiftPackageReference "SwiftAA" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onekiloparsec/SwiftAA.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C53449A125AB776C001F596B /* SwiftAA */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C534498625AB685D001F596B /* XCRemoteSwiftPackageReference "SwiftAA" */;
+			productName = SwiftAA;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C5941BC81DBBFD940057A46A /* Project object */;
 }
